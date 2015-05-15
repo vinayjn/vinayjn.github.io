@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Animate AutoLayout Constraints!</title>
-  <meta name="description" content="-(void)toggleSearchBarVisibility{    searchBar.hidden = !searchBar.hidden;    if (searchBar.hidden) {        tableViewTopSpace.constant = 0;        self.sear...">
-
+  <meta name="description" content="Animate Here">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://blog.koder.me/ios/2015/05/16/animate-autolayout-constraints.html">
-  <link rel="alternate" type="application/rss+xml" title="Vinay Jain" href="http://blog.koder.me/feed.xml" />
+  <link rel="canonical" href="/ios/2015/05/16/animate-autolayout-constraints.html">
+  <link rel="alternate" type="application/rss+xml" title="Koder.Me" href="/feed.xml" />
 </head>
 
 
@@ -21,7 +21,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/">Vinay Jain</a>
+    <a class="site-title" href="/">Koder.Me</a>
 
     <nav class="site-nav">
       <a href="#" class="menu-icon">
@@ -55,14 +55,14 @@
     <div class="page-content">
       <div class="wrapper">
         <div class="post">
-
   <header class="post-header">
     <h1 class="post-title">Animate AutoLayout Constraints!</h1>
     <p class="post-meta">May 16, 2015</p>
   </header>
 
   <article class="post-content">
-    
+    <p>Animate Here</p>
+
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">toggleSearchBarVisibility</span><span class="p">{</span>
 
     <span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="o">!</span><span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span><span class="p">;</span>
@@ -73,17 +73,33 @@
                          <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
                              <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="n">layoutIfNeeded</span><span class="p">];</span>
                          <span class="p">}</span> <span class="nl">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-	   <span class="p">}</span>
+       <span class="p">}</span>
     <span class="k">else</span> <span class="p">{</span>
         <span class="n">tableViewTopSpace</span><span class="p">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">44</span><span class="p">;</span>
         <span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">0.3</span>
                          <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
                              <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="n">layoutIfNeeded</span><span class="p">];</span>
                          <span class="p">}</span> <span class="nl">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-	   <span class="p">}</span>
+       <span class="p">}</span>
     <span class="p">}</span></code></pre></div>
 
+   
   </article>
+ 
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    // Required: on line below, replace text in quotes with your forum shortname
+    var disqus_shortname = 'koderme';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 
 </div>
 
@@ -94,7 +110,7 @@
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Vinay Jain</h2>
+    <h2 class="footer-heading">Koder.Me</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col  footer-col-1">

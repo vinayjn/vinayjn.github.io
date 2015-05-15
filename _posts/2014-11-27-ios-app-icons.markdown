@@ -2,18 +2,23 @@
 layout: post
 title:  "iOS App Icon Size"
 date:   2014-11-27 23:24:55
+comments : true
 categories: ios
 ---
 
 If you are compiling your app with `iOS 8 sdk` or later then use the first icon table and if compiling with `iOS 7 sdk` then use the second table.
 
 <style>
+table{
+    margin: auto;
+    width:90%;
+  }
 	table,td,th,tr{
     	font-size: 90% !important;
-    	text-align:center !important;
+    	text-align:left; !important;
     }
 </style>
-######Icon sizes for `iOS 8`######
+####Icon sizes for `iOS 8`####
 <table class="ios-icons">
       <thead>
         <tr>
@@ -177,7 +182,7 @@ If you are compiling your app with `iOS 8 sdk` or later then use the first icon 
       </tbody>
     </table>
     
-######Icon sizes for `iOS 7`######
+####Icon sizes for `iOS 7`####
 
 <table class="ios-icons">
       <thead>

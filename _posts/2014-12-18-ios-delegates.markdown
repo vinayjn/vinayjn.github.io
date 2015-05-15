@@ -2,6 +2,7 @@
 layout: post
 title:  "Delegates in iOS"
 date:   2014-12-18 23:24:55
+comments : true
 categories: ios
 ---
 

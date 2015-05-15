@@ -2,6 +2,7 @@
 layout: post
 title:  "Bringing out a Change is Difficult"
 date:   2015-01-11 23:24:55
+comments : true
 categories: post
 ---
 

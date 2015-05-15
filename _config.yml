@@ -1,13 +1,12 @@
 # Site settings
-title: Vinay Jain
+title: Koder.Me
 email: vinay.jn7@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Programmer | Technophile | Amateur iOS App Developer
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://blog.koder.me" # the base hostname & protocol for your site
+url: "" # the base hostname & protocol for your site
 twitter_username: v1n4yjn
 github_username:  vinayjn
 facebook_username: vinayjn
 # Build settings
 markdown: kramdown
-excerpt_separator: vinay
