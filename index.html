@@ -1,20 +1,23 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<link rel="stylesheet" href="assets/style.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" media="screen and (max-width:800px)" href="assets/mobile.css">
-	<title>Terminal | Koder.Me</title>
-</head>
-<body onkeydown="myKeyPress(event)">
+---
+layout: default
+---
 
-	<div id="main" class=terminal>
-		<p id="terminal-text" class="terminal-text">
-			<span class="welcome">Hi, Welcome to Koder.Me <br/>
-				To know more about me please type "help" and hit Return(Enter)<br/> </span>
-				vinayjain: ~ $ <span id="command" class="command"></span><span id="blink_text" class="blink">&#124;</span>
-			</p>
-		</div>
-<script src="assets/main.js"></script>
-	</body>
-	</html>
+<div class="home">
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
