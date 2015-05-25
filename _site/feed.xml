@@ -6,8 +6,8 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 May 2015 00:19:28 +0530</pubDate>
-    <lastBuildDate>Tue, 26 May 2015 00:19:28 +0530</lastBuildDate>
+    <pubDate>Tue, 26 May 2015 01:59:44 +0530</pubDate>
+    <lastBuildDate>Tue, 26 May 2015 01:59:44 +0530</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -58,7 +58,11 @@
     
       <item>
         <title>Animate AutoLayout Constraints!</title>
-        <description>&lt;p&gt;Animate Here&lt;/p&gt;
+        <description>&lt;p&gt;AutoLayout is one the most significant features of modern iOS development. It simplifed the app design and saved developers from managing the view frames for different orientations and different devices with different screen resolutions as well. If you are familiar with frontend Web development you will find it similar to a &lt;code&gt;Responsive Web Design&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;AutoLayout brings a lot of challenges with it, at first you may find it tough to get through. Managing the constraints without getting warnings is challenging!. &lt;a href=&quot;https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/Introduction/Introduction.html&quot; target=&quot;_blank&quot;&gt;Apple’s documentation on AutoLayout&lt;/a&gt; is great and it will surely help you understand AutoLayout properly as it did for me.&lt;/p&gt;
+
+&lt;p&gt;AutoLayout can be managed programmatically, constraints can be updated at runtime. Sometimes we need to animate these updates/changes to view frames. You cannot directly animate change in AutoLayout constraints as you do with &lt;code&gt;UIView&lt;/code&gt; frame changes. However the change in code to animate constraint changes isn’t different for AutoLayout, you just need to call &lt;code&gt;[self.view layoutIfNeeded]&lt;/code&gt; in the &lt;code&gt;animateWithDuration:&lt;/code&gt; method before and after the a constraint is updated. Here is sample code I used to show/hide a &lt;code&gt;UISearchBar&lt;/code&gt; with a button click.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;p&quot;&gt;-(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;toggleSearchBarVisibility&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 

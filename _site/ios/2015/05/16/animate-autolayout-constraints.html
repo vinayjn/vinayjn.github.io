@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Animate AutoLayout Constraints!</title>
-  <meta name="description" content="Animate Here">
+  <meta name="description" content="AutoLayout is one the most significant features of modern iOS development. It simplifed the app design and saved developers from managing the view frames for...">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="canonical" href="/ios/2015/05/16/animate-autolayout-constraints.html">
@@ -61,7 +61,11 @@
   </header>
 
   <article class="post-content">
-    <p>Animate Here</p>
+    <p>AutoLayout is one the most significant features of modern iOS development. It simplifed the app design and saved developers from managing the view frames for different orientations and different devices with different screen resolutions as well. If you are familiar with frontend Web development you will find it similar to a <code>Responsive Web Design</code>.</p>
+
+<p>AutoLayout brings a lot of challenges with it, at first you may find it tough to get through. Managing the constraints without getting warnings is challenging!. <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/Introduction/Introduction.html" target="_blank">Apple’s documentation on AutoLayout</a> is great and it will surely help you understand AutoLayout properly as it did for me.</p>
+
+<p>AutoLayout can be managed programmatically, constraints can be updated at runtime. Sometimes we need to animate these updates/changes to view frames. You cannot directly animate change in AutoLayout constraints as you do with <code>UIView</code> frame changes. However the change in code to animate constraint changes isn’t different for AutoLayout, you just need to call <code>[self.view layoutIfNeeded]</code> in the <code>animateWithDuration:</code> method before and after the a constraint is updated. Here is sample code I used to show/hide a <code>UISearchBar</code> with a button click.</p>
 
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">toggleSearchBarVisibility</span><span class="p">{</span>
 
