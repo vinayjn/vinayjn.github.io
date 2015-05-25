@@ -21,5 +21,3 @@ You can also find me at :
 <i class="fa fa-github"></i> [vinayjn](https://github.com/vinayjn){:target="_blank"}
 
 <i class="fa fa-stack-overflow"></i> [Stack Overflow](http://stackoverflow.com/users/2286267/vinay-jain){:target="_blank"}
-
-
