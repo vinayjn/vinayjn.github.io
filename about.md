@@ -12,7 +12,7 @@ You can reach me at <i class="fa fa-envelope-o"></i> [me@koder.me](mailto:me@kod
 
 You can also find me at :
 
-[www.koder.me](www.koder.me) is my personal website
+[www.koder.me](http://www.koder.me){:target="_blank"} is my personal website
 
 <i class="fa fa-linkedin"></i> [Vinay Jain](https://in.linkedin.com/in/vinayjain7){:target="_blank"}
 
