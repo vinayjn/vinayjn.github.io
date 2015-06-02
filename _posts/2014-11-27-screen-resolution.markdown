@@ -7,16 +7,7 @@ categories: ios
 ---
 
 Any time a new handheld device is released by Apple, developers face issues of managing their views as per the device screen. This post will help you know the `Screen Resolution` of various `Apple Handheld Devices`. 
-<style>
-  table{
-    margin: auto;
-    width:90%;
-  }
-	table,td,th{
-      text-align:left;
-    }
-</style>
-<table class="tg">
+<table class="table table-striped table-bordered">
 	<thead>
 		<tr>
 			<th>Device</th>

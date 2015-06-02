@@ -7,19 +7,8 @@ categories: ios
 ---
 
 If you are compiling your app with `iOS 8 sdk` or later then use the first icon table and if compiling with `iOS 7 sdk` then use the second table.
-
-<style>
-table{
-    margin: auto;
-    width:90%;
-  }
-	table,td,th,tr{
-    	font-size: 90% !important;
-    	text-align:left; !important;
-    }
-</style>
 ####Icon sizes for `iOS 8`####
-<table class="ios-icons">
+<table class="table table-striped table-bordered">
       <thead>
         <tr>
           <th>
@@ -184,7 +173,7 @@ table{
     
 ####Icon sizes for `iOS 7`####
 
-<table class="ios-icons">
+<table class="table table-striped table-bordered">
       <thead>
         <tr>
           <th>
