@@ -6,9 +6,163 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 26 May 2015 01:59:44 +0530</pubDate>
-    <lastBuildDate>Tue, 26 May 2015 01:59:44 +0530</lastBuildDate>
+    <pubDate>Tue, 02 Jun 2015 18:49:43 +0530</pubDate>
+    <lastBuildDate>Tue, 02 Jun 2015 18:49:43 +0530</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Using NSAttributedString</title>
+        <description>&lt;p&gt;As per the &lt;a href=&quot;https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/index.html&quot;&gt;Apple Documentation&lt;/a&gt;, an &lt;code&gt;NSAttributedString&lt;/code&gt; object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.&lt;/p&gt;
+
+&lt;p&gt;In short, &lt;em&gt;an &lt;code&gt;NSAttributedString&lt;/code&gt; allows you to apply styles on the text. As of the latest iOS sdk (8.0), you can apply the following attributes to an &lt;code&gt;NSString&lt;/code&gt; object&lt;/em&gt;.&lt;/p&gt;
+
+&lt;table class=&quot;table table-striped table-bordered&quot;&gt;
+&lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th class=&quot;text-center&quot;&gt;Attribute&lt;/th&gt;
+            &lt;th class=&quot;text-center&quot;&gt;Availability&lt;/th&gt;
+            &lt;th class=&quot;text-center&quot;&gt;Description&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+&lt;tr&gt;
+&lt;tbody&gt;
+&lt;td&gt;NSFontAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 6+&lt;/td&gt;
+&lt;td&gt;UIFont, default Helvetica(Neue) 12&lt;/td&gt;
+
+
+&lt;tr&gt;
+&lt;td&gt;NSParagraphStyleAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 6+&lt;/td&gt;
+&lt;td&gt;NSParagraphStyle, default defaultParagraphStyle&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSForegroundColorAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 6+&lt;/td&gt;
+&lt;td&gt;UIColor, default blackColor&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSBackgroundColorAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 6+&lt;/td&gt;
+&lt;td&gt;UIColor, default nil: no background&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSLigatureAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 6+&lt;/td&gt;
+&lt;td&gt;NSNumber containing integer, default 1: default ligatures, 0: no ligatures&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSKernAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 6+&lt;/td&gt;
+&lt;td&gt;NSNumber containing floating point value, in points; amount to modify default kerning. 0 means kerning is disabled.&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSStrikethroughStyleAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 6+&lt;/td&gt;
+&lt;td&gt;NSNumber containing integer, default 0: no strikethrough&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSUnderlineStyleAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 6+&lt;/td&gt;
+&lt;td&gt;NSNumber containing integer, default 0: no underline&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSStrokeColorAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 6+&lt;/td&gt;
+&lt;td&gt;UIColor, default nil: same as foreground color&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSStrokeWidthAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 6+&lt;/td&gt;
+&lt;td&gt;NSNumber containing floating point value, in percent of font point size, default 0: no stroke; positive for stroke alone, negative for stroke and fill (a typical value for outlined text would be 3.0)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSShadowAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 6+&lt;/td&gt;
+&lt;td&gt;NSShadow, default nil: no shadow&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSTextEffectAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 7+&lt;/td&gt;
+&lt;td&gt;NSString, default nil: no text effect&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSAttachmentAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 7+&lt;/td&gt;
+&lt;td&gt;NSTextAttachment, default nil&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSLinkAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 7+&lt;/td&gt;
+&lt;td&gt;NSURL (preferred) or NSString&lt;/td&gt;
+&lt;/tr&gt;
+
+
+&lt;tr&gt;
+&lt;td&gt;NSBaselineOffsetAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 7+&lt;/td&gt;
+&lt;td&gt;NSNumber containing floating point value, in points; offset from baseline, default 0&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSUnderlineColorAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 7+&lt;/td&gt;
+&lt;td&gt;UIColor, default nil: same as foreground color&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSStrikethroughColorAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 7+&lt;/td&gt;
+&lt;td&gt;UIColor, default nil: same as foreground color&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSObliquenessAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 7+&lt;/td&gt;
+&lt;td&gt;NSNumber containing floating point value; skew to be applied to glyphs, default 0: no skew&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSExpansionAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 7+&lt;/td&gt;
+&lt;td&gt;NSNumber containing floating point value; log of expansion factor to be applied to glyphs, default 0: no expansion&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSWritingDirectionAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 7+&lt;/td&gt;
+&lt;td&gt;NSArray of NSNumbers representing the nested levels of writing direction overrides as defined by Unicode LRE, RLE, LRO, and RLO characters. The control characters can be obtained by masking NSWritingDirection and NSTextWritingDirection values.  LRE: NSWritingDirectionLeftToRight|NSTextWritingDirectionEmbedding, RLE: NSWritingDirectionRightToLeft|NSTextWritingDirectionEmbedding, LRO: NSWritingDirectionLeftToRight|NSTextWritingDirectionOverride, RLO: NSWritingDirectionRightToLeft|NSTextWritingDirectionOverride,&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;NSVerticalGlyphFormAttributeName&lt;/td&gt;
+&lt;td&gt;iOS 6+&lt;/td&gt;
+&lt;td&gt;An NSNumber containing an integer value.  0 means horizontal text.  1 indicates vertical text.  If not specified, it could follow higher-level vertical orientation settings.  Currently on iOS, it&#39;s always horizontal.  The behavior for any other value is undefined.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+
+&lt;/tr&gt;&lt;/table&gt;
+</description>
+        <pubDate>Wed, 03 Jun 2015 04:54:55 +0530</pubDate>
+        <link>/ios/2015/06/03/how-to-use-NSAttributedString.html</link>
+        <guid isPermaLink="true">/ios/2015/06/03/how-to-use-NSAttributedString.html</guid>
+        
+        
+        <category>ios</category>
+        
+      </item>
     
       <item>
         <title>Move UITextField Up/Down with Keyboard</title>
@@ -47,9 +201,9 @@
     &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commitAnimations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
-        <pubDate>Sat, 16 May 2015 04:54:55 +0530</pubDate>
-        <link>/ios/2015/05/16/move-uitextfield-up-down-with-keyboard.html</link>
-        <guid isPermaLink="true">/ios/2015/05/16/move-uitextfield-up-down-with-keyboard.html</guid>
+        <pubDate>Tue, 26 May 2015 04:54:55 +0530</pubDate>
+        <link>/ios/2015/05/26/move-uitextfield-up-down-with-keyboard.html</link>
+        <guid isPermaLink="true">/ios/2015/05/26/move-uitextfield-up-down-with-keyboard.html</guid>
         
         
         <category>ios</category>
@@ -219,17 +373,7 @@ It’s up to you to decide which optional methods you implement. If you implemen
       <item>
         <title>Screen Resolution of iDevices</title>
         <description>&lt;p&gt;Any time a new handheld device is released by Apple, developers face issues of managing their views as per the device screen. This post will help you know the &lt;code&gt;Screen Resolution&lt;/code&gt; of various &lt;code&gt;Apple Handheld Devices&lt;/code&gt;.&lt;/p&gt;
-&lt;style&gt;
-  table{
-    margin: auto;
-    width:90%;
-  }
-	table,td,th{
-      text-align:left;
-    }
-&lt;/style&gt;
-
-&lt;table class=&quot;tg&quot;&gt;
+&lt;table class=&quot;table table-striped table-bordered&quot;&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
 			&lt;th&gt;Device&lt;/th&gt;
@@ -363,21 +507,9 @@ It’s up to you to decide which optional methods you implement. If you implemen
     
       <item>
         <title>iOS App Icon Size</title>
-        <description>&lt;p&gt;If you are compiling your app with &lt;code&gt;iOS 8 sdk&lt;/code&gt; or later then use the first icon table and if compiling with &lt;code&gt;iOS 7 sdk&lt;/code&gt; then use the second table.&lt;/p&gt;
-
-&lt;style&gt;
-table{
-    margin: auto;
-    width:90%;
-  }
-	table,td,th,tr{
-    	font-size: 90% !important;
-    	text-align:left; !important;
-    }
-&lt;/style&gt;
-
-&lt;h4 id=&quot;icon-sizes-for-ios-8&quot;&gt;Icon sizes for &lt;code&gt;iOS 8&lt;/code&gt;&lt;/h4&gt;
-&lt;table class=&quot;ios-icons&quot;&gt;
+        <description>&lt;p&gt;If you are compiling your app with &lt;code&gt;iOS 8 sdk&lt;/code&gt; or later then use the first icon table and if compiling with &lt;code&gt;iOS 7 sdk&lt;/code&gt; then use the second table.
+####Icon sizes for &lt;code&gt;iOS 8&lt;/code&gt;####&lt;/p&gt;
+&lt;table class=&quot;table table-striped table-bordered&quot;&gt;
       &lt;thead&gt;
         &lt;tr&gt;
           &lt;th&gt;
@@ -542,7 +674,7 @@ table{
 
 &lt;h4 id=&quot;icon-sizes-for-ios-7&quot;&gt;Icon sizes for &lt;code&gt;iOS 7&lt;/code&gt;&lt;/h4&gt;
 
-&lt;table class=&quot;ios-icons&quot;&gt;
+&lt;table class=&quot;table table-striped table-bordered&quot;&gt;
       &lt;thead&gt;
         &lt;tr&gt;
           &lt;th&gt;
