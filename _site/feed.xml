@@ -6,154 +6,61 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 02 Jun 2015 18:49:43 +0530</pubDate>
-    <lastBuildDate>Tue, 02 Jun 2015 18:49:43 +0530</lastBuildDate>
+    <pubDate>Thu, 04 Jun 2015 00:58:42 +0530</pubDate>
+    <lastBuildDate>Thu, 04 Jun 2015 00:58:42 +0530</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>Using NSAttributedString</title>
         <description>&lt;p&gt;As per the &lt;a href=&quot;https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/index.html&quot;&gt;Apple Documentation&lt;/a&gt;, an &lt;code&gt;NSAttributedString&lt;/code&gt; object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.&lt;/p&gt;
 
-&lt;p&gt;In short, &lt;em&gt;an &lt;code&gt;NSAttributedString&lt;/code&gt; allows you to apply styles on the text. As of the latest iOS sdk (8.0), you can apply the following attributes to an &lt;code&gt;NSString&lt;/code&gt; object&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;In short, &lt;em&gt;an &lt;code&gt;NSAttributedString&lt;/code&gt; allows you to apply styles on the text&lt;/em&gt;. As of the latest iOS sdk (8.0), you can apply the following attributes to an &lt;code&gt;NSString&lt;/code&gt; object.&lt;/p&gt;
 
-&lt;table class=&quot;table table-striped table-bordered&quot;&gt;
-&lt;thead&gt;
-        &lt;tr&gt;
-            &lt;th class=&quot;text-center&quot;&gt;Attribute&lt;/th&gt;
-            &lt;th class=&quot;text-center&quot;&gt;Availability&lt;/th&gt;
-            &lt;th class=&quot;text-center&quot;&gt;Description&lt;/th&gt;
-        &lt;/tr&gt;
-    &lt;/thead&gt;
-&lt;tr&gt;
-&lt;tbody&gt;
-&lt;td&gt;NSFontAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 6+&lt;/td&gt;
-&lt;td&gt;UIFont, default Helvetica(Neue) 12&lt;/td&gt;
+&lt;ul&gt;
+  &lt;li&gt;NSFontAttributeName&lt;/li&gt;
+  &lt;li&gt;NSParagraphStyleAttributeName&lt;/li&gt;
+  &lt;li&gt;NSForegroundColorAttributeName&lt;/li&gt;
+  &lt;li&gt;NSBackgroundColorAttributeName&lt;/li&gt;
+  &lt;li&gt;NSLigatureAttributeName&lt;/li&gt;
+  &lt;li&gt;NSKernAttributeName&lt;/li&gt;
+  &lt;li&gt;NSStrikethroughStyleAttributeName&lt;/li&gt;
+  &lt;li&gt;NSUnderlineStyleAttributeName&lt;/li&gt;
+  &lt;li&gt;NSStrokeColorAttributeName&lt;/li&gt;
+  &lt;li&gt;NSStrokeWidthAttributeName&lt;/li&gt;
+  &lt;li&gt;NSShadowAttributeName&lt;/li&gt;
+  &lt;li&gt;NSTextEffectAttributeName&lt;/li&gt;
+  &lt;li&gt;NSAttachmentAttributeName&lt;/li&gt;
+  &lt;li&gt;NSLinkAttributeName&lt;/li&gt;
+  &lt;li&gt;NSBaselineOffsetAttributeName&lt;/li&gt;
+  &lt;li&gt;NSUnderlineColorAttributeName&lt;/li&gt;
+  &lt;li&gt;NSStrikethroughColorAttributeName&lt;/li&gt;
+  &lt;li&gt;NSObliquenessAttributeName&lt;/li&gt;
+  &lt;li&gt;NSExpansionAttributeName&lt;/li&gt;
+  &lt;li&gt;NSWritingDirectionAttributeName&lt;/li&gt;
+  &lt;li&gt;NSVerticalGlyphFormAttributeName&lt;/li&gt;
+&lt;/ul&gt;
 
+&lt;p&gt;Lets look at a some of the examples below :&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;NSParagraphStyleAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 6+&lt;/td&gt;
-&lt;td&gt;NSParagraphStyle, default defaultParagraphStyle&lt;/td&gt;
-&lt;/tr&gt;
+&lt;h4 id=&quot;unsfontattributenameu&quot;&gt;&lt;u&gt;NSFontAttributeName&lt;/u&gt;&lt;/h4&gt;
 
-&lt;tr&gt;
-&lt;td&gt;NSForegroundColorAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 6+&lt;/td&gt;
-&lt;td&gt;UIColor, default blackColor&lt;/td&gt;
-&lt;/tr&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;bp&quot;&gt;NSDictionary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;l&quot;&gt;@{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;NSFontAttributeName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;UIFont&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;fontWithName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;HelveticaNeue-Italic&amp;quot;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;30.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;l&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 
-&lt;tr&gt;
-&lt;td&gt;NSBackgroundColorAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 6+&lt;/td&gt;
-&lt;td&gt;UIColor, default nil: no background&lt;/td&gt;
-&lt;/tr&gt;
+&lt;span class=&quot;bp&quot;&gt;NSAttributedString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributedString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;NSAttributedString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;initWithString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;Italic Text&amp;quot;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 
-&lt;tr&gt;
-&lt;td&gt;NSLigatureAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 6+&lt;/td&gt;
-&lt;td&gt;NSNumber containing integer, default 1: default ligatures, 0: no ligatures&lt;/td&gt;
-&lt;/tr&gt;
+&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributedLabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributedText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attributedString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;tr&gt;
-&lt;td&gt;NSKernAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 6+&lt;/td&gt;
-&lt;td&gt;NSNumber containing floating point value, in points; amount to modify default kerning. 0 means kerning is disabled.&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;&lt;code&gt;Output :&lt;/code&gt; &lt;em&gt;Italic Text&lt;/em&gt;&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;NSStrikethroughStyleAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 6+&lt;/td&gt;
-&lt;td&gt;NSNumber containing integer, default 0: no strikethrough&lt;/td&gt;
-&lt;/tr&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;bp&quot;&gt;NSDictionary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;l&quot;&gt;@{&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;NSFontAttributeName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;UIFont&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;fontWithName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;HelveticaNeue-Bold&amp;quot;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;30.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;l&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    
+&lt;span class=&quot;bp&quot;&gt;NSAttributedString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributedString&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;NSAttributedString&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alloc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;initWithString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;@&amp;quot;Bold Text&amp;quot;&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    
+&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributedLabel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;attributedText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;attributedString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;tr&gt;
-&lt;td&gt;NSUnderlineStyleAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 6+&lt;/td&gt;
-&lt;td&gt;NSNumber containing integer, default 0: no underline&lt;/td&gt;
-&lt;/tr&gt;
+&lt;p&gt;&lt;code&gt;Output :&lt;/code&gt; &lt;strong&gt;Bold Text&lt;/strong&gt;&lt;/p&gt;
 
-&lt;tr&gt;
-&lt;td&gt;NSStrokeColorAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 6+&lt;/td&gt;
-&lt;td&gt;UIColor, default nil: same as foreground color&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;NSStrokeWidthAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 6+&lt;/td&gt;
-&lt;td&gt;NSNumber containing floating point value, in percent of font point size, default 0: no stroke; positive for stroke alone, negative for stroke and fill (a typical value for outlined text would be 3.0)&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;NSShadowAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 6+&lt;/td&gt;
-&lt;td&gt;NSShadow, default nil: no shadow&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;NSTextEffectAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 7+&lt;/td&gt;
-&lt;td&gt;NSString, default nil: no text effect&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;NSAttachmentAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 7+&lt;/td&gt;
-&lt;td&gt;NSTextAttachment, default nil&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;NSLinkAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 7+&lt;/td&gt;
-&lt;td&gt;NSURL (preferred) or NSString&lt;/td&gt;
-&lt;/tr&gt;
-
-
-&lt;tr&gt;
-&lt;td&gt;NSBaselineOffsetAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 7+&lt;/td&gt;
-&lt;td&gt;NSNumber containing floating point value, in points; offset from baseline, default 0&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;NSUnderlineColorAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 7+&lt;/td&gt;
-&lt;td&gt;UIColor, default nil: same as foreground color&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;NSStrikethroughColorAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 7+&lt;/td&gt;
-&lt;td&gt;UIColor, default nil: same as foreground color&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;NSObliquenessAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 7+&lt;/td&gt;
-&lt;td&gt;NSNumber containing floating point value; skew to be applied to glyphs, default 0: no skew&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;NSExpansionAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 7+&lt;/td&gt;
-&lt;td&gt;NSNumber containing floating point value; log of expansion factor to be applied to glyphs, default 0: no expansion&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;NSWritingDirectionAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 7+&lt;/td&gt;
-&lt;td&gt;NSArray of NSNumbers representing the nested levels of writing direction overrides as defined by Unicode LRE, RLE, LRO, and RLO characters. The control characters can be obtained by masking NSWritingDirection and NSTextWritingDirection values.  LRE: NSWritingDirectionLeftToRight|NSTextWritingDirectionEmbedding, RLE: NSWritingDirectionRightToLeft|NSTextWritingDirectionEmbedding, LRO: NSWritingDirectionLeftToRight|NSTextWritingDirectionOverride, RLO: NSWritingDirectionRightToLeft|NSTextWritingDirectionOverride,&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;NSVerticalGlyphFormAttributeName&lt;/td&gt;
-&lt;td&gt;iOS 6+&lt;/td&gt;
-&lt;td&gt;An NSNumber containing an integer value.  0 means horizontal text.  1 indicates vertical text.  If not specified, it could follow higher-level vertical orientation settings.  Currently on iOS, it&#39;s always horizontal.  The behavior for any other value is undefined.&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-
-&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;You can put &lt;code&gt;fontName&lt;/code&gt; of your choice for creating attributed &lt;code&gt;NSStrings&lt;/code&gt;&lt;/p&gt;
 </description>
         <pubDate>Wed, 03 Jun 2015 04:54:55 +0530</pubDate>
         <link>/ios/2015/06/03/how-to-use-NSAttributedString.html</link>
@@ -507,8 +414,10 @@ It’s up to you to decide which optional methods you implement. If you implemen
     
       <item>
         <title>iOS App Icon Size</title>
-        <description>&lt;p&gt;If you are compiling your app with &lt;code&gt;iOS 8 sdk&lt;/code&gt; or later then use the first icon table and if compiling with &lt;code&gt;iOS 7 sdk&lt;/code&gt; then use the second table.
-####Icon sizes for &lt;code&gt;iOS 8&lt;/code&gt;####&lt;/p&gt;
+        <description>&lt;p&gt;If you are compiling your app with &lt;code&gt;iOS 8 sdk&lt;/code&gt; or later then use the first icon table and if compiling with &lt;code&gt;iOS 7 sdk&lt;/code&gt; then use the second table.&lt;/p&gt;
+
+&lt;h4 id=&quot;icon-sizes-for-ios-8&quot;&gt;Icon sizes for &lt;code&gt;iOS 8&lt;/code&gt;&lt;/h4&gt;
+
 &lt;table class=&quot;table table-striped table-bordered&quot;&gt;
       &lt;thead&gt;
         &lt;tr&gt;

@@ -10,143 +10,52 @@ description : This post focusses on the usage of NSAttributedString in Objective
 ---
 As per the [Apple Documentation](https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/index.html), an `NSAttributedString` object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.
 
-In short, *an `NSAttributedString` allows you to apply styles on the text. As of the latest iOS sdk (8.0), you can apply the following attributes to an `NSString` object*.
+In short, *an `NSAttributedString` allows you to apply styles on the text*. As of the latest iOS sdk (8.0), you can apply the following attributes to an `NSString` object.
 
+- NSFontAttributeName
+- NSParagraphStyleAttributeName
+- NSForegroundColorAttributeName
+- NSBackgroundColorAttributeName
+- NSLigatureAttributeName
+- NSKernAttributeName
+- NSStrikethroughStyleAttributeName
+- NSUnderlineStyleAttributeName
+- NSStrokeColorAttributeName
+- NSStrokeWidthAttributeName
+- NSShadowAttributeName
+- NSTextEffectAttributeName
+- NSAttachmentAttributeName
+- NSLinkAttributeName
+- NSBaselineOffsetAttributeName
+- NSUnderlineColorAttributeName
+- NSStrikethroughColorAttributeName
+- NSObliquenessAttributeName
+- NSExpansionAttributeName
+- NSWritingDirectionAttributeName
+- NSVerticalGlyphFormAttributeName
 
-<table class="table table-striped table-bordered">
-<thead>
-        <tr>
-            <th class="text-center">Attribute</th>
-            <th class="text-center">Availability</th>
-            <th class="text-center">Description</th>
-        </tr>
-    </thead>
-<tr>
-<tbody>
-<td>NSFontAttributeName</td>
-<td>iOS 6+</td>
-<td>UIFont, default Helvetica(Neue) 12</td>
-</tr>
+Lets look at a some of the examples below :
 
-<tr>
-<td>NSParagraphStyleAttributeName</td>
-<td>iOS 6+</td>
-<td>NSParagraphStyle, default defaultParagraphStyle</td>
-</tr>
+####<u>NSFontAttributeName</u>####
 
-<tr>
-<td>NSForegroundColorAttributeName</td>
-<td>iOS 6+</td>
-<td>UIColor, default blackColor</td>
-</tr>
+{% highlight swift %}
+NSDictionary *attributes = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Italic" size:30.0] };
 
-<tr>
-<td>NSBackgroundColorAttributeName</td>
-<td>iOS 6+</td>
-<td>UIColor, default nil: no background</td>
-</tr>
+NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Italic Text" attributes:attributes];
 
-<tr>
-<td>NSLigatureAttributeName</td>
-<td>iOS 6+</td>
-<td>NSNumber containing integer, default 1: default ligatures, 0: no ligatures</td>
-</tr>
+self.attributedLabel.attributedText = attributedString;
+{% endhighlight %}
 
-<tr>
-<td>NSKernAttributeName</td>
-<td>iOS 6+</td>
-<td>NSNumber containing floating point value, in points; amount to modify default kerning. 0 means kerning is disabled.</td>
-</tr>
+`Output :` *Italic Text*
 
-<tr>
-<td>NSStrikethroughStyleAttributeName</td>
-<td>iOS 6+</td>
-<td>NSNumber containing integer, default 0: no strikethrough</td>
-</tr>
+{% highlight swift %}
+NSDictionary *attributes = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:30.0] };
+    
+NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Bold Text" attributes:attributes];
+    
+self.attributedLabel.attributedText = attributedString;
+{% endhighlight %}
 
-<tr>
-<td>NSUnderlineStyleAttributeName</td>
-<td>iOS 6+</td>
-<td>NSNumber containing integer, default 0: no underline</td>
-</tr>
+`Output :` **Bold Text**
 
-<tr>
-<td>NSStrokeColorAttributeName</td>
-<td>iOS 6+</td>
-<td>UIColor, default nil: same as foreground color</td>
-</tr>
-
-<tr>
-<td>NSStrokeWidthAttributeName</td>
-<td>iOS 6+</td>
-<td>NSNumber containing floating point value, in percent of font point size, default 0: no stroke; positive for stroke alone, negative for stroke and fill (a typical value for outlined text would be 3.0)</td>
-</tr>
-
-<tr>
-<td>NSShadowAttributeName</td>
-<td>iOS 6+</td>
-<td>NSShadow, default nil: no shadow</td>
-</tr>
-
-<tr>
-<td>NSTextEffectAttributeName</td>
-<td>iOS 7+</td>
-<td>NSString, default nil: no text effect</td>
-</tr>
-
-<tr>
-<td>NSAttachmentAttributeName</td>
-<td>iOS 7+</td>
-<td>NSTextAttachment, default nil</td>
-</tr>
-
-<tr>
-<td>NSLinkAttributeName</td>
-<td>iOS 7+</td>
-<td>NSURL (preferred) or NSString</td>
-</tr>
-
-
-<tr>
-<td>NSBaselineOffsetAttributeName</td>
-<td>iOS 7+</td>
-<td>NSNumber containing floating point value, in points; offset from baseline, default 0</td>
-</tr>
-
-<tr>
-<td>NSUnderlineColorAttributeName</td>
-<td>iOS 7+</td>
-<td>UIColor, default nil: same as foreground color</td>
-</tr>
-
-<tr>
-<td>NSStrikethroughColorAttributeName</td>
-<td>iOS 7+</td>
-<td>UIColor, default nil: same as foreground color</td>
-</tr>
-
-<tr>
-<td>NSObliquenessAttributeName</td>
-<td>iOS 7+</td>
-<td>NSNumber containing floating point value; skew to be applied to glyphs, default 0: no skew</td>
-</tr>
-
-<tr>
-<td>NSExpansionAttributeName</td>
-<td>iOS 7+</td>
-<td>NSNumber containing floating point value; log of expansion factor to be applied to glyphs, default 0: no expansion</td>
-</tr>
-
-<tr>
-<td>NSWritingDirectionAttributeName</td>
-<td>iOS 7+</td>
-<td>NSArray of NSNumbers representing the nested levels of writing direction overrides as defined by Unicode LRE, RLE, LRO, and RLO characters. The control characters can be obtained by masking NSWritingDirection and NSTextWritingDirection values.  LRE: NSWritingDirectionLeftToRight|NSTextWritingDirectionEmbedding, RLE: NSWritingDirectionRightToLeft|NSTextWritingDirectionEmbedding, LRO: NSWritingDirectionLeftToRight|NSTextWritingDirectionOverride, RLO: NSWritingDirectionRightToLeft|NSTextWritingDirectionOverride,</td>
-</tr>
-
-<tr>
-<td>NSVerticalGlyphFormAttributeName</td>
-<td>iOS 6+</td>
-<td>An NSNumber containing an integer value.  0 means horizontal text.  1 indicates vertical text.  If not specified, it could follow higher-level vertical orientation settings.  Currently on iOS, it's always horizontal.  The behavior for any other value is undefined.</td>
-</tr>
-</tbody>
-</table>
+You can put `fontName` of your choice for creating attributed `NSStrings`
