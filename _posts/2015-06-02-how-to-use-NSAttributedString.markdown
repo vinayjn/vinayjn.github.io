@@ -3,7 +3,7 @@ layout: post
 title:  "Using NSAttributedString"
 date:   2015-06-02 23:24:55
 comments : true
-categories: ios
+categories: ios beginner
 keywords : NSAttributedString, how, to, use, NSBackgroundColorAttributeName, NSFontAttributeName, NSParagraphStyleAttributeName, NSForegroundColorAttributeName, NSLigatureAttributeName, NSKernAttributeName, NSStrikethroughStyleAttributeName, NSUnderlineStyleAttributeName, NSStrokeColorAttributeName, NSStrokeWidthAttributeName, NSShadowAttributeName, NSTextEffectAttributeName, NSAttachmentAttributeName, NSLinkAttributeName, NSBaselineOffsetAttributeName, NSUnderlineColorAttributeName, NSStrikethroughColorAttributeName, NSObliquenessAttributeName, NSExpansionAttributeName, NSWritingDirectionAttributeName, NSVerticalGlyphFormAttributeName
 
 description : This post focusses on the usage of NSAttributedString in Objective C. All of the attributes of NSString are demonstrated with the help of code examples.
