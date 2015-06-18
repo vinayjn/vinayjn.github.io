@@ -6,8 +6,8 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 17 Jun 2015 15:26:39 +0530</pubDate>
-    <lastBuildDate>Wed, 17 Jun 2015 15:26:39 +0530</lastBuildDate>
+    <pubDate>Thu, 18 Jun 2015 13:11:52 +0530</pubDate>
+    <lastBuildDate>Thu, 18 Jun 2015 13:11:52 +0530</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -282,6 +282,7 @@ It’s up to you to decide which optional methods you implement. If you implemen
       <item>
         <title>Screen Resolution of iDevices</title>
         <description>&lt;p&gt;Any time a new handheld device is released by Apple, developers face issues of managing their views as per the device screen. This post will help you know the &lt;code&gt;Screen Resolution&lt;/code&gt; of various &lt;code&gt;Apple Handheld Devices&lt;/code&gt;.&lt;/p&gt;
+
 &lt;table class=&quot;table table-striped table-bordered&quot;&gt;
 	&lt;thead&gt;
 		&lt;tr&gt;
