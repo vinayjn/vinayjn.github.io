@@ -1,44 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-
-<url>
-  <loc>http://blog.koder.me/</loc>
-  <lastmod>2015-05-27T17:58:59+00:00</lastmod>
-</url>
-<url>
-  <loc>http://blog.koder.me/about/</loc>
-  <lastmod>2015-05-27T17:58:59+00:00</lastmod>
-</url>
-<url>
-  <loc>http://blog.koder.me/ios/2015/05/15/move-uitextfield-up-down-with-keyboard.html</loc>
-  <lastmod>2015-05-27T17:58:59+00:00</lastmod>
-</url>
-<url>
-  <loc>http://blog.koder.me/ios/2015/05/15/animate-autolayout-constraints.html</loc>
-  <lastmod>2015-05-27T17:58:59+00:00</lastmod>
-</url>
-<url>
-  <loc>http://blog.koder.me/post/2015/01/11/introducing-version-control.html</loc>
-  <lastmod>2015-05-27T17:58:59+00:00</lastmod>
-</url>
-<url>
-  <loc>http://blog.koder.me/python/2014/12/20/crawl-insta.html</loc>
-  <lastmod>2015-05-27T17:58:59+00:00</lastmod>
-</url>
-<url>
-  <loc>http://blog.koder.me/ios/2014/12/18/ios-delegates.html</loc>
-  <lastmod>2015-05-27T17:58:59+00:00</lastmod>
-</url>
-<url>
-  <loc>http://blog.koder.me/ios/2014/11/27/screen-resolution.html</loc>
-  <lastmod>2015-05-27T17:58:59+00:00</lastmod>
-</url>
-<url>
-  <loc>http://blog.koder.me/ios/2014/11/27/ios-app-icons.html</loc>
-  <lastmod>2015-05-27T17:58:59+00:00</lastmod>
-</url>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>/ios/beginner/2015/06/03/how-to-use-NSAttributedString.html</loc>
+    <lastmod>2015-06-03T04:54:55+05:30</lastmod>
+  </url>
+  <url>
+    <loc>/ios/2015/05/26/move-uitextfield-up-down-with-keyboard.html</loc>
+    <lastmod>2015-05-26T04:54:55+05:30</lastmod>
+  </url>
+  <url>
+    <loc>/ios/2015/05/16/animate-autolayout-constraints.html</loc>
+    <lastmod>2015-05-16T04:54:55+05:30</lastmod>
+  </url>
+  <url>
+    <loc>/post/2015/01/12/introducing-version-control.html</loc>
+    <lastmod>2015-01-12T04:54:55+05:30</lastmod>
+  </url>
+  <url>
+    <loc>/python/2014/12/21/crawl-insta.html</loc>
+    <lastmod>2014-12-21T04:54:55+05:30</lastmod>
+  </url>
+  <url>
+    <loc>/ios/2014/12/19/ios-delegates.html</loc>
+    <lastmod>2014-12-19T04:54:55+05:30</lastmod>
+  </url>
+  <url>
+    <loc>/ios/2014/11/28/screen-resolution.html</loc>
+    <lastmod>2014-11-28T05:18:55+05:30</lastmod>
+  </url>
+  <url>
+    <loc>/ios/2014/11/28/ios-app-icons.html</loc>
+    <lastmod>2014-11-28T04:54:55+05:30</lastmod>
+  </url>
+  <url>
+    <loc>/about/</loc>
+  </url>
+  <url>
+    <loc>/beginners/</loc>
+  </url>
+  <url>
+    <loc>/categories/</loc>
+  </url>
+  <url>
+    <loc>/</loc>
+  </url>
+  <url>
+    <loc>/googleebf2c8508b85dd21.html</loc>
+    <lastmod>2015-06-11T12:29:27+05:30</lastmod>
+  </url>
 </urlset>
