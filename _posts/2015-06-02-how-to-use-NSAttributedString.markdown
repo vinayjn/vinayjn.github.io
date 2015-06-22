@@ -34,9 +34,10 @@ In short, *an `NSAttributedString` allows you to apply styles on the text*. As o
 - NSWritingDirectionAttributeName
 - NSVerticalGlyphFormAttributeName
 
-Lets look at a some of the examples below :
+Lets look at the most used attributes :
+&nbsp;
 
-####<u>NSFontAttributeName</u>####
+####**NSFontAttributeName**####
 
 {% highlight swift %}
 NSDictionary *attributes = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Italic" size:30.0] };
@@ -57,5 +58,33 @@ self.attributedLabel.attributedText = attributedString;
 {% endhighlight %}
 
 `Output :` **Bold Text**
+
+&nbsp;
+
+####**NSForegroundColorAttributeName**####
+
+{% highlight swift %}
+NSDictionary *attributes = @{ NSForegroundColorAttributeName : [UIColor blueColor] };
+
+NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Blue Text" attributes:attributes];
+
+self.attributedLabel.attributedText = attributedString;
+{% endhighlight %}
+
+`Output :` <span style="color:blue">I am blue colored</span>
+
+&nbsp;
+
+####**NSForegroundColorAttributeName**####
+
+{% highlight swift %}
+NSDictionary *attributes = @{ NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle) };
+    
+NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Underlined Text" attributes:attributes];
+    
+self.label.attributedText = attributedString;
+{% endhighlight %}
+
+`Output :` <u>Underlined Text</u>
 
 You can put `fontName` of your choice for creating attributed `NSStrings`
