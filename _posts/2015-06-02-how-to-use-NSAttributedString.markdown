@@ -75,7 +75,7 @@ self.attributedLabel.attributedText = attributedString;
 
 &nbsp;
 
-####**NSForegroundColorAttributeName**####
+####**NSUnderlineStyleAttributeName**####
 
 {% highlight swift %}
 NSDictionary *attributes = @{ NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle) };
