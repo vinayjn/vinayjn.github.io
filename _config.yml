@@ -9,5 +9,3 @@ twitter_username: v1n4yjn
 github_username:  vinayjn
 # Build settings
 markdown: kramdown
-gems:
-  - jekyll-sitemap
