@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>They are/were my friends</title>
+  <title>Delegates in iOS</title>
   
   
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/2015/08/06/they-were-my-friends.html">
+  <link rel="canonical" href="/ios/2014/12/19/ios-delegates.html">
   <link rel="alternate" type="application/rss+xml" title="Vinay Jain" href="/feed.xml" />
 
   <style type="text/css">
@@ -53,10 +53,6 @@
         
 
           
-
-        
-
-          
           <a class="page-link" href="/beginners/">Beginner's Index</a>
           
 
@@ -64,6 +60,10 @@
 
           
           <a class="page-link" href="/categories/index.html">Categories</a>
+          
+
+        
+
           
 
         
@@ -84,46 +84,57 @@
       <div class="wrapper">
         <div class="post">
   <header class="post-header">
-    <h1 class="post-title">They are/were my friends</h1>
-    <p class="post-meta">Aug 6, 2015</p>
+    <h1 class="post-title">Delegates in iOS</h1>
+    <p class="post-meta">Dec 19, 2014</p>
   </header>
 
   <article class="post-content">
-    <h3 id="people-in-the-story-">People in the story :</h3>
+    <p>There are several ways tasks can communicate with one another. One of those ways is to use a delegate. A delegate is an object that agrees to undertake certain decisions or tasks for another object, or would like to be notified when certain events occur.</p>
 
-<p><code>Girl A</code> : The one I am friends with more than an year</p>
+<p>Classes have a delegate outlet. You connect this outlet to the object that’s going to be its delegate. So that the outlet can send messages to the delegate to perform tasks. Delegates are a popular programming pattern in iOS.</p>
 
-<p><code>Girl B</code> : Girl A introduced me to you, you are her roommate</p>
+<p>Becoming a delegate is a three-step process:</p>
 
-<p> </p>
+<ol>
+  <li>In your custom class, adopt the delegate’s protocol.</li>
+  <li>Implement the appropriate protocol methods.</li>
+  <li>Connect the delegate outlet of the object to your delegate object.</li>
+</ol>
 
-<p>I read it somewhere on the internet <code>A friend is a gift you give to yourself</code>. I feel gifted, I have many friends. Every one of them has something unique that attracts me towards them.</p>
+<p>A protocol is a contract, or promise, that your class will implement specific methods. This lets other objects know that your object has agreed to accept certain responsibilities. A protocol can declare two kinds of methods: required and optional. All required methods must be included in your class’s implementation. If you leave any out, you’ve broken the contract, and your project won’t compile.
+It’s up to you to decide which optional methods you implement. If you implement an optional method, your object will receive that message. If you don’t, it won’t. It’s that simple. Most delegate methods are optional.</p>
 
-<p>well things went bad in the previous 30 days. I had full control over the situations that happened and I made them worse instead of fixing them.</p>
+<p>Lets take an example of <code>UIWebView</code> to explain it properly :</p>
 
-<p>I am talking about two of my friends, they are girls. Before you ask me please let me tell you both are friends and NOT girlfriends. We are(were may be) very close but we are just friends.</p>
+<p><strong>Step 1 :</strong> Adopt the delegate’s protocol. In case of <code>UIWebView</code>, its <code>UIWebViewDelegate</code></p>
 
-<p><strong>Hi A,</strong></p>
+<pre><code>@interface ViewController : UIViewController&lt;UIWebViewDelegate&gt;
+</code></pre>
 
-<p>You don’t want to talk to me. You even blocked me on social networks, didn’t answer my phone calls. You did this because on friendship day I made some stupid assumptions when you went with to some place without telling me and I blamed you for all my stupidity. You say why can I say anything to you, “I am not your girlfriend” who follows and completes all your expectations. 
-I know it is my mistake I should have not expected you to tell me where you’re going with your best friend(our mutual friend)</p>
+<p>Adding this to your class definition means that your class agrees to handle messages listed in the <code>UIWebViewDelegate</code> protocol, and is prepared to be connected to a <code>UIWebView’s</code> delegate outlet.</p>
 
-<p>You misinterpreted my feelings or may be someone else made you think so. This made you upset and me too(I know I don’t have any bad feelings, trust me I don’t have). Our mutual friends know that there is nothing in between us. How can you even think that I have feelings for you, I don’t love you. And I am not expecting you to love me either.</p>
+<p>Looking up the <code>UIWebViewDelegate</code> protocol, you find that it lists four methods, all of which are optional:</p>
 
-<p>You say my actions of trying to contact you again and again tortures you. I don’t why you used this <code>torture</code> word here, the only word which makes me feel bad. Torturing you is not my intention, I know I called you 100 times without your wish but why shouldn’t I ? Man! you are a friend how can I let go my friends just because I made a few mistakes more than one time. I am living away from my home town, you’re the only person I trust here(as we have the same native languages :D).</p>
+<pre><code>- (BOOL)webView:(UIWebView *)webView􏰁 shouldStartLoadWithRequest:(NSURLRequest *)request􏰁 navigationType:(UIWebViewNavigationType)navigationType;
+- (void)webViewDidStartLoad:(UIWebView *)webView;
+- (void)webViewDidFinishLoad:(UIWebView *)webView;
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;	
+</code></pre>
 
-<p><strong>Hello B,</strong></p>
+<p><strong>Step 2 :</strong> Implement methods(any) in the ViewController</p>
 
-<p>I shouted at you too. Yes I was angry with you too, but by the fact that even after fixing so many meetings with you on social networks and also deciding the topics to talk on, <em>you never showed up</em>. Why did you do this? We are friends right ? Best friend of Best friend is a friend, this is my rule, you should also follow this. I cannot let you go too, you’ll get married sooner when will talk then. :(</p>
+<pre><code>- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+	//some code
+} 
+</code></pre>
 
-<p><strong>To Both of you</strong></p>
+<p><strong>Step 3 :</strong> Connect the delegate outlet of the object to your delegate object. For this example the delegate is the ViewController object.</p>
 
-<p>I am sorry I did this writing. I tried calling both of you (on 5th August) and meet you, but got no response. You don’t talk to me so there is no other way to reach you but this.
-Am I that bad, please don’t say even if I am. You know my nature, I want to keep both of you as my friends for the whole life. Why don’t you understand.</p>
+<pre><code>webViewObj.delegate = self;
+</code></pre>
 
-<p>I am really very sorry for what I did in the previous days. I never knew it will go this way. I am here for only 10 more days so please make my farewell a memory for me. PLeaaasee.</p>
-
-<p>And please don’t worry about this blog, I’ll delete this as soon as both of you give a read receipt by <code>unblocking</code> me on social networks. You have my phone number too.</p>
+<p>Now your <code>ViewController</code> object is the <code>delegate</code> for the web view. As the web view does its thing, your <code>delegate</code> receives messages on its progress.</p>
 
    
   </article>
