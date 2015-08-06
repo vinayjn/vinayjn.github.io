@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Beginner's Index</title>
+  <title>Delegates in iOS</title>
   
   
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/beginners/">
+  <link rel="canonical" href="/ios/2014/12/18/ios-delegates.html">
   <link rel="alternate" type="application/rss+xml" title="Vinay Jain" href="/feed.xml" />
 
   <style type="text/css">
@@ -82,29 +82,79 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <h1>Beginner's Index</h1>
-<p>&nbsp;</p>
+        <div class="post">
+  <header class="post-header">
+    <h1 class="post-title">Delegates in iOS</h1>
+    <p class="post-meta">Dec 18, 2014</p>
+  </header>
 
+  <article class="post-content">
+    <p>There are several ways tasks can communicate with one another. One of those ways is to use a delegate. A delegate is an object that agrees to undertake certain decisions or tasks for another object, or would like to be notified when certain events occur.</p>
 
+<p>Classes have a delegate outlet. You connect this outlet to the object that’s going to be its delegate. So that the outlet can send messages to the delegate to perform tasks. Delegates are a popular programming pattern in iOS.</p>
 
+<p>Becoming a delegate is a three-step process:</p>
 
+<ol>
+  <li>In your custom class, adopt the delegate’s protocol.</li>
+  <li>Implement the appropriate protocol methods.</li>
+  <li>Connect the delegate outlet of the object to your delegate object.</li>
+</ol>
 
-  
-  <ul>
-  
-    <li>
-      <a href="/ios/beginner/2015/06/02/how-to-use-NSAttributedString.html">Using NSAttributedString</a>
+<p>A protocol is a contract, or promise, that your class will implement specific methods. This lets other objects know that your object has agreed to accept certain responsibilities. A protocol can declare two kinds of methods: required and optional. All required methods must be included in your class’s implementation. If you leave any out, you’ve broken the contract, and your project won’t compile.
+It’s up to you to decide which optional methods you implement. If you implement an optional method, your object will receive that message. If you don’t, it won’t. It’s that simple. Most delegate methods are optional.</p>
 
-    </li>
-  
-  </ul>
-  
+<p>Lets take an example of <code>UIWebView</code> to explain it properly :</p>
 
-  
+<p><strong>Step 1 :</strong> Adopt the delegate’s protocol. In case of <code>UIWebView</code>, its <code>UIWebViewDelegate</code></p>
 
-  
+<pre><code>@interface ViewController : UIViewController&lt;UIWebViewDelegate&gt;
+</code></pre>
 
-  
+<p>Adding this to your class definition means that your class agrees to handle messages listed in the <code>UIWebViewDelegate</code> protocol, and is prepared to be connected to a <code>UIWebView’s</code> delegate outlet.</p>
+
+<p>Looking up the <code>UIWebViewDelegate</code> protocol, you find that it lists four methods, all of which are optional:</p>
+
+<pre><code>- (BOOL)webView:(UIWebView *)webView􏰁 shouldStartLoadWithRequest:(NSURLRequest *)request􏰁 navigationType:(UIWebViewNavigationType)navigationType;
+- (void)webViewDidStartLoad:(UIWebView *)webView;
+- (void)webViewDidFinishLoad:(UIWebView *)webView;
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;	
+</code></pre>
+
+<p><strong>Step 2 :</strong> Implement methods(any) in the ViewController</p>
+
+<pre><code>- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+	//some code
+} 
+</code></pre>
+
+<p><strong>Step 3 :</strong> Connect the delegate outlet of the object to your delegate object. For this example the delegate is the ViewController object.</p>
+
+<pre><code>webViewObj.delegate = self;
+</code></pre>
+
+<p>Now your <code>ViewController</code> object is the <code>delegate</code> for the web view. As the web view does its thing, your <code>delegate</code> receives messages on its progress.</p>
+
+   
+  </article>
+ 
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    // Required: on line below, replace text in quotes with your forum shortname
+    var disqus_shortname = 'koderme';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</div>
 
       </div>
     </div>

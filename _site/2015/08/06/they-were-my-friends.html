@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Animate AutoLayout Constraints!</title>
+  <title>They are/were my friends</title>
   
   
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/ios/2015/05/16/animate-autolayout-constraints.html">
+  <link rel="canonical" href="/2015/08/06/they-were-my-friends.html">
   <link rel="alternate" type="application/rss+xml" title="Vinay Jain" href="/feed.xml" />
 
   <style type="text/css">
@@ -53,6 +53,10 @@
         
 
           
+
+        
+
+          
           <a class="page-link" href="/beginners/">Beginner's Index</a>
           
 
@@ -60,10 +64,6 @@
 
           
           <a class="page-link" href="/categories/index.html">Categories</a>
-          
-
-        
-
           
 
         
@@ -84,36 +84,46 @@
       <div class="wrapper">
         <div class="post">
   <header class="post-header">
-    <h1 class="post-title">Animate AutoLayout Constraints!</h1>
-    <p class="post-meta">May 16, 2015</p>
+    <h1 class="post-title">They are/were my friends</h1>
+    <p class="post-meta">Aug 6, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>AutoLayout is one the most significant features of modern iOS development. It simplifed the app design and saved developers from managing the view frames for different orientations and different devices with different screen resolutions as well. If you are familiar with frontend Web development you will find it similar to a <code>Responsive Web Design</code>.</p>
+    <h3 id="people-in-the-story-">People in the story :</h3>
 
-<p>AutoLayout brings a lot of challenges with it, at first you may find it tough to get through. Managing the constraints without getting warnings is challenging!. <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/Introduction/Introduction.html" target="_blank">Apple’s documentation on AutoLayout</a> is great and it will surely help you understand AutoLayout properly as it did for me.</p>
+<p><code>Girl A</code> : The one I am friends with more than an year</p>
 
-<p>AutoLayout can be managed programmatically, constraints can be updated at runtime. Sometimes we need to animate these updates/changes to view frames. You cannot directly animate change in AutoLayout constraints as you do with <code>UIView</code> frame changes. However the change in code to animate constraint changes isn’t different for AutoLayout, you just need to call <code>[self.view layoutIfNeeded]</code> in the <code>animateWithDuration:</code> method before and after the a constraint is updated. Here is sample code I used to show/hide a <code>UISearchBar</code> with a button click.</p>
+<p><code>Girl B</code> : Girl A introduced me to you, you are her roommate</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">toggleSearchBarVisibility</span><span class="p">{</span>
+<p> </p>
 
-    <span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="o">!</span><span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">tableViewTopSpace</span><span class="p">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="nb">self</span><span class="p">.</span><span class="n">searchDisplayController</span><span class="p">.</span><span class="n">active</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
-        <span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">0.3</span>
-                         <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
-                             <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="n">layoutIfNeeded</span><span class="p">];</span>
-                         <span class="p">}</span> <span class="nl">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-       <span class="p">}</span>
-    <span class="k">else</span> <span class="p">{</span>
-        <span class="n">tableViewTopSpace</span><span class="p">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">44</span><span class="p">;</span>
-        <span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">0.3</span>
-                         <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
-                             <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="n">layoutIfNeeded</span><span class="p">];</span>
-                         <span class="p">}</span> <span class="nl">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-       <span class="p">}</span>
-    <span class="p">}</span></code></pre></div>
+<p>I read it somewhere on the internet <code>A friend is a gift you give to yourself</code>. I feel gifted, I have many friends. Every one of them has something unique that attracts me towards them.</p>
+
+<p>well things went bad in the previous 30 days. I had full control over the situations that happened and I made them worse instead of fixing them.</p>
+
+<p>I am talking about two of my friends, they are girls. Before you ask me please let me tell you both are friends and NOT girlfriends. We are(were may be) very close but we are just friends.</p>
+
+<p><strong>Hi A,</strong></p>
+
+<p>You don’t want to talk to me. You even blocked me on social networks, didn’t answer my phone calls. You did this because on friendship day I made some stupid assumptions when you went with to some place without telling me and I blamed you for all my stupidity. You say why can I say anything to you, “I am not your girlfriend” who follows and completes all your expectations. 
+I know it is my mistake I should have not expected you to tell me where you’re going with your best friend(our mutual friend)</p>
+
+<p>You misinterpreted my feelings or may be someone else made you think so. This made you upset and me too(I know I don’t have any bad feelings, trust me I don’t have). Our mutual friends know that there is nothing in between us. How can you even think that I have feelings for you, I don’t love you. And I am not expecting you to love me either.</p>
+
+<p>You say my actions of trying to contact you again and again tortures you. I don’t why you used this <code>torture</code> word here, the only word which makes me feel bad. Torturing you is not my intention, I know I called you 100 times without your wish but why shouldn’t I ? Man! you are a friend how can I let go my friends just because I made a few mistakes more than one time. I am living away from my home town, you’re the only person I trust here(as we have the same native languages :D).</p>
+
+<p><strong>Hello B,</strong></p>
+
+<p>I shouted at you too. Yes I was angry with you too, but by the fact that even after fixing so many meetings with you on social networks and also deciding the topics to talk on, <em>you never showed up</em>. Why did you do this? We are friends right ? Best friend of Best friend is a friend, this is my rule, you should also follow this. I cannot let you go too, you’ll get married sooner when will talk then. :(</p>
+
+<p><strong>To Both of you</strong></p>
+
+<p>I am sorry I did this writing. I tried calling both of you (on 5th August) and meet you, but got no response. You don’t talk to me so there is no other way to reach you but this.
+Am I that bad, please don’t say even if I am. You know my nature, I want to keep both of you as my friends for the whole life. Why don’t you understand.</p>
+
+<p>I am really very sorry for what I did in the previous days. I never knew it will go this way. I am here for only 10 more days so please make my farewell a memory for me. PLeaaasee.</p>
+
+<p>And please don’t worry about this blog, I’ll delete this as soon as both of you give a read receipt by <code>unblocking</code> me on social networks. You have my phone number too.</p>
 
    
   </article>
@@ -186,7 +196,7 @@
       </div>
 
       <div class="footer-col  footer-col-3">
-        <p class="text">Programmer | Technophile | Amateur iOS App Developer
+        <p class="text">Learning Swift && Improving Algorithmic Skills
 </p>
       </div>
     </div>
@@ -197,5 +207,4 @@
 
 
   </body>
-<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us11.list-manage.com","uuid":"90bd1c3d4cce466cee912f66e","lid":"638c8b8905"}) })</script>
 </html>

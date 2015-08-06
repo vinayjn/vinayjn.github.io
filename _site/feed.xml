@@ -2,13 +2,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vinay Jain</title>
-    <description>Programmer | Technophile | Amateur iOS App Developer
+    <description>Learning Swift &amp;&amp; Improving Algorithmic Skills
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 22 Jun 2015 17:06:11 +0530</pubDate>
-    <lastBuildDate>Mon, 22 Jun 2015 17:06:11 +0530</lastBuildDate>
+    <pubDate>Thu, 06 Aug 2015 10:57:01 +0000</pubDate>
+    <lastBuildDate>Thu, 06 Aug 2015 10:57:01 +0000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>They are/were my friends</title>
+        <description>&lt;h3 id=&quot;people-in-the-story-&quot;&gt;People in the story :&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;Girl A&lt;/code&gt; : The one I am friends with more than an year&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Girl B&lt;/code&gt; : Girl A introduced me to you, you are her roommate&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;I read it somewhere on the internet &lt;code&gt;A friend is a gift you give to yourself&lt;/code&gt;. I feel gifted, I have many friends. Every one of them has something unique that attracts me towards them.&lt;/p&gt;
+
+&lt;p&gt;well things went bad in the previous 30 days. I had full control over the situations that happened and I made them worse instead of fixing them.&lt;/p&gt;
+
+&lt;p&gt;I am talking about two of my friends, they are girls. Before you ask me please let me tell you both are friends and NOT girlfriends. We are(were may be) very close but we are just friends.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hi A,&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You don’t want to talk to me. You even blocked me on social networks, didn’t answer my phone calls. You did this because on friendship day I made some stupid assumptions when you went with to some place without telling me and I blamed you for all my stupidity. You say why can I say anything to you, “I am not your girlfriend” who follows and completes all your expectations. 
+I know it is my mistake I should have not expected you to tell me where you’re going with your best friend(our mutual friend)&lt;/p&gt;
+
+&lt;p&gt;You misinterpreted my feelings or may be someone else made you think so. This made you upset and me too(I know I don’t have any bad feelings, trust me I don’t have). Our mutual friends know that there is nothing in between us. How can you even think that I have feelings for you, I don’t love you. And I am not expecting you to love me either.&lt;/p&gt;
+
+&lt;p&gt;You say my actions of trying to contact you again and again tortures you. I don’t why you used this &lt;code&gt;torture&lt;/code&gt; word here, the only word which makes me feel bad. Torturing you is not my intention, I know I called you 100 times without your wish but why shouldn’t I ? Man! you are a friend how can I let go my friends just because I made a few mistakes more than one time. I am living away from my home town, you’re the only person I trust here(as we have the same native languages :D).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hello B,&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I shouted at you too. Yes I was angry with you too, but by the fact that even after fixing so many meetings with you on social networks and also deciding the topics to talk on, &lt;em&gt;you never showed up&lt;/em&gt;. Why did you do this? We are friends right ? Best friend of Best friend is a friend, this is my rule, you should also follow this. I cannot let you go too, you’ll get married sooner when will talk then. :(&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;To Both of you&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I am sorry I did this writing. I tried calling both of you (on 5th August) and meet you, but got no response. You don’t talk to me so there is no other way to reach you but this.
+Am I that bad, please don’t say even if I am. You know my nature, I want to keep both of you as my friends for the whole life. Why don’t you understand.&lt;/p&gt;
+
+&lt;p&gt;I am really very sorry for what I did in the previous days. I never knew it will go this way. I am here for only 10 more days so please make my farewell a memory for me. PLeaaasee.&lt;/p&gt;
+
+&lt;p&gt;And please don’t worry about this blog, I’ll delete this as soon as both of you give a read receipt by &lt;code&gt;unblocking&lt;/code&gt; me on social networks. You have my phone number too.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 06 Aug 2015 23:24:55 +0000</pubDate>
+        <link>/2015/08/06/they-were-my-friends.html</link>
+        <guid isPermaLink="true">/2015/08/06/they-were-my-friends.html</guid>
+        
+        
+      </item>
     
       <item>
         <title>Using NSAttributedString</title>
@@ -87,9 +132,9 @@
 
 &lt;p&gt;You can put &lt;code&gt;fontName&lt;/code&gt; of your choice for creating attributed &lt;code&gt;NSStrings&lt;/code&gt;&lt;/p&gt;
 </description>
-        <pubDate>Wed, 03 Jun 2015 04:54:55 +0530</pubDate>
-        <link>/ios/beginner/2015/06/03/how-to-use-NSAttributedString.html</link>
-        <guid isPermaLink="true">/ios/beginner/2015/06/03/how-to-use-NSAttributedString.html</guid>
+        <pubDate>Tue, 02 Jun 2015 23:24:55 +0000</pubDate>
+        <link>/ios/beginner/2015/06/02/how-to-use-NSAttributedString.html</link>
+        <guid isPermaLink="true">/ios/beginner/2015/06/02/how-to-use-NSAttributedString.html</guid>
         
         
         <category>ios</category>
@@ -135,9 +180,9 @@
     &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commitAnimations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
-        <pubDate>Tue, 26 May 2015 04:54:55 +0530</pubDate>
-        <link>/ios/2015/05/26/move-uitextfield-up-down-with-keyboard.html</link>
-        <guid isPermaLink="true">/ios/2015/05/26/move-uitextfield-up-down-with-keyboard.html</guid>
+        <pubDate>Mon, 25 May 2015 23:24:55 +0000</pubDate>
+        <link>/ios/2015/05/25/move-uitextfield-up-down-with-keyboard.html</link>
+        <guid isPermaLink="true">/ios/2015/05/25/move-uitextfield-up-down-with-keyboard.html</guid>
         
         
         <category>ios</category>
@@ -172,9 +217,9 @@
        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
-        <pubDate>Sat, 16 May 2015 04:54:55 +0530</pubDate>
-        <link>/ios/2015/05/16/animate-autolayout-constraints.html</link>
-        <guid isPermaLink="true">/ios/2015/05/16/animate-autolayout-constraints.html</guid>
+        <pubDate>Fri, 15 May 2015 23:24:55 +0000</pubDate>
+        <link>/ios/2015/05/15/animate-autolayout-constraints.html</link>
+        <guid isPermaLink="true">/ios/2015/05/15/animate-autolayout-constraints.html</guid>
         
         
         <category>ios</category>
@@ -199,9 +244,9 @@
 
 &lt;p&gt;You might want to check features of &lt;a href=&quot;http://git-scm.com/about&quot;&gt;Git&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 12 Jan 2015 04:54:55 +0530</pubDate>
-        <link>/post/2015/01/12/introducing-version-control.html</link>
-        <guid isPermaLink="true">/post/2015/01/12/introducing-version-control.html</guid>
+        <pubDate>Sun, 11 Jan 2015 23:24:55 +0000</pubDate>
+        <link>/post/2015/01/11/introducing-version-control.html</link>
+        <guid isPermaLink="true">/post/2015/01/11/introducing-version-control.html</guid>
         
         
         <category>post</category>
@@ -209,7 +254,7 @@
       </item>
     
       <item>
-        <title>Its 03:23 AM, and I can&#39;t sleep. Okay! Let&#39;s crawl Instagram</title>
+        <title>Its 03:23 AM, and I can't sleep. Okay! Let's crawl Instagram</title>
         <description>&lt;p&gt;Today is Sunday, 21 Dec 2014, the time is 03:23 AM. Temperature in &lt;code&gt;Pune&lt;/code&gt; this time is about 6 - 7 °C. This is relatively a cold night and it is always easy to fall asleep in winter. But wait, I am standing in the balcony because I couldn’t sleep, I was having random thoughts which in turn made new thoughts.&lt;/p&gt;
 
 &lt;p&gt;As I can’t just stand in the balcony, I checked almost every social networking apps on my phone.&lt;/p&gt;
@@ -237,9 +282,9 @@
   &lt;li&gt;Sorry Instagram.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Sun, 21 Dec 2014 04:54:55 +0530</pubDate>
-        <link>/python/2014/12/21/crawl-insta.html</link>
-        <guid isPermaLink="true">/python/2014/12/21/crawl-insta.html</guid>
+        <pubDate>Sat, 20 Dec 2014 23:24:55 +0000</pubDate>
+        <link>/python/2014/12/20/crawl-insta.html</link>
+        <guid isPermaLink="true">/python/2014/12/20/crawl-insta.html</guid>
         
         
         <category>python</category>
@@ -295,9 +340,9 @@ It’s up to you to decide which optional methods you implement. If you implemen
 
 &lt;p&gt;Now your &lt;code&gt;ViewController&lt;/code&gt; object is the &lt;code&gt;delegate&lt;/code&gt; for the web view. As the web view does its thing, your &lt;code&gt;delegate&lt;/code&gt; receives messages on its progress.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 19 Dec 2014 04:54:55 +0530</pubDate>
-        <link>/ios/2014/12/19/ios-delegates.html</link>
-        <guid isPermaLink="true">/ios/2014/12/19/ios-delegates.html</guid>
+        <pubDate>Thu, 18 Dec 2014 23:24:55 +0000</pubDate>
+        <link>/ios/2014/12/18/ios-delegates.html</link>
+        <guid isPermaLink="true">/ios/2014/12/18/ios-delegates.html</guid>
         
         
         <category>ios</category>
@@ -431,9 +476,9 @@ It’s up to you to decide which optional methods you implement. If you implemen
 &lt;/tbody&gt;
 &lt;/table&gt;
 </description>
-        <pubDate>Fri, 28 Nov 2014 05:18:55 +0530</pubDate>
-        <link>/ios/2014/11/28/screen-resolution.html</link>
-        <guid isPermaLink="true">/ios/2014/11/28/screen-resolution.html</guid>
+        <pubDate>Thu, 27 Nov 2014 23:48:55 +0000</pubDate>
+        <link>/ios/2014/11/27/screen-resolution.html</link>
+        <guid isPermaLink="true">/ios/2014/11/27/screen-resolution.html</guid>
         
         
         <category>ios</category>
@@ -729,9 +774,9 @@ It’s up to you to decide which optional methods you implement. If you implemen
       &lt;/tbody&gt;
     &lt;/table&gt;
 </description>
-        <pubDate>Fri, 28 Nov 2014 04:54:55 +0530</pubDate>
-        <link>/ios/2014/11/28/ios-app-icons.html</link>
-        <guid isPermaLink="true">/ios/2014/11/28/ios-app-icons.html</guid>
+        <pubDate>Thu, 27 Nov 2014 23:24:55 +0000</pubDate>
+        <link>/ios/2014/11/27/ios-app-icons.html</link>
+        <guid isPermaLink="true">/ios/2014/11/27/ios-app-icons.html</guid>
         
         
         <category>ios</category>
