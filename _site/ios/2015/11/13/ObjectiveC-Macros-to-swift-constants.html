@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Animate AutoLayout Constraints!</title>
-  
-  
+  <title>Convert Objective C Macros To Swift Constants</title>
+  <meta name="description" content="Learn basic and advanced techniques to use complex Objective C macros in Swift.">
+  <meta name="keywords" content="convert, objective c, macros, swift, constants, closures, let, \#define, objc">
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/ios/2015/05/16/animate-autolayout-constraints.html">
+  <link rel="canonical" href="/ios/2015/11/13/ObjectiveC-Macros-to-swift-constants.html">
   <link rel="alternate" type="application/rss+xml" title="Vinay Jain" href="/feed.xml" />
 
   <style type="text/css">
@@ -53,6 +53,10 @@
         
 
           
+
+        
+
+          
           <a class="page-link" href="/beginners/">Beginner's Index</a>
           
 
@@ -60,10 +64,6 @@
 
           
           <a class="page-link" href="/categories/index.html">Categories</a>
-          
-
-        
-
           
 
         
@@ -84,36 +84,110 @@
       <div class="wrapper">
         <div class="post">
   <header class="post-header">
-    <h1 class="post-title">Animate AutoLayout Constraints!</h1>
-    <p class="post-meta">May 16, 2015</p>
+    <h1 class="post-title">Convert Objective C Macros To Swift Constants</h1>
+    <p class="post-meta">Nov 13, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>AutoLayout is one the most significant features of modern iOS development. It simplifed the app design and saved developers from managing the view frames for different orientations and different devices with different screen resolutions as well. If you are familiar with frontend Web development you will find it similar to a <code>Responsive Web Design</code>.</p>
+    <p><a href="">Objective C</a> inherits the capabilities and features of <a href="">C</a> so you can write C like <a href="">directives</a> or preprocessors and the Objective C compiler(<a href="">LLVM</a>) won’t complain.</p>
 
-<p>AutoLayout brings a lot of challenges with it, at first you may find it tough to get through. Managing the constraints without getting warnings is challenging!. <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/Introduction/Introduction.html" target="_blank">Apple’s documentation on AutoLayout</a> is great and it will surely help you understand AutoLayout properly as it did for me.</p>
+<p>#define is one such preprocessor which asks the compiler to replace the occurrence of a particular set of characters with another set of characters before compiling the source file. #define is also a great way of defining constants</p>
 
-<p>AutoLayout can be managed programmatically, constraints can be updated at runtime. Sometimes we need to animate these updates/changes to view frames. You cannot directly animate change in AutoLayout constraints as you do with <code>UIView</code> frame changes. However the change in code to animate constraint changes isn’t different for AutoLayout, you just need to call <code>[self.view layoutIfNeeded]</code> in the <code>animateWithDuration:</code> method before and after the a constraint is updated. Here is sample code I used to show/hide a <code>UISearchBar</code> with a button click.</p>
+<pre><code>#define REPLACE_ME @"With This String"
+</code></pre>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">toggleSearchBarVisibility</span><span class="p">{</span>
+<p>This is a simple Macro, just by looking at it you can understand what it does. At compile time every occurrence of <code>REPLACE_ME</code> will be replaced by <code>With This String</code>.</p>
 
-    <span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="o">!</span><span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">tableViewTopSpace</span><span class="p">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="nb">self</span><span class="p">.</span><span class="n">searchDisplayController</span><span class="p">.</span><span class="n">active</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
-        <span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">0.3</span>
-                         <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
-                             <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="n">layoutIfNeeded</span><span class="p">];</span>
-                         <span class="p">}</span> <span class="nl">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-       <span class="p">}</span>
-    <span class="k">else</span> <span class="p">{</span>
-        <span class="n">tableViewTopSpace</span><span class="p">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">44</span><span class="p">;</span>
-        <span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">0.3</span>
-                         <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
-                             <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="n">layoutIfNeeded</span><span class="p">];</span>
-                         <span class="p">}</span> <span class="nl">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-       <span class="p">}</span>
-    <span class="p">}</span></code></pre></div>
+<p>After the introduction of Swift Programming Language app developers started porting their apps to Swift’s modern syntax. The above macro can be easily ported to Swift with the <code>let</code> keyword.</p>
+
+<pre><code>let REPLACE_ME = "With This String"
+</code></pre>
+
+<p>The new syntax : its clean, its short and it isn’t scary. The code porting was easy. However, if you have worked on an app with thousands of source files(yes, .m files) then you may be used to see these type of complex macros.</p>
+
+<pre><code>#define DISPATCH_BACKGROUND_QUEUE(name,function) dispatch_queue_t backgroundQueue = dispatch_queue_create(name, 0); dispatch_async(backgroundQueue, ^{function});
+
+#define DISPATCH_MAIN_QUEUE(function) dispatch_async(dispatch_get_main_queue(), ^{function});
+</code></pre>
+
+<p>If you have seen macros like these and you are going to port these to Swift then read further.</p>
+
+<p>Lets see this code in action. I am considering the background queue.</p>
+
+<pre><code>DISPATCH_BACKGROUND_QUEUE("BackgroundQueue",
+		
+		// Do some background stuff like file / database read write
+		// Do some thing else
+		// May be print some logs to debug 
+	)
+</code></pre>
+
+<p>The code block above is a simpler way of writing this :</p>
+
+<pre><code>dispatch_queue_t backgroundQueue = dispatch_queue_create(name, 0); 
+dispatch_async(backgroundQueue, ^{
+		
+		// Do some background stuff like file / database read write
+		// Do some thing else
+		// May be print some logs to debug 
+	});
+</code></pre>
+
+<p>Just to keep you in sync, this block of code executes the code between <code>^{ }</code> in a background thread without blocking the main thread. You can read more about it by referring to <a href="">Grand Central Dispatch</a>.</p>
+
+<h3 id="porting-complex-objective-c-macros-to-swift-constants">Porting Complex Objective C macros to Swift Constants</h3>
+
+<p>If you are new to Swift and not comfortable in writing closures I would highly recommend the following references on Swift Closures</p>
+
+<ul>
+  <li><a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html">Swift Closures - Apple Docs</a></li>
+  <li><a href="http://fuckingclosuresyntax.com/">How Do I Declare a Closure in Swift?</a></li>
+  <li><a href="http://fuckingswiftblocksyntax.com/">Swift closures and functions</a></li>
+</ul>
+
+<p>If you have gone through the following referrence I can expect you knowing that the complex macro in Objective C can be ported to Swift with the help of functions. I will try to make it as simple as I can by porting it word by word.</p>
+
+<pre><code>#define DISPATCH_BACKGROUND_QUEUE(name,function) dispatch_queue_t backgroundQueue = dispatch_queue_create(name, 0); 									dispatch_async(backgroundQueue, ^{function});
+</code></pre>
+
+<p>ObjC :</p>
+
+<pre><code>#define DISPATCH_BACKGROUND_QUEUE
+</code></pre>
+
+<p>Swift :</p>
+
+<pre><code>func DISPATCH_BACKGROUND_QUEUE
+</code></pre>
+
+<p>The macro accepts two parameters one is a string and another is a code block. In Swift we can easily pass a block of code to another function with the help of Closures.</p>
+
+<p>ObjC :</p>
+
+<pre><code>#define DISPATCH_BACKGROUND_QUEUE(name,function)
+</code></pre>
+
+<p>Swift :</p>
+
+<pre><code>func DISPATCH_BACKGROUND_QUEUE(queueName : String, codeBlock:()-&gt;())
+</code></pre>
+
+<p>A Swift function with two parameters, as simple as that.</p>
+
+<p>ObjC :</p>
+
+<pre><code>#define DISPATCH_BACKGROUND_QUEUE(name,function) dispatch_queue_t backgroundQueue = dispatch_queue_create(name, 0); 																	dispatch_async(backgroundQueue, ^{function});
+</code></pre>
+
+<p>Swift :</p>
+
+<pre><code>func BGQueue(codeBlock:()-&gt;(), queueName : String){
+    let queue = dispatch_queue_create(queueName, nil)
+    dispatch_async(queue) { () -&gt; Void in
+        codeBlock()
+    }
+}
+</code></pre>
 
    
   </article>

@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Screen Resolution of iDevices</title>
+  <title>Animate AutoLayout Constraints!</title>
   
   
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/ios/2014/11/28/screen-resolution.html">
+  <link rel="canonical" href="/ios/2015/05/15/animate-autolayout-constraints.html">
   <link rel="alternate" type="application/rss+xml" title="Vinay Jain" href="/feed.xml" />
 
   <style type="text/css">
@@ -53,6 +53,10 @@
         
 
           
+
+        
+
+          
           <a class="page-link" href="/beginners/">Beginner's Index</a>
           
 
@@ -60,10 +64,6 @@
 
           
           <a class="page-link" href="/categories/index.html">Categories</a>
-          
-
-        
-
           
 
         
@@ -84,135 +84,36 @@
       <div class="wrapper">
         <div class="post">
   <header class="post-header">
-    <h1 class="post-title">Screen Resolution of iDevices</h1>
-    <p class="post-meta">Nov 28, 2014</p>
+    <h1 class="post-title">Animate AutoLayout Constraints!</h1>
+    <p class="post-meta">May 15, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>Any time a new handheld device is released by Apple, developers face issues of managing their views as per the device screen. This post will help you know the <code>Screen Resolution</code> of various <code>Apple Handheld Devices</code>.</p>
+    <p>AutoLayout is one the most significant features of modern iOS development. It simplifed the app design and saved developers from managing the view frames for different orientations and different devices with different screen resolutions as well. If you are familiar with frontend Web development you will find it similar to a <code>Responsive Web Design</code>.</p>
 
-<table class="table table-striped table-bordered">
-	<thead>
-		<tr>
-			<th>Device</th>
-			<th>Resolution(pixels)</th>
-		</tr>
-	</thead>
-<tbody>
-<tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-<tr><td style="font-weight:bold;" colspan="2"><em>iPhone</em></td></tr>
-  <tr>
-    <td>iPhone 6 Plus</td>
-    <td>1920 x 1080</td>
-  </tr>
-  <tr>
-    <td>iPhone 6</td>
-    <td>1334 x 750</td>
-  </tr>
-  <tr>
-    <td>iPhone 5S</td>
-    <td>1136 x 640</td>
-  </tr>
-  <tr>
-    <td>iPhone 5C</td>
-    <td>1136 x 640</td>
-  </tr>
-  <tr>
-    <td>iPhone 5</td>
-    <td>1136 x 640</td>
-  </tr>
-  <tr>
-    <td>iPhone 4S</td>
-    <td>960 × 640</td>
-  </tr>
-  <tr>
-    <td>iPhone 4G</td>
-    <td>960 × 640</td>
-  </tr>
-  <tr>
-    <td>iPhone 3GS</td>
-    <td>480 × 320</td>
-  </tr>
-  <tr>
-    <td>iPhone 3G</td>
-    <td>480 × 320</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-<tr><td style="font-weight:bold;" colspan="2"><em>iPad</em></td></tr>
-  <tr>
-    <td>iPad Air 2</td>
-    <td>2048 x 1536</td>
-  </tr>
-  <tr>
-    <td>iPad Air</td>
-    <td>2048 x 1536</td>
-  </tr>
-  <tr>
-    <td>iPad 4<sup>th</sup> Generation</td>
-    <td>2048 x 1536</td>
-  </tr>
-  <tr>
-    <td>iPad 3<sup>rd</sup> Generation</td>
-    <td>2048 x 1536</td>
-  </tr>
-  <tr>
-    <td>iPad 2<sup>nd</sup> Generation</td>
-    <td>1024 x 768</td>
-  </tr>
-  <tr>
-    <td>iPad 1<sup>st</sup> Generation</td>
-    <td>960 × 640</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-<tr><td style="font-weight:bold;" colspan="2"><em>iPad Mini</em></td></tr>
-  <tr>
-    <td>iPad Mini 3<sup>rd</sup> Generation</td>
-    <td>2048 × 1536</td>
-  </tr>
-  <tr>
-    <td>iPad Mini 2<sup>nd</sup> Generation</td>
-    <td>2048 × 1536</td>
-  </tr>
-  <tr>
-    <td>iPad Mini 1<sup>st</sup> Generation</td>
-    <td>1024 × 768</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr><td style="font-weight:bold;" colspan="2"><em>iPod Touch</em></td></tr>
-  <tr>
-    <td>iPod 5<sup>th</sup> Generation</td>
-    <td>1136 x 640</td>
-  </tr>
-  <tr>
-    <td>iPod 4<sup>th</sup> Generation</td>
-    <td>960 x 640</td>
-  </tr>
-  <tr>
-    <td>iPod 3<sup>rd</sup> Generation</td>
-    <td>480 × 320</td>
-  </tr>
-  <tr>
-    <td>iPod 2<sup>nd</sup> Generation</td>
-    <td>480 × 320</td>
-  </tr>
-  <tr>
-    <td>iPod 1<sup>st</sup> Generation</td>
-    <td>480 × 320</td>
-  </tr>  
-</tbody>
-</table>
+<p>AutoLayout brings a lot of challenges with it, at first you may find it tough to get through. Managing the constraints without getting warnings is challenging!. <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/Introduction/Introduction.html" target="_blank">Apple’s documentation on AutoLayout</a> is great and it will surely help you understand AutoLayout properly as it did for me.</p>
+
+<p>AutoLayout can be managed programmatically, constraints can be updated at runtime. Sometimes we need to animate these updates/changes to view frames. You cannot directly animate change in AutoLayout constraints as you do with <code>UIView</code> frame changes. However the change in code to animate constraint changes isn’t different for AutoLayout, you just need to call <code>[self.view layoutIfNeeded]</code> in the <code>animateWithDuration:</code> method before and after the a constraint is updated. Here is sample code I used to show/hide a <code>UISearchBar</code> with a button click.</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">toggleSearchBarVisibility</span><span class="p">{</span>
+
+    <span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="o">!</span><span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">tableViewTopSpace</span><span class="p">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">searchDisplayController</span><span class="p">.</span><span class="n">active</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
+        <span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">0.3</span>
+                         <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+                             <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="n">layoutIfNeeded</span><span class="p">];</span>
+                         <span class="p">}</span> <span class="nl">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+       <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="n">tableViewTopSpace</span><span class="p">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">44</span><span class="p">;</span>
+        <span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">0.3</span>
+                         <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+                             <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="n">layoutIfNeeded</span><span class="p">];</span>
+                         <span class="p">}</span> <span class="nl">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
+       <span class="p">}</span>
+    <span class="p">}</span></code></pre></div>
 
    
   </article>

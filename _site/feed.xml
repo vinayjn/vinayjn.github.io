@@ -6,9 +6,120 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 07 Aug 2015 00:09:03 +0530</pubDate>
-    <lastBuildDate>Fri, 07 Aug 2015 00:09:03 +0530</lastBuildDate>
+    <pubDate>Thu, 12 Nov 2015 21:38:46 +0000</pubDate>
+    <lastBuildDate>Thu, 12 Nov 2015 21:38:46 +0000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Convert Objective C Macros To Swift Constants</title>
+        <description>&lt;p&gt;&lt;a href=&quot;&quot;&gt;Objective C&lt;/a&gt; inherits the capabilities and features of &lt;a href=&quot;&quot;&gt;C&lt;/a&gt; so you can write C like &lt;a href=&quot;&quot;&gt;directives&lt;/a&gt; or preprocessors and the Objective C compiler(&lt;a href=&quot;&quot;&gt;LLVM&lt;/a&gt;) won’t complain.&lt;/p&gt;
+
+&lt;p&gt;#define is one such preprocessor which asks the compiler to replace the occurrence of a particular set of characters with another set of characters before compiling the source file. #define is also a great way of defining constants&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#define REPLACE_ME @&quot;With This String&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is a simple Macro, just by looking at it you can understand what it does. At compile time every occurrence of &lt;code&gt;REPLACE_ME&lt;/code&gt; will be replaced by &lt;code&gt;With This String&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;After the introduction of Swift Programming Language app developers started porting their apps to Swift’s modern syntax. The above macro can be easily ported to Swift with the &lt;code&gt;let&lt;/code&gt; keyword.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;let REPLACE_ME = &quot;With This String&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The new syntax : its clean, its short and it isn’t scary. The code porting was easy. However, if you have worked on an app with thousands of source files(yes, .m files) then you may be used to see these type of complex macros.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#define DISPATCH_BACKGROUND_QUEUE(name,function) dispatch_queue_t backgroundQueue = dispatch_queue_create(name, 0); dispatch_async(backgroundQueue, ^{function});
+
+#define DISPATCH_MAIN_QUEUE(function) dispatch_async(dispatch_get_main_queue(), ^{function});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you have seen macros like these and you are going to port these to Swift then read further.&lt;/p&gt;
+
+&lt;p&gt;Lets see this code in action. I am considering the background queue.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;DISPATCH_BACKGROUND_QUEUE(&quot;BackgroundQueue&quot;,
+		
+		// Do some background stuff like file / database read write
+		// Do some thing else
+		// May be print some logs to debug 
+	)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The code block above is a simpler way of writing this :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;dispatch_queue_t backgroundQueue = dispatch_queue_create(name, 0); 
+dispatch_async(backgroundQueue, ^{
+		
+		// Do some background stuff like file / database read write
+		// Do some thing else
+		// May be print some logs to debug 
+	});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Just to keep you in sync, this block of code executes the code between &lt;code&gt;^{ }&lt;/code&gt; in a background thread without blocking the main thread. You can read more about it by referring to &lt;a href=&quot;&quot;&gt;Grand Central Dispatch&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;porting-complex-objective-c-macros-to-swift-constants&quot;&gt;Porting Complex Objective C macros to Swift Constants&lt;/h3&gt;
+
+&lt;p&gt;If you are new to Swift and not comfortable in writing closures I would highly recommend the following references on Swift Closures&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html&quot;&gt;Swift Closures - Apple Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://fuckingclosuresyntax.com/&quot;&gt;How Do I Declare a Closure in Swift?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://fuckingswiftblocksyntax.com/&quot;&gt;Swift closures and functions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you have gone through the following referrence I can expect you knowing that the complex macro in Objective C can be ported to Swift with the help of functions. I will try to make it as simple as I can by porting it word by word.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#define DISPATCH_BACKGROUND_QUEUE(name,function) dispatch_queue_t backgroundQueue = dispatch_queue_create(name, 0); 									dispatch_async(backgroundQueue, ^{function});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ObjC :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#define DISPATCH_BACKGROUND_QUEUE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func DISPATCH_BACKGROUND_QUEUE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The macro accepts two parameters one is a string and another is a code block. In Swift we can easily pass a block of code to another function with the help of Closures.&lt;/p&gt;
+
+&lt;p&gt;ObjC :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#define DISPATCH_BACKGROUND_QUEUE(name,function)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func DISPATCH_BACKGROUND_QUEUE(queueName : String, codeBlock:()-&amp;gt;())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A Swift function with two parameters, as simple as that.&lt;/p&gt;
+
+&lt;p&gt;ObjC :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#define DISPATCH_BACKGROUND_QUEUE(name,function) dispatch_queue_t backgroundQueue = dispatch_queue_create(name, 0); 																	dispatch_async(backgroundQueue, ^{function});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func BGQueue(codeBlock:()-&amp;gt;(), queueName : String){
+    let queue = dispatch_queue_create(queueName, nil)
+    dispatch_async(queue) { () -&amp;gt; Void in
+        codeBlock()
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+        <pubDate>Fri, 13 Nov 2015 23:24:55 +0000</pubDate>
+        <link>/ios/2015/11/13/ObjectiveC-Macros-to-swift-constants.html</link>
+        <guid isPermaLink="true">/ios/2015/11/13/ObjectiveC-Macros-to-swift-constants.html</guid>
+        
+        
+        <category>ios</category>
+        
+      </item>
     
       <item>
         <title>Using NSAttributedString</title>
@@ -87,9 +198,9 @@
 
 &lt;p&gt;You can put &lt;code&gt;fontName&lt;/code&gt; of your choice for creating attributed &lt;code&gt;NSStrings&lt;/code&gt;&lt;/p&gt;
 </description>
-        <pubDate>Wed, 03 Jun 2015 04:54:55 +0530</pubDate>
-        <link>/ios/beginner/2015/06/03/how-to-use-NSAttributedString.html</link>
-        <guid isPermaLink="true">/ios/beginner/2015/06/03/how-to-use-NSAttributedString.html</guid>
+        <pubDate>Tue, 02 Jun 2015 23:24:55 +0000</pubDate>
+        <link>/ios/beginner/2015/06/02/how-to-use-NSAttributedString.html</link>
+        <guid isPermaLink="true">/ios/beginner/2015/06/02/how-to-use-NSAttributedString.html</guid>
         
         
         <category>ios</category>
@@ -135,9 +246,9 @@
     &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commitAnimations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
-        <pubDate>Tue, 26 May 2015 04:54:55 +0530</pubDate>
-        <link>/ios/2015/05/26/move-uitextfield-up-down-with-keyboard.html</link>
-        <guid isPermaLink="true">/ios/2015/05/26/move-uitextfield-up-down-with-keyboard.html</guid>
+        <pubDate>Mon, 25 May 2015 23:24:55 +0000</pubDate>
+        <link>/ios/2015/05/25/move-uitextfield-up-down-with-keyboard.html</link>
+        <guid isPermaLink="true">/ios/2015/05/25/move-uitextfield-up-down-with-keyboard.html</guid>
         
         
         <category>ios</category>
@@ -172,9 +283,9 @@
        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
-        <pubDate>Sat, 16 May 2015 04:54:55 +0530</pubDate>
-        <link>/ios/2015/05/16/animate-autolayout-constraints.html</link>
-        <guid isPermaLink="true">/ios/2015/05/16/animate-autolayout-constraints.html</guid>
+        <pubDate>Fri, 15 May 2015 23:24:55 +0000</pubDate>
+        <link>/ios/2015/05/15/animate-autolayout-constraints.html</link>
+        <guid isPermaLink="true">/ios/2015/05/15/animate-autolayout-constraints.html</guid>
         
         
         <category>ios</category>
@@ -199,9 +310,9 @@
 
 &lt;p&gt;You might want to check features of &lt;a href=&quot;http://git-scm.com/about&quot;&gt;Git&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Mon, 12 Jan 2015 04:54:55 +0530</pubDate>
-        <link>/post/2015/01/12/introducing-version-control.html</link>
-        <guid isPermaLink="true">/post/2015/01/12/introducing-version-control.html</guid>
+        <pubDate>Sun, 11 Jan 2015 23:24:55 +0000</pubDate>
+        <link>/post/2015/01/11/introducing-version-control.html</link>
+        <guid isPermaLink="true">/post/2015/01/11/introducing-version-control.html</guid>
         
         
         <category>post</category>
@@ -209,7 +320,7 @@
       </item>
     
       <item>
-        <title>Its 03:23 AM, and I can&#39;t sleep. Okay! Let&#39;s crawl Instagram</title>
+        <title>Its 03:23 AM, and I can't sleep. Okay! Let's crawl Instagram</title>
         <description>&lt;p&gt;Today is Sunday, 21 Dec 2014, the time is 03:23 AM. Temperature in &lt;code&gt;Pune&lt;/code&gt; this time is about 6 - 7 °C. This is relatively a cold night and it is always easy to fall asleep in winter. But wait, I am standing in the balcony because I couldn’t sleep, I was having random thoughts which in turn made new thoughts.&lt;/p&gt;
 
 &lt;p&gt;As I can’t just stand in the balcony, I checked almost every social networking apps on my phone.&lt;/p&gt;
@@ -237,9 +348,9 @@
   &lt;li&gt;Sorry Instagram.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Sun, 21 Dec 2014 04:54:55 +0530</pubDate>
-        <link>/python/2014/12/21/crawl-insta.html</link>
-        <guid isPermaLink="true">/python/2014/12/21/crawl-insta.html</guid>
+        <pubDate>Sat, 20 Dec 2014 23:24:55 +0000</pubDate>
+        <link>/python/2014/12/20/crawl-insta.html</link>
+        <guid isPermaLink="true">/python/2014/12/20/crawl-insta.html</guid>
         
         
         <category>python</category>
@@ -295,9 +406,9 @@ It’s up to you to decide which optional methods you implement. If you implemen
 
 &lt;p&gt;Now your &lt;code&gt;ViewController&lt;/code&gt; object is the &lt;code&gt;delegate&lt;/code&gt; for the web view. As the web view does its thing, your &lt;code&gt;delegate&lt;/code&gt; receives messages on its progress.&lt;/p&gt;
 </description>
-        <pubDate>Fri, 19 Dec 2014 04:54:55 +0530</pubDate>
-        <link>/ios/2014/12/19/ios-delegates.html</link>
-        <guid isPermaLink="true">/ios/2014/12/19/ios-delegates.html</guid>
+        <pubDate>Thu, 18 Dec 2014 23:24:55 +0000</pubDate>
+        <link>/ios/2014/12/18/ios-delegates.html</link>
+        <guid isPermaLink="true">/ios/2014/12/18/ios-delegates.html</guid>
         
         
         <category>ios</category>
@@ -431,9 +542,9 @@ It’s up to you to decide which optional methods you implement. If you implemen
 &lt;/tbody&gt;
 &lt;/table&gt;
 </description>
-        <pubDate>Fri, 28 Nov 2014 05:18:55 +0530</pubDate>
-        <link>/ios/2014/11/28/screen-resolution.html</link>
-        <guid isPermaLink="true">/ios/2014/11/28/screen-resolution.html</guid>
+        <pubDate>Thu, 27 Nov 2014 23:48:55 +0000</pubDate>
+        <link>/ios/2014/11/27/screen-resolution.html</link>
+        <guid isPermaLink="true">/ios/2014/11/27/screen-resolution.html</guid>
         
         
         <category>ios</category>
@@ -729,9 +840,9 @@ It’s up to you to decide which optional methods you implement. If you implemen
       &lt;/tbody&gt;
     &lt;/table&gt;
 </description>
-        <pubDate>Fri, 28 Nov 2014 04:54:55 +0530</pubDate>
-        <link>/ios/2014/11/28/ios-app-icons.html</link>
-        <guid isPermaLink="true">/ios/2014/11/28/ios-app-icons.html</guid>
+        <pubDate>Thu, 27 Nov 2014 23:24:55 +0000</pubDate>
+        <link>/ios/2014/11/27/ios-app-icons.html</link>
+        <guid isPermaLink="true">/ios/2014/11/27/ios-app-icons.html</guid>
         
         
         <category>ios</category>
