@@ -12,7 +12,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/ios/2015/05/25/move-uitextfield-up-down-with-keyboard.html">
+  <link rel="canonical" href="/ios/2015/05/26/move-uitextfield-up-down-with-keyboard.html">
   <link rel="alternate" type="application/rss+xml" title="Vinay Jain" href="/feed.xml" />
 
   <style type="text/css">
@@ -53,10 +53,6 @@
         
 
           
-
-        
-
-          
           <a class="page-link" href="/beginners/">Beginner's Index</a>
           
 
@@ -64,6 +60,10 @@
 
           
           <a class="page-link" href="/categories/index.html">Categories</a>
+          
+
+        
+
           
 
         
@@ -85,7 +85,7 @@
         <div class="post">
   <header class="post-header">
     <h1 class="post-title">Move UITextField Up/Down with Keyboard</h1>
-    <p class="post-meta">May 25, 2015</p>
+    <p class="post-meta">May 26, 2015</p>
   </header>
 
   <article class="post-content">
@@ -95,6 +95,8 @@
 <center>
 <iframe width="320" height="590" src="https://www.youtube.com/embed/ADLdPehMUYc" frameborder="0" allowfullscreen=""></iframe>
 </center>
+
+<h3 id="objective-c-code">Objective C Code</h3>
 
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">textFieldDidBeginEditing:</span><span class="p">(</span><span class="bp">UITextField</span> <span class="o">*</span><span class="p">)</span><span class="nv">textField</span><span class="p">{</span>
     
@@ -122,6 +124,36 @@
     <span class="p">[</span><span class="bp">UIView</span> <span class="nl">setAnimationDuration</span><span class="p">:</span> <span class="n">movementDuration</span><span class="p">];</span>
     <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectOffset</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">movement</span><span class="p">);</span>
     <span class="p">[</span><span class="bp">UIView</span> <span class="n">commitAnimations</span><span class="p">];</span>
+<span class="p">}</span></code></pre></div>
+
+<h3 id="swift-code">Swift Code</h3>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">animateTextField</span><span class="p">(</span><span class="nl">textField</span><span class="p">:</span> <span class="bp">UITextField</span><span class="p">,</span> <span class="nl">up</span><span class="p">:</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">withOffset</span> <span class="nl">offset</span><span class="p">:</span><span class="n">CGFloat</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">let</span> <span class="nl">movementDistance</span> <span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="o">-</span><span class="n">Int</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>
+    <span class="k">let</span> <span class="nl">movementDuration</span> <span class="p">:</span> <span class="n">Double</span> <span class="o">=</span> <span class="mf">0.4</span>
+    <span class="k">let</span> <span class="nl">movement</span> <span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="p">(</span><span class="n">up</span> <span class="o">?</span> <span class="nl">movementDistance</span> <span class="p">:</span> <span class="o">-</span><span class="n">movementDistance</span><span class="p">)</span>
+    <span class="bp">UIView</span><span class="p">.</span><span class="n">beginAnimations</span><span class="p">(</span><span class="s">&quot;animateTextField&quot;</span><span class="p">,</span> <span class="nl">context</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span>
+    <span class="bp">UIView</span><span class="p">.</span><span class="n">setAnimationBeginsFromCurrentState</span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
+    <span class="bp">UIView</span><span class="p">.</span><span class="n">setAnimationDuration</span><span class="p">(</span><span class="n">movementDuration</span><span class="p">)</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">CGRectOffset</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span><span class="p">.</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CGFloat</span><span class="p">(</span><span class="n">movement</span><span class="p">))</span>
+    <span class="bp">UIView</span><span class="p">.</span><span class="n">commitAnimations</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="nf">textFieldDidBeginEditing</span><span class="p">(</span><span class="nl">textField</span><span class="p">:</span> <span class="bp">UITextField</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">animateTextField</span><span class="p">(</span><span class="n">textField</span><span class="p">,</span> <span class="nl">up</span><span class="p">:</span> <span class="nb">true</span><span class="p">,</span> <span class="nl">withOffset</span><span class="p">:</span> <span class="n">textField</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">origin</span><span class="p">.</span><span class="n">y</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="nf">textFieldDidEndEditing</span><span class="p">(</span><span class="nl">textField</span><span class="p">:</span> <span class="bp">UITextField</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="nb">self</span><span class="p">.</span><span class="n">animateTextField</span><span class="p">(</span><span class="n">textField</span><span class="p">,</span> <span class="nl">up</span><span class="p">:</span> <span class="nb">false</span><span class="p">,</span> <span class="nl">withOffset</span><span class="p">:</span> <span class="n">textField</span><span class="p">.</span><span class="n">frame</span><span class="p">.</span><span class="n">origin</span><span class="p">.</span><span class="n">y</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">textFieldShouldReturn</span><span class="p">(</span><span class="nl">textField</span><span class="p">:</span> <span class="bp">UITextField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> 
+<span class="p">{</span>
+    <span class="n">textField</span><span class="p">.</span><span class="n">resignFirstResponder</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nb">true</span>
 <span class="p">}</span></code></pre></div>
 
    

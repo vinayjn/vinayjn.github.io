@@ -6,8 +6,8 @@
 </description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Nov 2015 21:38:46 +0000</pubDate>
-    <lastBuildDate>Thu, 12 Nov 2015 21:38:46 +0000</lastBuildDate>
+    <pubDate>Tue, 01 Dec 2015 20:02:27 +0530</pubDate>
+    <lastBuildDate>Tue, 01 Dec 2015 20:02:27 +0530</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -112,9 +112,9 @@ dispatch_async(backgroundQueue, ^{
 }
 &lt;/code&gt;&lt;/pre&gt;
 </description>
-        <pubDate>Fri, 13 Nov 2015 23:24:55 +0000</pubDate>
-        <link>/ios/2015/11/13/ObjectiveC-Macros-to-swift-constants.html</link>
-        <guid isPermaLink="true">/ios/2015/11/13/ObjectiveC-Macros-to-swift-constants.html</guid>
+        <pubDate>Sat, 14 Nov 2015 04:54:55 +0530</pubDate>
+        <link>/ios/2015/11/14/ObjectiveC-Macros-to-swift-constants.html</link>
+        <guid isPermaLink="true">/ios/2015/11/14/ObjectiveC-Macros-to-swift-constants.html</guid>
         
         
         <category>ios</category>
@@ -198,9 +198,9 @@ dispatch_async(backgroundQueue, ^{
 
 &lt;p&gt;You can put &lt;code&gt;fontName&lt;/code&gt; of your choice for creating attributed &lt;code&gt;NSStrings&lt;/code&gt;&lt;/p&gt;
 </description>
-        <pubDate>Tue, 02 Jun 2015 23:24:55 +0000</pubDate>
-        <link>/ios/beginner/2015/06/02/how-to-use-NSAttributedString.html</link>
-        <guid isPermaLink="true">/ios/beginner/2015/06/02/how-to-use-NSAttributedString.html</guid>
+        <pubDate>Wed, 03 Jun 2015 04:54:55 +0530</pubDate>
+        <link>/ios/beginner/2015/06/03/how-to-use-NSAttributedString.html</link>
+        <guid isPermaLink="true">/ios/beginner/2015/06/03/how-to-use-NSAttributedString.html</guid>
         
         
         <category>ios</category>
@@ -217,6 +217,8 @@ dispatch_async(backgroundQueue, ^{
 &lt;center&gt;
 &lt;iframe width=&quot;320&quot; height=&quot;590&quot; src=&quot;https://www.youtube.com/embed/ADLdPehMUYc&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 &lt;/center&gt;
+
+&lt;h3 id=&quot;objective-c-code&quot;&gt;Objective C Code&lt;/h3&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;p&quot;&gt;-(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;textFieldDidBeginEditing:&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;UITextField&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;textField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     
@@ -245,10 +247,40 @@ dispatch_async(backgroundQueue, ^{
     &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frame&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CGRectOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;movement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commitAnimations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;swift-code&quot;&gt;Swift Code&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;animateTextField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;textField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;UITextField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;up&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Bool&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;withOffset&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CGFloat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;movementDistance&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;offset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;movementDuration&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Double&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;movement&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;up&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;movementDistance&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movementDistance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;beginAnimations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;animateTextField&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setAnimationBeginsFromCurrentState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;setAnimationDuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movementDuration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frame&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CGRectOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CGFloat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;bp&quot;&gt;UIView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;commitAnimations&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;textFieldDidBeginEditing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;textField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;UITextField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;animateTextField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;up&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;withOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;origin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;textFieldDidEndEditing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;textField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;UITextField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;animateTextField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;textField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;up&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;withOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;origin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textFieldShouldReturn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;textField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;UITextField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Bool&lt;/span&gt; 
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;textField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;resignFirstResponder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
-        <pubDate>Mon, 25 May 2015 23:24:55 +0000</pubDate>
-        <link>/ios/2015/05/25/move-uitextfield-up-down-with-keyboard.html</link>
-        <guid isPermaLink="true">/ios/2015/05/25/move-uitextfield-up-down-with-keyboard.html</guid>
+        <pubDate>Tue, 26 May 2015 04:54:55 +0530</pubDate>
+        <link>/ios/2015/05/26/move-uitextfield-up-down-with-keyboard.html</link>
+        <guid isPermaLink="true">/ios/2015/05/26/move-uitextfield-up-down-with-keyboard.html</guid>
         
         
         <category>ios</category>
@@ -283,9 +315,9 @@ dispatch_async(backgroundQueue, ^{
        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 </description>
-        <pubDate>Fri, 15 May 2015 23:24:55 +0000</pubDate>
-        <link>/ios/2015/05/15/animate-autolayout-constraints.html</link>
-        <guid isPermaLink="true">/ios/2015/05/15/animate-autolayout-constraints.html</guid>
+        <pubDate>Sat, 16 May 2015 04:54:55 +0530</pubDate>
+        <link>/ios/2015/05/16/animate-autolayout-constraints.html</link>
+        <guid isPermaLink="true">/ios/2015/05/16/animate-autolayout-constraints.html</guid>
         
         
         <category>ios</category>
@@ -310,9 +342,9 @@ dispatch_async(backgroundQueue, ^{
 
 &lt;p&gt;You might want to check features of &lt;a href=&quot;http://git-scm.com/about&quot;&gt;Git&lt;/a&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Sun, 11 Jan 2015 23:24:55 +0000</pubDate>
-        <link>/post/2015/01/11/introducing-version-control.html</link>
-        <guid isPermaLink="true">/post/2015/01/11/introducing-version-control.html</guid>
+        <pubDate>Mon, 12 Jan 2015 04:54:55 +0530</pubDate>
+        <link>/post/2015/01/12/introducing-version-control.html</link>
+        <guid isPermaLink="true">/post/2015/01/12/introducing-version-control.html</guid>
         
         
         <category>post</category>
@@ -320,7 +352,7 @@ dispatch_async(backgroundQueue, ^{
       </item>
     
       <item>
-        <title>Its 03:23 AM, and I can't sleep. Okay! Let's crawl Instagram</title>
+        <title>Its 03:23 AM, and I can&#39;t sleep. Okay! Let&#39;s crawl Instagram</title>
         <description>&lt;p&gt;Today is Sunday, 21 Dec 2014, the time is 03:23 AM. Temperature in &lt;code&gt;Pune&lt;/code&gt; this time is about 6 - 7 °C. This is relatively a cold night and it is always easy to fall asleep in winter. But wait, I am standing in the balcony because I couldn’t sleep, I was having random thoughts which in turn made new thoughts.&lt;/p&gt;
 
 &lt;p&gt;As I can’t just stand in the balcony, I checked almost every social networking apps on my phone.&lt;/p&gt;
@@ -348,9 +380,9 @@ dispatch_async(backgroundQueue, ^{
   &lt;li&gt;Sorry Instagram.&lt;/li&gt;
 &lt;/ul&gt;
 </description>
-        <pubDate>Sat, 20 Dec 2014 23:24:55 +0000</pubDate>
-        <link>/python/2014/12/20/crawl-insta.html</link>
-        <guid isPermaLink="true">/python/2014/12/20/crawl-insta.html</guid>
+        <pubDate>Sun, 21 Dec 2014 04:54:55 +0530</pubDate>
+        <link>/python/2014/12/21/crawl-insta.html</link>
+        <guid isPermaLink="true">/python/2014/12/21/crawl-insta.html</guid>
         
         
         <category>python</category>
@@ -406,9 +438,9 @@ It’s up to you to decide which optional methods you implement. If you implemen
 
 &lt;p&gt;Now your &lt;code&gt;ViewController&lt;/code&gt; object is the &lt;code&gt;delegate&lt;/code&gt; for the web view. As the web view does its thing, your &lt;code&gt;delegate&lt;/code&gt; receives messages on its progress.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 18 Dec 2014 23:24:55 +0000</pubDate>
-        <link>/ios/2014/12/18/ios-delegates.html</link>
-        <guid isPermaLink="true">/ios/2014/12/18/ios-delegates.html</guid>
+        <pubDate>Fri, 19 Dec 2014 04:54:55 +0530</pubDate>
+        <link>/ios/2014/12/19/ios-delegates.html</link>
+        <guid isPermaLink="true">/ios/2014/12/19/ios-delegates.html</guid>
         
         
         <category>ios</category>
@@ -542,9 +574,9 @@ It’s up to you to decide which optional methods you implement. If you implemen
 &lt;/tbody&gt;
 &lt;/table&gt;
 </description>
-        <pubDate>Thu, 27 Nov 2014 23:48:55 +0000</pubDate>
-        <link>/ios/2014/11/27/screen-resolution.html</link>
-        <guid isPermaLink="true">/ios/2014/11/27/screen-resolution.html</guid>
+        <pubDate>Fri, 28 Nov 2014 05:18:55 +0530</pubDate>
+        <link>/ios/2014/11/28/screen-resolution.html</link>
+        <guid isPermaLink="true">/ios/2014/11/28/screen-resolution.html</guid>
         
         
         <category>ios</category>
@@ -840,9 +872,9 @@ It’s up to you to decide which optional methods you implement. If you implemen
       &lt;/tbody&gt;
     &lt;/table&gt;
 </description>
-        <pubDate>Thu, 27 Nov 2014 23:24:55 +0000</pubDate>
-        <link>/ios/2014/11/27/ios-app-icons.html</link>
-        <guid isPermaLink="true">/ios/2014/11/27/ios-app-icons.html</guid>
+        <pubDate>Fri, 28 Nov 2014 04:54:55 +0530</pubDate>
+        <link>/ios/2014/11/28/ios-app-icons.html</link>
+        <guid isPermaLink="true">/ios/2014/11/28/ios-app-icons.html</guid>
         
         
         <category>ios</category>

@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Its 03:23 AM, and I can't sleep. Okay! Let's crawl Instagram</title>
+  <title>Bringing out a Change is Difficult</title>
   
   
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/python/2014/12/20/crawl-insta.html">
+  <link rel="canonical" href="/post/2015/01/12/introducing-version-control.html">
   <link rel="alternate" type="application/rss+xml" title="Vinay Jain" href="/feed.xml" />
 
   <style type="text/css">
@@ -53,10 +53,6 @@
         
 
           
-
-        
-
-          
           <a class="page-link" href="/beginners/">Beginner's Index</a>
           
 
@@ -64,6 +60,10 @@
 
           
           <a class="page-link" href="/categories/index.html">Categories</a>
+          
+
+        
+
           
 
         
@@ -84,37 +84,26 @@
       <div class="wrapper">
         <div class="post">
   <header class="post-header">
-    <h1 class="post-title">Its 03:23 AM, and I can't sleep. Okay! Let's crawl Instagram</h1>
-    <p class="post-meta">Dec 20, 2014</p>
+    <h1 class="post-title">Bringing out a Change is Difficult</h1>
+    <p class="post-meta">Jan 12, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>Today is Sunday, 21 Dec 2014, the time is 03:23 AM. Temperature in <code>Pune</code> this time is about 6 - 7 °C. This is relatively a cold night and it is always easy to fall asleep in winter. But wait, I am standing in the balcony because I couldn’t sleep, I was having random thoughts which in turn made new thoughts.</p>
+    <p><strong>Introducing Version Control</strong></p>
 
-<p>As I can’t just stand in the balcony, I checked almost every social networking apps on my phone.</p>
+<p>I am working in a startup, I develop apps for Apple Handheld Devices. My designation is cool, I am an iOS Application Developer. Compared to the Big Names in IT industry, the place I work at does not have everything implemented, when I say this I mean the technology.</p>
 
-<p>Found <code>Nothing</code> interesting.</p>
+<p>Since we develop apps we have to deal with different versions of the app. Since we work in teams we need to collaborate and integrate the changes done by our team members.</p>
 
-<p>Why not channelize these random thoughts towards programming. Oh yeah!! why not crawl <a href="http://instagram.com/">Instagram</a> and try fetching information/pictures from public profiles.</p>
+<p>Many people can work on an app together, the app can have multiple versions. The same app can be assigned to someone who has not worked on it before. And like/believe it or not generation gap exists in between Software developers also. The new developers should understand this and the experienced should accept this.  I am new in my company, I know some things that are not known to others in the organization. Next year someone else will join in and will know something I may not be aware of. Its not something to be arrogant or shameful of, not everyone is aware of what released today or yesterday. But yes, if you are in technology sooner or later you need to update and change how things work. Accepting the change has always been a problem with people.</p>
 
-<h6 id="crawling-instagram">Crawling Instagram</h6>
+<p>Till today we used ZIP archives for any newly added feature or work done on particular day. So its like 30 ZIPs for 30 days and some extra ZIPs for new features. I have seen apps for which the ZIP count is above 50. This killed me for a moment. It is the wastage of memory and trust me it also kills the productivity. ZIPs have no feature to add version details, bug fixes, documentation, directory structure etc unless you put an extra text file describing the files and folders. It can take so much time for an employee like me who has joined recently to understand the 10k to 20k lines of code and complete the new app version.</p>
 
-<p>At first thought I found it very easier to fetch URL’s from insta profiles, and for profiles having less number of photos (20-30) it came out to be true. What I found challenging was fetching URLs from profiles which have many photos.</p>
+<p>When I see words like Team, Versions, Integration, Collaboration, my mind thinks about a <a href="http://git-scm.com/book/en/v2/Getting-Started-About-Version-Control">Version Control System</a>. To be more precise - <a href="http://git-scm.com">Git</a>. I was working with Version Control from my college days so I explained all this to our boss, being a knowledgeholic he was very interested to know about this and was impressed with the solution proposed and happily he also ordered a server for this. So now I was responsible for taking control over all Version Control tasks, like training my colleagues for using Git and setting up the Git Local Server(though servers are physically hot but they’re so cool). Today I with one of my colleagues (and also my roommate) setup the Local Git Version Control System in our Company and I believe we have done a great job.</p>
 
-<p>On the desktop version of Instagram’s site you need to scroll the page to body height to load the next page of photos, as we see in <a href="https://www.facebook.com/"><code>Facebook</code></a> <code>News Feed</code>. Being a beginner in crawling it was very difficult for me to execute <code>javascript</code> from <code>Python</code> and that also not on a <code>web browser</code>. Scratching my head for a few seconds activated my neurons and the nervous system responded with a name Selenium. I had some previous knowldege of the <code>Selenium </code> webdriver, using it one can automate a browser(how cool is that). I searched for a <code>Python</code> based selenium module. a quick <a href="https://www.google.co.in/">Google</a> searched helped me. I was fortunate that I landed on this link <a href="https://selenium-python.readthedocs.org/">Selenium with Python</a>.</p>
+<p>I like to teach and share knowledge but I don’t like to be hated for bringing out a change(which is good actually). Making people ready for using Git was a challenging task. To adapt new habits you need to stay away from your old contrary habits. Now we have to have all ZIPs deleted from all our computers keeping a backup in the backing store. There were a lot of ZIPs around, and not surprisingly multiple ZIPs of the same app and same version. It was a huge amount of data. TeraBytes of storage was getting filled like nothing. It took 3 days to take backups and cleanup all the systems. People hate me for this. But no regrets, tomorrow is gonna be a new day with a better computing power and highly controlled systems.</p>
 
-<p>A few more minutes spent in the integration of Selenium webdriver added <code>instacrawl.py</code> to my list of Crawlers.</p>
-
-<h6 id="where-is-the-source-">Where is the source ?</h6>
-
-<p>There are already so many Instagram crawlers/downloaders available, which are far better than mine. The only reason I feel mine is better is that its written by me.</p>
-
-<p><strong>End Notes :</strong></p>
-
-<ul>
-  <li>Selenium WebDriver makes your program slow.</li>
-  <li>Sorry Instagram.</li>
-</ul>
+<p>You might want to check features of <a href="http://git-scm.com/about">Git</a>.</p>
 
    
   </article>
