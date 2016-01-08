@@ -4,6 +4,7 @@ title:  "Animate AutoLayout Constraints!"
 date:   2015-05-15 23:24:55
 comments : true
 categories: ios
+keywords : koder,koder.me,Vinay Jain, vinay, animate, autolayout, constraints, xib, storyboard, ios, objectivec , swift
 ---
 
 AutoLayout is one the most significant features of modern iOS development. It simplifed the app design and saved developers from managing the view frames for different orientations and different devices with different screen resolutions as well. If you are familiar with frontend Web development you will find it similar to a `Responsive Web Design`. 
