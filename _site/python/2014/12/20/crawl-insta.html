@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Animate AutoLayout Constraints!</title>
+  <title>Its 03:23 AM, and I can't sleep. Okay! Let's crawl Instagram</title>
   
-  <meta name="keywords" content="koder,koder.me,Vinay Jain, vinay, animate, autolayout, constraints, xib, storyboard, ios, objectivec , swift">
+  
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="/ios/2015/05/16/animate-autolayout-constraints.html">
+  <link rel="canonical" href="/python/2014/12/20/crawl-insta.html">
   <link rel="alternate" type="application/rss+xml" title="Vinay Jain" href="/feed.xml" />
 
   <style type="text/css">
@@ -53,6 +53,10 @@
         
 
           
+
+        
+
+          
           <a class="page-link" href="/beginners/">Beginner's Index</a>
           
 
@@ -60,10 +64,6 @@
 
           
           <a class="page-link" href="/categories/index.html">Categories</a>
-          
-
-        
-
           
 
         
@@ -84,36 +84,37 @@
       <div class="wrapper">
         <div class="post">
   <header class="post-header">
-    <h1 class="post-title">Animate AutoLayout Constraints!</h1>
-    <p class="post-meta">May 16, 2015</p>
+    <h1 class="post-title">Its 03:23 AM, and I can't sleep. Okay! Let's crawl Instagram</h1>
+    <p class="post-meta">Dec 20, 2014</p>
   </header>
 
   <article class="post-content">
-    <p>AutoLayout is one the most significant features of modern iOS development. It simplifed the app design and saved developers from managing the view frames for different orientations and different devices with different screen resolutions as well. If you are familiar with frontend Web development you will find it similar to a <code>Responsive Web Design</code>.</p>
+    <p>Today is Sunday, 21 Dec 2014, the time is 03:23 AM. Temperature in <code>Pune</code> this time is about 6 - 7 °C. This is relatively a cold night and it is always easy to fall asleep in winter. But wait, I am standing in the balcony because I couldn’t sleep, I was having random thoughts which in turn made new thoughts.</p>
 
-<p>AutoLayout brings a lot of challenges with it, at first you may find it tough to get through. Managing the constraints without getting warnings is challenging!. <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/Introduction/Introduction.html" target="_blank">Apple’s documentation on AutoLayout</a> is great and it will surely help you understand AutoLayout properly as it did for me.</p>
+<p>As I can’t just stand in the balcony, I checked almost every social networking apps on my phone.</p>
 
-<p>AutoLayout can be managed programmatically, constraints can be updated at runtime. Sometimes we need to animate these updates/changes to view frames. You cannot directly animate change in AutoLayout constraints as you do with <code>UIView</code> frame changes. However the change in code to animate constraint changes isn’t different for AutoLayout, you just need to call <code>[self.view layoutIfNeeded]</code> in the <code>animateWithDuration:</code> method before and after the a constraint is updated. Here is sample code I used to show/hide a <code>UISearchBar</code> with a button click.</p>
+<p>Found <code>Nothing</code> interesting.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="p">-(</span><span class="kt">void</span><span class="p">)</span><span class="nf">toggleSearchBarVisibility</span><span class="p">{</span>
+<p>Why not channelize these random thoughts towards programming. Oh yeah!! why not crawl <a href="http://instagram.com/">Instagram</a> and try fetching information/pictures from public profiles.</p>
 
-    <span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="o">!</span><span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">searchBar</span><span class="p">.</span><span class="n">hidden</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">tableViewTopSpace</span><span class="p">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="nb">self</span><span class="p">.</span><span class="n">searchDisplayController</span><span class="p">.</span><span class="n">active</span> <span class="o">=</span> <span class="nb">NO</span><span class="p">;</span>
-        <span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">0.3</span>
-                         <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
-                             <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="n">layoutIfNeeded</span><span class="p">];</span>
-                         <span class="p">}</span> <span class="nl">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-       <span class="p">}</span>
-    <span class="k">else</span> <span class="p">{</span>
-        <span class="n">tableViewTopSpace</span><span class="p">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">44</span><span class="p">;</span>
-        <span class="p">[</span><span class="bp">UIView</span> <span class="nl">animateWithDuration</span><span class="p">:</span><span class="mf">0.3</span>
-                         <span class="nl">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
-                             <span class="p">[</span><span class="nb">self</span><span class="p">.</span><span class="n">view</span> <span class="n">layoutIfNeeded</span><span class="p">];</span>
-                         <span class="p">}</span> <span class="nl">completion</span><span class="p">:</span><span class="nb">nil</span><span class="p">];</span>
-       <span class="p">}</span>
-    <span class="p">}</span></code></pre></div>
+<h6 id="crawling-instagram">Crawling Instagram</h6>
+
+<p>At first thought I found it very easier to fetch URL’s from insta profiles, and for profiles having less number of photos (20-30) it came out to be true. What I found challenging was fetching URLs from profiles which have many photos.</p>
+
+<p>On the desktop version of Instagram’s site you need to scroll the page to body height to load the next page of photos, as we see in <a href="https://www.facebook.com/"><code>Facebook</code></a> <code>News Feed</code>. Being a beginner in crawling it was very difficult for me to execute <code>javascript</code> from <code>Python</code> and that also not on a <code>web browser</code>. Scratching my head for a few seconds activated my neurons and the nervous system responded with a name Selenium. I had some previous knowldege of the <code>Selenium </code> webdriver, using it one can automate a browser(how cool is that). I searched for a <code>Python</code> based selenium module. a quick <a href="https://www.google.co.in/">Google</a> searched helped me. I was fortunate that I landed on this link <a href="https://selenium-python.readthedocs.org/">Selenium with Python</a>.</p>
+
+<p>A few more minutes spent in the integration of Selenium webdriver added <code>instacrawl.py</code> to my list of Crawlers.</p>
+
+<h6 id="where-is-the-source-">Where is the source ?</h6>
+
+<p>There are already so many Instagram crawlers/downloaders available, which are far better than mine. The only reason I feel mine is better is that its written by me.</p>
+
+<p><strong>End Notes :</strong></p>
+
+<ul>
+  <li>Selenium WebDriver makes your program slow.</li>
+  <li>Sorry Instagram.</li>
+</ul>
 
    
   </article>
@@ -195,6 +196,15 @@
 
 </footer>
 
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+  ga('create', 'UA-72339632-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
   </body>
 </html>
