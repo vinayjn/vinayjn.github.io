@@ -37,7 +37,7 @@ In short, *an `NSAttributedString` allows you to apply styles on the text*. As o
 Lets look at the most used attributes :
 &nbsp;
 
-####**NSFontAttributeName**####
+#### **NSFontAttributeName** ####
 
 {% highlight swift %}
 NSDictionary *attributes = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Italic" size:30.0] };
@@ -51,9 +51,9 @@ self.attributedLabel.attributedText = attributedString;
 
 {% highlight swift %}
 NSDictionary *attributes = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:30.0] };
-    
+
 NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Bold Text" attributes:attributes];
-    
+
 self.attributedLabel.attributedText = attributedString;
 {% endhighlight %}
 
@@ -61,7 +61,7 @@ self.attributedLabel.attributedText = attributedString;
 
 &nbsp;
 
-####**NSForegroundColorAttributeName**####
+#### **NSForegroundColorAttributeName** ####
 
 {% highlight swift %}
 NSDictionary *attributes = @{ NSForegroundColorAttributeName : [UIColor blueColor] };
@@ -75,13 +75,13 @@ self.attributedLabel.attributedText = attributedString;
 
 &nbsp;
 
-####**NSUnderlineStyleAttributeName**####
+#### **NSUnderlineStyleAttributeName** ####
 
 {% highlight swift %}
 NSDictionary *attributes = @{ NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle) };
-    
+
 NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Underlined Text" attributes:attributes];
-    
+
 self.label.attributedText = attributedString;
 {% endhighlight %}
 
