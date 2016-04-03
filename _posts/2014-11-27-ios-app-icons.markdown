@@ -4,6 +4,7 @@ title:  "iOS App Icon Size"
 date:   2014-11-27 23:24:55
 comments : true
 category: ios
+keywords : koder,koder.me,Vinay Jain, vinay, blog, objective c, ios, iphone, ipad, swift, objc, app icon, size
 ---
 
 If you are compiling your app with `iOS 8 sdk` or later then use the first icon table and if compiling with `iOS 7 sdk` then use the second table.

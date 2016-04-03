@@ -4,6 +4,7 @@ title:  "Delegates in iOS"
 date:   2014-12-18 23:24:55
 comments : true
 categories: ios
+keywords : koder,koder.me,Vinay Jain, vinay, blog, objective c, ios, iphone, ipad, swift, objc, delegate, custom
 ---
 
 There are several ways tasks can communicate with one another. One of those ways is to use a delegate. A delegate is an object that agrees to undertake certain decisions or tasks for another object, or would like to be notified when certain events occur.
@@ -19,7 +20,7 @@ Becoming a delegate is a three-step process:
 A protocol is a contract, or promise, that your class will implement specific methods. This lets other objects know that your object has agreed to accept certain responsibilities. A protocol can declare two kinds of methods: required and optional. All required methods must be included in your class’s implementation. If you leave any out, you’ve broken the contract, and your project won’t compile.
 It’s up to you to decide which optional methods you implement. If you implement an optional method, your object will receive that message. If you don't, it won’t. It’s that simple. Most delegate methods are optional.
 
-Lets take an example of `UIWebView` to explain it properly : 
+Lets take an example of `UIWebView` to explain it properly :
 
 **Step 1 :** Adopt the delegate's protocol. In case of `UIWebView`, its `UIWebViewDelegate`
 
@@ -32,14 +33,14 @@ Looking up the `UIWebViewDelegate` protocol, you find that it lists four methods
 	- (BOOL)webView:(UIWebView *)webView􏰁 shouldStartLoadWithRequest:(NSURLRequest *)request􏰁 navigationType:(UIWebViewNavigationType)navigationType;
 	- (void)webViewDidStartLoad:(UIWebView *)webView;
 	- (void)webViewDidFinishLoad:(UIWebView *)webView;
-	- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;	
+	- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
 
 **Step 2 :** Implement methods(any) in the ViewController
 
 	- (void)webViewDidStartLoad:(UIWebView *)webView
 	{
     	//some code
-	} 
+	}
 
 **Step 3 :** Connect the delegate outlet of the object to your delegate object. For this example the delegate is the ViewController object.
 

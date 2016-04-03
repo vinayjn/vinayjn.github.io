@@ -4,9 +4,10 @@ title:  "Screen Resolution of iDevices"
 date:   2014-11-27 23:48:55
 comments : true
 categories: ios
+keywords : koder,koder.me,Vinay Jain, vinay, blog, objective c, ios, iphone, ipad, swift, objc, screen, resolution, screen resolution
 ---
 
-Any time a new handheld device is released by Apple, developers face issues of managing their views as per the device screen. This post will help you know the `Screen Resolution` of various `Apple Handheld Devices`. 
+Any time a new handheld device is released by Apple, developers face issues of managing their views as per the device screen. This post will help you know the `Screen Resolution` of various `Apple Handheld Devices`.
 
 
 <table class="table table-striped table-bordered">
