@@ -3,7 +3,7 @@ layout: post
 title:  "Convert Objective C Macros To Swift Constants"
 date:   2015-11-13 23:24:55
 comments : true
-categories: ios
+tags: [ios, swift, objc]
 keywords : koder,koder.me,Vinay Jain, vinay, blog, convert, objective c, macros, swift, constants, closures, let, \#define, objc
 
 description : Learn basic and advanced techniques to use complex Objective C macros in Swift.

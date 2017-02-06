@@ -19,3 +19,11 @@ pkg/
 site/_site/
 test/dest
 tmp/*
+
+!.keep
+*.DS_Store
+*.sass-cache
+/.asset-cache/*
+/_site/*
+/_assets/bower/*
+

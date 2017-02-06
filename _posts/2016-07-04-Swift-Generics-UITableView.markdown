@@ -2,16 +2,15 @@
 layout: post
 title:  "Writing better UITableView code with Swift Generics"
 date:   2016-07-04 12:24:55
-comments : true
-categories: ios
+tags: [ios, swift]
 keywords : koder, koder.me, Vinay Jain, vinay, blog, generics, functions, swift, UITableView, reuseIdentifier, UITableViewController
 
-description : With Generics write reusable UITableViewControllers in Swift.
+description : "With Generics write reusable UITableViewControllers in Swift."
 ---
 
-I was obsessed with `Protocol Oriented Programming`, read a lot of blogs, watched so many videos and got some idea behind its implemetation and working. So now I know the basic protocol based programming stuff in `Swift` (the new cool 😎), but I was still struggling to use POP in our current codebase. Tried, tired and again tried but couldn't get through. 
+I was obsessed with `Protocol Oriented Programming`, read a lot of blogs, watched so many videos and got some idea behind its implemetation and working. So now I know the basic protocol based programming stuff in `Swift` (the new cool 😎), but I was still struggling to use POP in our current codebase. Tried, tired and again tried but couldn't get through.
 
-I tried the other way of writing reusable code and converted some of our codebase classes to follow this pattern. 
+I tried the other way of writing reusable code and converted some of our codebase classes to follow this pattern.
 
 ### Swift + Generics + UITableViewController
 
@@ -45,7 +44,7 @@ var dataSource : [String : [Item]] ? // Item here is a model class which we use 
 
 {% endhighlight %}
 
-`GenericTVC` with implementations of these methods : 
+`GenericTVC` with implementations of these methods :
 
 
 {% highlight swift %}
@@ -61,7 +60,7 @@ class GenericTVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
+
         if let datasource = datasource {
             return datasource.keys.count
         }else{
@@ -70,16 +69,16 @@ class GenericTVC: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         if let datasource = datasource {
 
-        	/* 
+        	/*
             	Casting the section to String so as to get a key for datasource values
-            	Int can also be used but its all your choice. 
+            	Int can also be used but its all your choice.
             	Which ever section you want in the tableView first, add it as :
-             
+
             	self.datasource["0"] = [Item]()
-             
+
             	and so on..
         	*/
 
@@ -93,10 +92,10 @@ class GenericTVC: UITableViewController {
 }
 
 {% endhighlight %}
- 
+
 With this we have number of sections and also the number of rows in every section of our tableViews.
 
-The only method left is `cellForRowAtIndexPath:` which we are not going to implement in this `GenericTVC`(again, you can implement this too if you have same configuration of table view cells in your app) instead we will override this method in each of our `GenericTVC` subclass. 
+The only method left is `cellForRowAtIndexPath:` which we are not going to implement in this `GenericTVC`(again, you can implement this too if you have same configuration of table view cells in your app) instead we will override this method in each of our `GenericTVC` subclass.
 
 We have our `FirstTableViewController` and a custom tableView cell `FirstTableViewCell`
 
@@ -105,24 +104,24 @@ We have our `FirstTableViewController` and a custom tableView cell `FirstTableVi
 class FirstTableViewController: GenericTVC {
 
     override func viewDidLoad() {
-        
+
         super.viewDidLoad()
         self.tableView.registerClass(FirstTableViewCell.self, forCellReuseIdentifier: String(FirstTableViewCell))
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+
         var thisCell : FirstTableViewCell!
-        
+
         if let cell = tableView.dequeueReusableCellWithIdentifier(String(FirstTableViewCell)) as? FirstTableViewCell {
             thisCell = cell
         }else{
             thisCell = FirstTableViewCell(style: .Default, reuseIdentifier: String(FirstTableViewCell))
         }
-        
+
         let thisItem = self.datasource![String(indexPath.section)]![indexPath.row]
         thisCell.textLabel!.text = thisItem.itemName
-        
+
         return thisCell
 
     }
@@ -131,9 +130,9 @@ class FirstTableViewController: GenericTVC {
 
 {% endhighlight %}
 
-This code compiles and runs as expected, but we are not expected to write this in production. Lets refactor this code. 
+This code compiles and runs as expected, but we are not expected to write this in production. Lets refactor this code.
 
-The call to `tableView.registerClass` will be repeated for every class lets push it to superclass, `GenericTVC`. But what if we have a tableView which has multiple kinds of cell. Mmmmmm.. lets create another public property in `GenericTVC` 
+The call to `tableView.registerClass` will be repeated for every class lets push it to superclass, `GenericTVC`. But what if we have a tableView which has multiple kinds of cell. Mmmmmm.. lets create another public property in `GenericTVC`
 
 {% highlight swift %}
 
@@ -190,12 +189,12 @@ func reusableCellFor(tableView tableView : UITableView, reuseClass : AnyClass) -
 
 {% endhighlight %}
 
-And in `FirstTableViewController` replace the cell initialization code with : 
+And in `FirstTableViewController` replace the cell initialization code with :
 
 {% highlight swift %}
 
 if let cell = reusableCellFor(tableView: tableView, reuseClass: (FirstTableViewCell.self)) as FirstTableViewCell {
-	
+
 }
 
 {% endhighlight %}
@@ -211,18 +210,18 @@ In `GenericTVC` replace the implementation of `reusableCellFor....` with the bel
 {% highlight swift %}
 
 func reusableCellFor<CustomTVC : UITableViewCell>(tableView tableView : UITableView, reuseClass : CustomTVC.Type) -> CustomTVC {
-    
+
     if let cell = tableView.dequeueReusableCellWithIdentifier(String(reuseClass)) as? CustomTVC {
         return cell
     }else{
         return CustomTVC(style: .Subtitle, reuseIdentifier: String(reuseClass))
     }
-    
+
 }
 
 {% endhighlight %}
 
-Wow, this looks fantastic 🤑🤑 , but what is it 🤔🤔? 
+Wow, this looks fantastic 🤑🤑 , but what is it 🤔🤔?
 
 {% highlight swift %}
 
@@ -236,7 +235,7 @@ so do not treat future occurrences of this as errors.
 reuseClass : CustomTVC.Type
 
 /*
-Accept a type which is a CustomTVC(UITableViewCell subclass) 
+Accept a type which is a CustomTVC(UITableViewCell subclass)
 */
 
 {% endhighlight %}
@@ -259,10 +258,10 @@ func itemFor(indexPath indexPath : NSIndexPath) -> Item? {
 
 {% endhighlight %}
 
-The final versions of our files are below : 
+The final versions of our files are below :
 
 
-**GenericTVC :** 
+**GenericTVC :**
 
 {% highlight swift %}
 
@@ -272,7 +271,7 @@ class GenericTVC: UITableViewController {
     var reuseClasses : [AnyClass]?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         if let classes = reuseClasses {
             for reuseClass in classes {
                 self.tableView.registerClass(reuseClass, forCellReuseIdentifier: String(reuseClass))
@@ -283,7 +282,7 @@ class GenericTVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        
+
         if let datasource = datasource {
             return datasource.keys.count
         }else{
@@ -292,19 +291,19 @@ class GenericTVC: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         if let datasource = datasource {
-            
-            /* 
+
+            /*
             	Casting the section to String so as to get a key for datasource values
-            	Int can also be used but its all your choice. 
+            	Int can also be used but its all your choice.
             	Which ever section you want in the tableView first, add it as :
-             
+
             	self.datasource["0"] = [Item]()
-             
+
             	and so on..
         	*/
-            
+
             let sectionString = String(section)
             if let array = datasource[sectionString] {
                 return array.count
@@ -312,7 +311,7 @@ class GenericTVC: UITableViewController {
         }
         return 0
     }
-    
+
     func reusableCellFor<CustomTVC : UITableViewCell>(tableView tableView : UITableView, reuseClass : CustomTVC.Type) -> CustomTVC {
         if let cell = tableView.dequeueReusableCellWithIdentifier(String(reuseClass)) as? CustomTVC {
             return cell
@@ -320,7 +319,7 @@ class GenericTVC: UITableViewController {
             return CustomTVC(style: .Subtitle, reuseIdentifier: String(reuseClass))
         }
     }
-    
+
     func itemFor(indexPath indexPath : NSIndexPath) -> Item? {
         if let datasource = self.datasource {
             let sectionString = String(indexPath.section)
@@ -330,7 +329,7 @@ class GenericTVC: UITableViewController {
         }
         return nil
     }
-    
+
 }
 
 {% endhighlight %}
@@ -343,12 +342,12 @@ class FirstTableViewController: GenericTVC {
 
     override func viewDidLoad() {
         self.reuseClasses = [FirstTableViewCell.self]
-        
+
         self.tableView.registerClass(FirstTableViewCell.self, forCellReuseIdentifier: String(FirstTableViewCell))
-        
+
         super.viewDidLoad()
     }
-    
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = reusableCellFor(tableView: tableView, reuseClass: (FirstTableViewCell.self))
         if let item = itemFor(indexPath: indexPath) {
@@ -365,5 +364,3 @@ As you can see the resulting code for `FirstTableViewController` is shorter, rea
 
 
 Thanks for reading 😊
-
-

@@ -3,7 +3,7 @@ layout: post
 title:  "iOS App Icon Size"
 date:   2014-11-27 23:24:55
 comments : true
-category: ios
+tags: [ios]
 keywords : koder,koder.me,Vinay Jain, vinay, blog, objective c, ios, iphone, ipad, swift, objc, app icon, size
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title:  "Its 03:23 AM, and I can't sleep. Okay! Let's crawl Instagram"
 date:   2014-12-20 23:24:55
 comments : true
-categories: python
+tags: [python, web]
 ---
 
 Today is Sunday, 21 Dec 2014, the time is 03:23 AM. Temperature in `Pune` this time is about 6 - 7 °C. This is relatively a cold night and it is always easy to fall asleep in winter. But wait, I am standing in the balcony because I couldn't sleep, I was having random thoughts which in turn made new thoughts.

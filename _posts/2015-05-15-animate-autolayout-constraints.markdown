@@ -3,7 +3,7 @@ layout: post
 title:  "Animate AutoLayout Constraints!"
 date:   2015-05-15 23:24:55
 comments : true
-categories: ios
+tags: [ios, objc]
 keywords : koder,koder.me,Vinay Jain, vinay, animate, autolayout, constraints, xib, storyboard, ios, objectivec , swift
 ---
 

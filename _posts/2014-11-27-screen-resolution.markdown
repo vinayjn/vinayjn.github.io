@@ -3,7 +3,7 @@ layout: post
 title:  "Screen Resolution of iDevices"
 date:   2014-11-27 23:48:55
 comments : true
-categories: ios
+tags: [ios]
 keywords : koder,koder.me,Vinay Jain, vinay, blog, objective c, ios, iphone, ipad, swift, objc, screen, resolution, screen resolution
 ---
 

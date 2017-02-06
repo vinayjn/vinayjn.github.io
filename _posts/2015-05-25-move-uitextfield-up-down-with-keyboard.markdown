@@ -3,7 +3,7 @@ layout: post
 title:  "Move UITextField Up/Down with Keyboard"
 date:   2015-05-25 23:24:55
 comments : true
-categories: ios
+tags: [ios, swift, objc]
 keywords : koder, koder.me, Vinay Jain, vinay, blog, uitextfield, ios, keyboard, up , down, move, scrollview, objc, objective c , swift
 ---
 
