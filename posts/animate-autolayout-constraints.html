@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Vinay Jain | Animate AutoLayout Constraints!</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Animate AutoLayout Constraints!">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/posts/animate-autolayout-constraints">
+  <meta property="og:description" content="">
+  <meta property="og:site_name" content="Vinay Jain">
+  <meta property="og:image" content="/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="/posts/animate-autolayout-constraints">
+  <meta name="twitter:title" content="Animate AutoLayout Constraints!">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="/assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="Vinay Jain Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+  
+</head>
+
+<body>
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+    <a href="/" class="header-logo" title="Vinay Jain">Vinay Jain</a>
+    <br>Keyboards &amp; Pencils
+
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/@v1n4yjn" target="_blank" title="Twitter">
+          <span class="icon icon-social-twitter"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://www.facebook.com/vinay.jn7" target="_blank" title="Facebook">
+          <span class="icon icon-social-facebook"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://github.com/vinayjn" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:vinay.jn7@gmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>Animate AutoLayout Constraints!</h1>
+            <p></p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                May 15, 2015
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  2 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/ios">ios</a>
+                
+                  <a href="/tag/objc">objc</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>AutoLayout is one the most significant features of modern iOS development. It simplifed the app design and saved developers from managing the view frames for different orientations and different devices with different screen resolutions as well. If you are familiar with frontend Web development you will find it similar to a <code class="highlighter-rouge">Responsive Web Design</code>.</p>
+
+<p>AutoLayout brings a lot of challenges with it, at first you may find it tough to get through. Managing the constraints without getting warnings is challenging!. <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/Introduction/Introduction.html" target="_blank">Apple’s documentation on AutoLayout</a> is great and it will surely help you understand AutoLayout properly as it did for me.</p>
+
+<p>AutoLayout can be managed programmatically, constraints can be updated at runtime. Sometimes we need to animate these updates/changes to view frames. You cannot directly animate change in AutoLayout constraints as you do with <code class="highlighter-rouge">UIView</code> frame changes. However the change in code to animate constraint changes isn’t different for AutoLayout, you just need to call <code class="highlighter-rouge">[self.view layoutIfNeeded]</code> in the <code class="highlighter-rouge">animateWithDuration:</code> method before and after the a constraint is updated. Here is sample code I used to show/hide a <code class="highlighter-rouge">UISearchBar</code> with a button click.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="n">toggleSearchBarVisibility</span><span class="p">{</span>
+
+    <span class="n">searchBar</span><span class="o">.</span><span class="n">hidden</span> <span class="o">=</span> <span class="o">!</span><span class="n">searchBar</span><span class="o">.</span><span class="n">hidden</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">searchBar</span><span class="o">.</span><span class="n">hidden</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">tableViewTopSpace</span><span class="o">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">searchDisplayController</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="kt">NO</span><span class="p">;</span>
+        <span class="p">[</span><span class="kt">UIView</span> <span class="nv">animateWithDuration</span><span class="p">:</span><span class="mf">0.3</span>
+                         <span class="nv">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+                             <span class="p">[</span><span class="k">self</span><span class="o">.</span><span class="n">view</span> <span class="n">layoutIfNeeded</span><span class="p">];</span>
+                         <span class="p">}</span> <span class="nv">completion</span><span class="p">:</span><span class="kc">nil</span><span class="p">];</span>
+       <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="n">tableViewTopSpace</span><span class="o">.</span><span class="n">constant</span> <span class="o">=</span> <span class="mi">44</span><span class="p">;</span>
+        <span class="p">[</span><span class="kt">UIView</span> <span class="nv">animateWithDuration</span><span class="p">:</span><span class="mf">0.3</span>
+                         <span class="nv">animations</span><span class="p">:</span><span class="o">^</span><span class="p">{</span>
+                             <span class="p">[</span><span class="k">self</span><span class="o">.</span><span class="n">view</span> <span class="n">layoutIfNeeded</span><span class="p">];</span>
+                         <span class="p">}</span> <span class="nv">completion</span><span class="p">:</span><span class="kc">nil</span><span class="p">];</span>
+       <span class="p">}</span>
+    <span class="p">}</span></code></pre></figure>
+
+
+          </div>
+
+          <div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=Animate AutoLayout Constraints! - /posts/animate-autolayout-constraints by @@v1n4yjn', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=/posts/animate-autolayout-constraints', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=/posts/animate-autolayout-constraints', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div>
+
+          
+            <div id="disqus_thread" class="article-comments"></div>
+            <script>
+              (function() {
+                  var d = document, s = d.createElement('script');
+                  s.src = '//koderme.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          
+        </article>
+        <footer class="footer reveal">
+<center>
+  <p>
+    I didn't come this far to only come this far.
+    <br>
+    
+    <a href="/">Vinay Jain</a>
+    
+  </p>
+</center>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-72339632-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+</body>
+</html>
