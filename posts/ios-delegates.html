@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Vinay Jain | Delegates in iOS</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Delegates in iOS">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/posts/ios-delegates">
+  <meta property="og:description" content="">
+  <meta property="og:site_name" content="Vinay Jain">
+  <meta property="og:image" content="/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="/posts/ios-delegates">
+  <meta name="twitter:title" content="Delegates in iOS">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="/assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="Vinay Jain Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+  
+</head>
+
+<body>
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+    <a href="/" class="header-logo" title="Vinay Jain">Vinay Jain</a>
+    <br>Keyboards &amp; Pencils
+
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/@v1n4yjn" target="_blank" title="Twitter">
+          <span class="icon icon-social-twitter"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://www.facebook.com/vinay.jn7" target="_blank" title="Facebook">
+          <span class="icon icon-social-facebook"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://github.com/vinayjn" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:vinay.jn7@gmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>Delegates in iOS</h1>
+            <p></p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                December 18, 2014
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  2 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/ios">ios</a>
+                
+                  <a href="/tag/objc">objc</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>There are several ways tasks can communicate with one another. One of those ways is to use a delegate. A delegate is an object that agrees to undertake certain decisions or tasks for another object, or would like to be notified when certain events occur.</p>
+
+<p>Classes have a delegate outlet. You connect this outlet to the object that’s going to be its delegate. So that the outlet can send messages to the delegate to perform tasks. Delegates are a popular programming pattern in iOS.</p>
+
+<p>Becoming a delegate is a three-step process:</p>
+
+<ol>
+  <li>In your custom class, adopt the delegate’s protocol.</li>
+  <li>Implement the appropriate protocol methods.</li>
+  <li>Connect the delegate outlet of the object to your delegate object.</li>
+</ol>
+
+<p>A protocol is a contract, or promise, that your class will implement specific methods. This lets other objects know that your object has agreed to accept certain responsibilities. A protocol can declare two kinds of methods: required and optional. All required methods must be included in your class’s implementation. If you leave any out, you’ve broken the contract, and your project won’t compile.
+It’s up to you to decide which optional methods you implement. If you implement an optional method, your object will receive that message. If you don’t, it won’t. It’s that simple. Most delegate methods are optional.</p>
+
+<p>Lets take an example of <code class="highlighter-rouge">UIWebView</code> to explain it properly :</p>
+
+<p><strong>Step 1 :</strong> Adopt the delegate’s protocol. In case of <code class="highlighter-rouge">UIWebView</code>, its <code class="highlighter-rouge">UIWebViewDelegate</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>@interface ViewController : UIViewController&lt;UIWebViewDelegate&gt;
+</code></pre>
+</div>
+
+<p>Adding this to your class definition means that your class agrees to handle messages listed in the <code class="highlighter-rouge">UIWebViewDelegate</code> protocol, and is prepared to be connected to a <code class="highlighter-rouge">UIWebView’s</code> delegate outlet.</p>
+
+<p>Looking up the <code class="highlighter-rouge">UIWebViewDelegate</code> protocol, you find that it lists four methods, all of which are optional:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- (BOOL)webView:(UIWebView *)webView􏰁 shouldStartLoadWithRequest:(NSURLRequest *)request􏰁 navigationType:(UIWebViewNavigationType)navigationType;
+- (void)webViewDidStartLoad:(UIWebView *)webView;
+- (void)webViewDidFinishLoad:(UIWebView *)webView;
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
+</code></pre>
+</div>
+
+<p><strong>Step 2 :</strong> Implement methods(any) in the ViewController</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+	//some code
+}
+</code></pre>
+</div>
+
+<p><strong>Step 3 :</strong> Connect the delegate outlet of the object to your delegate object. For this example the delegate is the ViewController object.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>webViewObj.delegate = self;
+</code></pre>
+</div>
+
+<p>Now your <code class="highlighter-rouge">ViewController</code> object is the <code class="highlighter-rouge">delegate</code> for the web view. As the web view does its thing, your <code class="highlighter-rouge">delegate</code> receives messages on its progress.</p>
+
+          </div>
+
+          <div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=Delegates in iOS - /posts/ios-delegates by @@v1n4yjn', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=/posts/ios-delegates', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=/posts/ios-delegates', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div>
+
+          
+            <div id="disqus_thread" class="article-comments"></div>
+            <script>
+              (function() {
+                  var d = document, s = d.createElement('script');
+                  s.src = '//koderme.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          
+        </article>
+        <footer class="footer reveal">
+<center>
+  <p>
+    I didn't come this far to only come this far.
+    <br>
+    
+    <a href="/">Vinay Jain</a>
+    
+  </p>
+</center>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-72339632-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+</body>
+</html>
