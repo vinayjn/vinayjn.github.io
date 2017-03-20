@@ -27,7 +27,7 @@ $brand-warning: #f1c90b;
 // Grid
 
 $columns: 12;
-$max-width: 90%;
+$max-width: 650px;
 $gutter: 20px;
 $one-column: 100% / $columns;
 $negative-gutter: 0 - $gutter;
@@ -45,3 +45,14 @@ $base-border-radius: 4px;
 // =============================================================================
 
 $base-transition-speed: .2s;
+
+// Code Block max-width transition
+
+figure.highlight {
+  -moz-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+}
+
+figure.highlight:hover {
+    margin: 30px -25em;
+}
