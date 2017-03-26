@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Vinay Jain | Move UITextField Up/Down with Keyboard</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Move UITextField Up/Down with Keyboard">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/posts/move-uitextfield-up-down-with-keyboard">
+  <meta property="og:description" content="">
+  <meta property="og:site_name" content="Vinay Jain">
+  <meta property="og:image" content="/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="/posts/move-uitextfield-up-down-with-keyboard">
+  <meta name="twitter:title" content="Move UITextField Up/Down with Keyboard">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="/assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="Vinay Jain Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+  
+</head>
+
+<body>
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+    <a href="/" class="header-logo" title="Vinay Jain">Vinay Jain</a>
+    <br>Keyboards &amp; Pencils
+
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/@v1n4yjn" target="_blank" title="Twitter">
+          <span class="icon icon-social-twitter"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://www.facebook.com/vinay.jn7" target="_blank" title="Facebook">
+          <span class="icon icon-social-facebook"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://github.com/vinayjn" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:vinay.jn7@gmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>Move UITextField Up/Down with Keyboard</h1>
+            <p></p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                May 25, 2015
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  3 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/ios">ios</a>
+                
+                  <a href="/tag/swift">swift</a>
+                
+                  <a href="/tag/objc">objc</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>One of the behaviors of iOS devices which I see as a limitation is that the default keyboard hides the views behind it. Hence the user cannot interact with the UIViews and Controls behind the keyboard. I found a great answer on <a href="http://stackoverflow.com/a/26561723/2286267">StackOverflow</a> to solve this problem. However the code used in this answer moves every textField by the same amount. So even if you are editing a textField which does not get hidden behind the textField will still move up and may disappear out of the device screen upwards.</p>
+
+<p>My solution to the problem is a small modification to the answer on <code class="highlighter-rouge">SO</code>. Here I am sending an offset by which the textField has to be moved up and down with keyboard show/hide respectively. See the demo to better understand this.</p>
+<center>
+<iframe width="320" height="590" src="https://www.youtube.com/embed/ADLdPehMUYc" frameborder="0" allowfullscreen=""></iframe>
+</center>
+
+<p><strong>Objective C Code</strong></p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="nv">textFieldDidBeginEditing</span><span class="p">:(</span><span class="kt">UITextField</span> <span class="o">*</span><span class="p">)</span><span class="n">textField</span><span class="p">{</span>
+
+    <span class="p">[</span><span class="k">self</span> <span class="nv">animateTextField</span><span class="p">:</span><span class="n">textField</span> <span class="nv">up</span><span class="p">:</span><span class="kt">YES</span> <span class="nv">withOffset</span><span class="p">:</span><span class="n">textField</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span> <span class="o">/</span> <span class="mi">2</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="nv">textFieldDidEndEditing</span><span class="p">:(</span><span class="kt">UITextField</span> <span class="o">*</span><span class="p">)</span><span class="n">textField</span><span class="p">{</span>
+
+    <span class="p">[</span><span class="k">self</span> <span class="nv">animateTextField</span><span class="p">:</span><span class="n">textField</span> <span class="nv">up</span><span class="p">:</span><span class="kt">NO</span> <span class="nv">withOffset</span><span class="p">:</span><span class="n">textField</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span> <span class="o">/</span> <span class="mi">2</span><span class="p">];</span>
+
+<span class="p">}</span>
+<span class="o">-</span><span class="p">(</span><span class="kt">BOOL</span><span class="p">)</span><span class="nv">textFieldShouldReturn</span><span class="p">:(</span><span class="kt">UITextField</span> <span class="o">*</span><span class="p">)</span><span class="n">textField</span><span class="p">{</span>
+
+    <span class="p">[</span><span class="n">textField</span> <span class="n">resignFirstResponder</span><span class="p">];</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">-</span><span class="p">(</span><span class="n">void</span><span class="p">)</span><span class="nv">animateTextField</span><span class="p">:(</span><span class="kt">UITextField</span><span class="o">*</span><span class="p">)</span><span class="n">textField</span> <span class="nv">up</span><span class="p">:(</span><span class="kt">BOOL</span><span class="p">)</span><span class="n">up</span> <span class="nv">withOffset</span><span class="p">:(</span><span class="kt">CGFloat</span><span class="p">)</span><span class="n">offset</span>
+<span class="p">{</span>
+    <span class="n">const</span> <span class="n">int</span> <span class="n">movementDistance</span> <span class="o">=</span> <span class="o">-</span><span class="n">offset</span><span class="p">;</span>
+    <span class="n">const</span> <span class="n">float</span> <span class="n">movementDuration</span> <span class="o">=</span> <span class="mf">0.4</span><span class="n">f</span><span class="p">;</span>
+    <span class="n">int</span> <span class="n">movement</span> <span class="o">=</span> <span class="p">(</span><span class="n">up</span> <span class="p">?</span> <span class="nv">movementDistance</span> <span class="p">:</span> <span class="o">-</span><span class="n">movementDistance</span><span class="p">);</span>
+    <span class="p">[</span><span class="kt">UIView</span> <span class="nv">beginAnimations</span><span class="p">:</span> <span class="s">@"animateTextField"</span> <span class="nv">context</span><span class="p">:</span> <span class="kc">nil</span><span class="p">];</span>
+    <span class="p">[</span><span class="kt">UIView</span> <span class="nv">setAnimationBeginsFromCurrentState</span><span class="p">:</span> <span class="kt">YES</span><span class="p">];</span>
+    <span class="p">[</span><span class="kt">UIView</span> <span class="nv">setAnimationDuration</span><span class="p">:</span> <span class="n">movementDuration</span><span class="p">];</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRectOffset</span><span class="p">(</span><span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">movement</span><span class="p">);</span>
+    <span class="p">[</span><span class="kt">UIView</span> <span class="n">commitAnimations</span><span class="p">];</span>
+<span class="p">}</span></code></pre></figure>
+
+<p><strong>Swift Code</strong></p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">animateTextField</span><span class="p">(</span><span class="nv">textField</span><span class="p">:</span> <span class="kt">UITextField</span><span class="p">,</span> <span class="nv">up</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="n">withOffset</span> <span class="nv">offset</span><span class="p">:</span><span class="kt">CGFloat</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">let</span> <span class="nv">movementDistance</span> <span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="o">-</span><span class="kt">Int</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>
+    <span class="k">let</span> <span class="nv">movementDuration</span> <span class="p">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="mf">0.4</span>
+    <span class="k">let</span> <span class="nv">movement</span> <span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="p">(</span><span class="n">up</span> <span class="p">?</span> <span class="nv">movementDistance</span> <span class="p">:</span> <span class="o">-</span><span class="n">movementDistance</span><span class="p">)</span>
+    <span class="kt">UIView</span><span class="o">.</span><span class="nf">beginAnimations</span><span class="p">(</span><span class="s">"animateTextField"</span><span class="p">,</span> <span class="nv">context</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+    <span class="kt">UIView</span><span class="o">.</span><span class="nf">setAnimationBeginsFromCurrentState</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+    <span class="kt">UIView</span><span class="o">.</span><span class="nf">setAnimationDuration</span><span class="p">(</span><span class="n">movementDuration</span><span class="p">)</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="kt">CGRectOffset</span><span class="p">(</span><span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kt">CGFloat</span><span class="p">(</span><span class="n">movement</span><span class="p">))</span>
+    <span class="kt">UIView</span><span class="o">.</span><span class="nf">commitAnimations</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">textFieldDidBeginEditing</span><span class="p">(</span><span class="nv">textField</span><span class="p">:</span> <span class="kt">UITextField</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">self</span><span class="o">.</span><span class="nf">animateTextField</span><span class="p">(</span><span class="n">textField</span><span class="p">,</span> <span class="nv">up</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nv">withOffset</span><span class="p">:</span> <span class="n">textField</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">textFieldDidEndEditing</span><span class="p">(</span><span class="nv">textField</span><span class="p">:</span> <span class="kt">UITextField</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">self</span><span class="o">.</span><span class="nf">animateTextField</span><span class="p">(</span><span class="n">textField</span><span class="p">,</span> <span class="nv">up</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="nv">withOffset</span><span class="p">:</span> <span class="n">textField</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">origin</span><span class="o">.</span><span class="n">y</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">textFieldShouldReturn</span><span class="p">(</span><span class="nv">textField</span><span class="p">:</span> <span class="kt">UITextField</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span>
+<span class="p">{</span>
+    <span class="n">textField</span><span class="o">.</span><span class="nf">resignFirstResponder</span><span class="p">()</span>
+    <span class="k">return</span> <span class="kc">true</span>
+<span class="p">}</span></code></pre></figure>
+
+
+          </div>
+
+          <div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=Move UITextField Up/Down with Keyboard - /posts/move-uitextfield-up-down-with-keyboard by @@v1n4yjn', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=/posts/move-uitextfield-up-down-with-keyboard', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=/posts/move-uitextfield-up-down-with-keyboard', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div>
+
+          
+            <div id="disqus_thread" class="article-comments"></div>
+            <script>
+              (function() {
+                  var d = document, s = d.createElement('script');
+                  s.src = '//koderme.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          
+        </article>
+        <footer class="footer reveal">
+<center>
+  <p>
+    I didn't come this far to only come this far.
+    <br>
+    
+    <a href="/">Vinay Jain</a>
+    
+  </p>
+</center>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-72339632-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+</body>
+</html>
