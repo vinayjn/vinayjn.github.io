@@ -1,49 +1,528 @@
----
-layout: default
-title: "Keyboards &amp; Pencils"
-description: "Personal blog"
----
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Vinay Jain | Keyboards &amp; Pencils</title>
+  <meta name="description" content="Personal blog">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<ul class="article-list">
-  {% for post in paginator.posts %}
+  <meta property="og:title" content="Keyboards &amp; Pencils">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/">
+  <meta property="og:description" content="Personal blog">
+  <meta property="og:site_name" content="Vinay Jain">
+  <meta property="og:image" content="/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="/">
+  <meta name="twitter:title" content="Keyboards &amp; Pencils">
+  <meta name="twitter:description" content="Personal blog">
+  <meta name="twitter:image" content="/assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="Vinay Jain Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+  
+</head>
+
+<body>
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+    <a href="/" class="header-logo" title="Vinay Jain">Vinay Jain</a>
+    <br>Keyboards &amp; Pencils
+
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/@v1n4yjn" target="_blank" title="Twitter">
+          <span class="icon icon-social-twitter"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://www.facebook.com/vinay.jn7" target="_blank" title="Facebook">
+          <span class="icon icon-social-facebook"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://github.com/vinayjn" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:vinay.jn7@gmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+  </ul>
+</nav>
+
+        <ul class="article-list">
+  
     <li class="article-list-item reveal">
-      <a href="{{ post.url | relative_url }}" title="{{ post.title }}">
+      <a href="/posts/properties-and-mysteries" title="Demystifying @property and attributes">
         <h5>
-          {{ post.title }}
+          Demystifying @property and attributes
           <span class="icon icon-ios-arrow-thin-right"></span>
         </h5>
       </a>
-      <p>{{ post.description }}</p>
+      <p>Understanding what the keywords in between those parentheses mean.</p>
       <div class="article-list-footer">
         <span class="article-list-date">
-          {{ post.date | date: "%B %-d, %Y" }}
+          July 25, 2017
         </span>
         <span class="article-list-divider">-</span>
         <span class="article-list-minutes">
-          {% capture words %}
-            {{ post.content | number_of_words }}
-          {% endcapture %}
-          {% unless words contains "-" %}
-            {{ words | plus: 250 | divided_by: 250 | append: " minute read" }}
-          {% endunless %}
+          
+          
+            3 minute read
+          
         </span>
         <span class="article-list-divider">-</span>
         <div class="article-list-tags">
-          {% for tag in post.tags %}
-            <a href="{{ 'tag/' | relative_url }}{{ tag }}">{{ tag }}</a>
-          {% endfor %}
+          
+            <a href="/tag/ios">ios</a>
+          
+            <a href="/tag/objc">objc</a>
+          
         </div>
       </div>
     </li>
-  {% endfor %}
-  {% if paginator.total_pages > 1 %}
-    <li class="article-pagination reveal">
-      {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="article-pagination-right">Newer posts <span class="icon icon-ios-arrow-thin-right"></span></a>
-      {% endif %}
-      {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}"><span class="icon icon-ios-arrow-thin-left"></span> Older posts</a>
-      {% endif %}
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/conversation-with-calayer" title="A Conversation With CALayer – Meeting I">
+        <h5>
+          A Conversation With CALayer – Meeting I
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p>Beautify your iOS App</p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          March 21, 2017
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            11 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+            <a href="/tag/ios">ios</a>
+          
+            <a href="/tag/objc">objc</a>
+          
+        </div>
+      </div>
     </li>
-  {% endif %}
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/your-past-successes" title="Your Past Successes Guarantee...">
+        <h5>
+          Your Past Successes Guarantee...
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p>An overdue life lesson which guarantees success.</p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          March 2, 2017
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            3 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+        </div>
+      </div>
+    </li>
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/screens-to-interactions" title="From Moving with Screens To Moving with People">
+        <h5>
+          From Moving with Screens To Moving with People
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p>A way to build healthy relationships.</p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          August 1, 2016
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            3 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+        </div>
+      </div>
+    </li>
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/swift-generics-uitableview" title="Writing better UITableView code with Swift Generics">
+        <h5>
+          Writing better UITableView code with Swift Generics
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p>With Generics write reusable UITableViewControllers in Swift.</p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          July 4, 2016
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            10 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+            <a href="/tag/ios">ios</a>
+          
+            <a href="/tag/swift">swift</a>
+          
+        </div>
+      </div>
+    </li>
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/objectivec-macros-to-swift-constants" title="Convert Objective C Macros To Swift Constants">
+        <h5>
+          Convert Objective C Macros To Swift Constants
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p>Learn basic and advanced techniques to use complex Objective C macros in Swift.</p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          November 13, 2015
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            3 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+            <a href="/tag/ios">ios</a>
+          
+            <a href="/tag/swift">swift</a>
+          
+            <a href="/tag/objc">objc</a>
+          
+        </div>
+      </div>
+    </li>
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/how-to-use-nsattributedstring" title="Using NSAttributedString">
+        <h5>
+          Using NSAttributedString
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p>This post focusses on the usage of NSAttributedString in Objective C. All of the attributes of NSString are demonstrated with the help of code examples.</p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          June 2, 2015
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            2 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+            <a href="/tag/ios">ios</a>
+          
+            <a href="/tag/objc">objc</a>
+          
+        </div>
+      </div>
+    </li>
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/move-uitextfield-up-down-with-keyboard" title="Move UITextField Up/Down with Keyboard">
+        <h5>
+          Move UITextField Up/Down with Keyboard
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p></p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          May 25, 2015
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            3 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+            <a href="/tag/ios">ios</a>
+          
+            <a href="/tag/swift">swift</a>
+          
+            <a href="/tag/objc">objc</a>
+          
+        </div>
+      </div>
+    </li>
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/animate-autolayout-constraints" title="Animate AutoLayout Constraints!">
+        <h5>
+          Animate AutoLayout Constraints!
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p></p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          May 15, 2015
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            2 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+            <a href="/tag/ios">ios</a>
+          
+            <a href="/tag/objc">objc</a>
+          
+        </div>
+      </div>
+    </li>
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/introducing-version-control" title="Bringing out a Change is Difficult">
+        <h5>
+          Bringing out a Change is Difficult
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p></p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          January 11, 2015
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            3 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+            <a href="/tag/git">git</a>
+          
+        </div>
+      </div>
+    </li>
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/crawl-insta" title="Its 03:23 AM, and I can't sleep. Okay! Let's crawl Instagram">
+        <h5>
+          Its 03:23 AM, and I can't sleep. Okay! Let's crawl Instagram
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p></p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          December 20, 2014
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            2 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+            <a href="/tag/python">python</a>
+          
+            <a href="/tag/web">web</a>
+          
+        </div>
+      </div>
+    </li>
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/ios-delegates" title="Delegates in iOS">
+        <h5>
+          Delegates in iOS
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p></p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          December 18, 2014
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            2 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+            <a href="/tag/ios">ios</a>
+          
+            <a href="/tag/objc">objc</a>
+          
+        </div>
+      </div>
+    </li>
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/screen-resolution" title="Screen Resolution of iDevices">
+        <h5>
+          Screen Resolution of iDevices
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p></p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          November 27, 2014
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            2 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+            <a href="/tag/ios">ios</a>
+          
+        </div>
+      </div>
+    </li>
+  
+    <li class="article-list-item reveal">
+      <a href="/posts/ios-app-icons" title="iOS App Icon Size">
+        <h5>
+          iOS App Icon Size
+          <span class="icon icon-ios-arrow-thin-right"></span>
+        </h5>
+      </a>
+      <p></p>
+      <div class="article-list-footer">
+        <span class="article-list-date">
+          November 27, 2014
+        </span>
+        <span class="article-list-divider">-</span>
+        <span class="article-list-minutes">
+          
+          
+            2 minute read
+          
+        </span>
+        <span class="article-list-divider">-</span>
+        <div class="article-list-tags">
+          
+            <a href="/tag/ios">ios</a>
+          
+        </div>
+      </div>
+    </li>
+  
+  
 </ul>
+
+        <footer class="footer reveal">
+<center>
+  <p>
+    I didn't come this far to only come this far.
+    <br>
+    
+    <a href="/">Vinay Jain</a>
+    
+  </p>
+</center>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-72339632-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+</body>
+</html>
