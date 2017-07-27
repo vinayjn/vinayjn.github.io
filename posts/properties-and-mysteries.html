@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Vinay Jain | Demystifying @property and attributes</title>
+  <meta name="description" content="Understanding what the keywords in between those parentheses mean.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Demystifying @property and attributes">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/posts/properties-and-mysteries">
+  <meta property="og:description" content="Understanding what the keywords in between those parentheses mean.">
+  <meta property="og:site_name" content="Vinay Jain">
+  <meta property="og:image" content="/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="/posts/properties-and-mysteries">
+  <meta name="twitter:title" content="Demystifying @property and attributes">
+  <meta name="twitter:description" content="Understanding what the keywords in between those parentheses mean.">
+  <meta name="twitter:image" content="/assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="Vinay Jain Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+  
+</head>
+
+<body>
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+    <a href="/" class="header-logo" title="Vinay Jain">Vinay Jain</a>
+    <br>Keyboards &amp; Pencils
+
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/@v1n4yjn" target="_blank" title="Twitter">
+          <span class="icon icon-social-twitter"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://www.facebook.com/vinay.jn7" target="_blank" title="Facebook">
+          <span class="icon icon-social-facebook"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://github.com/vinayjn" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:vinay.jn7@gmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>Demystifying @property and attributes</h1>
+            <p>Understanding what the keywords in between those parentheses mean.</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                July 25, 2017
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  5 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/ios">ios</a>
+                
+                  <a href="/tag/objc">objc</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>Whenever we declare properties in Objective-C there are some keywords between the parentheses like <code class="highlighter-rouge">strong</code>, <code class="highlighter-rouge">weak</code>,  <code class="highlighter-rouge">atomic</code>, <code class="highlighter-rouge">nonatomic</code>. There can be multiple comma separated words in between the parentheses, sometimes we don’t add any keywords there and keep the default compiler behavior. In this post we’ll discuss what these keywords/attributes actually mean and what are the effects of using one over the other. <code class="highlighter-rouge"><span class="k">@property</span></code> are specific to Objective-C but the concepts can be applied to Swift as well, if you are a Swift only dev I still recommend going through this post once.</p>
+
+<p>Broadly, the change in behavior of a property with these words fall into three categories, lets see what they are:</p>
+
+<h3 id="atomicity-atomic-nonatomic">Atomicity (atomic, nonatomic)</h3>
+
+<ul>
+  <li>
+    <h4 id="atomic">atomic</h4>
+    <p>atomic is the default behavior, if we don’t type atomic or nonatomic then the property is atomic. atomic ensures that if we try to read the property we always get some valid value, it will never be junk or garbage data.</p>
+
+    <p>Lets say, multiple threads are reading and writing the property simultaneously, at each and every instant the value read from the property is a good value. We don’t know what the value will be, it can be the value before the new value gets written or it can be the new value.</p>
+  </li>
+  <li>
+    <h4 id="nonatomic">nonatomic</h4>
+    <p>As it is (non)atomic it doesn’t do whatever atomic does. To make a property nonatomic we have to add this keyword in between the parentheses. With nonatomic properties you lose the guarantee on the validity of values, reading a nonatomic property can return a garbage value.</p>
+  </li>
+</ul>
+
+<p>Since atomic somehow manages the validity of the value, it has some performance limitations. Access to atomic properties are relatively slower than nonatomic properties. If you are creating properties which involve frequent write operations then it is recommended to make the properties nonatomic.</p>
+
+<p>There’s a confusion in most developer’s mind that creating a property atomic makes it thread-safe. Atomicity has nothing to do with thread-safety. There are other ways to make the properties thread-safe but that discussion is beyond the scope of this post.</p>
+
+<h3 id="write-access-readonly-readwrite">Write Access (readonly, readwrite)</h3>
+
+<p>Both of these keywords are self explanatory. The default behavior is readwrite, so if we don’t specify any of these the property will allow write access to the instance variable. readonly restricts write access from everyone including the class it is declared in.</p>
+
+<p>To allow write access to the property in the class then we have to create an interface extension in the implementation file and override the property by making it readwrite. This way the classes importing this class will be restricted to modify its value.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="c1">// MyClass.h
+</span>
+<span class="k">@interface</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">value</span><span class="p">;</span>
+
+<span class="k">@end</span>
+
+<span class="c1">// MyClass.m
+</span>
+<span class="k">@interface</span> <span class="nc">MyClass</span><span class="p">()</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">value</span><span class="p">;</span>
+
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">MyClass</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setSomeValue</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">newValue</span> <span class="p">{</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">newValue</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@end</span>
+
+</code></pre>
+</div>
+<p><br /></p>
+
+<h3 id="storage--ownership-strong-weak-copy">Storage &amp; Ownership (strong, weak, copy)</h3>
+
+<p>Memory management in iOS is done with Automatic Reference Counting(ARC) and cleanup is dependent on the reference count or retain count of the objects in memory. An object sends a <code class="highlighter-rouge">dealloc</code> message as soon as its retain count reaches 0.</p>
+
+<ul>
+  <li>
+    <h4 id="strong">strong</h4>
+    <p>strong is the default behavior, if you don’t specify any of the storage or ownership attributes the property holds a strong reference to the instance variable. A strong reference always owns the object is pointing to. Every strong reference to a variable increases its retain count by 1. Since the strong reference is owning the object, as longs as there is at least one strong reference to the variable it will not be deallocated from the memory.</p>
+  </li>
+  <li>
+    <h4 id="weak">weak</h4>
+    <p>weak is analogous to strong. When a property is weak, it holds a weak reference to the instance variable but doesn’t own it. A weak reference doesn’t increase the retain count of the object. If there are no strong references to the object the object will be deallocated and all the weak reference to this object are set to nil so that the weak pointers doesn’t point to garbage data and the operations with these pointers doesn’t crash the app.</p>
+
+    <p>No discussion of strong and weak can end without talking about retain cycles.</p>
+  </li>
+</ul>
+
+<p>Languages like Objective-C and C# depends on reference count to manage memory and these languages don’t like retain cycles because when a retain cycle is present the memory management techniques fail.</p>
+
+<p>A retain cycle occurs when properties hold strong references to each other’s instance variables and when this happens both the objects cannot be deallocated because their reference count is not 0. Smart compilers give warnings about probable retain cycle on compile time only. To avoid retain cycles in these situations you can make one of the properties weak so that the object it is pointing to can be cleared by ARC.</p>
+
+<p>We usually use this practice in setting the delegate and datasource properties of protocols. Retain cycles are the reason why it is recommended to keep the delegate and datasource properties in protocols as weak. The view controller holds a strong reference to the delegate and if the delegate was strong, then it will also hold a strong reference back to the view controller and will create a retain cycle.</p>
+
+<blockquote>
+  <p>Bonus: I just explained you how ARC works in Objective-C!</p>
+</blockquote>
+
+<ul>
+  <li>
+    <h4 id="copy">copy</h4>
+    <p>copy is similar to strong but instead of owning and increasing the retain count of the object, it creates a new copy of that object and holds a strong reference to the copied object. This way if we change the new object we will still be able to get the old value from other references. copy properties works great with mutable objects and <code class="highlighter-rouge">NSString</code>s. The instance variable backed by the copy must conform to <code class="highlighter-rouge">NSCopying</code> protocol to make this work.</p>
+  </li>
+</ul>
+
+<p>There are some pre-ARC attributes also which we’ll discuss now, but who doesn’t use ARC today?</p>
+
+<ul>
+  <li>
+    <h4 id="assign">assign</h4>
+    <p>assign is the default for all non pointer(*) properties i.e. the primitive C datatypes like int, float, long.</p>
+  </li>
+  <li>
+    <h4 id="retain">retain</h4>
+    <p>It is the pre-ARC strong which owns the object by increasing its retain count, since its pre-ARC you will have to manually release the object after setting the pointer to nil.</p>
+  </li>
+</ul>
+
+<p>I’ve tried to keep things short and easy to understand, if you find any issues in the post or have any feedback like adding or removing content please feel free to write in comments. I welcome tech discussions. 😉</p>
+
+          </div>
+
+          <div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=Demystifying @property and attributes - /posts/properties-and-mysteries by @@v1n4yjn', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=/posts/properties-and-mysteries', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=/posts/properties-and-mysteries', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div>
+
+          
+            <div id="disqus_thread" class="article-comments"></div>
+            <script>
+              (function() {
+                  var d = document, s = d.createElement('script');
+                  s.src = '//koderme.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          
+        </article>
+        <footer class="footer reveal">
+<center>
+  <p>
+    I didn't come this far to only come this far.
+    <br>
+    
+    <a href="/">Vinay Jain</a>
+    
+  </p>
+</center>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-72339632-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+</body>
+</html>

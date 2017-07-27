@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Vinay Jain | Writing better UITableView code with Swift Generics</title>
+  <meta name="description" content="With Generics write reusable UITableViewControllers in Swift.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Writing better UITableView code with Swift Generics">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/posts/swift-generics-uitableview">
+  <meta property="og:description" content="With Generics write reusable UITableViewControllers in Swift.">
+  <meta property="og:site_name" content="Vinay Jain">
+  <meta property="og:image" content="/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="/posts/swift-generics-uitableview">
+  <meta name="twitter:title" content="Writing better UITableView code with Swift Generics">
+  <meta name="twitter:description" content="With Generics write reusable UITableViewControllers in Swift.">
+  <meta name="twitter:image" content="/assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="Vinay Jain Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+  
+</head>
+
+<body>
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+    <a href="/" class="header-logo" title="Vinay Jain">Vinay Jain</a>
+    <br>Keyboards &amp; Pencils
+
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/@v1n4yjn" target="_blank" title="Twitter">
+          <span class="icon icon-social-twitter"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://www.facebook.com/vinay.jn7" target="_blank" title="Facebook">
+          <span class="icon icon-social-facebook"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://github.com/vinayjn" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:vinay.jn7@gmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>Writing better UITableView code with Swift Generics</h1>
+            <p>With Generics write reusable UITableViewControllers in Swift.</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                July 4, 2016
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  10 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/ios">ios</a>
+                
+                  <a href="/tag/swift">swift</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>I was obsessed with <code class="highlighter-rouge">Protocol Oriented Programming</code>, read a lot of blogs, watched so many videos and got some idea behind its implemetation and working. So now I know the basic protocol based programming stuff in <code class="highlighter-rouge">Swift</code> (the new cool 😎), but I was still struggling to use POP in our current codebase. Tried, tired and again tried but couldn’t get through.</p>
+
+<p>I tried the other way of writing reusable code and converted some of our codebase classes to follow this pattern.</p>
+
+<h3 id="swift--generics--uitableviewcontroller">Swift + Generics + UITableViewController</h3>
+
+<p>In most of the <code class="highlighter-rouge">UITableViewController</code>(TVC) subclasses or in <code class="highlighter-rouge">UIViewController</code> containing <code class="highlighter-rouge">UITableView</code> we override/implement these three methods of <code class="highlighter-rouge">UITableViewDataSource</code></p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">override</span> <span class="kd">func</span> <span class="nf">numberOfSectionsInTableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span> <span class="o">..</span> <span class="p">}</span>
+
+<span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">numberOfRowsInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span> <span class="o">..</span> <span class="p">}</span>
+
+<span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">cellForRowAtIndexPath</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">NSIndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UITableViewCell</span> <span class="p">{</span> <span class="o">..</span> <span class="p">}</span></code></pre></figure>
+
+<p>Instead of writing them in each subclass lets pull these methods from all of them and put them in a <code class="highlighter-rouge">GenericTVC</code>, our <code class="highlighter-rouge">GenericTVC.swift</code> now has</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">override</span> <span class="kd">func</span> <span class="nf">numberOfSectionsInTableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span> <span class="o">..</span> <span class="p">}</span>
+
+<span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">numberOfRowsInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span> <span class="o">..</span> <span class="p">}</span></code></pre></figure>
+
+<p>Every TVC we create from now will be a subclass of <code class="highlighter-rouge">GenericTVC</code>, so that we don’t have to implement these two methods in each one of them. Next step is returning values from <code class="highlighter-rouge">numberOfSections</code> and <code class="highlighter-rouge">numberOfRows</code> and for this we will make a generic public dictionary in <code class="highlighter-rouge">GenericTVC</code>, you may want to add a 2D Swift array <code class="highlighter-rouge">[[String]]</code>. Add whatever is convenient for you.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">var</span> <span class="nv">dataSource</span> <span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="p">[</span><span class="kt">Item</span><span class="p">]]</span> <span class="p">?</span> <span class="c1">// Item here is a model class which we use in our codebase. You can use anything of your choice.</span></code></pre></figure>
+
+<p><code class="highlighter-rouge">GenericTVC</code> with implementations of these methods :</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="kt">GenericTVC</span><span class="p">:</span> <span class="kt">UITableViewController</span> <span class="p">{</span>
+
+    <span class="k">var</span> <span class="nv">datasource</span> <span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="p">[</span><span class="kt">Item</span><span class="p">]]?</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>        
+    <span class="p">}</span>
+
+    <span class="c1">// MARK: - Table view data source</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">numberOfSectionsInTableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
+
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">datasource</span> <span class="o">=</span> <span class="n">datasource</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">datasource</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">count</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">numberOfRowsInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
+
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">datasource</span> <span class="o">=</span> <span class="n">datasource</span> <span class="p">{</span>
+
+        	<span class="cm">/*
+            	Casting the section to String so as to get a key for datasource values
+            	Int can also be used but its all your choice.
+            	Which ever section you want in the tableView first, add it as :
+
+            	self.datasource["0"] = [Item]()
+
+            	and so on..
+        	*/</span>
+
+            <span class="k">let</span> <span class="nv">sectionString</span> <span class="o">=</span> <span class="kt">String</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="nv">items</span> <span class="o">=</span> <span class="n">datasource</span><span class="p">[</span><span class="n">sectionString</span><span class="p">]</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">items</span><span class="o">.</span><span class="n">count</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="p">}</span>   
+<span class="p">}</span></code></pre></figure>
+
+<p>With this we have number of sections and also the number of rows in every section of our tableViews.</p>
+
+<p>The only method left is <code class="highlighter-rouge">cellForRowAtIndexPath:</code> which we are not going to implement in this <code class="highlighter-rouge">GenericTVC</code>(again, you can implement this too if you have same configuration of table view cells in your app) instead we will override this method in each of our <code class="highlighter-rouge">GenericTVC</code> subclass.</p>
+
+<p>We have our <code class="highlighter-rouge">FirstTableViewController</code> and a custom tableView cell <code class="highlighter-rouge">FirstTableViewCell</code></p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="kt">FirstTableViewController</span><span class="p">:</span> <span class="kt">GenericTVC</span> <span class="p">{</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">tableView</span><span class="o">.</span><span class="nf">registerClass</span><span class="p">(</span><span class="kt">FirstTableViewCell</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">(</span><span class="kt">FirstTableViewCell</span><span class="p">))</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">cellForRowAtIndexPath</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">NSIndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UITableViewCell</span> <span class="p">{</span>
+
+        <span class="k">var</span> <span class="nv">thisCell</span> <span class="p">:</span> <span class="kt">FirstTableViewCell</span><span class="o">!</span>
+
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">cell</span> <span class="o">=</span> <span class="n">tableView</span><span class="o">.</span><span class="nf">dequeueReusableCellWithIdentifier</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="kt">FirstTableViewCell</span><span class="p">))</span> <span class="k">as?</span> <span class="kt">FirstTableViewCell</span> <span class="p">{</span>
+            <span class="n">thisCell</span> <span class="o">=</span> <span class="n">cell</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="n">thisCell</span> <span class="o">=</span> <span class="kt">FirstTableViewCell</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="kt">Default</span><span class="p">,</span> <span class="nv">reuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">(</span><span class="kt">FirstTableViewCell</span><span class="p">))</span>
+        <span class="p">}</span>
+
+        <span class="k">let</span> <span class="nv">thisItem</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">datasource</span><span class="o">!</span><span class="p">[</span><span class="kt">String</span><span class="p">(</span><span class="n">indexPath</span><span class="o">.</span><span class="n">section</span><span class="p">)]</span><span class="o">!</span><span class="p">[</span><span class="n">indexPath</span><span class="o">.</span><span class="n">row</span><span class="p">]</span>
+        <span class="n">thisCell</span><span class="o">.</span><span class="n">textLabel</span><span class="o">!.</span><span class="n">text</span> <span class="o">=</span> <span class="n">thisItem</span><span class="o">.</span><span class="n">itemName</span>
+
+        <span class="k">return</span> <span class="n">thisCell</span>
+
+    <span class="p">}</span>
+
+<span class="p">}</span></code></pre></figure>
+
+<p>This code compiles and runs as expected, but we are not expected to write this in production. Lets refactor this code.</p>
+
+<p>The call to <code class="highlighter-rouge">tableView.registerClass</code> will be repeated for every class lets push it to superclass, <code class="highlighter-rouge">GenericTVC</code>. But what if we have a tableView which has multiple kinds of cell. Mmmmmm.. lets create another public property in <code class="highlighter-rouge">GenericTVC</code></p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">var</span> <span class="nv">reuseClasses</span> <span class="p">:</span> <span class="p">[</span><span class="kt">AnyClass</span><span class="p">]?</span></code></pre></figure>
+
+<p>and in <code class="highlighter-rouge">viewDidLoad</code> add this code :</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="k">let</span> <span class="nv">classes</span> <span class="o">=</span> <span class="n">reuseClasses</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">reuseClass</span> <span class="k">in</span> <span class="n">classes</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">tableView</span><span class="o">.</span><span class="nf">registerClass</span><span class="p">(</span><span class="n">reuseClass</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">(</span><span class="n">reuseClass</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>And in <code class="highlighter-rouge">FirstTableViewController</code></p>
+
+<p>Replace :</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+<span class="k">self</span><span class="o">.</span><span class="n">tableView</span><span class="o">.</span><span class="nf">registerClass</span><span class="p">(</span><span class="kt">FirstTableViewCell</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">(</span><span class="kt">FirstTableViewCell</span><span class="p">))</span></code></pre></figure>
+
+<p>With :</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">self</span><span class="o">.</span><span class="n">reuseClasses</span> <span class="o">=</span> <span class="p">[</span><span class="kt">FirstTableViewCell</span><span class="o">.</span><span class="k">self</span><span class="p">]</span> <span class="c1">// or may be self.reuseClasses = [FirstTableViewCell.self, SecondTableViewCell.cell, ThirdTableViewCell.self]</span>
+
+<span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span></code></pre></figure>
+
+<p>The above code is self explanatory.</p>
+
+<p>Now come back to <code class="highlighter-rouge">cellForRowAtIndexPath:</code> in <code class="highlighter-rouge">FirstTableViewController</code>. Looks bad!. Lets move the cell initialization code to our base class. Add this method to <code class="highlighter-rouge">GenericTVC</code>:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">reusableCellFor</span><span class="p">(</span><span class="n">tableView</span> <span class="nv">tableView</span> <span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="nv">reuseClass</span> <span class="p">:</span> <span class="kt">AnyClass</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UITableViewCell</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">cell</span> <span class="o">=</span> <span class="n">tableView</span><span class="o">.</span><span class="nf">dequeueReusableCellWithIdentifier</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="n">reuseClass</span><span class="p">))</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">cell</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="k">return</span> <span class="kt">UITableViewCell</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="kt">Subtitle</span><span class="p">,</span> <span class="nv">reuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">(</span><span class="n">reuseClass</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>And in <code class="highlighter-rouge">FirstTableViewController</code> replace the cell initialization code with :</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">if</span> <span class="k">let</span> <span class="nv">cell</span> <span class="o">=</span> <span class="nf">reusableCellFor</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="n">tableView</span><span class="p">,</span> <span class="nv">reuseClass</span><span class="p">:</span> <span class="p">(</span><span class="kt">FirstTableViewCell</span><span class="o">.</span><span class="k">self</span><span class="p">))</span> <span class="k">as</span> <span class="kt">FirstTableViewCell</span> <span class="p">{</span>
+
+<span class="p">}</span></code></pre></figure>
+
+<p>This piece of code works fine but I still don’t like the downcast from <code class="highlighter-rouge">UITableViewCell</code> to <code class="highlighter-rouge">FirstTableViewCell</code>. Lets solve this by Generics.</p>
+
+<h4 id="generics-to-the-rescue">Generics to the rescue</h4>
+
+<p>With generics in Swift we can define methods(not only methods, actually everything 😉) which can accept generic parameters and return generic types. So lets use this feature for our good.</p>
+
+<p>In <code class="highlighter-rouge">GenericTVC</code> replace the implementation of <code class="highlighter-rouge">reusableCellFor....</code> with the below code.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="n">reusableCellFor</span><span class="o">&lt;</span><span class="kt">CustomTVC</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tableView</span> <span class="nv">tableView</span> <span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="nv">reuseClass</span> <span class="p">:</span> <span class="kt">CustomTVC</span><span class="o">.</span><span class="k">Type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CustomTVC</span> <span class="p">{</span>
+
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">cell</span> <span class="o">=</span> <span class="n">tableView</span><span class="o">.</span><span class="nf">dequeueReusableCellWithIdentifier</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="n">reuseClass</span><span class="p">))</span> <span class="k">as?</span> <span class="kt">CustomTVC</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">cell</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+        <span class="k">return</span> <span class="kt">CustomTVC</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="kt">Subtitle</span><span class="p">,</span> <span class="nv">reuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">(</span><span class="n">reuseClass</span><span class="p">))</span>
+    <span class="p">}</span>
+
+<span class="p">}</span></code></pre></figure>
+
+<p>Wow, this looks fantastic 🤑🤑 , but what is it 🤔🤔?</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="o">&lt;</span><span class="kt">CustomTVC</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">&gt;</span>
+
+<span class="cm">/*
+This part of the method tells the compiler that here I introduce you to a generic type CustomTVC which is a subclass of UITableViewCell
+so do not treat future occurrences of this as errors.
+*/</span>
+
+<span class="nv">reuseClass</span> <span class="p">:</span> <span class="kt">CustomTVC</span><span class="o">.</span><span class="k">Type</span>
+
+<span class="cm">/*
+Accept a type which is a CustomTVC(UITableViewCell subclass)
+*/</span></code></pre></figure>
+
+<p>Everything else is self explanatory I guess 🤓.</p>
+
+<p>Finally in <code class="highlighter-rouge">FirstTableViewController</code> remove the <code class="highlighter-rouge">as FirstTableViewCell</code> and the also remove the <code class="highlighter-rouge">if let</code> check. And to keep the subclasses cleaner lets create a helper method in <code class="highlighter-rouge">GenericTVC</code> for getting the <code class="highlighter-rouge">Item</code> object from the datasource for current <code class="highlighter-rouge">indexPath</code>.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">func</span> <span class="nf">itemFor</span><span class="p">(</span><span class="n">indexPath</span> <span class="nv">indexPath</span> <span class="p">:</span> <span class="kt">NSIndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Item</span><span class="p">?</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">datasource</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">datasource</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">sectionString</span> <span class="o">=</span> <span class="kt">String</span><span class="p">(</span><span class="n">indexPath</span><span class="o">.</span><span class="n">section</span><span class="p">)</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">array</span> <span class="o">=</span> <span class="n">datasource</span><span class="p">[</span><span class="n">sectionString</span><span class="p">]</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">array</span><span class="p">[</span><span class="n">indexPath</span><span class="o">.</span><span class="n">row</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="kc">nil</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The final versions of our files are below :</p>
+
+<p><strong>GenericTVC :</strong></p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="kt">GenericTVC</span><span class="p">:</span> <span class="kt">UITableViewController</span> <span class="p">{</span>
+
+    <span class="k">var</span> <span class="nv">datasource</span> <span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="p">[</span><span class="kt">Item</span><span class="p">]]?</span>
+    <span class="k">var</span> <span class="nv">reuseClasses</span> <span class="p">:</span> <span class="p">[</span><span class="kt">AnyClass</span><span class="p">]?</span>
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">classes</span> <span class="o">=</span> <span class="n">reuseClasses</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="n">reuseClass</span> <span class="k">in</span> <span class="n">classes</span> <span class="p">{</span>
+                <span class="k">self</span><span class="o">.</span><span class="n">tableView</span><span class="o">.</span><span class="nf">registerClass</span><span class="p">(</span><span class="n">reuseClass</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">(</span><span class="n">reuseClass</span><span class="p">))</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// MARK: - Table view data source</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">numberOfSectionsInTableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
+
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">datasource</span> <span class="o">=</span> <span class="n">datasource</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">datasource</span><span class="o">.</span><span class="n">keys</span><span class="o">.</span><span class="n">count</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">numberOfRowsInSection</span> <span class="nv">section</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
+
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">datasource</span> <span class="o">=</span> <span class="n">datasource</span> <span class="p">{</span>
+
+            <span class="cm">/*
+            	Casting the section to String so as to get a key for datasource values
+            	Int can also be used but its all your choice.
+            	Which ever section you want in the tableView first, add it as :
+
+            	self.datasource["0"] = [Item]()
+
+            	and so on..
+        	*/</span>
+
+            <span class="k">let</span> <span class="nv">sectionString</span> <span class="o">=</span> <span class="kt">String</span><span class="p">(</span><span class="n">section</span><span class="p">)</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="nv">array</span> <span class="o">=</span> <span class="n">datasource</span><span class="p">[</span><span class="n">sectionString</span><span class="p">]</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">array</span><span class="o">.</span><span class="n">count</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="n">reusableCellFor</span><span class="o">&lt;</span><span class="kt">CustomTVC</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="o">&gt;</span><span class="p">(</span><span class="n">tableView</span> <span class="nv">tableView</span> <span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="nv">reuseClass</span> <span class="p">:</span> <span class="kt">CustomTVC</span><span class="o">.</span><span class="k">Type</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">CustomTVC</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">cell</span> <span class="o">=</span> <span class="n">tableView</span><span class="o">.</span><span class="nf">dequeueReusableCellWithIdentifier</span><span class="p">(</span><span class="kt">String</span><span class="p">(</span><span class="n">reuseClass</span><span class="p">))</span> <span class="k">as?</span> <span class="kt">CustomTVC</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">cell</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="k">return</span> <span class="kt">CustomTVC</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="kt">Subtitle</span><span class="p">,</span> <span class="nv">reuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">(</span><span class="n">reuseClass</span><span class="p">))</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">itemFor</span><span class="p">(</span><span class="n">indexPath</span> <span class="nv">indexPath</span> <span class="p">:</span> <span class="kt">NSIndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Item</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">datasource</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">datasource</span> <span class="p">{</span>
+            <span class="k">let</span> <span class="nv">sectionString</span> <span class="o">=</span> <span class="kt">String</span><span class="p">(</span><span class="n">indexPath</span><span class="o">.</span><span class="n">section</span><span class="p">)</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="nv">array</span> <span class="o">=</span> <span class="n">datasource</span><span class="p">[</span><span class="n">sectionString</span><span class="p">]</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">array</span><span class="p">[</span><span class="n">indexPath</span><span class="o">.</span><span class="n">row</span><span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+
+<span class="p">}</span></code></pre></figure>
+
+<p><strong>FirstTableViewController :</strong></p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kd">class</span> <span class="kt">FirstTableViewController</span><span class="p">:</span> <span class="kt">GenericTVC</span> <span class="p">{</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">reuseClasses</span> <span class="o">=</span> <span class="p">[</span><span class="kt">FirstTableViewCell</span><span class="o">.</span><span class="k">self</span><span class="p">]</span>
+
+        <span class="k">self</span><span class="o">.</span><span class="n">tableView</span><span class="o">.</span><span class="nf">registerClass</span><span class="p">(</span><span class="kt">FirstTableViewCell</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">forCellReuseIdentifier</span><span class="p">:</span> <span class="kt">String</span><span class="p">(</span><span class="kt">FirstTableViewCell</span><span class="p">))</span>
+
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">tableView</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="kt">UITableView</span><span class="p">,</span> <span class="n">cellForRowAtIndexPath</span> <span class="nv">indexPath</span><span class="p">:</span> <span class="kt">NSIndexPath</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UITableViewCell</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">cell</span> <span class="o">=</span> <span class="nf">reusableCellFor</span><span class="p">(</span><span class="nv">tableView</span><span class="p">:</span> <span class="n">tableView</span><span class="p">,</span> <span class="nv">reuseClass</span><span class="p">:</span> <span class="p">(</span><span class="kt">FirstTableViewCell</span><span class="o">.</span><span class="k">self</span><span class="p">))</span>
+        <span class="k">if</span> <span class="k">let</span> <span class="nv">item</span> <span class="o">=</span> <span class="nf">itemFor</span><span class="p">(</span><span class="nv">indexPath</span><span class="p">:</span> <span class="n">indexPath</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">cell</span><span class="o">.</span><span class="n">textLabel</span><span class="o">!.</span><span class="n">text</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">itemName</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">cell</span>
+    <span class="p">}</span>
+
+<span class="p">}</span></code></pre></figure>
+
+<p>As you can see the resulting code for <code class="highlighter-rouge">FirstTableViewController</code> is shorter, readable and less scary.</p>
+
+<p>Thanks for reading 😊</p>
+
+          </div>
+
+          <div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=Writing better UITableView code with Swift Gene... - /posts/swift-generics-uitableview by @@v1n4yjn', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=/posts/swift-generics-uitableview', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=/posts/swift-generics-uitableview', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div>
+
+          
+            <div id="disqus_thread" class="article-comments"></div>
+            <script>
+              (function() {
+                  var d = document, s = d.createElement('script');
+                  s.src = '//koderme.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          
+        </article>
+        <footer class="footer reveal">
+<center>
+  <p>
+    I didn't come this far to only come this far.
+    <br>
+    
+    <a href="/">Vinay Jain</a>
+    
+  </p>
+</center>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-72339632-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+</body>
+</html>

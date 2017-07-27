@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Vinay Jain | A Conversation With CALayer – Meeting I</title>
+  <meta name="description" content="Beautify your iOS App">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="A Conversation With CALayer – Meeting I">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/posts/conversation-with-calayer">
+  <meta property="og:description" content="Beautify your iOS App">
+  <meta property="og:site_name" content="Vinay Jain">
+  <meta property="og:image" content="/assets/og-image.jpg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="/posts/conversation-with-calayer">
+  <meta name="twitter:title" content="A Conversation With CALayer – Meeting I">
+  <meta name="twitter:description" content="Beautify your iOS App">
+  <meta name="twitter:image" content="/assets/og-image.jpg">
+
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="Vinay Jain Last 10 blog posts" />
+
+  
+    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+  
+</head>
+
+<body>
+  <main role="main">
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav reveal">
+    <a href="/" class="header-logo" title="Vinay Jain">Vinay Jain</a>
+    <br>Keyboards &amp; Pencils
+
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/@v1n4yjn" target="_blank" title="Twitter">
+          <span class="icon icon-social-twitter"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://www.facebook.com/vinay.jn7" target="_blank" title="Facebook">
+          <span class="icon icon-social-facebook"></span>
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://github.com/vinayjn" target="_blank" title="GitHub">
+          <span class="icon icon-social-github"></span>
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:vinay.jn7@gmail.com" title="Email">
+          <span class="icon icon-at"></span>
+        </a>
+      </li>
+    
+    
+  </ul>
+</nav>
+
+        <article class="article reveal">
+          <header class="article-header">
+            <h1>A Conversation With CALayer – Meeting I</h1>
+            <p>Beautify your iOS App</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                March 21, 2017
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  11 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/ios">ios</a>
+                
+                  <a href="/tag/objc">objc</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>If you’ve been programming for <code class="highlighter-rouge">iOS</code> devices, you might have encountered these lines of code:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">view</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIColor</span> <span class="n">greenColor</span><span class="p">];</span>
+<span class="n">view</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">cornerRadius</span> <span class="o">=</span> <span class="mf">8.0</span><span class="p">;</span>
+<span class="n">view</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">borderWidth</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+<span class="n">view</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">borderColor</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIColor</span> <span class="n">blackColor</span><span class="p">];</span></code></pre></figure>
+
+<p>If you haven’t seen code like this before try using it with any UI component in your app and check what it does. It adds a 1pt black border to the view and round its corners by 8pt.</p>
+
+<p>Every <code class="highlighter-rouge">UIView</code> is backed with a layer which can be accessed with the <code class="highlighter-rouge">view.layer</code>. The <code class="highlighter-rouge">layer</code> property points to an instance of either the <code class="highlighter-rouge">CALayer</code> class or any of its subclasses like <code class="highlighter-rouge">CAShapeLayer</code>, <code class="highlighter-rouge">CAGradientLayer</code>, <code class="highlighter-rouge">CATextLayer</code> etc. Layers are part of the  <code class="highlighter-rouge">Core Animation</code> library and are extensively used in custom drawing with <code class="highlighter-rouge">Core Graphics</code> and  <code class="highlighter-rouge">Core Animation</code>, these two frameworks make <code class="highlighter-rouge">iOS</code> apps beautiful. The image below shows where these two frameworks lie in the <code class="highlighter-rouge">iOS</code> graphics drawing engine:</p>
+
+<p><img src="/assets/drawing_hierarchy.png" alt="Drawing Hierarchy" /></p>
+
+<p><code class="highlighter-rouge">OpenGL</code>, a low-level API which interacts directly with the <code class="highlighter-rouge">GPU</code>, does all the heavy lifting work of graphics processing. To make our lives even easier Apple has built <code class="highlighter-rouge">Core Animation</code>, a high-level wrapper above <code class="highlighter-rouge">OpenGL</code> so that we don’t need to write the low-level <code class="highlighter-rouge">C</code> code.</p>
+
+<p>Now, since we have been introduced to <code class="highlighter-rouge">CALayer</code> and have access to the low-level graphics rendering engine lets start interacting with them and create some beautiful graphics.</p>
+
+<p>There are various <code class="highlighter-rouge">CALayer</code> subclasses, below are the direct <code class="highlighter-rouge">CALayer</code> subclasses available in the <code class="highlighter-rouge">Core Animation</code> library:</p>
+
+<p><img src="/assets/calayer_hierarchy.png" alt="CALayer Hierarchy" /></p>
+
+<p>In this part of the series we will build:</p>
+
+<ul>
+  <li>A loading indicator with <code class="highlighter-rouge">CAShapeLayer</code> and <code class="highlighter-rouge">CAKeyFrameAnimation</code></li>
+  <li>A mirror reflection of the <a href="https://haptik.ai">Haptik</a> logo with <code class="highlighter-rouge">CAReplicatorLayer</code></li>
+  <li>A colorful <a href="https://haptik.ai">Haptik</a> logo with <code class="highlighter-rouge">CATextLayer</code></li>
+</ul>
+
+<h3 id="cashapelayer">CAShapeLayer</h3>
+
+<p>With <code class="highlighter-rouge">CAShapeLayer</code> we can easily draw curved paths and geometrical shapes. <code class="highlighter-rouge">CAShapeLayer</code> is mostly used in drawing custom UI components. At <a href="https://haptik.ai">Haptik</a>, we design most of the custom <code class="highlighter-rouge">UIButton</code> subclasses with <code class="highlighter-rouge">CAShapeLayer</code>.</p>
+
+<p>But why would you write code to draw a circle or a triangle or anything complex when you have images?</p>
+
+<p><img src="/assets/trollface.png" alt="Trollface" /></p>
+
+<p>There are a few reasons to write code:</p>
+
+<ul>
+  <li>Almost all properties of shape layers are <code class="highlighter-rouge">animatable</code>, which gives us the freedom to change these shapes with code at runtime, which we’ll learn how to do.</li>
+  <li><code class="highlighter-rouge">CAShapeLayer</code> is vector based, thus they are resolution independent.</li>
+  <li>This can be drawn directly using the GPU so we can free the CPU for other tasks.</li>
+</ul>
+
+<p>By the end of this section, we’ll be able to show this cool animation on the screen:</p>
+
+<p><img src="/assets/shape.gif" alt="Circle Shape" /></p>
+
+<p>The animation above has three components:</p>
+
+<ol>
+  <li>A rounded rectangle added on the view layer</li>
+  <li>A gray color circle added on the rectangle layer</li>
+  <li>A dark gray color arc added on the circle layer</li>
+</ol>
+
+<p>The below code draws the rounded rectangle on the screen:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kt">CAShapeLayer</span> <span class="o">*</span><span class="n">roundedRect</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CAShapeLayer</span> <span class="n">layer</span><span class="p">];</span>
+<span class="n">roundedRect</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIBezierPath</span> <span class="nv">bezierPathWithRoundedRect</span><span class="p">:</span><span class="kt">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span> <span class="nv">cornerRadius</span><span class="p">:</span><span class="mf">8.0</span><span class="p">]</span><span class="o">.</span><span class="kt">CGPath</span><span class="p">;</span>
+<span class="n">roundedRect</span><span class="o">.</span><span class="n">fillColor</span> <span class="o">=</span> <span class="p">[[</span><span class="kt">UIColor</span> <span class="n">whiteColor</span><span class="p">]</span> <span class="nv">colorWithAlphaComponent</span><span class="p">:</span><span class="mf">0.5</span><span class="p">]</span><span class="o">.</span><span class="kt">CGColor</span><span class="p">;</span>
+<span class="p">[</span><span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">layer</span> <span class="nv">addSublayer</span><span class="p">:</span><span class="n">roundedRect</span><span class="p">];</span></code></pre></figure>
+
+<p>To create the path of the shape layer we used a <code class="highlighter-rouge">UIKit</code> class <code class="highlighter-rouge">UIBezierPath</code> to skip the complexity of drawing paths with <code class="highlighter-rouge">Core Graphics</code>. The <code class="highlighter-rouge">fillColor</code> property of the shape layer fills the closed region of the layer with given color.</p>
+
+<p>Next, we add a circle to the rounded rectangle:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kt">CAShapeLayer</span> <span class="o">*</span><span class="n">circle</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CAShapeLayer</span> <span class="n">layer</span><span class="p">];</span>
+
+<span class="n">circle</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIBezierPath</span> <span class="nv">bezierPathWithArcCenter</span><span class="p">:</span><span class="kt">CGPointMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="nv">radius</span><span class="p">:</span><span class="mi">50</span> <span class="nv">startAngle</span><span class="p">:</span><span class="mf">0.0</span><span class="o">*</span><span class="p">(</span><span class="kt">M_PI</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)</span>  <span class="nv">endAngle</span><span class="p">:</span><span class="mf">360.0</span><span class="o">*</span><span class="p">(</span><span class="kt">M_PI</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)</span> <span class="nv">clockwise</span><span class="p">:</span><span class="kt">YES</span><span class="p">]</span><span class="o">.</span><span class="kt">CGPath</span><span class="p">;</span>
+<span class="n">circle</span><span class="o">.</span><span class="n">lineWidth</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+<span class="n">circle</span><span class="o">.</span><span class="n">fillColor</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIColor</span> <span class="n">clearColor</span><span class="p">]</span><span class="o">.</span><span class="kt">CGColor</span><span class="p">;</span>
+<span class="n">circle</span><span class="o">.</span><span class="n">strokeColor</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIColor</span> <span class="n">lightGrayColor</span><span class="p">]</span><span class="o">.</span><span class="kt">CGColor</span><span class="p">;</span>
+<span class="n">circle</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIColor</span> <span class="n">clearColor</span><span class="p">]</span><span class="o">.</span><span class="kt">CGColor</span><span class="p">;</span>
+<span class="n">circle</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">60</span><span class="p">);</span>
+
+<span class="p">[</span><span class="n">roundedRect</span> <span class="nv">addSublayer</span><span class="p">:</span><span class="n">circle</span><span class="p">];</span></code></pre></figure>
+
+<p>For drawing a circle we need to pass a <code class="highlighter-rouge">startAngle</code> and an <code class="highlighter-rouge">endAngle</code>. With these angles, we tell the system from where the path should start and where it should be drawn till. If we were drawing this circle with a pen, consider the <code class="highlighter-rouge">strokeColor</code> as the ink color and the <code class="highlighter-rouge">lineWidth</code> as the minimum width of the line that can be drawn with the pen. Changing the <code class="highlighter-rouge">position</code> of the layer centers it in the rectangle.</p>
+
+<p>To add the arc we will again use the same function for drawing a circle, but we will pass different start angles and end angles to draw it as an arc:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kt">CAShapeLayer</span> <span class="o">*</span><span class="n">arc</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CAShapeLayer</span> <span class="n">layer</span><span class="p">];</span>
+<span class="n">arc</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIBezierPath</span> <span class="nv">bezierPathWithArcCenter</span><span class="p">:</span><span class="kt">CGPointMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="nv">radius</span><span class="p">:</span><span class="mi">50</span> <span class="nv">startAngle</span><span class="p">:</span><span class="mf">180.0</span><span class="o">*</span><span class="p">(</span><span class="kt">M_PI</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)</span>  <span class="nv">endAngle</span><span class="p">:</span><span class="mf">225.0</span><span class="o">*</span><span class="p">(</span><span class="kt">M_PI</span><span class="o">/</span><span class="mf">180.0</span><span class="p">)</span> <span class="nv">clockwise</span><span class="p">:</span><span class="kt">YES</span><span class="p">]</span><span class="o">.</span><span class="kt">CGPath</span><span class="p">;</span>
+<span class="n">arc</span><span class="o">.</span><span class="n">lineWidth</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+<span class="n">arc</span><span class="o">.</span><span class="n">lineCap</span> <span class="o">=</span> <span class="n">kCALineCapRound</span><span class="p">;</span>
+<span class="n">arc</span><span class="o">.</span><span class="n">fillColor</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIColor</span> <span class="n">clearColor</span><span class="p">]</span><span class="o">.</span><span class="kt">CGColor</span><span class="p">;</span>
+<span class="n">arc</span><span class="o">.</span><span class="n">strokeColor</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIColor</span> <span class="n">darkGrayColor</span><span class="p">]</span><span class="o">.</span><span class="kt">CGColor</span><span class="p">;</span>
+<span class="n">arc</span><span class="o">.</span><span class="n">backgroundColor</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIColor</span> <span class="n">clearColor</span><span class="p">]</span><span class="o">.</span><span class="kt">CGColor</span><span class="p">;</span></code></pre></figure>
+
+<p>The <code class="highlighter-rouge">lineCap</code> determines how the endpoints of the drawn curve are stroked.</p>
+
+<p>To create a rotational animation in x-y plane we need to change the rotation transform along the
+z-axis and fortunately, we can easily do this with <code class="highlighter-rouge">Core Animation</code>.</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kt">CAKeyframeAnimation</span> <span class="o">*</span><span class="n">animation</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CAKeyframeAnimation</span> <span class="nv">animationWithKeyPath</span><span class="p">:</span><span class="s">@"transform.rotation.z"</span><span class="p">];</span>
+<span class="n">animation</span><span class="o">.</span><span class="n">additive</span> <span class="o">=</span> <span class="kt">YES</span><span class="p">;</span>
+<span class="n">animation</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">;</span>
+<span class="n">animation</span><span class="o">.</span><span class="n">repeatCount</span> <span class="o">=</span> <span class="kt">HUGE_VALF</span><span class="p">;</span>
+<span class="n">animation</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="err">@</span><span class="p">[</span>
+                    <span class="p">[</span><span class="kt">NSNumber</span> <span class="nv">numberWithFloat</span><span class="p">:</span><span class="mf">0.0</span> <span class="o">*</span> <span class="kt">M_PI</span><span class="p">],</span>
+                    <span class="p">[</span><span class="kt">NSNumber</span> <span class="nv">numberWithFloat</span><span class="p">:</span><span class="mf">1.75</span> <span class="o">*</span> <span class="kt">M_PI</span><span class="p">],</span>
+                    <span class="p">[</span><span class="kt">NSNumber</span> <span class="nv">numberWithFloat</span><span class="p">:</span><span class="o">-</span><span class="mf">0.75</span> <span class="o">*</span> <span class="kt">M_PI</span><span class="p">],</span>
+                    <span class="p">[</span><span class="kt">NSNumber</span> <span class="nv">numberWithFloat</span><span class="p">:</span><span class="mf">2.75</span> <span class="o">*</span> <span class="kt">M_PI</span><span class="p">],</span>
+                    <span class="p">[</span><span class="kt">NSNumber</span> <span class="nv">numberWithFloat</span><span class="p">:</span><span class="mf">0.0</span> <span class="o">*</span> <span class="kt">M_PI</span><span class="p">]</span>
+                    <span class="p">];</span>
+<span class="n">animation</span><span class="o">.</span><span class="n">keyTimes</span> <span class="o">=</span> <span class="err">@</span><span class="p">[</span> <span class="err">@</span><span class="mi">0</span><span class="p">,</span> <span class="err">@</span><span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mf">6.0</span><span class="p">),</span> <span class="err">@</span><span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="mf">6.0</span><span class="p">),</span> <span class="err">@</span><span class="p">(</span><span class="mi">5</span> <span class="o">/</span> <span class="mf">6.0</span><span class="p">),</span> <span class="err">@</span><span class="mi">1</span> <span class="p">];</span>
+<span class="n">animation</span><span class="o">.</span><span class="n">timingFunctions</span> <span class="o">=</span> <span class="err">@</span><span class="p">[</span>
+                             <span class="p">[</span><span class="kt">CAMediaTimingFunction</span> <span class="nv">functionWithName</span><span class="p">:</span><span class="n">kCAMediaTimingFunctionEaseIn</span><span class="p">],</span>
+                             <span class="p">[</span><span class="kt">CAMediaTimingFunction</span> <span class="nv">functionWithName</span><span class="p">:</span><span class="n">kCAMediaTimingFunctionEaseInEaseOut</span><span class="p">],</span>
+                             <span class="p">[</span><span class="kt">CAMediaTimingFunction</span> <span class="nv">functionWithName</span><span class="p">:</span><span class="n">kCAMediaTimingFunctionEaseInEaseOut</span><span class="p">],</span>
+                             <span class="p">[</span><span class="kt">CAMediaTimingFunction</span> <span class="nv">functionWithName</span><span class="p">:</span><span class="n">kCAMediaTimingFunctionEaseOut</span><span class="p">]</span>
+                             <span class="p">];</span>
+<span class="p">[</span><span class="n">arc</span> <span class="nv">addAnimation</span><span class="p">:</span><span class="n">animation</span> <span class="nv">forKey</span><span class="p">:</span><span class="s">@"rotate"</span><span class="p">];</span></code></pre></figure>
+
+<p>With <code class="highlighter-rouge">CAKeyFrameAnimation</code> we can control the animation attributes like <code class="highlighter-rouge">fromValue</code> and <code class="highlighter-rouge">toValue</code>,  <code class="highlighter-rouge">timingFunction</code>, <code class="highlighter-rouge">calculationMode</code> for different time intervals in the complete animation. The <code class="highlighter-rouge">values</code> array determines <code class="highlighter-rouge">fromValue</code> and <code class="highlighter-rouge">toValue</code> of the <code class="highlighter-rouge">animatable</code> property ( transform.rotation.z) in the time intervals given to the <code class="highlighter-rouge">keyTimes</code> array. The timing functions decide how the animations start and end.</p>
+
+<p>You can find the complete code till this section on this <a href="https://github.com/vinayjn/CALayer/tree/2521cd08e33ad6e6be3fc18d8b9995eb8bd68a87">CALayers-GitHub</a> repo.</p>
+
+<h3 id="careplicatorlayer">CAReplicatorLayer</h3>
+
+<p><code class="highlighter-rouge">CAReplicatorLayer</code> is a container layer, it replicates the content added to it. It has some cool properties which can be used to instruct the container how the replication has to be done. Beautiful effects can be achieved by applying animations to the replicated content. Every contained content is called an <code class="highlighter-rouge">instance</code>. To show the usage of this layer we will create a reflection of an image. By the end of this section, we’ll be able to show the reflection of the <a href="https://haptik.ai">Haptik</a> logo like this:</p>
+
+<p><img src="/assets/reflection.png" alt="Reflection" /></p>
+
+<p>Let’s build this!</p>
+
+<p>First, we need a <code class="highlighter-rouge">CAReplicatorLayer</code> instance and on this instance, we’ll be adding an image layer of which the reflection we will be showing:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// Create a CAReplicatorLayer</span>
+<span class="kt">CAReplicatorLayer</span> <span class="o">*</span><span class="n">replicatorLayer</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CAReplicatorLayer</span> <span class="n">layer</span><span class="p">];</span>
+
+<span class="c1">// Create the image layer</span>
+<span class="kt">UIImage</span> <span class="o">*</span><span class="n">image</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIImage</span> <span class="nv">imageNamed</span><span class="p">:</span><span class="s">@"haptik_logo"</span><span class="p">];</span>
+<span class="kt">CALayer</span> <span class="o">*</span><span class="n">imageLayer</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CALayer</span> <span class="n">layer</span><span class="p">];</span>
+<span class="n">imageLayer</span><span class="o">.</span><span class="n">contents</span> <span class="o">=</span> <span class="p">(</span><span class="n">__bridge</span> <span class="n">id</span><span class="p">)[</span><span class="n">image</span> <span class="kt">CGImage</span><span class="p">];</span>
+<span class="n">imageLayer</span><span class="o">.</span><span class="n">bounds</span> <span class="o">=</span> <span class="kt">CGRectMake</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span><span class="p">);</span>
+<span class="n">imageLayer</span><span class="o">.</span><span class="n">anchorPoint</span> <span class="o">=</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="c1">// Set bounds of replicator layer</span>
+<span class="c1">// to height twice of image height</span>
+<span class="n">replicatorLayer</span><span class="o">.</span><span class="n">bounds</span> <span class="o">=</span> <span class="kt">CGRectMake</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+<span class="n">replicatorLayer</span><span class="o">.</span><span class="n">masksToBounds</span> <span class="o">=</span> <span class="kt">YES</span><span class="p">;</span>
+<span class="n">replicatorLayer</span><span class="o">.</span><span class="n">anchorPoint</span> <span class="o">=</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">);</span>
+<span class="n">replicatorLayer</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">width</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">80.0</span><span class="p">);</span>    
+<span class="p">[</span><span class="n">replicatorLayer</span> <span class="nv">addSublayer</span><span class="p">:</span><span class="n">imageLayer</span><span class="p">];</span></code></pre></figure>
+
+<p>This code is pretty straight forward, the <code class="highlighter-rouge">anchorPoint</code> of a layer is the point from where all the geometric manipulations will happen. The default <code class="highlighter-rouge">anchorPoint</code> is <code class="highlighter-rouge">(0.5, 0.5)</code> which represents the center of the layer. We want to apply a rotation from the top of the layer, so we changed it to <code class="highlighter-rouge">(0,0)</code>`.</p>
+
+<p>With the above code, we have added an image to the replicator layer and set its correct bounds. To get the reflection we need to apply a rotation transform and translate the replicated layer to the correct position as below:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kt">CATransform3D</span> <span class="n">transform</span> <span class="o">=</span> <span class="kt">CATransform3DIdentity</span><span class="p">;</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="kt">CATransform3DScale</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="n">transform</span> <span class="o">=</span> <span class="kt">CATransform3DTranslate</span><span class="p">(</span><span class="n">transform</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+<span class="n">replicatorLayer</span><span class="o">.</span><span class="n">instanceTransform</span> <span class="o">=</span> <span class="n">transform</span><span class="p">;</span>
+<span class="n">replicatorLayer</span><span class="o">.</span><span class="n">instanceCount</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span></code></pre></figure>
+
+<p>The <code class="highlighter-rouge">instanceTransform</code> property of the replicator layer allows us to set the calculated transform on the replicated content. There are other properties of the replicator layer like <code class="highlighter-rouge">instanceDelay</code>, <code class="highlighter-rouge">instanceColor</code> which can be manipulated to get more control.</p>
+
+<p>Setting the <code class="highlighter-rouge">instanceCount</code> to 2 instructs the replicator layer to create exactly two instances of the added content.</p>
+
+<p>This is it! Running this code will give us the below output:</p>
+
+<p><img src="/assets/reflection2.png" alt="Reflection" /></p>
+
+<p>But this is not what you expected, yes because the mirror we used earlier was blurred and so was the reflection. But if that is what you also need then add a gradient layer to your layer as shown below:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="kt">CAGradientLayer</span> <span class="o">*</span><span class="n">gradientLayer</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CAGradientLayer</span> <span class="n">layer</span><span class="p">];</span>
+<span class="n">gradientLayer</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="err">@</span><span class="p">[</span>
+                           <span class="p">(</span><span class="n">__bridge</span> <span class="n">id</span><span class="p">)[[[</span><span class="kt">UIColor</span> <span class="n">whiteColor</span><span class="p">]</span> <span class="nv">colorWithAlphaComponent</span><span class="p">:</span><span class="mf">0.25</span><span class="p">]</span> <span class="kt">CGColor</span><span class="p">],</span>
+                           <span class="p">(</span><span class="n">__bridge</span> <span class="n">id</span><span class="p">)[[</span><span class="kt">UIColor</span> <span class="n">whiteColor</span><span class="p">]</span> <span class="kt">CGColor</span><span class="p">]</span>
+                           <span class="p">];</span>
+
+<span class="n">gradientLayer</span><span class="o">.</span><span class="n">bounds</span> <span class="o">=</span> <span class="kt">CGRectMake</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">replicatorLayer</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">);</span>
+
+<span class="n">gradientLayer</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="n">replicatorLayer</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">replicatorLayer</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">);</span>
+<span class="kt">CAGradientLayer</span> <span class="o">*</span><span class="n">gradientLayer</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CAGradientLayer</span> <span class="n">layer</span><span class="p">];</span>
+<span class="n">gradientLayer</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="err">@</span><span class="p">[</span>
+                           <span class="p">(</span><span class="n">__bridge</span> <span class="n">id</span><span class="p">)[[[</span><span class="kt">UIColor</span> <span class="n">whiteColor</span><span class="p">]</span> <span class="nv">colorWithAlphaComponent</span><span class="p">:</span><span class="mf">0.25</span><span class="p">]</span> <span class="kt">CGColor</span><span class="p">],</span>
+                           <span class="p">(</span><span class="n">__bridge</span> <span class="n">id</span><span class="p">)[[</span><span class="kt">UIColor</span> <span class="n">whiteColor</span><span class="p">]</span> <span class="kt">CGColor</span><span class="p">]</span>
+                           <span class="p">];</span>
+
+<span class="n">gradientLayer</span><span class="o">.</span><span class="n">bounds</span> <span class="o">=</span> <span class="kt">CGRectMake</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">replicatorLayer</span><span class="o">.</span><span class="n">frame</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">);</span>
+
+<span class="n">gradientLayer</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="kt">CGPointMake</span><span class="p">(</span><span class="n">replicatorLayer</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">replicatorLayer</span><span class="o">.</span><span class="n">position</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">);</span></code></pre></figure>
+
+<p>At <a href="https://haptik.ai">Haptik</a>, we have used the <code class="highlighter-rouge">CAReplicatorLayer</code> to create a new typing indicator. This is how it looks!</p>
+
+<p><img src="/assets/typing.gif" alt="Typing" /></p>
+
+<p>If you want to download and run this code check the <a href="https://github.com/vinayjn/CALayer/tree/c495e29dc3675b39a4636f005d0d716ebd4b0fb9">Github repo</a>. And yes, Craig Federighi was online. ;)</p>
+
+<h3 id="catextlayer">CATextLayer</h3>
+
+<p>Text layers are used to layout and render plain and attributed strings, but we do this usually with <code class="highlighter-rouge">UILabel</code>. One amazing usage of <code class="highlighter-rouge">CATextLayer</code> is to mask UIView. In this section we will redesign the <a href="https://haptik.ai">Haptik</a> logo as in the image below:</p>
+
+<p><img src="/assets/textlayer.png" alt="CATextLayer" /></p>
+
+<p>We create a <code class="highlighter-rouge">UIImageView</code> with a pattern image and mask that pattern with the text layer:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">// Create the imageView</span>
+<span class="kt">UIImage</span> <span class="o">*</span><span class="n">haptikLogo</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIImage</span> <span class="nv">imageNamed</span><span class="p">:</span><span class="s">@"Artboard"</span><span class="p">];</span>
+<span class="kt">UIImageView</span> <span class="o">*</span><span class="n">imageView</span> <span class="o">=</span> <span class="p">[[</span><span class="kt">UIImageView</span> <span class="n">alloc</span><span class="p">]</span> <span class="nv">initWithFrame</span><span class="p">:</span><span class="kt">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">)];</span>
+<span class="n">imageView</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">haptikLogo</span><span class="p">;</span>
+
+<span class="c1">// Create the CATextLayer instance.</span>
+<span class="kt">CATextLayer</span> <span class="o">*</span><span class="n">textLayer</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CATextLayer</span> <span class="n">layer</span><span class="p">];</span>
+<span class="n">textLayer</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">imageView</span><span class="o">.</span><span class="n">bounds</span><span class="p">;</span>
+<span class="n">textLayer</span><span class="o">.</span><span class="n">rasterizationScale</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIScreen</span> <span class="n">mainScreen</span><span class="p">]</span><span class="o">.</span><span class="n">scale</span><span class="p">;</span>
+<span class="n">textLayer</span><span class="o">.</span><span class="n">contentsScale</span> <span class="o">=</span> <span class="p">[</span><span class="kt">UIScreen</span> <span class="n">mainScreen</span><span class="p">]</span><span class="o">.</span><span class="n">scale</span><span class="p">;</span></code></pre></figure>
+
+<p><strong>Never forget</strong> to set the <code class="highlighter-rouge">rasterizationScale</code> and <code class="highlighter-rouge">contentsScale</code>, without these properties you might get blurry or smaller text depending on the screen resolution of the devices your app runs on.</p>
+
+<p>Set whatever string you want to display as a mask with the desired font:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">textLayer</span><span class="o">.</span><span class="n">fontSize</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">;</span>
+<span class="n">textLayer</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="p">(</span><span class="n">__bridge</span> <span class="kt">CFTypeRef</span> <span class="n">_Nullable</span><span class="p">)([</span><span class="kt">UIFont</span> <span class="nv">systemFontOfSize</span><span class="p">:</span><span class="mi">100</span><span class="p">]);</span>
+<span class="n">textLayer</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="s">@"haptik"</span><span class="p">;</span>
+<span class="n">textLayer</span><span class="o">.</span><span class="n">fontSize</span> <span class="o">=</span> <span class="mf">100.0</span><span class="p">;</span>
+<span class="n">textLayer</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="p">(</span><span class="n">__bridge</span> <span class="kt">CFTypeRef</span> <span class="n">_Nullable</span><span class="p">)([</span><span class="kt">UIFont</span> <span class="nv">systemFontOfSize</span><span class="p">:</span><span class="mi">100</span><span class="p">]);</span>
+<span class="n">textLayer</span><span class="o">.</span><span class="n">string</span> <span class="o">=</span> <span class="s">@"haptik"</span><span class="p">;</span></code></pre></figure>
+
+<p>Finally, use the text layer as the mask on the image view and we are done:</p>
+
+<figure class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">imageView</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">textLayer</span><span class="p">;</span>
+<span class="n">imageView</span><span class="o">.</span><span class="n">layer</span><span class="o">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">textLayer</span><span class="p">;</span></code></pre></figure>
+
+<p>Build and run the app and see how it looks like.</p>
+
+<p>The app source code till this section can be downloaded from <a href="https://github.com/vinayjn/CALayer/tree/97ed89a9610272a9417e95fcbf7890e53f8a727d">CALayer-Github</a> repo. Looking forward to hearing from you all.</p>
+
+<p>Also, don’t forget, we are hiring high-quality engineers. So if you are interested reach out to us at <a href="mailto:hello@haptik.ai">hello@haptik.ai</a>.</p>
+
+<p>This post was originally written at <a href="http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/">Haptik Tech Blog</a>.</p>
+
+          </div>
+
+          <div class="article-share">
+            
+            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=A Conversation With CALayer – Meeting I - /posts/conversation-with-calayer by @@v1n4yjn', 'newwindow', 'width=500, height=225'); return false;">
+              <span class="icon icon-social-twitter"></span>
+            </a>
+            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=/posts/conversation-with-calayer', 'newwindow', 'width=500, height=500'); return false;">
+              <span class="icon icon-social-facebook"></span>
+            </a>
+            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=/posts/conversation-with-calayer', 'newwindow', 'width=550, height=400'); return false;">
+              <span class="icon icon-social-googleplus"></span>
+            </a>
+          </div>
+
+          
+            <div id="disqus_thread" class="article-comments"></div>
+            <script>
+              (function() {
+                  var d = document, s = d.createElement('script');
+                  s.src = '//koderme.disqus.com/embed.js';
+                  s.setAttribute('data-timestamp', +new Date());
+                  (d.head || d.body).appendChild(s);
+              })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          
+        </article>
+        <footer class="footer reveal">
+<center>
+  <p>
+    I didn't come this far to only come this far.
+    <br>
+    
+    <a href="/">Vinay Jain</a>
+    
+  </p>
+</center>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  <script type="text/javascript" src="/assets/vendor.js"></script>
+<script type="text/javascript" src="/assets/application.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
+    }
+  });
+</script>
+
+
+  <script>
+    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+    ga('create','UA-72339632-1','auto');ga('send','pageview')
+  </script>
+  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
+
+
+</body>
+</html>

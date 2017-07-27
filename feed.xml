@@ -1,20 +1,90 @@
----
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>{{ site.name | xml_escape }}</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
-    <link>{{ site.url }}</link>
-    <atom:link href="{{ page.path | absolute_url }}" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
+    <title>Vinay Jain</title>
+    <description></description>
+    <link></link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.description | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | absolute_url }}</link>
-        <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+        <title>Demystifying @property and attributes</title>
+        <description>Understanding what the keywords in between those parentheses mean.</description>
+        <pubDate>Tue, 25 Jul 2017 06:39:25 +0530</pubDate>
+        <link>/posts/properties-and-mysteries</link>
+        <guid isPermaLink="true">/posts/properties-and-mysteries</guid>
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>A Conversation With CALayer – Meeting I</title>
+        <description>Beautify your iOS App</description>
+        <pubDate>Tue, 21 Mar 2017 10:09:25 +0530</pubDate>
+        <link>/posts/conversation-with-calayer</link>
+        <guid isPermaLink="true">/posts/conversation-with-calayer</guid>
+      </item>
+    
+      <item>
+        <title>Your Past Successes Guarantee...</title>
+        <description>An overdue life lesson which guarantees success.</description>
+        <pubDate>Thu, 02 Mar 2017 17:54:55 +0530</pubDate>
+        <link>/posts/your-past-successes</link>
+        <guid isPermaLink="true">/posts/your-past-successes</guid>
+      </item>
+    
+      <item>
+        <title>From Moving with Screens To Moving with People</title>
+        <description>A way to build healthy relationships.</description>
+        <pubDate>Mon, 01 Aug 2016 08:04:25 +0530</pubDate>
+        <link>/posts/screens-to-interactions</link>
+        <guid isPermaLink="true">/posts/screens-to-interactions</guid>
+      </item>
+    
+      <item>
+        <title>Writing better UITableView code with Swift Generics</title>
+        <description>With Generics write reusable UITableViewControllers in Swift.</description>
+        <pubDate>Mon, 04 Jul 2016 17:54:55 +0530</pubDate>
+        <link>/posts/swift-generics-uitableview</link>
+        <guid isPermaLink="true">/posts/swift-generics-uitableview</guid>
+      </item>
+    
+      <item>
+        <title>Convert Objective C Macros To Swift Constants</title>
+        <description>Learn basic and advanced techniques to use complex Objective C macros in Swift.</description>
+        <pubDate>Sat, 14 Nov 2015 04:54:55 +0530</pubDate>
+        <link>/posts/objectivec-macros-to-swift-constants</link>
+        <guid isPermaLink="true">/posts/objectivec-macros-to-swift-constants</guid>
+      </item>
+    
+      <item>
+        <title>Using NSAttributedString</title>
+        <description>This post focusses on the usage of NSAttributedString in Objective C. All of the attributes of NSString are demonstrated with the help of code examples.</description>
+        <pubDate>Wed, 03 Jun 2015 04:54:55 +0530</pubDate>
+        <link>/posts/how-to-use-nsattributedstring</link>
+        <guid isPermaLink="true">/posts/how-to-use-nsattributedstring</guid>
+      </item>
+    
+      <item>
+        <title>Move UITextField Up/Down with Keyboard</title>
+        <description></description>
+        <pubDate>Tue, 26 May 2015 04:54:55 +0530</pubDate>
+        <link>/posts/move-uitextfield-up-down-with-keyboard</link>
+        <guid isPermaLink="true">/posts/move-uitextfield-up-down-with-keyboard</guid>
+      </item>
+    
+      <item>
+        <title>Animate AutoLayout Constraints!</title>
+        <description></description>
+        <pubDate>Sat, 16 May 2015 04:54:55 +0530</pubDate>
+        <link>/posts/animate-autolayout-constraints</link>
+        <guid isPermaLink="true">/posts/animate-autolayout-constraints</guid>
+      </item>
+    
+      <item>
+        <title>Bringing out a Change is Difficult</title>
+        <description></description>
+        <pubDate>Mon, 12 Jan 2015 04:54:55 +0530</pubDate>
+        <link>/posts/introducing-version-control</link>
+        <guid isPermaLink="true">/posts/introducing-version-control</guid>
+      </item>
+    
   </channel>
 </rss>
