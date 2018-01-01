@@ -48,12 +48,12 @@ $base-transition-speed: .2s;
 
 // Code Block max-width transition
 @media only screen and (min-width: 760px) {
-  figure.highlight {
-    -moz-transition: all 0.2s linear;
-    -webkit-transition: all 0.2s linear;
+    figure.highlight {
+        transition: all 0.2s linear;
+    }
+  
+    figure.highlight:hover {
+        margin: 30px -25em;
+    }
   }
-
-  figure.highlight:hover {
-      margin: 30px -25em;
-  }
-}
+  

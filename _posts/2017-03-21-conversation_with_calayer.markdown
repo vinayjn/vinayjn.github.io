@@ -22,7 +22,7 @@ If you haven’t seen code like this before try using it with any UI component i
 
 Every `UIView` is backed with a layer which can be accessed with the `view.layer`. The `layer` property points to an instance of either the `CALayer` class or any of its subclasses like `CAShapeLayer`, `CAGradientLayer`, `CATextLayer` etc. Layers are part of the  `Core Animation` library and are extensively used in custom drawing with `Core Graphics` and  `Core Animation`, these two frameworks make `iOS` apps beautiful. The image below shows where these two frameworks lie in the `iOS` graphics drawing engine:
 
-![Drawing Hierarchy]({% asset_path drawing_hierarchy.png %})
+![Drawing Hierarchy]({% asset drawing_hierarchy.png @path %})
 
 `OpenGL`, a low-level API which interacts directly with the `GPU`, does all the heavy lifting work of graphics processing. To make our lives even easier Apple has built `Core Animation`, a high-level wrapper above `OpenGL` so that we don’t need to write the low-level `C` code.
 
@@ -30,7 +30,7 @@ Now, since we have been introduced to `CALayer` and have access to the low-level
 
 There are various `CALayer` subclasses, below are the direct `CALayer` subclasses available in the `Core Animation` library:
 
-![CALayer Hierarchy]({% asset_path calayer_hierarchy.png %})
+![CALayer Hierarchy]({% asset calayer_hierarchy.png @path %})
 
 In this part of the series we will build:
 
@@ -44,7 +44,7 @@ With `CAShapeLayer` we can easily draw curved paths and geometrical shapes. `CAS
 
 But why would you write code to draw a circle or a triangle or anything complex when you have images?
 
-![Trollface]({% asset_path trollface.png %})
+![Trollface]({% asset trollface.png @path %})
 
 There are a few reasons to write code:
 
@@ -54,7 +54,7 @@ There are a few reasons to write code:
 
 By the end of this section, we’ll be able to show this cool animation on the screen:
 
-![Circle Shape]({% asset_path shape.gif %})
+![Circle Shape]({% asset shape.gif @path %})
 
 The animation above has three components:
 
@@ -146,7 +146,7 @@ You can find the complete code till this section on this [CALayers-GitHub](https
 
 `CAReplicatorLayer` is a container layer, it replicates the content added to it. It has some cool properties which can be used to instruct the container how the replication has to be done. Beautiful effects can be achieved by applying animations to the replicated content. Every contained content is called an `instance`. To show the usage of this layer we will create a reflection of an image. By the end of this section, we’ll be able to show the reflection of the [Haptik](https://haptik.ai) logo like this:
 
-![Reflection]({% asset_path reflection.png %})
+![Reflection]({% asset reflection.png @path %})
 
 Let’s build this!
 
@@ -194,7 +194,7 @@ Setting the `instanceCount` to 2 instructs the replicator layer to create exactl
 
 This is it! Running this code will give us the below output:
 
-![Reflection]({% asset_path reflection2.png %})
+![Reflection]({% asset reflection2.png @path %})
 
 But this is not what you expected, yes because the mirror we used earlier was blurred and so was the reflection. But if that is what you also need then add a gradient layer to your layer as shown below:
 
@@ -223,7 +223,7 @@ gradientLayer.position = CGPointMake(replicatorLayer.position.x, replicatorLayer
 
 At [Haptik](https://haptik.ai), we have used the `CAReplicatorLayer` to create a new typing indicator. This is how it looks!
 
-![Typing]({% asset_path typing.gif %})
+![Typing]({% asset typing.gif @path %})
 
 If you want to download and run this code check the [Github repo](https://github.com/vinayjn/CALayer/tree/c495e29dc3675b39a4636f005d0d716ebd4b0fb9). And yes, Craig Federighi was online. ;)
 
@@ -231,7 +231,7 @@ If you want to download and run this code check the [Github repo](https://github
 
 Text layers are used to layout and render plain and attributed strings, but we do this usually with `UILabel`. One amazing usage of `CATextLayer` is to mask UIView. In this section we will redesign the [Haptik](https://haptik.ai) logo as in the image below:
 
-![CATextLayer]({% asset_path textlayer.png %})
+![CATextLayer]({% asset textlayer.png @path %})
 
 We create a `UIImageView` with a pattern image and mask that pattern with the text layer:
 
