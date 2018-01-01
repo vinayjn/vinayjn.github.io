@@ -1,7 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Vinay Jain | A Conversation With CALayer – Meeting I</title>
   <meta name="description" content="Beautify your iOS App">
@@ -12,52 +12,108 @@
   <meta property="og:url" content="/posts/conversation-with-calayer">
   <meta property="og:description" content="Beautify your iOS App">
   <meta property="og:site_name" content="Vinay Jain">
-  <meta property="og:image" content="/assets/og-image.jpg">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:url" content="/posts/conversation-with-calayer">
   <meta name="twitter:title" content="A Conversation With CALayer – Meeting I">
   <meta name="twitter:description" content="Beautify your iOS App">
-  <meta name="twitter:image" content="/assets/og-image.jpg">
-
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-  <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="Vinay Jain Last 10 blog posts" />
 
   
-    <link type="text/css" rel="stylesheet" href="/assets/light.css">
+    <meta property="og:image" content="/assets/og-image-4893613393edc1a398364cdcc305a8d4dcc9b3fa825f63ede3796a93b6728073.jpg">
+    <meta name="twitter:image" content="/assets/og-image-4893613393edc1a398364cdcc305a8d4dcc9b3fa825f63ede3796a93b6728073.jpg">
+  
+
+  <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="Vinay Jain Last 10 blog posts">
+
+  
+
+  <link rel="icon" type="image/x-icon" href="/assets/favicon-76aee1bb64c19661c5d590850476b94b2f3e94cbb47271f9d285dea5b2712d76.ico">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-119122b52243c7aa9996be4d777d7083eccb4efd9ef85e36abc7b9c2db3eb0cb.png">
+
+  
+    <link rel="stylesheet" type="text/css" href="/assets/light-3db04db3b0a2309ab03333699232f4bfec0b283bd28b132e3236291f19b332b7.css">
   
 </head>
 
 <body>
-  <main role="main">
+  <main>
     <div class="grid grid-centered">
       <div class="grid-cell">
-        <nav class="header-nav reveal">
-    <a href="/" class="header-logo" title="Vinay Jain">Vinay Jain</a>
-    <br>Keyboards &amp; Pencils
-
+        <nav class="header-nav scrollappear">
+  <a href="/" class="header-logo" title="Vinay Jain">Vinay Jain</a>
+  <br>Keyboards &amp; Pencils
   <ul class="header-links">
     
     
       <li>
-        <a href="https://twitter.com/@v1n4yjn" target="_blank" title="Twitter">
-          <span class="icon icon-social-twitter"></span>
+        <a href="https://twitter.com/v1n4yjn" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-twitter">
+  <use href="/assets/twitter-8842c33965263ad1b03a978406826677a668f94125d5837e70ab83f24b3213a7.svg#icon-twitter" xlink:href="/assets/twitter-8842c33965263ad1b03a978406826677a668f94125d5837e70ab83f24b3213a7.svg#icon-twitter"></use>
+</svg>
+
         </a>
       </li>
     
     
       <li>
-        <a href="https://www.facebook.com/vinay.jn7" target="_blank" title="Facebook">
-          <span class="icon icon-social-facebook"></span>
+        <a href="https://www.facebook.com/vinay.jn7" rel="noreferrer noopener" target="_blank" title="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-facebook">
+  <use href="/assets/facebook-72c99b26d37bee65607720abb23d26b44ef30cca1187f98b0d9305be1230b1bf.svg#icon-facebook" xlink:href="/assets/facebook-72c99b26d37bee65607720abb23d26b44ef30cca1187f98b0d9305be1230b1bf.svg#icon-facebook"></use>
+</svg>
+
         </a>
       </li>
+    
     
     
       <li>
-        <a href="https://github.com/vinayjn" target="_blank" title="GitHub">
-          <span class="icon icon-social-github"></span>
+        <a href="https://github.com/vinayjn" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
         </a>
       </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://stackoverflow.com/users/2286267" rel="noreferrer noopener" target="_blank" title="Stack Overflow">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-stackoverflow">
+  <use href="/assets/stackoverflow-12ba59133ed134d26156d30f095e0222b6039395cf26f2fab0cb6ce3ef2db00d.svg#icon-stackoverflow" xlink:href="/assets/stackoverflow-12ba59133ed134d26156d30f095e0222b6039395cf26f2fab0cb6ce3ef2db00d.svg#icon-stackoverflow"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/vinayjn" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-linkedin">
+  <use href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin" xlink:href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://instagram.com/vinayjn7" rel="noreferrer noopener" target="_blank" title="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-instagram">
+  <use href="/assets/instagram-37f85bc75b43ecc4c114d9a46f846327fe13c5893787c6afbcfef9d30d58bd9e.svg#icon-instagram" xlink:href="/assets/instagram-37f85bc75b43ecc4c114d9a46f846327fe13c5893787c6afbcfef9d30d58bd9e.svg#icon-instagram"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
     
     
     
@@ -66,15 +122,27 @@
     
       <li>
         <a href="mailto:vinay.jn7@gmail.com" title="Email">
-          <span class="icon icon-at"></span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
         </a>
       </li>
     
     
+      <li>
+        <a href="/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-rss">
+  <use href="/assets/rss-541ec5cea9cefd10d2fcfec01888f3f231a8829940249835fa7b7b3a12ae0d0d.svg#icon-rss" xlink:href="/assets/rss-541ec5cea9cefd10d2fcfec01888f3f231a8829940249835fa7b7b3a12ae0d0d.svg#icon-rss"></use>
+</svg>
+
+        </a>
+      </li>
+    
   </ul>
 </nav>
 
-        <article class="article reveal">
+        <article class="article scrollappear">
           <header class="article-header">
             <h1>A Conversation With CALayer – Meeting I</h1>
             <p>Beautify your iOS App</p>
@@ -112,7 +180,7 @@
 
 <p>Every <code class="highlighter-rouge">UIView</code> is backed with a layer which can be accessed with the <code class="highlighter-rouge">view.layer</code>. The <code class="highlighter-rouge">layer</code> property points to an instance of either the <code class="highlighter-rouge">CALayer</code> class or any of its subclasses like <code class="highlighter-rouge">CAShapeLayer</code>, <code class="highlighter-rouge">CAGradientLayer</code>, <code class="highlighter-rouge">CATextLayer</code> etc. Layers are part of the  <code class="highlighter-rouge">Core Animation</code> library and are extensively used in custom drawing with <code class="highlighter-rouge">Core Graphics</code> and  <code class="highlighter-rouge">Core Animation</code>, these two frameworks make <code class="highlighter-rouge">iOS</code> apps beautiful. The image below shows where these two frameworks lie in the <code class="highlighter-rouge">iOS</code> graphics drawing engine:</p>
 
-<p><img src="/assets/drawing_hierarchy.png" alt="Drawing Hierarchy" /></p>
+<p><img src="/assets/drawing_hierarchy-c0c030659ab270fffccfa83179fbfffa7d659f401b9a9eae84ce35276cd83ad0.png" alt="Drawing Hierarchy"></p>
 
 <p><code class="highlighter-rouge">OpenGL</code>, a low-level API which interacts directly with the <code class="highlighter-rouge">GPU</code>, does all the heavy lifting work of graphics processing. To make our lives even easier Apple has built <code class="highlighter-rouge">Core Animation</code>, a high-level wrapper above <code class="highlighter-rouge">OpenGL</code> so that we don’t need to write the low-level <code class="highlighter-rouge">C</code> code.</p>
 
@@ -120,14 +188,17 @@
 
 <p>There are various <code class="highlighter-rouge">CALayer</code> subclasses, below are the direct <code class="highlighter-rouge">CALayer</code> subclasses available in the <code class="highlighter-rouge">Core Animation</code> library:</p>
 
-<p><img src="/assets/calayer_hierarchy.png" alt="CALayer Hierarchy" /></p>
+<p><img src="/assets/calayer_hierarchy-cb78e0c96cb51f97b8b58691db84b59a94c09247402e578672ebf335d6509df8.png" alt="CALayer Hierarchy"></p>
 
 <p>In this part of the series we will build:</p>
 
 <ul>
-  <li>A loading indicator with <code class="highlighter-rouge">CAShapeLayer</code> and <code class="highlighter-rouge">CAKeyFrameAnimation</code></li>
-  <li>A mirror reflection of the <a href="https://haptik.ai">Haptik</a> logo with <code class="highlighter-rouge">CAReplicatorLayer</code></li>
-  <li>A colorful <a href="https://haptik.ai">Haptik</a> logo with <code class="highlighter-rouge">CATextLayer</code></li>
+  <li>A loading indicator with <code class="highlighter-rouge">CAShapeLayer</code> and <code class="highlighter-rouge">CAKeyFrameAnimation</code>
+</li>
+  <li>A mirror reflection of the <a href="https://haptik.ai">Haptik</a> logo with <code class="highlighter-rouge">CAReplicatorLayer</code>
+</li>
+  <li>A colorful <a href="https://haptik.ai">Haptik</a> logo with <code class="highlighter-rouge">CATextLayer</code>
+</li>
 </ul>
 
 <h3 id="cashapelayer">CAShapeLayer</h3>
@@ -136,19 +207,20 @@
 
 <p>But why would you write code to draw a circle or a triangle or anything complex when you have images?</p>
 
-<p><img src="/assets/trollface.png" alt="Trollface" /></p>
+<p><img src="/assets/trollface-fb955619c9d02876b888c0ebc79a4deb66fc31e6e12a8925a54f0eeeca54cc4a.png" alt="Trollface"></p>
 
 <p>There are a few reasons to write code:</p>
 
 <ul>
   <li>Almost all properties of shape layers are <code class="highlighter-rouge">animatable</code>, which gives us the freedom to change these shapes with code at runtime, which we’ll learn how to do.</li>
-  <li><code class="highlighter-rouge">CAShapeLayer</code> is vector based, thus they are resolution independent.</li>
+  <li>
+<code class="highlighter-rouge">CAShapeLayer</code> is vector based, thus they are resolution independent.</li>
   <li>This can be drawn directly using the GPU so we can free the CPU for other tasks.</li>
 </ul>
 
 <p>By the end of this section, we’ll be able to show this cool animation on the screen:</p>
 
-<p><img src="/assets/shape.gif" alt="Circle Shape" /></p>
+<p><img src="/assets/shape-d7be21b07730b1c154584b4ee56b398eff489423b6f5bcc6f2ad312262a48d05.gif" alt="Circle Shape"></p>
 
 <p>The animation above has three components:</p>
 
@@ -225,7 +297,7 @@ z-axis and fortunately, we can easily do this with <code class="highlighter-roug
 
 <p><code class="highlighter-rouge">CAReplicatorLayer</code> is a container layer, it replicates the content added to it. It has some cool properties which can be used to instruct the container how the replication has to be done. Beautiful effects can be achieved by applying animations to the replicated content. Every contained content is called an <code class="highlighter-rouge">instance</code>. To show the usage of this layer we will create a reflection of an image. By the end of this section, we’ll be able to show the reflection of the <a href="https://haptik.ai">Haptik</a> logo like this:</p>
 
-<p><img src="/assets/reflection.png" alt="Reflection" /></p>
+<p><img src="/assets/reflection-184f247fd73615e4bda5b3a1c63cdd6b8c7ede894a40244d335a75fe16c6995a.png" alt="Reflection"></p>
 
 <p>Let’s build this!</p>
 
@@ -265,7 +337,7 @@ z-axis and fortunately, we can easily do this with <code class="highlighter-roug
 
 <p>This is it! Running this code will give us the below output:</p>
 
-<p><img src="/assets/reflection2.png" alt="Reflection" /></p>
+<p><img src="/assets/reflection2-38775050e2368b4d3b9b62af5e3b0cd2b50d2639ecd42ce091f685469b50f374.png" alt="Reflection"></p>
 
 <p>But this is not what you expected, yes because the mirror we used earlier was blurred and so was the reflection. But if that is what you also need then add a gradient layer to your layer as shown below:</p>
 
@@ -290,7 +362,7 @@ z-axis and fortunately, we can easily do this with <code class="highlighter-roug
 
 <p>At <a href="https://haptik.ai">Haptik</a>, we have used the <code class="highlighter-rouge">CAReplicatorLayer</code> to create a new typing indicator. This is how it looks!</p>
 
-<p><img src="/assets/typing.gif" alt="Typing" /></p>
+<p><img src="/assets/typing-59f941c8536c116fb30244dc8a9092253c624633f6f044dd54a6b15e7ba6efaf.gif" alt="Typing"></p>
 
 <p>If you want to download and run this code check the <a href="https://github.com/vinayjn/CALayer/tree/c495e29dc3675b39a4636f005d0d716ebd4b0fb9">Github repo</a>. And yes, Craig Federighi was online. ;)</p>
 
@@ -298,7 +370,7 @@ z-axis and fortunately, we can easily do this with <code class="highlighter-roug
 
 <p>Text layers are used to layout and render plain and attributed strings, but we do this usually with <code class="highlighter-rouge">UILabel</code>. One amazing usage of <code class="highlighter-rouge">CATextLayer</code> is to mask UIView. In this section we will redesign the <a href="https://haptik.ai">Haptik</a> logo as in the image below:</p>
 
-<p><img src="/assets/textlayer.png" alt="CATextLayer" /></p>
+<p><img src="/assets/textlayer-acbc1cde1700d945275168d2725d1ec638e9f2c72952c2a277865e89d6a5f085.png" alt="CATextLayer"></p>
 
 <p>We create a <code class="highlighter-rouge">UIImageView</code> with a pattern image and mask that pattern with the text layer:</p>
 
@@ -338,67 +410,62 @@ z-axis and fortunately, we can easily do this with <code class="highlighter-roug
 <p>This post was originally written at <a href="http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/">Haptik Tech Blog</a>.</p>
 
           </div>
-
           <div class="article-share">
             
-            <a href="" title="Share on Twitter" onclick="window.open('https://twitter.com/home?status=A Conversation With CALayer – Meeting I - /posts/conversation-with-calayer by @@v1n4yjn', 'newwindow', 'width=500, height=225'); return false;">
-              <span class="icon icon-social-twitter"></span>
+            
+            <a href="https://twitter.com/home?status=A+Conversation+With+CALayer+%E2%80%93+Meeting+I%20-%20/posts/conversation-with-calayer%20by%20@v1n4yjn" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewbox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"></path></svg>
             </a>
-            <a href="" title="Share on Facebook" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=/posts/conversation-with-calayer', 'newwindow', 'width=500, height=500'); return false;">
-              <span class="icon icon-social-facebook"></span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=/posts/conversation-with-calayer" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewbox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"></path></svg>
             </a>
-            <a href="" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=/posts/conversation-with-calayer', 'newwindow', 'width=550, height=400'); return false;">
-              <span class="icon icon-social-googleplus"></span>
+            <a href="https://plus.google.com/share?url=/posts/conversation-with-calayer" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewbox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"></path></svg>
             </a>
           </div>
 
           
             <div id="disqus_thread" class="article-comments"></div>
-            <script>
-              (function() {
-                  var d = document, s = d.createElement('script');
-                  s.src = '//koderme.disqus.com/embed.js';
-                  s.setAttribute('data-timestamp', +new Date());
-                  (d.head || d.body).appendChild(s);
-              })();
-            </script>
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            <script src="https://koderme.disqus.com/embed.js" async defer></script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
           
         </article>
-        <footer class="footer reveal">
-<center>
-  <p>
-    I didn't come this far to only come this far.
-    <br>
-    
-    <a href="/">Vinay Jain</a>
-    
-  </p>
-</center>
+        <footer class="footer scrollappear">
+  <center>
+    <p>
+      I didn't come this far to only come this far.
+      <br>
+      
+      <a href="/">Vinay Jain</a>
+      
+    </p>
+  </center>
 </footer>
 
       </div>
     </div>
   </main>
-  <script type="text/javascript" src="/assets/vendor.js"></script>
-<script type="text/javascript" src="/assets/application.js"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
-<script>
-  WebFont.load({
-    google: {
-      families: ['Cormorant Garamond:700', 'Lato:300,400,700']
-    }
-  });
-</script>
-
-
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72339632-1"></script>
   <script>
-    window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
-    ga('create','UA-72339632-1','auto');ga('send','pageview')
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-72339632-1');
   </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 
+
+<script type="text/javascript" src="/assets/vendor-268c7ae814c16b5b0e479d3d34c0d1ff58337e15696af4994e19dd21d116eaa5.js"></script>
+
+
+  <script type="text/javascript" src="/assets/webfonts-e3010885de8c083c4b2935d463b1649e8796191a66a1b43bb87ef04bbcce420d.js"></script>
+
+
+
+  <script type="text/javascript" src="/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js"></script>
+
+
+<script type="text/javascript" src="/assets/application-cd43a7f9bd8a08997bb19229cd040e7129ede0a1adf77c693b5835c9f8c2a4b1.js"></script>
 
 </body>
 </html>
