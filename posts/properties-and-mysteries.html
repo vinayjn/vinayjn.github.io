@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Vinay Jain | Demystifying @property and attributes</title>
+  <meta name="description" content="Understanding what the keywords in between those parentheses mean.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Demystifying @property and attributes">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/posts/properties-and-mysteries">
+  <meta property="og:description" content="Understanding what the keywords in between those parentheses mean.">
+  <meta property="og:site_name" content="Vinay Jain">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="/posts/properties-and-mysteries">
+  <meta name="twitter:title" content="Demystifying @property and attributes">
+  <meta name="twitter:description" content="Understanding what the keywords in between those parentheses mean.">
+
+  
+    <meta property="og:image" content="/assets/og-image-4893613393edc1a398364cdcc305a8d4dcc9b3fa825f63ede3796a93b6728073.jpg">
+    <meta name="twitter:image" content="/assets/og-image-4893613393edc1a398364cdcc305a8d4dcc9b3fa825f63ede3796a93b6728073.jpg">
+  
+
+  <link href="/feed.xml" type="application/rss+xml" rel="alternate" title="Vinay Jain Last 10 blog posts">
+
+  
+
+  <link rel="icon" type="image/x-icon" href="/assets/favicon-76aee1bb64c19661c5d590850476b94b2f3e94cbb47271f9d285dea5b2712d76.ico">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon-119122b52243c7aa9996be4d777d7083eccb4efd9ef85e36abc7b9c2db3eb0cb.png">
+
+  
+    <link rel="stylesheet" type="text/css" href="/assets/light-3db04db3b0a2309ab03333699232f4bfec0b283bd28b132e3236291f19b332b7.css">
+  
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav scrollappear">
+  <a href="/" class="header-logo" title="Vinay Jain">Vinay Jain</a>
+  <br>Keyboards &amp; Pencils
+  <ul class="header-links">
+    
+    
+      <li>
+        <a href="https://twitter.com/v1n4yjn" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-twitter">
+  <use href="/assets/twitter-8842c33965263ad1b03a978406826677a668f94125d5837e70ab83f24b3213a7.svg#icon-twitter" xlink:href="/assets/twitter-8842c33965263ad1b03a978406826677a668f94125d5837e70ab83f24b3213a7.svg#icon-twitter"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://www.facebook.com/vinay.jn7" rel="noreferrer noopener" target="_blank" title="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-facebook">
+  <use href="/assets/facebook-72c99b26d37bee65607720abb23d26b44ef30cca1187f98b0d9305be1230b1bf.svg#icon-facebook" xlink:href="/assets/facebook-72c99b26d37bee65607720abb23d26b44ef30cca1187f98b0d9305be1230b1bf.svg#icon-facebook"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/vinayjn" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://stackoverflow.com/users/2286267" rel="noreferrer noopener" target="_blank" title="Stack Overflow">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-stackoverflow">
+  <use href="/assets/stackoverflow-12ba59133ed134d26156d30f095e0222b6039395cf26f2fab0cb6ce3ef2db00d.svg#icon-stackoverflow" xlink:href="/assets/stackoverflow-12ba59133ed134d26156d30f095e0222b6039395cf26f2fab0cb6ce3ef2db00d.svg#icon-stackoverflow"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/vinayjn" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-linkedin">
+  <use href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin" xlink:href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+      <li>
+        <a href="https://instagram.com/vinayjn7" rel="noreferrer noopener" target="_blank" title="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-instagram">
+  <use href="/assets/instagram-37f85bc75b43ecc4c114d9a46f846327fe13c5893787c6afbcfef9d30d58bd9e.svg#icon-instagram" xlink:href="/assets/instagram-37f85bc75b43ecc4c114d9a46f846327fe13c5893787c6afbcfef9d30d58bd9e.svg#icon-instagram"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:vinay.jn7@gmail.com" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-rss">
+  <use href="/assets/rss-541ec5cea9cefd10d2fcfec01888f3f231a8829940249835fa7b7b3a12ae0d0d.svg#icon-rss" xlink:href="/assets/rss-541ec5cea9cefd10d2fcfec01888f3f231a8829940249835fa7b7b3a12ae0d0d.svg#icon-rss"></use>
+</svg>
+
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article scrollappear">
+          <header class="article-header">
+            <h1>Demystifying @property and attributes</h1>
+            <p>Understanding what the keywords in between those parentheses mean.</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                July 25, 2017
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  5 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/ios">ios</a>
+                
+                  <a href="/tag/objc">objc</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>Whenever we declare properties in Objective-C there are some keywords between the parentheses like <code class="highlighter-rouge">strong</code>, <code class="highlighter-rouge">weak</code>,  <code class="highlighter-rouge">atomic</code>, <code class="highlighter-rouge">nonatomic</code>. There can be multiple comma separated words in between the parentheses, sometimes we don’t add any keywords there and keep the default compiler behavior. In this post we’ll discuss what these keywords/attributes actually mean and what are the effects of using one over the other. <code class="highlighter-rouge"><span class="k">@property</span></code> are specific to Objective-C but the concepts can be applied to Swift as well, if you are a Swift only dev I still recommend going through this post once.</p>
+
+<p>Broadly, the change in behavior of a property with these words fall into three categories, lets see what they are:</p>
+
+<h3 id="atomicity-atomic-nonatomic">Atomicity (atomic, nonatomic)</h3>
+
+<ul>
+  <li>
+    <h4 id="atomic">atomic</h4>
+    <p>atomic is the default behavior, if we don’t type atomic or nonatomic then the property is atomic. atomic ensures that if we try to read the property we always get some valid value, it will never be junk or garbage data.</p>
+
+    <p>Lets say, multiple threads are reading and writing the property simultaneously, at each and every instant the value read from the property is a good value. We don’t know what the value will be, it can be the value before the new value gets written or it can be the new value.</p>
+  </li>
+  <li>
+    <h4 id="nonatomic">nonatomic</h4>
+    <p>As it is (non)atomic it doesn’t do whatever atomic does. To make a property nonatomic we have to add this keyword in between the parentheses. With nonatomic properties you lose the guarantee on the validity of values, reading a nonatomic property can return a garbage value.</p>
+  </li>
+</ul>
+
+<p>Since atomic somehow manages the validity of the value, it has some performance limitations. Access to atomic properties are relatively slower than nonatomic properties. If you are creating properties which involve frequent write operations then it is recommended to make the properties nonatomic.</p>
+
+<p>There’s a confusion in most developer’s mind that creating a property atomic makes it thread-safe. Atomicity has nothing to do with thread-safety. There are other ways to make the properties thread-safe but that discussion is beyond the scope of this post.</p>
+
+<h3 id="write-access-readonly-readwrite">Write Access (readonly, readwrite)</h3>
+
+<p>Both of these keywords are self explanatory. The default behavior is readwrite, so if we don’t specify any of these the property will allow write access to the instance variable. readonly restricts write access from everyone including the class it is declared in.</p>
+
+<p>To allow write access to the property in the class then we have to create an interface extension in the implementation file and override the property by making it readwrite. This way the classes importing this class will be restricted to modify its value.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// MyClass.h
+</span>
+<span class="k">@interface</span> <span class="nc">MyClass</span><span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">value</span><span class="p">;</span>
+
+<span class="k">@end</span>
+
+<span class="c1">// MyClass.m
+</span>
+<span class="k">@interface</span> <span class="nc">MyClass</span><span class="p">()</span>
+
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readwrite</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">value</span><span class="p">;</span>
+
+<span class="k">@end</span>
+
+<span class="k">@implementation</span> <span class="nc">MyClass</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">setSomeValue</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">newValue</span> <span class="p">{</span>
+    <span class="n">self</span><span class="p">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">newValue</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">@end</span>
+
+</code></pre></div></div>
+<p><br></p>
+
+<h3 id="storage--ownership-strong-weak-copy">Storage &amp; Ownership (strong, weak, copy)</h3>
+
+<p>Memory management in iOS is done with Automatic Reference Counting(ARC) and cleanup is dependent on the reference count or retain count of the objects in memory. An object sends a <code class="highlighter-rouge">dealloc</code> message as soon as its retain count reaches 0.</p>
+
+<ul>
+  <li>
+    <h4 id="strong">strong</h4>
+    <p>strong is the default behavior, if you don’t specify any of the storage or ownership attributes the property holds a strong reference to the instance variable. A strong reference always owns the object is pointing to. Every strong reference to a variable increases its retain count by 1. Since the strong reference is owning the object, as longs as there is at least one strong reference to the variable it will not be deallocated from the memory.</p>
+  </li>
+  <li>
+    <h4 id="weak">weak</h4>
+    <p>weak is analogous to strong. When a property is weak, it holds a weak reference to the instance variable but doesn’t own it. A weak reference doesn’t increase the retain count of the object. If there are no strong references to the object the object will be deallocated and all the weak reference to this object are set to nil so that the weak pointers doesn’t point to garbage data and the operations with these pointers doesn’t crash the app.</p>
+
+    <p>No discussion of strong and weak can end without talking about retain cycles.</p>
+  </li>
+</ul>
+
+<p>Languages like Objective-C and C# depends on reference count to manage memory and these languages don’t like retain cycles because when a retain cycle is present the memory management techniques fail.</p>
+
+<p>A retain cycle occurs when properties hold strong references to each other’s instance variables and when this happens both the objects cannot be deallocated because their reference count is not 0. Smart compilers give warnings about probable retain cycle on compile time only. To avoid retain cycles in these situations you can make one of the properties weak so that the object it is pointing to can be cleared by ARC.</p>
+
+<p>We usually use this practice in setting the delegate and datasource properties of protocols. Retain cycles are the reason why it is recommended to keep the delegate and datasource properties in protocols as weak. The view controller holds a strong reference to the delegate and if the delegate was strong, then it will also hold a strong reference back to the view controller and will create a retain cycle.</p>
+
+<blockquote>
+  <p>Bonus: I just explained you how ARC works in Objective-C!</p>
+</blockquote>
+
+<ul>
+  <li>
+    <h4 id="copy">copy</h4>
+    <p>copy is similar to strong but instead of owning and increasing the retain count of the object, it creates a new copy of that object and holds a strong reference to the copied object. This way if we change the new object we will still be able to get the old value from other references. copy properties works great with mutable objects and <code class="highlighter-rouge">NSString</code>s. The instance variable backed by the copy must conform to <code class="highlighter-rouge">NSCopying</code> protocol to make this work.</p>
+  </li>
+</ul>
+
+<p>There are some pre-ARC attributes also which we’ll discuss now, but who doesn’t use ARC today?</p>
+
+<ul>
+  <li>
+    <h4 id="assign">assign</h4>
+    <p>assign is the default for all non pointer(*) properties i.e. the primitive C datatypes like int, float, long.</p>
+  </li>
+  <li>
+    <h4 id="retain">retain</h4>
+    <p>It is the pre-ARC strong which owns the object by increasing its retain count, since its pre-ARC you will have to manually release the object after setting the pointer to nil.</p>
+  </li>
+</ul>
+
+<p>I’ve tried to keep things short and easy to understand, if you find any issues in the post or have any feedback like adding or removing content please feel free to write in comments. I welcome tech discussions. 😉</p>
+
+          </div>
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=Demystifying+@property+and+attributes%20-%20/posts/properties-and-mysteries%20by%20@v1n4yjn" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewbox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"></path></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=/posts/properties-and-mysteries" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewbox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"></path></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=/posts/properties-and-mysteries" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewbox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"></path></svg>
+            </a>
+          </div>
+
+          
+            <div id="disqus_thread" class="article-comments"></div>
+            <script src="https://koderme.disqus.com/embed.js" async defer></script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+          
+        </article>
+        <footer class="footer scrollappear">
+  <center>
+    <p>
+      I didn't come this far to only come this far.
+      <br>
+      
+      <a href="/">Vinay Jain</a>
+      
+    </p>
+  </center>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72339632-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-72339632-1');
+  </script>
+
+
+<script type="text/javascript" src="/assets/vendor-268c7ae814c16b5b0e479d3d34c0d1ff58337e15696af4994e19dd21d116eaa5.js"></script>
+
+
+  <script type="text/javascript" src="/assets/webfonts-e3010885de8c083c4b2935d463b1649e8796191a66a1b43bb87ef04bbcce420d.js"></script>
+
+
+
+  <script type="text/javascript" src="/assets/scrollappear-e2da8ea567e418637e31266cc5302126eaa79f62a2273739086358b589a89ee6.js"></script>
+
+
+<script type="text/javascript" src="/assets/application-cd43a7f9bd8a08997bb19229cd040e7129ede0a1adf77c693b5835c9f8c2a4b1.js"></script>
+
+</body>
+</html>
