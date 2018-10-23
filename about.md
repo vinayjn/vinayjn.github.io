@@ -13,3 +13,6 @@ You can also find me on:
 - [GitHub](https://github.com/vinayjn)
 - [StackOverflow](https://stackoverflow.com/users/2286267/vinay-jain)
 - [dev.to](https://dev.to/vinayjn)
+
+
+Or maybe send me an email: [vinay.jn7@gmail.com](mailto:vinay.jn7@gmail.com)
