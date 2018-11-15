@@ -31,32 +31,8 @@ Both of these keywords are self explanatory. The default behavior is readwrite, 
 
 To allow write access to the property in the class then we have to create an interface extension in the implementation file and override the property by making it readwrite. This way the classes importing this class will be restricted to modify its value.
 
-````
-// MyClass.h
+![Readonly and Readwrite]({{ site.baseurl }}/images/properties/readonly.svg)
 
-@interface MyClass: NSObject
-
-@property (nonatomic, readonly) NSString *value;
-
-@end
-
-// MyClass.m
-
-@interface MyClass()
-
-@property (nonatomic, readwrite) NSString *value;
-
-@end
-
-@implementation MyClass
-
-- (void)setSomeValue:(NSString *)newValue {
-    self.value = newValue;
-}
-
-@end
-
-````
 <br/>
 
 ### Storage & Ownership (strong, weak, copy)
