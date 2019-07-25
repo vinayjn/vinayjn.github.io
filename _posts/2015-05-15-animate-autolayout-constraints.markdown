@@ -13,7 +13,7 @@ AutoLayout brings a lot of challenges with it, at first you may find it tough to
 
 AutoLayout can be managed programmatically, constraints can be updated at runtime. Sometimes we need to animate these updates/changes to view frames. You cannot directly animate change in AutoLayout constraints as you do with `UIView` frame changes. However the change in code to animate constraint changes isn't different for AutoLayout, you just need to call `[self.view layoutIfNeeded]` in the `animateWithDuration:` method before and after the a constraint is updated. Here is sample code I used to show/hide a `UISearchBar` with a button click.
 
-{% highlight swift %}
+{% splash %}
 -(void)toggleSearchBarVisibility{
 
     searchBar.hidden = !searchBar.hidden;
@@ -33,4 +33,4 @@ AutoLayout can be managed programmatically, constraints can be updated at runtim
                          } completion:nil];
        }
     }
-{% endhighlight %}
+{% endsplash %}

@@ -4,19 +4,19 @@ title:  "A Conversation With CALayer – Meeting I"
 date:   2017-03-21 04:39:25
 tags: [ios, objc]
 keywords : koder,koder.me,Vinay Jain, vinay, blog, objective c, macros, swift, constants, closures, let, \#define, objc, Animation in IOS, CALayer, CAReplicatorLayer, CAShaperLayer, CATextLayer, circular ring in IOS app, core animation, core graphics, gradient in ios, Graphics in IOS, How to code in IOS, Images in iOS, iOS, IOS app, mirror ios, OpenGl, reflection ios, UIKit, vector drawing
-description: "Beautify your iOS App"
+summary: "Beautify your iOS App"
 ---
 
 If you’ve been programming for `iOS` devices, you might have encountered these lines of code:
 
-{% highlight swift %}
+{% splash %}
 
 view.backgroundColor = [UIColor greenColor];
 view.layer.cornerRadius = 8.0;
 view.layer.borderWidth = 1.0;
 view.layer.borderColor = [UIColor blackColor];
 
-{% endhighlight %}
+{% endsplash %}
 
 If you haven’t seen code like this before try using it with any UI component in your app and check what it does. It adds a 1pt black border to the view and round its corners by 8pt.
 
@@ -66,20 +66,20 @@ The animation above has three components:
 
 The below code draws the rounded rectangle on the screen:
 
-{% highlight swift %}
+{% splash %}
 
 CAShapeLayer *roundedRect = [CAShapeLayer layer];
 roundedRect.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, 120, 120) cornerRadius:8.0].CGPath;
 roundedRect.fillColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5].CGColor;
 [self.view.layer addSublayer:roundedRect];
 
-{% endhighlight %}
+{% endsplash %}
 
 To create the path of the shape layer we used a `UIKit` class `UIBezierPath` to skip the complexity of drawing paths with `Core Graphics`. The `fillColor` property of the shape layer fills the closed region of the layer with given color.
 
 Next, we add a circle to the rounded rectangle:
 
-{% highlight swift %}
+{% splash %}
 
 CAShapeLayer *circle = [CAShapeLayer layer];
 
@@ -92,13 +92,13 @@ circle.position = CGPointMake(60, 60);
 
 [roundedRect addSublayer:circle];
 
-{% endhighlight %}
+{% endsplash %}
 
 For drawing a circle we need to pass a `startAngle` and an `endAngle`. With these angles, we tell the system from where the path should start and where it should be drawn till. If we were drawing this circle with a pen, consider the `strokeColor` as the ink color and the `lineWidth` as the minimum width of the line that can be drawn with the pen. Changing the `position` of the layer centers it in the rectangle.
 
 To add the arc we will again use the same function for drawing a circle, but we will pass different start angles and end angles to draw it as an arc:
 
-{% highlight swift %}
+{% splash %}
 
 CAShapeLayer *arc = [CAShapeLayer layer];
 arc.path = [UIBezierPath bezierPathWithArcCenter:CGPointMake(0, 0) radius:50 startAngle:180.0*(M_PI/180.0)  endAngle:225.0*(M_PI/180.0) clockwise:YES].CGPath;
@@ -108,14 +108,14 @@ arc.fillColor = [UIColor clearColor].CGColor;
 arc.strokeColor = [UIColor darkGrayColor].CGColor;
 arc.backgroundColor = [UIColor clearColor].CGColor;
 
-{% endhighlight %}
+{% endsplash %}
 
 The `lineCap` determines how the endpoints of the drawn curve are stroked.
 
 To create a rotational animation in x-y plane we need to change the rotation transform along the
 z-axis and fortunately, we can easily do this with `Core Animation`.
 
-{% highlight swift %}
+{% splash %}
 
 CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.rotation.z"];
 animation.additive = YES;
@@ -137,7 +137,7 @@ animation.timingFunctions = @[
                              ];
 [arc addAnimation:animation forKey:@"rotate"];
 
-{% endhighlight %}
+{% endsplash %}
 
 
 With `CAKeyFrameAnimation` we can control the animation attributes like `fromValue` and `toValue`,  `timingFunction`, `calculationMode` for different time intervals in the complete animation. The `values` array determines `fromValue` and `toValue` of the `animatable` property ( transform.rotation.z) in the time intervals given to the `keyTimes` array. The timing functions decide how the animations start and end.
@@ -154,7 +154,7 @@ Let’s build this!
 
 First, we need a `CAReplicatorLayer` instance and on this instance, we’ll be adding an image layer of which the reflection we will be showing:
 
-{% highlight swift %}
+{% splash %}
 
 // Create a CAReplicatorLayer
 CAReplicatorLayer *replicatorLayer = [CAReplicatorLayer layer];
@@ -174,13 +174,13 @@ replicatorLayer.anchorPoint = CGPointMake(0.5, 0.0);
 replicatorLayer.position = CGPointMake(self.view.frame.size.width / 2.0, 80.0);    
 [replicatorLayer addSublayer:imageLayer];
 
-{% endhighlight %}
+{% endsplash %}
 
 This code is pretty straight forward, the `anchorPoint` of a layer is the point from where all the geometric manipulations will happen. The default `anchorPoint` is `(0.5, 0.5)` which represents the center of the layer. We want to apply a rotation from the top of the layer, so we changed it to `(0,0)``.
 
 With the above code, we have added an image to the replicator layer and set its correct bounds. To get the reflection we need to apply a rotation transform and translate the replicated layer to the correct position as below:
 
-{% highlight swift %}
+{% splash %}
 
 CATransform3D transform = CATransform3DIdentity;
 transform = CATransform3DScale(transform, 1.0, -1.0, 1.0);
@@ -188,7 +188,7 @@ transform = CATransform3DTranslate(transform, 0.0, -image.size.height * 2.0, 1.0
 replicatorLayer.instanceTransform = transform;
 replicatorLayer.instanceCount = 2;
 
-{% endhighlight %}
+{% endsplash %}
 
 The `instanceTransform` property of the replicator layer allows us to set the calculated transform on the replicated content. There are other properties of the replicator layer like `instanceDelay`, `instanceColor` which can be manipulated to get more control.
 
@@ -200,7 +200,7 @@ This is it! Running this code will give us the below output:
 
 But this is not what you expected, yes because the mirror we used earlier was blurred and so was the reflection. But if that is what you also need then add a gradient layer to your layer as shown below:
 
-{% highlight swift%}
+{% splash%}
 
 CAGradientLayer *gradientLayer = [CAGradientLayer layer];
 gradientLayer.colors = @[
@@ -221,7 +221,7 @@ gradientLayer.bounds = CGRectMake(0.0, 0.0, replicatorLayer.frame.size.width, im
 
 gradientLayer.position = CGPointMake(replicatorLayer.position.x, replicatorLayer.position.y + image.size.height * 1.5);
 
-{% endhighlight %}
+{% endsplash %}
 
 At [Haptik](https://haptik.ai), we have used the `CAReplicatorLayer` to create a new typing indicator. This is how it looks!
 
@@ -237,7 +237,7 @@ Text layers are used to layout and render plain and attributed strings, but we d
 
 We create a `UIImageView` with a pattern image and mask that pattern with the text layer:
 
-{% highlight swift%}
+{% splash%}
 
 // Create the imageView
 UIImage *haptikLogo = [UIImage imageNamed:@"Artboard"];
@@ -250,27 +250,27 @@ textLayer.frame = imageView.bounds;
 textLayer.rasterizationScale = [UIScreen mainScreen].scale;
 textLayer.contentsScale = [UIScreen mainScreen].scale;
 
-{% endhighlight %}
+{% endsplash %}
 
 **Never forget** to set the `rasterizationScale` and `contentsScale`, without these properties you might get blurry or smaller text depending on the screen resolution of the devices your app runs on.
 
 Set whatever string you want to display as a mask with the desired font:
 
-{% highlight swift%}
+{% splash%}
 textLayer.fontSize = 100.0;
 textLayer.font = (__bridge CFTypeRef _Nullable)([UIFont systemFontOfSize:100]);
 textLayer.string = @"haptik";
 textLayer.fontSize = 100.0;
 textLayer.font = (__bridge CFTypeRef _Nullable)([UIFont systemFontOfSize:100]);
 textLayer.string = @"haptik";
-{% endhighlight %}
+{% endsplash %}
 
 Finally, use the text layer as the mask on the image view and we are done:
 
-{% highlight swift%}
+{% splash%}
 imageView.layer.mask = textLayer;
 imageView.layer.mask = textLayer;
-{% endhighlight %}
+{% endsplash %}
 
 Build and run the app and see how it looks like.
 

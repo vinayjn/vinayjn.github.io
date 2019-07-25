@@ -4,7 +4,7 @@ title:  "Demystifying @property and attributes"
 date:   2017-07-25 01:09:25
 tags: [ios, objc]
 keywords : koder, koder.me, vinayjn, Vinay Jain, vinay, blog, objective c, swift, closures, objc, How to code in IOS, strong, weak, atomic, nonatomic, retain, copy, property, @property, @dynamic, @synthesize, nscopying, nsstring,
-description: "Understanding what the keywords in between those parentheses mean."
+summary: "Understanding what the keywords in between those parentheses mean."
 ---
 
 Whenever we declare properties in Objective-C there are some keywords between the parentheses like `strong`, `weak`,  `atomic`, `nonatomic`. There can be multiple comma separated words in between the parentheses, sometimes we don't add any keywords there and keep the default compiler behavior. In this post we'll discuss what these keywords/attributes actually mean and what are the effects of using one over the other. `@property` are specific to Objective-C but the concepts can be applied to Swift as well, if you are a Swift only dev I still recommend going through this post once.

@@ -5,7 +5,7 @@ date:   2016-07-04 12:24:55
 tags: [ios, swift]
 keywords : koder, koder.me, Vinay Jain, vinay, blog, generics, functions, swift, UITableView, reuseIdentifier, UITableViewController
 
-description : "With Generics write reusable UITableViewControllers in Swift."
+summary : "With Generics write reusable UITableViewControllers in Swift."
 ---
 
 I was obsessed with `Protocol Oriented Programming`, read a lot of blogs, watched so many videos and got some idea behind its implemetation and working. So now I know the basic protocol based programming stuff in `Swift` (the new cool 😎), but I was still struggling to use POP in our current codebase. Tried, tired and again tried but couldn't get through.
@@ -16,7 +16,7 @@ I tried the other way of writing reusable code and converted some of our codebas
 
 In most of the `UITableViewController`(TVC) subclasses or in `UIViewController` containing `UITableView` we override/implement these three methods of `UITableViewDataSource`
 
-{% highlight swift %}
+{% splash %}
 
 override func numberOfSectionsInTableView(tableView: UITableView) -> Int { .. }
 
@@ -24,30 +24,30 @@ override func tableView(tableView: UITableView, numberOfRowsInSection section: I
 
 override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell { .. }
 
-{% endhighlight %}
+{% endsplash %}
 
 Instead of writing them in each subclass lets pull these methods from all of them and put them in a `GenericTVC`, our `GenericTVC.swift` now has  
 
-{% highlight swift %}
+{% splash %}
 
 override func numberOfSectionsInTableView(tableView: UITableView) -> Int { .. }
 
 override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int { .. }
 
-{% endhighlight %}
+{% endsplash %}
 
 Every TVC we create from now will be a subclass of `GenericTVC`, so that we don't have to implement these two methods in each one of them. Next step is returning values from `numberOfSections` and `numberOfRows` and for this we will make a generic public dictionary in `GenericTVC`, you may want to add a 2D Swift array `[[String]]`. Add whatever is convenient for you.
 
-{% highlight swift %}
+{% splash %}
 
 var dataSource : [String : [Item]] ? // Item here is a model class which we use in our codebase. You can use anything of your choice.
 
-{% endhighlight %}
+{% endsplash %}
 
 `GenericTVC` with implementations of these methods :
 
 
-{% highlight swift %}
+{% splash %}
 
 class GenericTVC: UITableViewController {
 
@@ -91,7 +91,7 @@ class GenericTVC: UITableViewController {
     }   
 }
 
-{% endhighlight %}
+{% endsplash %}
 
 With this we have number of sections and also the number of rows in every section of our tableViews.
 
@@ -99,7 +99,7 @@ The only method left is `cellForRowAtIndexPath:` which we are not going to imple
 
 We have our `FirstTableViewController` and a custom tableView cell `FirstTableViewCell`
 
-{% highlight swift %}
+{% splash %}
 
 class FirstTableViewController: GenericTVC {
 
@@ -128,21 +128,21 @@ class FirstTableViewController: GenericTVC {
 
 }
 
-{% endhighlight %}
+{% endsplash %}
 
 This code compiles and runs as expected, but we are not expected to write this in production. Lets refactor this code.
 
 The call to `tableView.registerClass` will be repeated for every class lets push it to superclass, `GenericTVC`. But what if we have a tableView which has multiple kinds of cell. Mmmmmm.. lets create another public property in `GenericTVC`
 
-{% highlight swift %}
+{% splash %}
 
 var reuseClasses : [AnyClass]?
 
-{% endhighlight %}
+{% endsplash %}
 
 and in `viewDidLoad` add this code :
 
-{% highlight swift %}
+{% splash %}
 
 if let classes = reuseClasses {
     for reuseClass in classes {
@@ -150,34 +150,34 @@ if let classes = reuseClasses {
     }
 }
 
-{% endhighlight %}
+{% endsplash %}
 
 And in `FirstTableViewController`
 
 Replace :
 
-{% highlight swift %}
+{% splash %}
 
 super.viewDidLoad()
 self.tableView.registerClass(FirstTableViewCell.self, forCellReuseIdentifier: String(FirstTableViewCell))
 
-{% endhighlight %}
+{% endsplash %}
 
 With :
 
-{% highlight swift %}
+{% splash %}
 
 self.reuseClasses = [FirstTableViewCell.self] // or may be self.reuseClasses = [FirstTableViewCell.self, SecondTableViewCell.cell, ThirdTableViewCell.self]
 
 super.viewDidLoad()
 
-{% endhighlight %}
+{% endsplash %}
 
 The above code is self explanatory.
 
 Now come back to `cellForRowAtIndexPath:` in `FirstTableViewController`. Looks bad!. Lets move the cell initialization code to our base class. Add this method to `GenericTVC`:
 
-{% highlight swift %}
+{% splash %}
 
 func reusableCellFor(tableView tableView : UITableView, reuseClass : AnyClass) -> UITableViewCell {
     if let cell = tableView.dequeueReusableCellWithIdentifier(String(reuseClass)) {
@@ -187,17 +187,17 @@ func reusableCellFor(tableView tableView : UITableView, reuseClass : AnyClass) -
     }
 }
 
-{% endhighlight %}
+{% endsplash %}
 
 And in `FirstTableViewController` replace the cell initialization code with :
 
-{% highlight swift %}
+{% splash %}
 
 if let cell = reusableCellFor(tableView: tableView, reuseClass: (FirstTableViewCell.self)) as FirstTableViewCell {
 
 }
 
-{% endhighlight %}
+{% endsplash %}
 
 This piece of code works fine but I still don't like the downcast from `UITableViewCell` to `FirstTableViewCell`. Lets solve this by Generics.
 
@@ -207,7 +207,7 @@ With generics in Swift we can define methods(not only methods, actually everythi
 
 In `GenericTVC` replace the implementation of `reusableCellFor....` with the below code.
 
-{% highlight swift %}
+{% splash %}
 
 func reusableCellFor<CustomTVC : UITableViewCell>(tableView tableView : UITableView, reuseClass : CustomTVC.Type) -> CustomTVC {
 
@@ -219,11 +219,11 @@ func reusableCellFor<CustomTVC : UITableViewCell>(tableView tableView : UITableV
 
 }
 
-{% endhighlight %}
+{% endsplash %}
 
 Wow, this looks fantastic 🤑🤑 , but what is it 🤔🤔?
 
-{% highlight swift %}
+{% splash %}
 
 <CustomTVC : UITableViewCell>
 
@@ -238,13 +238,13 @@ reuseClass : CustomTVC.Type
 Accept a type which is a CustomTVC(UITableViewCell subclass)
 */
 
-{% endhighlight %}
+{% endsplash %}
 
 Everything else is self explanatory I guess 🤓.
 
 Finally in `FirstTableViewController` remove the `as FirstTableViewCell` and the also remove the `if let` check. And to keep the subclasses cleaner lets create a helper method in `GenericTVC` for getting the `Item` object from the datasource for current `indexPath`.
 
-{% highlight swift %}
+{% splash %}
 
 func itemFor(indexPath indexPath : NSIndexPath) -> Item? {
     if let datasource = self.datasource {
@@ -256,14 +256,14 @@ func itemFor(indexPath indexPath : NSIndexPath) -> Item? {
     return nil
 }
 
-{% endhighlight %}
+{% endsplash %}
 
 The final versions of our files are below :
 
 
 **GenericTVC :**
 
-{% highlight swift %}
+{% splash %}
 
 class GenericTVC: UITableViewController {
 
@@ -332,11 +332,11 @@ class GenericTVC: UITableViewController {
 
 }
 
-{% endhighlight %}
+{% endsplash %}
 
 **FirstTableViewController :**
 
-{% highlight swift %}
+{% splash %}
 
 class FirstTableViewController: GenericTVC {
 
@@ -358,7 +358,7 @@ class FirstTableViewController: GenericTVC {
 
 }
 
-{% endhighlight %}
+{% endsplash %}
 
 As you can see the resulting code for `FirstTableViewController` is shorter, readable and less scary.
 

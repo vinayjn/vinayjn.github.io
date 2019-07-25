@@ -2,7 +2,7 @@
 layout: post
 title:  "From Moving with Screens To Moving with People"
 date:   2016-08-01 02:34:25
-description: "A way to build healthy relationships."
+summary: "A way to build healthy relationships."
 ---
 
 At the time of this writing I am 23 years 7 months 25 days old and for the last 3 years, since the day I owned my first smartphone, I am engrossed with my phone and desktop notifications. I've been trying to get away from screens but I'm addicted to all of my devices. I realize that I'm always online and I never cut-off from internet. Even when I'm accompanied by people I enjoy talking to I'm actively listening to my phone tunes and vibrations. I was using my phone every where, at the coffee shop, at the restaurants, in office working hours and also in the washroom. I stopped going out on weekends and preferred to watch movies and TV series at home on my laptop. I stayed awake late nights cutting-off 2-3 hrs of precious sleep just to watch some interesting YouTube videos in the dimmest possible screen brightness. I hurt my eyes every night because the dimmest brightness is still too bright in the dark. My devices started owning me and I loved them over anything. The high possession of devices has stopped me from engaging in concrete and meaningful discussions. I almost lost my conversing skills and I'm glad I realized it -- not too late.

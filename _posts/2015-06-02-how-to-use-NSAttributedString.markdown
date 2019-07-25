@@ -6,7 +6,7 @@ comments : true
 tags: [ios, objc]
 keywords : koder,koder.me,Vinay Jain, vinay, blog, NSAttributedString, how, to, use, NSBackgroundColorAttributeName, NSFontAttributeName, NSParagraphStyleAttributeName, NSForegroundColorAttributeName, NSLigatureAttributeName, NSKernAttributeName, NSStrikethroughStyleAttributeName, NSUnderlineStyleAttributeName, NSStrokeColorAttributeName, NSStrokeWidthAttributeName, NSShadowAttributeName, NSTextEffectAttributeName, NSAttachmentAttributeName, NSLinkAttributeName, NSBaselineOffsetAttributeName, NSUnderlineColorAttributeName, NSStrikethroughColorAttributeName, NSObliquenessAttributeName, NSExpansionAttributeName, NSWritingDirectionAttributeName, NSVerticalGlyphFormAttributeName
 
-description : This post focusses on the usage of NSAttributedString in Objective C. All of the attributes of NSString are demonstrated with the help of code examples.
+summary : This post focusses on the usage of NSAttributedString in Objective C. All of the attributes of NSString are demonstrated with the help of code examples.
 ---
 As per the [Apple Documentation](https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/index.html), an `NSAttributedString` object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.
 
@@ -39,23 +39,23 @@ Lets look at the most used attributes :
 
 #### **NSFontAttributeName** ####
 
-{% highlight swift %}
+{% splash %}
 NSDictionary *attributes = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Italic" size:30.0] };
 
 NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Italic Text" attributes:attributes];
 
 self.attributedLabel.attributedText = attributedString;
-{% endhighlight %}
+{% endsplash %}
 
 `Output :` *Italic Text*
 
-{% highlight swift %}
+{% splash %}
 NSDictionary *attributes = @{ NSFontAttributeName : [UIFont fontWithName:@"HelveticaNeue-Bold" size:30.0] };
 
 NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Bold Text" attributes:attributes];
 
 self.attributedLabel.attributedText = attributedString;
-{% endhighlight %}
+{% endsplash %}
 
 `Output :` **Bold Text**
 
@@ -63,13 +63,13 @@ self.attributedLabel.attributedText = attributedString;
 
 #### **NSForegroundColorAttributeName** ####
 
-{% highlight swift %}
+{% splash %}
 NSDictionary *attributes = @{ NSForegroundColorAttributeName : [UIColor blueColor] };
 
 NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Blue Text" attributes:attributes];
 
 self.attributedLabel.attributedText = attributedString;
-{% endhighlight %}
+{% endsplash %}
 
 `Output :` <span style="color:blue">I am blue colored</span>
 
@@ -77,13 +77,13 @@ self.attributedLabel.attributedText = attributedString;
 
 #### **NSUnderlineStyleAttributeName** ####
 
-{% highlight swift %}
+{% splash %}
 NSDictionary *attributes = @{ NSUnderlineStyleAttributeName : @(NSUnderlineStyleSingle) };
 
 NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Underlined Text" attributes:attributes];
 
 self.label.attributedText = attributedString;
-{% endhighlight %}
+{% endsplash %}
 
 `Output :` <u>Underlined Text</u>
 

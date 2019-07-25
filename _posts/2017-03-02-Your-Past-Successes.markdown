@@ -4,7 +4,7 @@ title:  "Your Past Successes Guarantee..."
 date:   2017-03-02 12:24:55
 tags:
 keywords : koder, koder.me, Vinay Jain, vinay, blog, life, lessons, life-lessons, advice, motivation, inspiration, success, past
-description : "An overdue life lesson which guarantees success."
+summary : "An overdue life lesson which guarantees success."
 ---
 
 It has only been three years of my professional career and so much has changed since I started. I have gained as well as lost. I had the opportunity to live in three different cities but consequently had to leave some amazing and beautiful people behind. My career demanded to switch two employers serving 1 year to each. These employers didn’t just pay me well but appreciated and recognized my work. I learnt a lot, I had great colleagues who helped and encouraged me in hard times. I made some great friends and I’ll never forget them and I hope they don’t forget me as well.

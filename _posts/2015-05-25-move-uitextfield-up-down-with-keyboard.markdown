@@ -16,7 +16,7 @@ My solution to the problem is a small modification to the answer on `SO`. Here I
 
 **Objective C Code**
 
-{% highlight swift %}
+{% splash %}
 -(void)textFieldDidBeginEditing:(UITextField *)textField{
 
     [self animateTextField:textField up:YES withOffset:textField.frame.origin.y / 2];
@@ -45,11 +45,11 @@ My solution to the problem is a small modification to the answer on `SO`. Here I
     [UIView commitAnimations];
 }
 
-{% endhighlight %}
+{% endsplash %}
 
 **Swift Code**
 
-{% highlight swift %}
+{% splash %}
 
 func animateTextField(textField: UITextField, up: Bool, withOffset offset:CGFloat)
 {
@@ -78,4 +78,4 @@ func textFieldShouldReturn(textField: UITextField) -> Bool
     textField.resignFirstResponder()
     return true
 }
-{% endhighlight %}
+{% endsplash %}
