@@ -37,7 +37,15 @@ layout: default
 {% if txtpen.txtpen_sitename %}
   <script src="https://txtpen.com/embed.js?site={{txtpen.txtpen_sitename}}" />
 {% endif %}
-
+<script type="text/javascript">
+  var imgs = document.querySelectorAll("img");
+  for(var i=0; i< imgs.length; i++) {
+    var parent = imgs[i].parentElement;
+    if (parent.tagName.toLowerCase() == "p") {
+      parent.style.textAlign = "center";
+    }
+  }
+</script>
 {% if site.disqus_shortname %}
   <div id="disqus_thread"></div>
   <script type="text/javascript">
