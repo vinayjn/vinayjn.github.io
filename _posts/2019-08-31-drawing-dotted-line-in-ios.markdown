@@ -29,11 +29,15 @@ path.stroke()
 
 This code gives the expected output, a dotted line.
 
-![Dots line with UIBezierPath]({{ site.baseurl }}/images/xasdcfghnjuhgerfadscvfbf.png)
+<p align="center">
+  <img alt="Dots line with UIBezierPath" src="{{ site.baseurl }}/images/xasdcfghnjuhgerfadscvfbf.png">
+</p>
 
 It looks fine, but if you look closely you'll find out that both ends are different. The left end has a partial dot and the right end has some extra spacing left. This unenven spacing is due to the lineDashpattern. The array of values we provide to the pattern tells the system when to paint(0.5) and when to unpaint(16.0). Changing these values won't help much as they do not consider the frame boundary when drawing. First lets see what the correct output looks like:
 
-![Dots with equal spacing]({{ site.baseurl }}/images/csvbgdfmghfnbsvdacscdvbfg.png)
+<p align="center">
+  <img alt="Dots with equal spacing" src="{{ site.baseurl }}/images/csvbgdfmghfnbsvdacscdvbfg.png">
+</p>
 
 This line has equal spacing around on both ends. If you think about it, to do this we just want to know how many dots can fit in the available space, then we draw the dots and then do some magic which centers the line in the view it is drawn on. By centering the line we ensure that it has equal space around both ends. I had a few approaches in mind, you can pick any one of them as per your choice, but I am going to discuss only one approach here:
 
@@ -46,7 +50,9 @@ This line has equal spacing around on both ends. If you think about it, to do th
 
 I have talked about [CAReplicatorLayer](https://vinayjain.me/posts/conversation-with-calayer#careplicatorlayer) earlier as well. I remembered that I had implemented a typing indicator with the help of layer replication so I gave it a try again to build a dotted line. 
 
-![Typing]({{ site.baseurl }}/images/typing.gif)
+<p align="center">
+  <img alt="Typing" src="{{ site.baseurl }}/images/typing.gif">
+</p>
 
 The benefit I see for using CAReplicatorLayer is that it works on the basis of instance count which you cannot give for the other two ways. And the centering logic becomes easy as you can just set the frame of this layer to center of the view. Have a look at the code below to see how it is done, I am adding comments inline to avoid any further explanation. 
 
