@@ -7,7 +7,8 @@ baseurl:     ""
 url:         "https://vinayjain.me"
 date_format: "%b %-d, %Y"
 header_pages:
- - about.md
+  - uses.md
+  - bookshelf.md
 
 # Google services
 google_verification:
