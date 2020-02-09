@@ -41,6 +41,13 @@ Inspired by <a href="https://manassaloi.com/usesthis/" target="_blank"> Manas Sa
 
 - [Alfred with Powerpack](https://www.alfredapp.com) highly recommend this Spotlight replacement, have added a lot of workflows and snippets for my use.
 
+#### Languages 
+
+- [Swift](https://docs.swift.org/swift-book/) For iOS development and Mac development, I know Objective-C as well, but you know, Swift is the future.
+- [Python](https://www.python.org) For scripting and web development, I was a backend dev at [Haptik](https://haptik.ai) for 2 years.
+- [Golang](https://golang.org) Only know the basics, getting used to it. It'll probably become my primary language for web development.
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) you just can't get away from JS, I use it for automating stuff from the dev-console on third-party webpages when I am bored.
+
 
 #### Everything Else
 
@@ -48,6 +55,8 @@ Inspired by <a href="https://manassaloi.com/usesthis/" target="_blank"> Manas Sa
 - [Google Play Books](https://play.google.com/books) I use it on all the devices to read ebooks. 
 
 - [Adobe XD](https://www.adobe.com/in/products/xd.html) helping me learn design and create wallpapers, might move to [Figma](http://figma.com).
+
+- [Notion](https://www.notion.so) will probably stop using other related apps in favour of this, I love Notion.
 
 - [Todoist](https://todoist.com/) scheduling my day to tasks. Present in all of my devices.
 
