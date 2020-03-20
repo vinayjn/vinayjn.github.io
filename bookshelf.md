@@ -12,6 +12,8 @@ All the books I've read so far, might add a summary here at some point in my lif
 
 - [Range: How Generalists Triumph in a Specialized World](https://www.amazon.in/Range-Generalists-Triumph-Specialized-World/dp/1509843507)
 
+- [The 80/20 Principle: The Secret to Achieving More with Less](https://www.amazon.in/80-20-Principle-Secret-Achieving/dp/0385491743)
+
 ### 2019
 
 - [Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future](https://www.amazon.in/gp/product/0062301233/ref=x_gr_w_bb_sin?ie=UTF8&tag=x_gr_w_bb_in-21&linkCode=as2&camp=3626&creative=24790)
