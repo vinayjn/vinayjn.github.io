@@ -3,7 +3,7 @@ _site
 .DS_Store
 .jekyll-metadata
 .ruby_version
-
+.ruby-version
 
 # Ignore the config file that's used for gh-pages.
 _config.gh-pages.yml
