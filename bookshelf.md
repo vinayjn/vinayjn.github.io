@@ -10,9 +10,12 @@ All the books I've read so far, might add a summary here at some point in my lif
 
 ### 2020
 
-- [Range: How Generalists Triumph in a Specialized World](https://www.amazon.in/Range-Generalists-Triumph-Specialized-World/dp/1509843507)
+- [The Things You Can See Only When You Slow Down](https://www.amazon.in/Things-Only-When-Slow-Down/dp/0241298199)
 
 - [The 80/20 Principle: The Secret to Achieving More with Less](https://www.amazon.in/80-20-Principle-Secret-Achieving/dp/0385491743)
+
+- [Range: How Generalists Triumph in a Specialized World](https://www.amazon.in/Range-Generalists-Triumph-Specialized-World/dp/1509843507)
+
 
 ### 2019
 
