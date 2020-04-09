@@ -10,6 +10,8 @@ All the books I've read so far, might add a summary here at some point in my lif
 
 ### 2020
 
+- [Hooked: How to Build Habit-Forming Products](https://www.amazon.in/Hooked-How-Build-Habit-Forming-Products/dp/1591847788)
+
 - [The Things You Can See Only When You Slow Down](https://www.amazon.in/Things-Only-When-Slow-Down/dp/0241298199)
 
 - [The 80/20 Principle: The Secret to Achieving More with Less](https://www.amazon.in/80-20-Principle-Secret-Achieving/dp/0385491743)
