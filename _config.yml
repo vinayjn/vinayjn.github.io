@@ -1,13 +1,13 @@
 # Site settings
 title:       Vinay Jain
-email:       vinay.jn7@gmail.com
+email:       
 author:      Vinay Jain
 description: "Personal blog of Vinay Jain"
 baseurl:     ""
 url:         "https://vinayjain.me"
 date_format: "%b %-d, %Y"
 header_pages:
-  - uses.md
+  # - uses.md
   - bookshelf.md
 
 # Google services
@@ -59,7 +59,7 @@ twitter_username: vinayjn7
 skype_username:
 steam_nickname:
 google_plus_id:
-linkedin_username: 
+linkedin_username: vinayjn
 angellist_username:
 medium_id:
 bitcoin_url:
