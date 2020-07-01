@@ -128,7 +128,23 @@ replicator.<span class="property">frame</span> = <span class="type">CGRect</span
 
 <p>The main reason for using <code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> here is that it gives me more control to each dot and every instance is animatable, so if there are any changes to be done on this dotted line, those can be done easily. Regarding performance, I haven’t done any kind of benchmarking on which approach is efficient as I am drawing this layer only at one place. But if you really want to know, I think the <code class="language-plaintext highlighter-rouge">CAShapeLayer</code> base implementation will out perform this approach beacuse using that you only draw one layer. If you have any suggestions and feedbacks to improve this please do let me know in the comments.</p>
 
-  </div><a class="u-url" href="/posts/drawing-dotted-line-in-ios" hidden></a>
+  </div><div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'https://vinayjain.me/posts/drawing-dotted-line-in-ios';
+      this.page.identifier = 'https://vinayjain.me/posts/drawing-dotted-line-in-ios';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      s.src = 'https://koderme.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/posts/drawing-dotted-line-in-ios" hidden></a>
 </article>
 
       </div>
