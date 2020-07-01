@@ -10,6 +10,12 @@ All the books I've read so far, might add a summary here at some point in my lif
 
 ### 2020
 
+- [Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones](https://www.amazon.in/Atomic-Habits-Proven-Build-Break-ebook/dp/B01N5AX61W)
+
+- [The First 90 Days: Proven Strategies for Getting Up to Speed Faster and Smarter](https://www.amazon.in/First-90-Days-Watkins/dp/1422188612)
+
+- [Chanakya Neeti](https://www.amazon.in/Chanakya-Neeti-B-K-Chaturvedi/dp/8128400487)
+
 - [Hooked: How to Build Habit-Forming Products](https://www.amazon.in/Hooked-How-Build-Habit-Forming-Products/dp/1591847788)
 
 - [The Things You Can See Only When You Slow Down](https://www.amazon.in/Things-Only-When-Slow-Down/dp/0241298199)
