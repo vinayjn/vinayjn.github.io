@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>A Conversation With CALayer – Meeting I | Vinay Jain</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="A Conversation With CALayer – Meeting I" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="If you’ve been programming for iOS devices, you might have encountered these lines of code:" />
+<meta property="og:description" content="If you’ve been programming for iOS devices, you might have encountered these lines of code:" />
+<link rel="canonical" href="https://vinayjain.me/posts/conversation-with-calayer" />
+<meta property="og:url" content="https://vinayjain.me/posts/conversation-with-calayer" />
+<meta property="og:site_name" content="Vinay Jain" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-03-21T10:09:25+05:30" />
+<script type="application/ld+json">
+{"datePublished":"2017-03-21T10:09:25+05:30","dateModified":"2017-03-21T10:09:25+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"https://vinayjain.me/posts/conversation-with-calayer"},"url":"https://vinayjain.me/posts/conversation-with-calayer","description":"If you’ve been programming for iOS devices, you might have encountered these lines of code:","@type":"BlogPosting","headline":"A Conversation With CALayer – Meeting I","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://vinayjain.me/feed.xml" title="Vinay Jain" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Vinay Jain</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/bookshelf/">Bookshelf</a><a class="page-link" href="/usesthis/">Uses This</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">A Conversation With CALayer – Meeting I</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2017-03-21T10:09:25+05:30" itemprop="datePublished">
+        Mar 21, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>If you’ve been programming for <code class="language-plaintext highlighter-rouge">iOS</code> devices, you might have encountered these lines of code:</p>
+
+<pre class="splash"><code>view.<span class="property">backgroundColor</span> = [<span class="type">UIColor</span> greenColor];
+view.<span class="property">layer</span>.<span class="property">cornerRadius</span> = <span class="number">8.0</span>;
+view.<span class="property">layer</span>.<span class="property">borderWidth</span> = <span class="number">1.0</span>;
+view.<span class="property">layer</span>.<span class="property">borderColor</span> = [<span class="type">UIColor</span> blackColor];
+</code></pre>
+
+<p>If you haven’t seen code like this before try using it with any UI component in your app and check what it does. It adds a 1pt black border to the view and round its corners by 8pt.</p>
+
+<p>Every <code class="language-plaintext highlighter-rouge">UIView</code> is backed with a layer which can be accessed with the <code class="language-plaintext highlighter-rouge">view.layer</code>. The <code class="language-plaintext highlighter-rouge">layer</code> property points to an instance of either the <code class="language-plaintext highlighter-rouge">CALayer</code> class or any of its subclasses like <code class="language-plaintext highlighter-rouge">CAShapeLayer</code>, <code class="language-plaintext highlighter-rouge">CAGradientLayer</code>, <code class="language-plaintext highlighter-rouge">CATextLayer</code> etc. Layers are part of the  <code class="language-plaintext highlighter-rouge">Core Animation</code> library and are extensively used in custom drawing with <code class="language-plaintext highlighter-rouge">Core Graphics</code> and  <code class="language-plaintext highlighter-rouge">Core Animation</code>, these two frameworks make <code class="language-plaintext highlighter-rouge">iOS</code> apps beautiful. The image below shows where these two frameworks lie in the <code class="language-plaintext highlighter-rouge">iOS</code> graphics drawing engine:</p>
+
+<p><img src="/images/drawing_hierarchy.png" alt="Drawing Hierarchy" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">OpenGL</code>, a low-level API which interacts directly with the <code class="language-plaintext highlighter-rouge">GPU</code>, does all the heavy lifting work of graphics processing. To make our lives even easier Apple has built <code class="language-plaintext highlighter-rouge">Core Animation</code>, a high-level wrapper above <code class="language-plaintext highlighter-rouge">OpenGL</code> so that we don’t need to write the low-level <code class="language-plaintext highlighter-rouge">C</code> code.</p>
+
+<p>Now, since we have been introduced to <code class="language-plaintext highlighter-rouge">CALayer</code> and have access to the low-level graphics rendering engine lets start interacting with them and create some beautiful graphics.</p>
+
+<p>There are various <code class="language-plaintext highlighter-rouge">CALayer</code> subclasses, below are the direct <code class="language-plaintext highlighter-rouge">CALayer</code> subclasses available in the <code class="language-plaintext highlighter-rouge">Core Animation</code> library:</p>
+
+<p><img src="/images/calayer_hierarchy.png" alt="CALayer Hierarchy" /></p>
+
+<p>In this part of the series we will build:</p>
+
+<ul>
+  <li>A loading indicator with <code class="language-plaintext highlighter-rouge">CAShapeLayer</code> and <code class="language-plaintext highlighter-rouge">CAKeyFrameAnimation</code></li>
+  <li>A mirror reflection of the <a href="https://haptik.ai">Haptik</a> logo with <code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code></li>
+  <li>A colorful <a href="https://haptik.ai">Haptik</a> logo with <code class="language-plaintext highlighter-rouge">CATextLayer</code></li>
+</ul>
+
+<h3 id="cashapelayer">CAShapeLayer</h3>
+
+<p>With <code class="language-plaintext highlighter-rouge">CAShapeLayer</code> we can easily draw curved paths and geometrical shapes. <code class="language-plaintext highlighter-rouge">CAShapeLayer</code> is mostly used in drawing custom UI components. At <a href="https://haptik.ai">Haptik</a>, we design most of the custom <code class="language-plaintext highlighter-rouge">UIButton</code> subclasses with <code class="language-plaintext highlighter-rouge">CAShapeLayer</code>.</p>
+
+<p>But why would you write code to draw a circle or a triangle or anything complex when you have images?</p>
+
+<p><img src="/images/trollface.png" alt="Trollface" /></p>
+
+<p>There are a few reasons to write code:</p>
+
+<ul>
+  <li>Almost all properties of shape layers are <code class="language-plaintext highlighter-rouge">animatable</code>, which gives us the freedom to change these shapes with code at runtime, which we’ll learn how to do.</li>
+  <li><code class="language-plaintext highlighter-rouge">CAShapeLayer</code> is vector based, thus they are resolution independent.</li>
+  <li>This can be drawn directly using the GPU so we can free the CPU for other tasks.</li>
+</ul>
+
+<p>By the end of this section, we’ll be able to show this cool animation on the screen:</p>
+
+<p><img src="/images/shape.gif" alt="Circle Shape" /></p>
+
+<p>The animation above has three components:</p>
+
+<ol>
+  <li>A rounded rectangle added on the view layer</li>
+  <li>A gray color circle added on the rectangle layer</li>
+  <li>A dark gray color arc added on the circle layer</li>
+</ol>
+
+<p>The below code draws the rounded rectangle on the screen:</p>
+
+<pre class="splash"><code><span class="type">CAShapeLayer</span> *roundedRect = [<span class="type">CAShapeLayer</span> layer];
+roundedRect.<span class="property">path</span> = [<span class="type">UIBezierPath</span> bezierPathWithRoundedRect:<span class="type">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">120</span>, <span class="number">120</span>) cornerRadius:<span class="number">8.0</span>].<span class="type">CGPath</span>;
+roundedRect.<span class="property">fillColor</span> = [[<span class="type">UIColor</span> whiteColor] colorWithAlphaComponent:<span class="number">0.5</span>].<span class="type">CGColor</span>;
+[<span class="keyword">self</span>.<span class="property">view</span>.<span class="property">layer</span> addSublayer:roundedRect];
+</code></pre>
+
+<p>To create the path of the shape layer we used a <code class="language-plaintext highlighter-rouge">UIKit</code> class <code class="language-plaintext highlighter-rouge">UIBezierPath</code> to skip the complexity of drawing paths with <code class="language-plaintext highlighter-rouge">Core Graphics</code>. The <code class="language-plaintext highlighter-rouge">fillColor</code> property of the shape layer fills the closed region of the layer with given color.</p>
+
+<p>Next, we add a circle to the rounded rectangle:</p>
+
+<pre class="splash"><code><span class="type">CAShapeLayer</span> *circle = [<span class="type">CAShapeLayer</span> layer];
+
+circle.<span class="property">path</span> = [<span class="type">UIBezierPath</span> bezierPathWithArcCenter:<span class="type">CGPointMake</span>(<span class="number">0</span>, <span class="number">0</span>) radius:<span class="number">50</span> startAngle:<span class="number">0.0</span>*(<span class="type">M_PI</span>/<span class="number">180.0</span>)  endAngle:<span class="number">360.0</span>*(<span class="type">M_PI</span>/<span class="number">180.0</span>) clockwise:<span class="type">YES</span>].<span class="type">CGPath</span>;
+circle.<span class="property">lineWidth</span> = <span class="number">5.0</span>;
+circle.<span class="property">fillColor</span> = [<span class="type">UIColor</span> clearColor].<span class="type">CGColor</span>;
+circle.<span class="property">strokeColor</span> = [<span class="type">UIColor</span> lightGrayColor].<span class="type">CGColor</span>;
+circle.<span class="property">backgroundColor</span> = [<span class="type">UIColor</span> clearColor].<span class="type">CGColor</span>;
+circle.<span class="property">position</span> = <span class="type">CGPointMake</span>(<span class="number">60</span>, <span class="number">60</span>);
+
+[roundedRect addSublayer:circle];
+</code></pre>
+
+<p>For drawing a circle we need to pass a <code class="language-plaintext highlighter-rouge">startAngle</code> and an <code class="language-plaintext highlighter-rouge">endAngle</code>. With these angles, we tell the system from where the path should start and where it should be drawn till. If we were drawing this circle with a pen, consider the <code class="language-plaintext highlighter-rouge">strokeColor</code> as the ink color and the <code class="language-plaintext highlighter-rouge">lineWidth</code> as the minimum width of the line that can be drawn with the pen. Changing the <code class="language-plaintext highlighter-rouge">position</code> of the layer centers it in the rectangle.</p>
+
+<p>To add the arc we will again use the same function for drawing a circle, but we will pass different start angles and end angles to draw it as an arc:</p>
+
+<pre class="splash"><code><span class="type">CAShapeLayer</span> *arc = [<span class="type">CAShapeLayer</span> layer];
+arc.<span class="property">path</span> = [<span class="type">UIBezierPath</span> bezierPathWithArcCenter:<span class="type">CGPointMake</span>(<span class="number">0</span>, <span class="number">0</span>) radius:<span class="number">50</span> startAngle:<span class="number">180.0</span>*(<span class="type">M_PI</span>/<span class="number">180.0</span>)  endAngle:<span class="number">225.0</span>*(<span class="type">M_PI</span>/<span class="number">180.0</span>) clockwise:<span class="type">YES</span>].<span class="type">CGPath</span>;
+arc.<span class="property">lineWidth</span> = <span class="number">5.0</span>;
+arc.<span class="property">lineCap</span> = kCALineCapRound;
+arc.<span class="property">fillColor</span> = [<span class="type">UIColor</span> clearColor].<span class="type">CGColor</span>;
+arc.<span class="property">strokeColor</span> = [<span class="type">UIColor</span> darkGrayColor].<span class="type">CGColor</span>;
+arc.<span class="property">backgroundColor</span> = [<span class="type">UIColor</span> clearColor].<span class="type">CGColor</span>;
+</code></pre>
+
+<p>The <code class="language-plaintext highlighter-rouge">lineCap</code> determines how the endpoints of the drawn curve are stroked.</p>
+
+<p>To create a rotational animation in x-y plane we need to change the rotation transform along the
+z-axis and fortunately, we can easily do this with <code class="language-plaintext highlighter-rouge">Core Animation</code>.</p>
+
+<pre class="splash"><code><span class="type">CAKeyframeAnimation</span> *animation = [<span class="type">CAKeyframeAnimation</span> animationWithKeyPath:<span class="keyword">@"transform</span>.<span class="keyword">rotation</span>.<span class="string">z"];</span>
+animation.<span class="property">additive</span> = <span class="type">YES</span>;
+animation.<span class="property">duration</span> = <span class="number">10.0</span>;
+animation.<span class="property">repeatCount</span> = <span class="type">HUGE_VALF</span>;
+animation.<span class="property">values</span> = <span class="keyword">@</span>[
+                    [<span class="type">NSNumber</span> numberWithFloat:<span class="number">0.0</span> * <span class="type">M_PI</span>],
+                    [<span class="type">NSNumber</span> numberWithFloat:<span class="number">1.75</span> * <span class="type">M_PI</span>],
+                    [<span class="type">NSNumber</span> numberWithFloat:-<span class="number">0.75</span> * <span class="type">M_PI</span>],
+                    [<span class="type">NSNumber</span> numberWithFloat:<span class="number">2.75</span> * <span class="type">M_PI</span>],
+                    [<span class="type">NSNumber</span> numberWithFloat:<span class="number">0.0</span> * <span class="type">M_PI</span>]
+                    ];
+animation.<span class="property">keyTimes</span> = <span class="keyword">@</span>[ <span class="keyword">@0</span>, <span class="keyword">@</span>(<span class="number">2</span> / <span class="number">6.0</span>), <span class="keyword">@</span>(<span class="number">3</span> / <span class="number">6.0</span>), <span class="keyword">@</span>(<span class="number">5</span> / <span class="number">6.0</span>), <span class="keyword">@1</span> ];
+animation.<span class="property">timingFunctions</span> = <span class="keyword">@</span>[
+                             [<span class="type">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseIn],
+                             [<span class="type">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
+                             [<span class="type">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
+                             [<span class="type">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseOut]
+                             ];
+[arc addAnimation:animation forKey:<span class="string">@"rotate"];</span>
+</code></pre>
+
+<p>With <code class="language-plaintext highlighter-rouge">CAKeyFrameAnimation</code> we can control the animation attributes like <code class="language-plaintext highlighter-rouge">fromValue</code> and <code class="language-plaintext highlighter-rouge">toValue</code>,  <code class="language-plaintext highlighter-rouge">timingFunction</code>, <code class="language-plaintext highlighter-rouge">calculationMode</code> for different time intervals in the complete animation. The <code class="language-plaintext highlighter-rouge">values</code> array determines <code class="language-plaintext highlighter-rouge">fromValue</code> and <code class="language-plaintext highlighter-rouge">toValue</code> of the <code class="language-plaintext highlighter-rouge">animatable</code> property ( transform.rotation.z) in the time intervals given to the <code class="language-plaintext highlighter-rouge">keyTimes</code> array. The timing functions decide how the animations start and end.</p>
+
+<p>You can find the complete code till this section on this <a href="https://github.com/vinayjn/CALayer/tree/2521cd08e33ad6e6be3fc18d8b9995eb8bd68a87">CALayers-GitHub</a> repo.</p>
+
+<h3 id="careplicatorlayer">CAReplicatorLayer</h3>
+
+<p><code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> is a container layer, it replicates the content added to it. It has some cool properties which can be used to instruct the container how the replication has to be done. Beautiful effects can be achieved by applying animations to the replicated content. Every contained content is called an <code class="language-plaintext highlighter-rouge">instance</code>. To show the usage of this layer we will create a reflection of an image. By the end of this section, we’ll be able to show the reflection of the <a href="https://haptik.ai">Haptik</a> logo like this:</p>
+
+<p><img src="/images/reflection.png" alt="Reflection" /></p>
+
+<p>Let’s build this!</p>
+
+<p>First, we need a <code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> instance and on this instance, we’ll be adding an image layer of which the reflection we will be showing:</p>
+
+<pre class="splash"><code><span class="comment">// Create a CAReplicatorLayer</span>
+<span class="type">CAReplicatorLayer</span> *replicatorLayer = [<span class="type">CAReplicatorLayer</span> layer];
+
+<span class="comment">// Create the image layer</span>
+<span class="type">UIImage</span> *image = [<span class="type">UIImage</span> imageNamed:<span class="string">@"haptik_logo"];</span>
+<span class="type">CALayer</span> *imageLayer = [<span class="type">CALayer</span> layer];
+imageLayer.<span class="property">contents</span> = (__bridge id)[image <span class="type">CGImage</span>];
+imageLayer.<span class="property">bounds</span> = <span class="type">CGRectMake</span>(<span class="number">0.0</span>, <span class="number">0.0</span>, image.<span class="property">size</span>.<span class="property">width</span>, image.<span class="property">size</span>.<span class="property">height</span>);
+imageLayer.<span class="property">anchorPoint</span> = <span class="type">CGPointMake</span>(<span class="number">0</span>, <span class="number">0</span>);
+
+<span class="comment">// Set bounds of replicator layer
+// to height twice of image height</span>
+replicatorLayer.<span class="property">bounds</span> = <span class="type">CGRectMake</span>(<span class="number">0.0</span>, <span class="number">0.0</span>, image.<span class="property">size</span>.<span class="property">width</span>, image.<span class="property">size</span>.<span class="property">height</span> * <span class="number">2</span>);
+replicatorLayer.<span class="property">masksToBounds</span> = <span class="type">YES</span>;
+replicatorLayer.<span class="property">anchorPoint</span> = <span class="type">CGPointMake</span>(<span class="number">0.5</span>, <span class="number">0.0</span>);
+replicatorLayer.<span class="property">position</span> = <span class="type">CGPointMake</span>(<span class="keyword">self</span>.<span class="property">view</span>.<span class="property">frame</span>.<span class="property">size</span>.<span class="property">width</span> / <span class="number">2.0</span>, <span class="number">80.0</span>);    
+[replicatorLayer addSublayer:imageLayer];
+</code></pre>
+
+<p>This code is pretty straight forward, the <code class="language-plaintext highlighter-rouge">anchorPoint</code> of a layer is the point from where all the geometric manipulations will happen. The default <code class="language-plaintext highlighter-rouge">anchorPoint</code> is <code class="language-plaintext highlighter-rouge">(0.5, 0.5)</code> which represents the center of the layer. We want to apply a rotation from the top of the layer, so we changed it to <code class="language-plaintext highlighter-rouge">(0,0)</code>`.</p>
+
+<p>With the above code, we have added an image to the replicator layer and set its correct bounds. To get the reflection we need to apply a rotation transform and translate the replicated layer to the correct position as below:</p>
+
+<pre class="splash"><code><span class="type">CATransform3D</span> transform = <span class="type">CATransform3DIdentity</span>;
+transform = <span class="type">CATransform3DScale</span>(transform, <span class="number">1.0</span>, -<span class="number">1.0</span>, <span class="number">1.0</span>);
+transform = <span class="type">CATransform3DTranslate</span>(transform, <span class="number">0.0</span>, -image.<span class="property">size</span>.<span class="property">height</span> * <span class="number">2.0</span>, <span class="number">1.0</span>);
+replicatorLayer.<span class="property">instanceTransform</span> = transform;
+replicatorLayer.<span class="property">instanceCount</span> = <span class="number">2</span>;
+</code></pre>
+
+<p>The <code class="language-plaintext highlighter-rouge">instanceTransform</code> property of the replicator layer allows us to set the calculated transform on the replicated content. There are other properties of the replicator layer like <code class="language-plaintext highlighter-rouge">instanceDelay</code>, <code class="language-plaintext highlighter-rouge">instanceColor</code> which can be manipulated to get more control.</p>
+
+<p>Setting the <code class="language-plaintext highlighter-rouge">instanceCount</code> to 2 instructs the replicator layer to create exactly two instances of the added content.</p>
+
+<p>This is it! Running this code will give us the below output:</p>
+
+<p><img src="/images/reflection2.png" alt="Reflection" /></p>
+
+<p>But this is not what you expected, yes because the mirror we used earlier was blurred and so was the reflection. But if that is what you also need then add a gradient layer to your layer as shown below:</p>
+
+<pre class="splash"><code><span class="type">CAGradientLayer</span> *gradientLayer = [<span class="type">CAGradientLayer</span> layer];
+gradientLayer.<span class="property">colors</span> = <span class="keyword">@</span>[
+                           (__bridge id)[[[<span class="type">UIColor</span> whiteColor] colorWithAlphaComponent:<span class="number">0.25</span>] <span class="type">CGColor</span>],
+                           (__bridge id)[[<span class="type">UIColor</span> whiteColor] <span class="type">CGColor</span>]
+                           ];
+
+gradientLayer.<span class="property">bounds</span> = <span class="type">CGRectMake</span>(<span class="number">0.0</span>, <span class="number">0.0</span>, replicatorLayer.<span class="property">frame</span>.<span class="property">size</span>.<span class="property">width</span>, image.<span class="property">size</span>.<span class="property">height</span> + <span class="number">1.0</span>);
+
+gradientLayer.<span class="property">position</span> = <span class="type">CGPointMake</span>(replicatorLayer.<span class="property">position</span>.<span class="property">x</span>, replicatorLayer.<span class="property">position</span>.<span class="property">y</span> + image.<span class="property">size</span>.<span class="property">height</span> * <span class="number">1.5</span>);
+<span class="type">CAGradientLayer</span> *gradientLayer = [<span class="type">CAGradientLayer</span> layer];
+gradientLayer.<span class="property">colors</span> = <span class="keyword">@</span>[
+                           (__bridge id)[[[<span class="type">UIColor</span> whiteColor] colorWithAlphaComponent:<span class="number">0.25</span>] <span class="type">CGColor</span>],
+                           (__bridge id)[[<span class="type">UIColor</span> whiteColor] <span class="type">CGColor</span>]
+                           ];
+
+gradientLayer.<span class="property">bounds</span> = <span class="type">CGRectMake</span>(<span class="number">0.0</span>, <span class="number">0.0</span>, replicatorLayer.<span class="property">frame</span>.<span class="property">size</span>.<span class="property">width</span>, image.<span class="property">size</span>.<span class="property">height</span> + <span class="number">1.0</span>);
+
+gradientLayer.<span class="property">position</span> = <span class="type">CGPointMake</span>(replicatorLayer.<span class="property">position</span>.<span class="property">x</span>, replicatorLayer.<span class="property">position</span>.<span class="property">y</span> + image.<span class="property">size</span>.<span class="property">height</span> * <span class="number">1.5</span>);
+</code></pre>
+
+<p>At <a href="https://haptik.ai">Haptik</a>, we have used the <code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> to create a new typing indicator. This is how it looks!</p>
+
+<p><img src="/images/typing.gif" alt="Typing" /></p>
+
+<p>If you want to download and run this code check the <a href="https://github.com/vinayjn/CALayer/tree/c495e29dc3675b39a4636f005d0d716ebd4b0fb9">Github repo</a>. And yes, Craig Federighi was online. ;)</p>
+
+<h3 id="catextlayer">CATextLayer</h3>
+
+<p>Text layers are used to layout and render plain and attributed strings, but we do this usually with <code class="language-plaintext highlighter-rouge">UILabel</code>. One amazing usage of <code class="language-plaintext highlighter-rouge">CATextLayer</code> is to mask UIView. In this section we will redesign the <a href="https://haptik.ai">Haptik</a> logo as in the image below:</p>
+
+<p><img src="/images/textlayer.png" alt="CATextLayer" /></p>
+
+<p>We create a <code class="language-plaintext highlighter-rouge">UIImageView</code> with a pattern image and mask that pattern with the text layer:</p>
+
+<pre class="splash"><code><span class="comment">// Create the imageView</span>
+<span class="type">UIImage</span> *haptikLogo = [<span class="type">UIImage</span> imageNamed:<span class="string">@"Artboard"];</span>
+<span class="type">UIImageView</span> *imageView = [[<span class="type">UIImageView</span> alloc] initWithFrame:<span class="type">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">300</span>, <span class="number">300</span>)];
+imageView.<span class="property">image</span> = haptikLogo;
+
+<span class="comment">// Create the CATextLayer instance.</span>
+<span class="type">CATextLayer</span> *textLayer = [<span class="type">CATextLayer</span> layer];
+textLayer.<span class="property">frame</span> = imageView.<span class="property">bounds</span>;
+textLayer.<span class="property">rasterizationScale</span> = [<span class="type">UIScreen</span> mainScreen].scale;
+textLayer.<span class="property">contentsScale</span> = [<span class="type">UIScreen</span> mainScreen].scale;
+</code></pre>
+
+<p><strong>Never forget</strong> to set the <code class="language-plaintext highlighter-rouge">rasterizationScale</code> and <code class="language-plaintext highlighter-rouge">contentsScale</code>, without these properties you might get blurry or smaller text depending on the screen resolution of the devices your app runs on.</p>
+
+<p>Set whatever string you want to display as a mask with the desired font:</p>
+
+<pre class="splash"><code>textLayer.<span class="property">fontSize</span> = <span class="number">100.0</span>;
+textLayer.<span class="property">font</span> = (__bridge <span class="type">CFTypeRef _Nullable</span>)([<span class="type">UIFont</span> systemFontOfSize:<span class="number">100</span>]);
+textLayer.<span class="property">string</span> = <span class="string">@"haptik";</span>
+textLayer.<span class="property">fontSize</span> = <span class="number">100.0</span>;
+textLayer.<span class="property">font</span> = (__bridge <span class="type">CFTypeRef _Nullable</span>)([<span class="type">UIFont</span> systemFontOfSize:<span class="number">100</span>]);
+textLayer.<span class="property">string</span> = <span class="string">@"haptik";</span>
+</code></pre>
+
+<p>Finally, use the text layer as the mask on the image view and we are done:</p>
+
+<pre class="splash"><code>imageView.<span class="property">layer</span>.<span class="property">mask</span> = textLayer;
+imageView.<span class="property">layer</span>.<span class="property">mask</span> = textLayer;
+</code></pre>
+
+<p>Build and run the app and see how it looks like.</p>
+
+<p>The app source code till this section can be downloaded from <a href="https://github.com/vinayjn/CALayer/tree/97ed89a9610272a9417e95fcbf7890e53f8a727d">CALayer-Github</a> repo. Looking forward to hearing from you all.</p>
+
+<p>Also, don’t forget, we are hiring high-quality engineers. So if you are interested reach out to us at <a href="mailto:hello@haptik.ai">hello@haptik.ai</a>.</p>
+
+<p>This post was originally written at <a href="http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/">Haptik Tech Blog</a>.</p>
+
+  </div><a class="u-url" href="/posts/conversation-with-calayer" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/vinayjn" title="vinayjn"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/vinayjn" title="vinayjn"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/vinayjn7" title="vinayjn7"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

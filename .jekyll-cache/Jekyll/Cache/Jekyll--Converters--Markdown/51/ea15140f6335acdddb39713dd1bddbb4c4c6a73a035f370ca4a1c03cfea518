@@ -1,0 +1,27 @@
+I"�<p>AutoLayout is one the most significant features of modern iOS development. It simplifed the app design and saved developers from managing the view frames for different orientations and different devices with different screen resolutions as well. If you are familiar with frontend Web development you will find it similar to a <code class="language-plaintext highlighter-rouge">Responsive Web Design</code>.</p>
+
+<p>AutoLayout brings a lot of challenges with it, at first you may find it tough to get through. Managing the constraints without getting warnings is challenging!. <a href="https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/AutolayoutPG/Introduction/Introduction.html" target="_blank">Apple’s documentation on AutoLayout</a> is great and it will surely help you understand AutoLayout properly as it did for me.</p>
+
+<p>AutoLayout can be managed programmatically, constraints can be updated at runtime. Sometimes we need to animate these updates/changes to view frames. You cannot directly animate change in AutoLayout constraints as you do with <code class="language-plaintext highlighter-rouge">UIView</code> frame changes. However the change in code to animate constraint changes isn’t different for AutoLayout, you just need to call <code class="language-plaintext highlighter-rouge">[self.view layoutIfNeeded]</code> in the <code class="language-plaintext highlighter-rouge">animateWithDuration:</code> method before and after the a constraint is updated. Here is sample code I used to show/hide a <code class="language-plaintext highlighter-rouge">UISearchBar</code> with a button click.</p>
+
+<pre class="splash"><code>-(void)toggleSearchBarVisibility{
+
+    searchBar.<span class="property">hidden</span> = !searchBar.<span class="property">hidden</span>;
+    <span class="keyword">if</span> (searchBar.<span class="property">hidden</span>) {
+        tableViewTopSpace.<span class="property">constant</span> = <span class="number">0</span>;
+        <span class="keyword">self</span>.<span class="property">searchDisplayController</span>.<span class="property">active</span> = <span class="type">NO</span>;
+        [<span class="type">UIView</span> animateWithDuration:<span class="number">0.3</span>
+                         animations:^{
+                             [<span class="keyword">self</span>.<span class="property">view</span> layoutIfNeeded];
+                         } completion:<span class="keyword">nil</span>];
+       }
+    <span class="keyword">else</span> {
+        tableViewTopSpace.<span class="property">constant</span> = <span class="number">44</span>;
+        [<span class="type">UIView</span> animateWithDuration:<span class="number">0.3</span>
+                         animations:^{
+                             [<span class="keyword">self</span>.<span class="property">view</span> layoutIfNeeded];
+                         } completion:<span class="keyword">nil</span>];
+       }
+    }
+</code></pre>
+:ET

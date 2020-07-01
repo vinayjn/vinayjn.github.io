@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Convert Objective C Macros To Swift Constants | Vinay Jain</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Convert Objective C Macros To Swift Constants" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Objective C inherits the capabilities and features of C so you can write C like directives or preprocessors and the Objective C compiler(LLVM) won’t complain." />
+<meta property="og:description" content="Objective C inherits the capabilities and features of C so you can write C like directives or preprocessors and the Objective C compiler(LLVM) won’t complain." />
+<link rel="canonical" href="https://vinayjain.me/posts/objectivec-macros-to-swift-constants" />
+<meta property="og:url" content="https://vinayjain.me/posts/objectivec-macros-to-swift-constants" />
+<meta property="og:site_name" content="Vinay Jain" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-11-14T04:54:55+05:30" />
+<script type="application/ld+json">
+{"datePublished":"2015-11-14T04:54:55+05:30","dateModified":"2015-11-14T04:54:55+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"https://vinayjain.me/posts/objectivec-macros-to-swift-constants"},"url":"https://vinayjain.me/posts/objectivec-macros-to-swift-constants","description":"Objective C inherits the capabilities and features of C so you can write C like directives or preprocessors and the Objective C compiler(LLVM) won’t complain.","@type":"BlogPosting","headline":"Convert Objective C Macros To Swift Constants","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://vinayjain.me/feed.xml" title="Vinay Jain" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Vinay Jain</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/bookshelf/">Bookshelf</a><a class="page-link" href="/usesthis/">Uses This</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Convert Objective C Macros To Swift Constants</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2015-11-14T04:54:55+05:30" itemprop="datePublished">
+        Nov 14, 2015
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><a href="">Objective C</a> inherits the capabilities and features of <a href="">C</a> so you can write C like <a href="">directives</a> or preprocessors and the Objective C compiler(<a href="">LLVM</a>) won’t complain.</p>
+
+<p>#define is one such preprocessor which asks the compiler to replace the occurrence of a particular set of characters with another set of characters before compiling the source file. #define is also a great way of defining constants</p>
+
+<pre class="splash"><code>#define <span class="type">REPLACE_ME</span> <span class="keyword">@"With</span> <span class="type">This</span> <span class="string">String"</span>
+</code></pre>
+
+<p>This is a simple Macro, just by looking at it you can understand what it does. At compile time every occurrence of <code class="language-plaintext highlighter-rouge">REPLACE_ME</code> will be replaced by <code class="language-plaintext highlighter-rouge">With This String</code>.</p>
+
+<p>After the introduction of Swift Programming Language app developers started porting their apps to Swift’s modern syntax. The above macro can be easily ported to Swift with the <code class="language-plaintext highlighter-rouge">let</code> keyword.</p>
+
+<pre class="splash"><code><span class="keyword">let</span> <span class="type">REPLACE_ME</span> = <span class="string">"With This String"</span>
+</code></pre>
+
+<p>The new syntax : its clean, its short and it isn’t scary. The code porting was easy. However, if you have worked on an app with thousands of source files(yes, .m files) then you may be used to see these type of complex macros.</p>
+
+<pre class="splash"><code>#define <span class="type">DISPATCH_BACKGROUND_QUEUE</span>(name,function) dispatch_queue_t backgroundQueue = <span class="call">dispatch_queue_create</span>(name, <span class="number">0</span>); <span class="call">dispatch_async</span>(backgroundQueue, ^{function});
+
+#define <span class="type">DISPATCH_MAIN_QUEUE</span>(function) <span class="call">dispatch_async</span>(<span class="call">dispatch_get_main_queue</span>(), ^{function});
+</code></pre>
+
+<p>If you have seen macros like these and you are going to port these to Swift then read further.</p>
+
+<p>Lets see this code in action. I am considering the background queue.</p>
+
+<pre class="splash"><code><span class="type">DISPATCH_BACKGROUND_QUEUE</span>(<span class="string">"BackgroundQueue"</span>,
+
+		<span class="comment">// Do some background stuff like file / database read write
+		// Do some thing else
+		// May be print some logs to debug</span>
+	)
+</code></pre>
+
+<p>The code block above is a simpler way of writing this :</p>
+
+<pre class="splash"><code>dispatch_queue_t backgroundQueue = <span class="call">dispatch_queue_create</span>(name, <span class="number">0</span>);
+<span class="call">dispatch_async</span>(backgroundQueue, ^{
+
+		<span class="comment">// Do some background stuff like file / database read write
+		// Do some thing else
+		// May be print some logs to debug</span>
+	});
+</code></pre>
+
+<p>Just to keep you in sync, this block of code executes the code between <code class="language-plaintext highlighter-rouge">^{ }</code> in a background thread without blocking the main thread. You can read more about it by referring to <a href="">Grand Central Dispatch</a>.</p>
+
+<h3 id="porting-complex-objective-c-macros-to-swift-constants">Porting Complex Objective C macros to Swift Constants</h3>
+
+<p>If you are new to Swift and not comfortable in writing closures I would highly recommend the following references on Swift Closures</p>
+
+<ul>
+  <li><a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html">Swift Closures - Apple Docs</a></li>
+  <li><a href="http://fuckingclosuresyntax.com/">How Do I Declare a Closure in Swift?</a></li>
+  <li><a href="http://fuckingswiftblocksyntax.com/">Swift closures and functions</a></li>
+</ul>
+
+<p>If you have gone through the following referrence I can expect you knowing that the complex macro in Objective C can be ported to Swift with the help of functions. I will try to make it as simple as I can by porting it word by word.</p>
+
+<pre class="splash"><code>#define <span class="type">DISPATCH_BACKGROUND_QUEUE</span>(name,function) dispatch_queue_t backgroundQueue = <span class="call">dispatch_queue_create</span>(name, <span class="number">0</span>); 																				<span class="call">dispatch_async</span>(backgroundQueue, ^{function});
+</code></pre>
+
+<p>The macro accepts two parameters one is a string and another is a code block. In Swift we can easily pass a block of code to another function with the help of Closures.</p>
+
+<p><strong>ObjC :</strong></p>
+
+<pre class="splash"><code>#define <span class="type">DISPATCH_BACKGROUND_QUEUE</span>(name,function)
+</code></pre>
+
+<p><strong>Swift :</strong></p>
+
+<pre class="splash"><code><span class="keyword">func</span> DISPATCH_BACKGROUND_QUEUE(queueName : <span class="type">String</span>, codeBlock:()-&gt;())
+</code></pre>
+
+<p>A Swift function with two parameters, as simple as that.</p>
+
+<p><strong>ObjC :</strong></p>
+
+<pre class="splash"><code>#define <span class="type">DISPATCH_BACKGROUND_QUEUE</span>(name,function) dispatch_queue_t backgroundQueue = <span class="call">dispatch_queue_create</span>(name, <span class="number">0</span>); 																	<span class="call">dispatch_async</span>(backgroundQueue, ^{function});
+</code></pre>
+
+<p><strong>Swift :</strong></p>
+<pre class="splash"><code><span class="keyword">func</span> BGQueue(codeBlock:()-&gt;(), queueName : <span class="type">String</span>){
+    <span class="keyword">let</span> queue = <span class="call">dispatch_queue_create</span>(queueName, <span class="keyword">nil</span>)
+    <span class="call">dispatch_async</span>(queue) { () -&gt; <span class="type">Void</span> <span class="keyword">in</span>
+        <span class="call">codeBlock</span>()
+    }
+}
+</code></pre>
+
+  </div><a class="u-url" href="/posts/objectivec-macros-to-swift-constants" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/vinayjn" title="vinayjn"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/vinayjn" title="vinayjn"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/vinayjn7" title="vinayjn7"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

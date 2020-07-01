@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Using NSAttributedString | Vinay Jain</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Using NSAttributedString" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="As per the Apple Documentation, an NSAttributedString object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string." />
+<meta property="og:description" content="As per the Apple Documentation, an NSAttributedString object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string." />
+<link rel="canonical" href="https://vinayjain.me/posts/how-to-use-nsattributedstring" />
+<meta property="og:url" content="https://vinayjain.me/posts/how-to-use-nsattributedstring" />
+<meta property="og:site_name" content="Vinay Jain" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-06-03T04:54:55+05:30" />
+<script type="application/ld+json">
+{"datePublished":"2015-06-03T04:54:55+05:30","dateModified":"2015-06-03T04:54:55+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"https://vinayjain.me/posts/how-to-use-nsattributedstring"},"url":"https://vinayjain.me/posts/how-to-use-nsattributedstring","description":"As per the Apple Documentation, an NSAttributedString object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.","@type":"BlogPosting","headline":"Using NSAttributedString","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://vinayjain.me/feed.xml" title="Vinay Jain" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Vinay Jain</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/bookshelf/">Bookshelf</a><a class="page-link" href="/usesthis/">Uses This</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Using NSAttributedString</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2015-06-03T04:54:55+05:30" itemprop="datePublished">
+        Jun 3, 2015
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>As per the <a href="https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/index.html">Apple Documentation</a>, an <code class="language-plaintext highlighter-rouge">NSAttributedString</code> object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.</p>
+
+<p>In short, <em>an <code class="language-plaintext highlighter-rouge">NSAttributedString</code> allows you to apply styles on the text</em>. As of the latest iOS sdk (8.0), you can apply the following attributes to an <code class="language-plaintext highlighter-rouge">NSString</code> object.</p>
+
+<ul>
+  <li>NSFontAttributeName</li>
+  <li>NSParagraphStyleAttributeName</li>
+  <li>NSForegroundColorAttributeName</li>
+  <li>NSBackgroundColorAttributeName</li>
+  <li>NSLigatureAttributeName</li>
+  <li>NSKernAttributeName</li>
+  <li>NSStrikethroughStyleAttributeName</li>
+  <li>NSUnderlineStyleAttributeName</li>
+  <li>NSStrokeColorAttributeName</li>
+  <li>NSStrokeWidthAttributeName</li>
+  <li>NSShadowAttributeName</li>
+  <li>NSTextEffectAttributeName</li>
+  <li>NSAttachmentAttributeName</li>
+  <li>NSLinkAttributeName</li>
+  <li>NSBaselineOffsetAttributeName</li>
+  <li>NSUnderlineColorAttributeName</li>
+  <li>NSStrikethroughColorAttributeName</li>
+  <li>NSObliquenessAttributeName</li>
+  <li>NSExpansionAttributeName</li>
+  <li>NSWritingDirectionAttributeName</li>
+  <li>NSVerticalGlyphFormAttributeName</li>
+</ul>
+
+<p>Lets look at the most used attributes :
+ </p>
+
+<h4 id="nsfontattributename"><strong>NSFontAttributeName</strong></h4>
+
+<pre class="splash"><code><span class="type">NSDictionary</span> *attributes = <span class="keyword">@</span>{ <span class="type">NSFontAttributeName</span> : [<span class="type">UIFont</span> fontWithName:<span class="keyword">@"HelveticaNeue</span>-<span class="string">Italic" size:30.0] };</span>
+
+<span class="type">NSAttributedString</span> *attributedString = [[<span class="type">NSAttributedString</span> alloc] initWithString:<span class="keyword">@"Italic</span> <span class="string">Text" attributes:attributes];</span>
+
+<span class="keyword">self</span>.<span class="property">attributedLabel</span>.<span class="property">attributedText</span> = attributedString;
+</code></pre>
+
+<p><code class="language-plaintext highlighter-rouge">Output :</code> <em>Italic Text</em></p>
+
+<pre class="splash"><code><span class="type">NSDictionary</span> *attributes = <span class="keyword">@</span>{ <span class="type">NSFontAttributeName</span> : [<span class="type">UIFont</span> fontWithName:<span class="keyword">@"HelveticaNeue</span>-<span class="string">Bold" size:30.0] };</span>
+
+<span class="type">NSAttributedString</span> *attributedString = [[<span class="type">NSAttributedString</span> alloc] initWithString:<span class="keyword">@"Bold</span> <span class="string">Text" attributes:attributes];</span>
+
+<span class="keyword">self</span>.<span class="property">attributedLabel</span>.<span class="property">attributedText</span> = attributedString;
+</code></pre>
+
+<p><code class="language-plaintext highlighter-rouge">Output :</code> <strong>Bold Text</strong></p>
+
+<p> </p>
+
+<h4 id="nsforegroundcolorattributename"><strong>NSForegroundColorAttributeName</strong></h4>
+
+<pre class="splash"><code><span class="type">NSDictionary</span> *attributes = <span class="keyword">@</span>{ <span class="type">NSForegroundColorAttributeName</span> : [<span class="type">UIColor</span> blueColor] };
+
+<span class="type">NSAttributedString</span> *attributedString = [[<span class="type">NSAttributedString</span> alloc] initWithString:<span class="keyword">@"Blue</span> <span class="string">Text" attributes:attributes];</span>
+
+<span class="keyword">self</span>.<span class="property">attributedLabel</span>.<span class="property">attributedText</span> = attributedString;
+</code></pre>
+
+<p><code class="language-plaintext highlighter-rouge">Output :</code> <span style="color:blue">I am blue colored</span></p>
+
+<p> </p>
+
+<h4 id="nsunderlinestyleattributename"><strong>NSUnderlineStyleAttributeName</strong></h4>
+
+<pre class="splash"><code><span class="type">NSDictionary</span> *attributes = <span class="keyword">@</span>{ <span class="type">NSUnderlineStyleAttributeName</span> : <span class="keyword">@</span>(<span class="type">NSUnderlineStyleSingle</span>) };
+
+<span class="type">NSAttributedString</span> *attributedString = [[<span class="type">NSAttributedString</span> alloc] initWithString:<span class="keyword">@"Underlined</span> <span class="string">Text" attributes:attributes];</span>
+
+<span class="keyword">self</span>.<span class="property">label</span>.<span class="property">attributedText</span> = attributedString;
+</code></pre>
+
+<p><code class="language-plaintext highlighter-rouge">Output :</code> <u>Underlined Text</u></p>
+
+<p>You can put <code class="language-plaintext highlighter-rouge">fontName</code> of your choice for creating attributed <code class="language-plaintext highlighter-rouge">NSStrings</code></p>
+
+  </div><a class="u-url" href="/posts/how-to-use-nsattributedstring" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/vinayjn" title="vinayjn"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/vinayjn" title="vinayjn"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/vinayjn7" title="vinayjn7"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

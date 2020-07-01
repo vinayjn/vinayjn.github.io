@@ -1,0 +1,82 @@
+I".!<p>My favorite thing in frontend development is building custom user interfaces. It keeps challenging creativity and tests my eye for detail. Most of the times user interfaces give you instant feedback on what works and what doesn’t, based on these feedbacks you keep making changes which further improve the user experience. However, making these changes everytime isn’t easy, very often we hit roadblocks because of the limited functionality or maybe restricted API access. Situations like these pushes you to discover new ways of doing the same thing. As a software engineer you can do so by either browsing Stackoverflow or reading documentation or using your imagination and creativity. One recent encounter of this kind was drawing a dotted line between two points in iOS.</p>
+
+<h3 id="dotted-lines">Dotted lines</h3>
+
+<p>The designer sent you an Abstract link and you see a dotted line in between two images. You tell the estimates and you start building the new designs. The most common way of drawing a dotted line in iOS is by using a <a href="https://developer.apple.com/documentation/uikit/uibezierpath">UIBezierPath</a> and drawing lines by setting a <a href="https://developer.apple.com/documentation/quartzcore/cashapelayer/1521921-linedashpattern">lineDashPattern</a>. A basic implementation is shown below:</p>
+
+<pre class="splash"><code><span class="keyword">let</span> path = <span class="type">UIBezierPath</span>()
+<span class="keyword">let</span> dashPattern: [<span class="type">CGFloat</span>] = [<span class="number">1</span>, <span class="number">16.0</span>]
+path.<span class="call">setLineDash</span>(dashPattern, count: dashPattern.<span class="property">count</span>, phase: <span class="number">0</span>)
+path.<span class="property">lineWidth</span> = <span class="number">8</span>
+path.<span class="property">lineCapStyle</span> = .<span class="dotAccess">round</span>
+path.<span class="call">move</span>(to: <span class="type">CGPoint</span>(x: rect.<span class="property">minX</span>, y: rect.<span class="property">midY</span>))
+path.<span class="call">addLine</span>(to: <span class="type">CGPoint</span>(x: rect.<span class="property">maxX</span>, y: rect.<span class="property">midY</span>))
+<span class="type">UIColor</span>.<span class="property">red</span>.<span class="call">setStroke</span>()
+path.<span class="call">stroke</span>()
+</code></pre>
+
+<p>This code gives the expected output, a dotted line.</p>
+
+<p><img src="/images/xasdcfghnjuhgerfadscvfbf.png" alt="Dots line with UIBezierPath" /></p>
+
+<p>It looks fine, but if you look closely you’ll find out that both ends are different. The left end has a partial dot and the right end has some extra spacing left. This unenven spacing is due to the lineDashpattern. The array of values we provide to the pattern tells the system when to paint(0.5) and when to unpaint(16.0). Changing these values won’t help much as they do not consider the frame boundary when drawing. First lets see what the correct output looks like:</p>
+
+<p><img src="/images/csvbgdfmghfnbsvdacscdvbfg.png" alt="Dots with equal spacing" /></p>
+
+<p>This line has equal spacing around on both ends. If you think about it, to do this we just want to know how many dots can fit in the available space, then we draw the dots and then do some magic which centers the line in the view it is drawn on. By centering the line we ensure that it has equal space around both ends. I had a few approaches in mind, you can pick any one of them as per your choice, but I am going to discuss only one approach here:</p>
+
+<ol>
+  <li>Set the start and end point of the <code class="language-plaintext highlighter-rouge">UIBezierPath</code> line.</li>
+  <li>Use a <a href="https://developer.apple.com/documentation/quartzcore/cashapelayer">CAShapeLayer</a> and only stroke it to the desired length and the set its position to the center.</li>
+  <li>Use a <a href="https://developer.apple.com/documentation/quartzcore/careplicatorlayer">CAReplicatorLayer</a> and set its <code class="language-plaintext highlighter-rouge">instanceCount</code> property to the number of dots that can fit in.</li>
+</ol>
+
+<h3 id="using-careplicatorlayer-for-dotted-lines">Using CAReplicatorLayer for dotted lines:</h3>
+
+<p>I have talked about <a href="https://vinayjain.me/posts/conversation-with-calayer#careplicatorlayer">CAReplicatorLayer</a> earlier as well. I remembered that I had implemented a typing indicator with the help of layer replication so I gave it a try again to build a dotted line.</p>
+
+<p><img src="/images/typing.gif" alt="Typing" /></p>
+
+<p>The benefit I see for using CAReplicatorLayer is that it works on the basis of instance count which you cannot give for the other two ways. And the centering logic becomes easy as you can just set the frame of this layer to center of the view. Have a look at the code below to see how it is done, I am adding comments inline to avoid any further explanation.</p>
+
+<pre class="splash"><code>layer.<span class="property">rasterizationScale</span> = <span class="type">UIScreen</span>.<span class="property">main</span>.<span class="property">scale</span>
+layer.<span class="property">shouldRasterize</span> = <span class="keyword">true
+
+let</span> spacing: <span class="type">CGFloat</span> = <span class="number">8</span>
+<span class="keyword">let</span> dotRadius: <span class="type">CGFloat</span> = <span class="number">4</span>
+
+<span class="comment">// We want every replicated instance to be translated
+// by this factor</span>
+<span class="keyword">let</span> translateFactor = ((dotRadius * <span class="number">2</span>) + spacing)
+
+<span class="keyword">let</span> count = <span class="type">Int</span>((rect.<span class="property">width</span>) / translateFactor)
+
+<span class="keyword">let</span> circle = <span class="type">CAShapeLayer</span>()
+<span class="keyword">let</span> path = <span class="type">UIBezierPath</span>(ovalIn: <span class="type">CGRect</span>(x: <span class="number">0</span>, y: <span class="number">0</span>, width: <span class="number">2</span> * dotRadius, height: <span class="number">2</span> * dotRadius))
+circle.<span class="property">fillColor</span> = <span class="type">UIColor</span>.<span class="property">black</span>.<span class="property">cgColor</span>
+circle.<span class="property">path</span> = path.<span class="property">cgPath</span>
+
+<span class="keyword">let</span> replicator = <span class="type">CAReplicatorLayer</span>()
+replicator.<span class="call">addSublayer</span>(circle)
+replicator.<span class="property">instanceCount</span> = count
+
+<span class="comment">// translate every next instance by translateFactor</span>
+<span class="keyword">var</span> transform = <span class="type">CATransform3DIdentity</span>
+transform = <span class="type">CATransform3DTranslate</span>(transform, translateFactor, <span class="number">0</span>, <span class="number">1.0</span>);
+replicator.<span class="property">instanceTransform</span> = transform
+layer.<span class="call">addSublayer</span>(replicator)
+replicator.<span class="property">masksToBounds</span> = <span class="keyword">true
+
+let</span> dotsWidth = <span class="type">CGFloat</span>(count) * translateFactor - spacing
+
+<span class="comment">// Find the new origin for replicator layer</span>
+<span class="keyword">let</span> x = (rect.<span class="property">width</span> - dotsWidth) / <span class="number">2.0</span>
+
+<span class="comment">// Use the new x value in the frame
+// so as to center the replicator layer
+// in view bounds</span>
+replicator.<span class="property">frame</span> = <span class="type">CGRect</span>(x: x, y: <span class="number">0</span>, width: dotsWidth, height: rect.<span class="property">height</span>)
+</code></pre>
+
+<p>The main reason for using <code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> here is that it gives me more control to each dot and every instance is animatable, so if there are any changes to be done on this dotted line, those can be done easily. Regarding performance, I haven’t done any kind of benchmarking on which approach is efficient as I am drawing this layer only at one place. But if you really want to know, I think the <code class="language-plaintext highlighter-rouge">CAShapeLayer</code> base implementation will out perform this approach beacuse using that you only draw one layer. If you have any suggestions and feedbacks to improve this please do let me know in the comments.</p>
+:ET

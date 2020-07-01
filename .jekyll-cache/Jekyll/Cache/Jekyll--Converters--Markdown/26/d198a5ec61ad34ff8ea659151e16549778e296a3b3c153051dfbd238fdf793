@@ -1,0 +1,2 @@
+I"6<p>One of the behaviors of iOS devices which I see as a limitation is that the default keyboard hides the views behind it. Hence the user cannot interact with the UIViews and Controls behind the keyboard. I found a great answer on <a href="http://stackoverflow.com/a/26561723/2286267">StackOverflow</a> to solve this problem. However the code used in this answer moves every textField by the same amount. So even if you are editing a textField which does not get hidden behind the textField will still move up and may disappear out of the device screen upwards.</p>
+:ET

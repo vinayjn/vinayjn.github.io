@@ -1,0 +1,1020 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2020-07-01T23:41:35+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><entry><title type="html">iOS Bootcamp Coach</title><link href="https://vinayjain.me/posts/ios-bootcamp" rel="alternate" type="text/html" title="iOS Bootcamp Coach" /><published>2019-09-18T06:39:25+05:30</published><updated>2019-09-18T06:39:25+05:30</updated><id>https://vinayjain.me/posts/iOS-bootcamp</id><content type="html" xml:base="https://vinayjain.me/posts/ios-bootcamp">&lt;p&gt;When I was in college I used to teach school students Mathematics and Physics, which still are my favorite subjects. I also presented a few tech related topics in my college to help my friends understand them better. I enjoy teaching, it’s fun and it is always a good learning exercise for me as well. It gives an entirely different perspective to learning and being on the other side makes me feel more confident of the things I already know. But after I graduated and started working in the software industry I didn’t get enough opportunities and couldn’t find time to do it. I attended tech meetups and thought of presenting a few topics but couldn’t, for me preparing a presentation was a herculean task that time.&lt;/p&gt;
+
+&lt;h3 id=&quot;opportunity-and-time&quot;&gt;Opportunity and Time&lt;/h3&gt;
+
+&lt;p&gt;I am working with Gojek right now and they organize a 3 months bootcamp for the new joiners(fresh graduates) to pick up the pace. The participants must enrol for all the courses in the bootcamp. These 3 months are divided into Core Engineering, DevOps, Data Engineering, Mobile Development and other tech stuff, you can read more about the &lt;a href=&quot;https://blog.gojekengineering.com/what-is-the-go-jek-engineering-bootcamp-de7778836da9&quot;&gt;Gojek Engineering Bootcamp here&lt;/a&gt;. Since I am an iOS developer, the organisers asked me if I was interested in coaching the iOS bootcamp. Coaching the bootcamp means I will be out of the office for a week and doing so will affect the timelines of deliverables I already have. I was interested in taking this opportunity but first, it had to be approved by the manager. My manager is a great guy, I knew he won’t disappoint me, 2-3 meetings and little rescheduling helped us figure out ways through which I would make it to the bootcamp.&lt;/p&gt;
+
+&lt;h3 id=&quot;ios-bootcamp&quot;&gt;iOS Bootcamp&lt;/h3&gt;
+
+&lt;p&gt;iOS bootcamp was short and so was Android, no offence intended and none taken. One week is a very short period to teach iOS to people who have never done it before. You have to teach them the language, tell them about the ecosystem, the development environment and also about UI components. One good thing about teaching iOS in 2019 is that you don’t have to teach Objective-C, which actually is a great language but teaching it in a bootcamp will probably take more efforts and a lot more time, Swift on the other hand can be taught easily. So we planned to teach the basics of Swift. Also, to let the bootcampers get the feel of iOS and mobile development in general, we decided to build a TicTacToe game within the bootcamp timeline. Building the game kept the bootcampers engaged and interested in learning iOS, it also helped us cover important topics like building user interfaces with the Cocoa Touch, unit tests and concurrency etc. Other important topics like data persistence, animations, audio support were given as part of coding assignments.&lt;/p&gt;
+
+&lt;h3 id=&quot;wrapping-up&quot;&gt;Wrapping Up&lt;/h3&gt;
+
+&lt;p&gt;For the final two assignments, we had split the bootcampers into teams, each team had 4 members. The last two days we didn’t teach them much, we gave them assignments, solved open issues, review code and let them present what they had built in front of everyone. Some of the teams made apps that were so good that with a little polish they can be uploaded to the App Store. I personally liked the last two days, seeing their progress made us feel proud of ourselves and implicitly gave us feedback that we did well. The last session of last was all about this, one on ones with the bootcampers, feedback for them, feedback for us and a few fun activities. We received some negative feedbacks as well but they were just for the initial days where the participants felt that the theory was boring and they needed more hands-on exercises. Overall, I enjoyed the bootcamp. The next bootcamp will be in Jakarta and if given a chance I would definitely enrol again and fix the mistakes and use the learnings in my first bootcamp.&lt;/p&gt;
+
+&lt;p&gt;If you reached here, thanks for your time. Also, if you are interested in working with Gojek please shoot me an email or maybe head to the careers page to see the current openings.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><summary type="html">When I was in college I used to teach school students Mathematics and Physics, which still are my favorite subjects. I also presented a few tech related topics in my college to help my friends understand them better. I enjoy teaching, it’s fun and it is always a good learning exercise for me as well. It gives an entirely different perspective to learning and being on the other side makes me feel more confident of the things I already know. But after I graduated and started working in the software industry I didn’t get enough opportunities and couldn’t find time to do it. I attended tech meetups and thought of presenting a few topics but couldn’t, for me preparing a presentation was a herculean task that time.</summary></entry><entry><title type="html">Drawing Dotted Lines in iOS</title><link href="https://vinayjain.me/posts/drawing-dotted-line-in-ios" rel="alternate" type="text/html" title="Drawing Dotted Lines in iOS" /><published>2019-08-31T06:39:25+05:30</published><updated>2019-08-31T06:39:25+05:30</updated><id>https://vinayjain.me/posts/drawing-dotted-line-in-ios</id><content type="html" xml:base="https://vinayjain.me/posts/drawing-dotted-line-in-ios">&lt;p&gt;My favorite thing in frontend development is building custom user interfaces. It keeps challenging creativity and tests my eye for detail. Most of the times user interfaces give you instant feedback on what works and what doesn’t, based on these feedbacks you keep making changes which further improve the user experience. However, making these changes everytime isn’t easy, very often we hit roadblocks because of the limited functionality or maybe restricted API access. Situations like these pushes you to discover new ways of doing the same thing. As a software engineer you can do so by either browsing Stackoverflow or reading documentation or using your imagination and creativity. One recent encounter of this kind was drawing a dotted line between two points in iOS.&lt;/p&gt;
+
+&lt;h3 id=&quot;dotted-lines&quot;&gt;Dotted lines&lt;/h3&gt;
+
+&lt;p&gt;The designer sent you an Abstract link and you see a dotted line in between two images. You tell the estimates and you start building the new designs. The most common way of drawing a dotted line in iOS is by using a &lt;a href=&quot;https://developer.apple.com/documentation/uikit/uibezierpath&quot;&gt;UIBezierPath&lt;/a&gt; and drawing lines by setting a &lt;a href=&quot;https://developer.apple.com/documentation/quartzcore/cashapelayer/1521921-linedashpattern&quot;&gt;lineDashPattern&lt;/a&gt;. A basic implementation is shown below:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; path = &lt;span class=&quot;type&quot;&gt;UIBezierPath&lt;/span&gt;()
+&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; dashPattern: [&lt;span class=&quot;type&quot;&gt;CGFloat&lt;/span&gt;] = [&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;16.0&lt;/span&gt;]
+path.&lt;span class=&quot;call&quot;&gt;setLineDash&lt;/span&gt;(dashPattern, count: dashPattern.&lt;span class=&quot;property&quot;&gt;count&lt;/span&gt;, phase: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)
+path.&lt;span class=&quot;property&quot;&gt;lineWidth&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;
+path.&lt;span class=&quot;property&quot;&gt;lineCapStyle&lt;/span&gt; = .&lt;span class=&quot;dotAccess&quot;&gt;round&lt;/span&gt;
+path.&lt;span class=&quot;call&quot;&gt;move&lt;/span&gt;(to: &lt;span class=&quot;type&quot;&gt;CGPoint&lt;/span&gt;(x: rect.&lt;span class=&quot;property&quot;&gt;minX&lt;/span&gt;, y: rect.&lt;span class=&quot;property&quot;&gt;midY&lt;/span&gt;))
+path.&lt;span class=&quot;call&quot;&gt;addLine&lt;/span&gt;(to: &lt;span class=&quot;type&quot;&gt;CGPoint&lt;/span&gt;(x: rect.&lt;span class=&quot;property&quot;&gt;maxX&lt;/span&gt;, y: rect.&lt;span class=&quot;property&quot;&gt;midY&lt;/span&gt;))
+&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;red&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;setStroke&lt;/span&gt;()
+path.&lt;span class=&quot;call&quot;&gt;stroke&lt;/span&gt;()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This code gives the expected output, a dotted line.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/xasdcfghnjuhgerfadscvfbf.png&quot; alt=&quot;Dots line with UIBezierPath&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It looks fine, but if you look closely you’ll find out that both ends are different. The left end has a partial dot and the right end has some extra spacing left. This unenven spacing is due to the lineDashpattern. The array of values we provide to the pattern tells the system when to paint(0.5) and when to unpaint(16.0). Changing these values won’t help much as they do not consider the frame boundary when drawing. First lets see what the correct output looks like:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/csvbgdfmghfnbsvdacscdvbfg.png&quot; alt=&quot;Dots with equal spacing&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This line has equal spacing around on both ends. If you think about it, to do this we just want to know how many dots can fit in the available space, then we draw the dots and then do some magic which centers the line in the view it is drawn on. By centering the line we ensure that it has equal space around both ends. I had a few approaches in mind, you can pick any one of them as per your choice, but I am going to discuss only one approach here:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Set the start and end point of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIBezierPath&lt;/code&gt; line.&lt;/li&gt;
+  &lt;li&gt;Use a &lt;a href=&quot;https://developer.apple.com/documentation/quartzcore/cashapelayer&quot;&gt;CAShapeLayer&lt;/a&gt; and only stroke it to the desired length and the set its position to the center.&lt;/li&gt;
+  &lt;li&gt;Use a &lt;a href=&quot;https://developer.apple.com/documentation/quartzcore/careplicatorlayer&quot;&gt;CAReplicatorLayer&lt;/a&gt; and set its &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instanceCount&lt;/code&gt; property to the number of dots that can fit in.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;using-careplicatorlayer-for-dotted-lines&quot;&gt;Using CAReplicatorLayer for dotted lines:&lt;/h3&gt;
+
+&lt;p&gt;I have talked about &lt;a href=&quot;https://vinayjain.me/posts/conversation-with-calayer#careplicatorlayer&quot;&gt;CAReplicatorLayer&lt;/a&gt; earlier as well. I remembered that I had implemented a typing indicator with the help of layer replication so I gave it a try again to build a dotted line.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/typing.gif&quot; alt=&quot;Typing&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The benefit I see for using CAReplicatorLayer is that it works on the basis of instance count which you cannot give for the other two ways. And the centering logic becomes easy as you can just set the frame of this layer to center of the view. Have a look at the code below to see how it is done, I am adding comments inline to avoid any further explanation.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;layer.&lt;span class=&quot;property&quot;&gt;rasterizationScale&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;UIScreen&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;main&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;scale&lt;/span&gt;
+layer.&lt;span class=&quot;property&quot;&gt;shouldRasterize&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;true
+
+let&lt;/span&gt; spacing: &lt;span class=&quot;type&quot;&gt;CGFloat&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; dotRadius: &lt;span class=&quot;type&quot;&gt;CGFloat&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;
+
+&lt;span class=&quot;comment&quot;&gt;// We want every replicated instance to be translated
+// by this factor&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; translateFactor = ((dotRadius * &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;) + spacing)
+
+&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; count = &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;((rect.&lt;span class=&quot;property&quot;&gt;width&lt;/span&gt;) / translateFactor)
+
+&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; circle = &lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt;()
+&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; path = &lt;span class=&quot;type&quot;&gt;UIBezierPath&lt;/span&gt;(ovalIn: &lt;span class=&quot;type&quot;&gt;CGRect&lt;/span&gt;(x: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, y: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, width: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; * dotRadius, height: &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; * dotRadius))
+circle.&lt;span class=&quot;property&quot;&gt;fillColor&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;black&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;cgColor&lt;/span&gt;
+circle.&lt;span class=&quot;property&quot;&gt;path&lt;/span&gt; = path.&lt;span class=&quot;property&quot;&gt;cgPath&lt;/span&gt;
+
+&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; replicator = &lt;span class=&quot;type&quot;&gt;CAReplicatorLayer&lt;/span&gt;()
+replicator.&lt;span class=&quot;call&quot;&gt;addSublayer&lt;/span&gt;(circle)
+replicator.&lt;span class=&quot;property&quot;&gt;instanceCount&lt;/span&gt; = count
+
+&lt;span class=&quot;comment&quot;&gt;// translate every next instance by translateFactor&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; transform = &lt;span class=&quot;type&quot;&gt;CATransform3DIdentity&lt;/span&gt;
+transform = &lt;span class=&quot;type&quot;&gt;CATransform3DTranslate&lt;/span&gt;(transform, translateFactor, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;);
+replicator.&lt;span class=&quot;property&quot;&gt;instanceTransform&lt;/span&gt; = transform
+layer.&lt;span class=&quot;call&quot;&gt;addSublayer&lt;/span&gt;(replicator)
+replicator.&lt;span class=&quot;property&quot;&gt;masksToBounds&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;true
+
+let&lt;/span&gt; dotsWidth = &lt;span class=&quot;type&quot;&gt;CGFloat&lt;/span&gt;(count) * translateFactor - spacing
+
+&lt;span class=&quot;comment&quot;&gt;// Find the new origin for replicator layer&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; x = (rect.&lt;span class=&quot;property&quot;&gt;width&lt;/span&gt; - dotsWidth) / &lt;span class=&quot;number&quot;&gt;2.0&lt;/span&gt;
+
+&lt;span class=&quot;comment&quot;&gt;// Use the new x value in the frame
+// so as to center the replicator layer
+// in view bounds&lt;/span&gt;
+replicator.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRect&lt;/span&gt;(x: x, y: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, width: dotsWidth, height: rect.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The main reason for using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAReplicatorLayer&lt;/code&gt; here is that it gives me more control to each dot and every instance is animatable, so if there are any changes to be done on this dotted line, those can be done easily. Regarding performance, I haven’t done any kind of benchmarking on which approach is efficient as I am drawing this layer only at one place. But if you really want to know, I think the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt; base implementation will out perform this approach beacuse using that you only draw one layer. If you have any suggestions and feedbacks to improve this please do let me know in the comments.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><summary type="html">My favorite thing in frontend development is building custom user interfaces. It keeps challenging creativity and tests my eye for detail. Most of the times user interfaces give you instant feedback on what works and what doesn’t, based on these feedbacks you keep making changes which further improve the user experience. However, making these changes everytime isn’t easy, very often we hit roadblocks because of the limited functionality or maybe restricted API access. Situations like these pushes you to discover new ways of doing the same thing. As a software engineer you can do so by either browsing Stackoverflow or reading documentation or using your imagination and creativity. One recent encounter of this kind was drawing a dotted line between two points in iOS.</summary></entry><entry><title type="html">Demystifying @property and attributes</title><link href="https://vinayjain.me/posts/properties-and-mysteries" rel="alternate" type="text/html" title="Demystifying @property and attributes" /><published>2017-07-25T06:39:25+05:30</published><updated>2017-07-25T06:39:25+05:30</updated><id>https://vinayjain.me/posts/properties-and-mysteries</id><content type="html" xml:base="https://vinayjain.me/posts/properties-and-mysteries">&lt;p&gt;Whenever we declare properties in Objective-C there are some keywords between the parentheses like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strong&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;weak&lt;/code&gt;,  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;atomic&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nonatomic&lt;/code&gt;. There can be multiple comma separated words in between the parentheses, sometimes we don’t add any keywords there and keep the default compiler behavior. In this post we’ll discuss what these keywords/attributes actually mean and what are the effects of using one over the other. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@property&lt;/code&gt; are specific to Objective-C but the concepts can be applied to Swift as well, if you are a Swift only dev I still recommend going through this post once.&lt;/p&gt;
+
+&lt;p&gt;Broadly, the change in behavior of a property with these words fall into three categories, lets see what they are:&lt;/p&gt;
+
+&lt;h3 id=&quot;atomicity-atomic-nonatomic&quot;&gt;Atomicity (atomic, nonatomic)&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;atomic&quot;&gt;atomic&lt;/h4&gt;
+    &lt;p&gt;atomic is the default behavior, if we don’t type atomic or nonatomic then the property is atomic. atomic ensures that if we try to read the property we always get some valid value, it will never be junk or garbage data.&lt;/p&gt;
+
+    &lt;p&gt;Lets say, multiple threads are reading and writing the property simultaneously, at each and every instant the value read from the property is a good value. We don’t know what the value will be, it can be the value before the new value gets written or it can be the new value.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;nonatomic&quot;&gt;nonatomic&lt;/h4&gt;
+    &lt;p&gt;As it is (non)atomic it doesn’t do whatever atomic does. To make a property nonatomic we have to add this keyword in between the parentheses. With nonatomic properties you lose the guarantee on the validity of values, reading a nonatomic property can return a garbage value.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Since atomic somehow manages the validity of the value, it has some performance limitations. Access to atomic properties are relatively slower than nonatomic properties. If you are creating properties which involve frequent write operations then it is recommended to make the properties nonatomic.&lt;/p&gt;
+
+&lt;p&gt;There’s a confusion in most developer’s mind that creating a property atomic makes it thread-safe. Atomicity has nothing to do with thread-safety. There are other ways to make the properties thread-safe but that discussion is beyond the scope of this post.&lt;/p&gt;
+
+&lt;h3 id=&quot;write-access-readonly-readwrite&quot;&gt;Write Access (readonly, readwrite)&lt;/h3&gt;
+
+&lt;p&gt;Both of these keywords are self explanatory. The default behavior is readwrite, so if we don’t specify any of these the property will allow write access to the instance variable. readonly restricts write access from everyone including the class it is declared in.&lt;/p&gt;
+
+&lt;p&gt;To allow write access to the property in the class then we have to create an interface extension in the implementation file and override the property by making it readwrite. This way the classes importing this class will be restricted to modify its value.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;comment&quot;&gt;// MyClass.h&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;MyClass&lt;/span&gt;: &lt;span class=&quot;type&quot;&gt;NSObject&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt; (nonatomic, readonly) &lt;span class=&quot;type&quot;&gt;NSString&lt;/span&gt; *value;
+&lt;span class=&quot;keyword&quot;&gt;@end&lt;/span&gt;
+
+&lt;span class=&quot;comment&quot;&gt;// MyClass.m&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;MyClass&lt;/span&gt;()
+&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt; (nonatomic, readwrite) &lt;span class=&quot;type&quot;&gt;NSString&lt;/span&gt; *value;
+&lt;span class=&quot;keyword&quot;&gt;@end
+
+@implementation&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;MyClass&lt;/span&gt;
+
+- (void)setSomeValue:(&lt;span class=&quot;type&quot;&gt;NSString&lt;/span&gt; *) &lt;span class=&quot;call&quot;&gt;newValue&lt;/span&gt; {
+    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;value&lt;/span&gt; = newValue;
+}
+
+&lt;span class=&quot;keyword&quot;&gt;@end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;storage--ownership-strong-weak-copy&quot;&gt;Storage &amp;amp; Ownership (strong, weak, copy)&lt;/h3&gt;
+
+&lt;p&gt;Memory management in iOS is done with Automatic Reference Counting(ARC) and cleanup is dependent on the reference count or retain count of the objects in memory. An object sends a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dealloc&lt;/code&gt; message as soon as its retain count reaches 0.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;strong&quot;&gt;strong&lt;/h4&gt;
+    &lt;p&gt;strong is the default behavior, if you don’t specify any of the storage or ownership attributes the property holds a strong reference to the instance variable. A strong reference always owns the object is pointing to. Every strong reference to a variable increases its retain count by 1. Since the strong reference is owning the object, as longs as there is at least one strong reference to the variable it will not be deallocated from the memory.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;weak&quot;&gt;weak&lt;/h4&gt;
+    &lt;p&gt;weak is analogous to strong. When a property is weak, it holds a weak reference to the instance variable but doesn’t own it. A weak reference doesn’t increase the retain count of the object. If there are no strong references to the object the object will be deallocated and all the weak reference to this object are set to nil so that the weak pointers doesn’t point to garbage data and the operations with these pointers doesn’t crash the app.&lt;/p&gt;
+
+    &lt;p&gt;No discussion of strong and weak can end without talking about retain cycles.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Languages like Objective-C and C# depends on reference count to manage memory and these languages don’t like retain cycles because when a retain cycle is present the memory management techniques fail.&lt;/p&gt;
+
+&lt;p&gt;A retain cycle occurs when properties hold strong references to each other’s instance variables and when this happens both the objects cannot be deallocated because their reference count is not 0. Smart compilers give warnings about probable retain cycle on compile time only. To avoid retain cycles in these situations you can make one of the properties weak so that the object it is pointing to can be cleared by ARC.&lt;/p&gt;
+
+&lt;p&gt;We usually use this practice in setting the delegate and datasource properties of protocols. Retain cycles are the reason why it is recommended to keep the delegate and datasource properties in protocols as weak. The view controller holds a strong reference to the delegate and if the delegate was strong, then it will also hold a strong reference back to the view controller and will create a retain cycle.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Bonus: I just explained you how ARC works in Objective-C!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;copy&quot;&gt;copy&lt;/h4&gt;
+    &lt;p&gt;copy is similar to strong but instead of owning and increasing the retain count of the object, it creates a new copy of that object and holds a strong reference to the copied object. This way if we change the new object we will still be able to get the old value from other references. copy properties works great with mutable objects and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSString&lt;/code&gt;s. The instance variable backed by the copy must conform to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSCopying&lt;/code&gt; protocol to make this work.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;There are some pre-ARC attributes also which we’ll discuss now, but who doesn’t use ARC today?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;assign&quot;&gt;assign&lt;/h4&gt;
+    &lt;p&gt;assign is the default for all non pointer(*) properties i.e. the primitive C datatypes like int, float, long.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;h4 id=&quot;retain&quot;&gt;retain&lt;/h4&gt;
+    &lt;p&gt;It is the pre-ARC strong which owns the object by increasing its retain count, since its pre-ARC you will have to manually release the object after setting the pointer to nil.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I’ve tried to keep things short and easy to understand, if you find any issues in the post or have any feedback like adding or removing content please feel free to write in comments. I welcome tech discussions. 😉&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">Whenever we declare properties in Objective-C there are some keywords between the parentheses like strong, weak, atomic, nonatomic. There can be multiple comma separated words in between the parentheses, sometimes we don’t add any keywords there and keep the default compiler behavior. In this post we’ll discuss what these keywords/attributes actually mean and what are the effects of using one over the other. @property are specific to Objective-C but the concepts can be applied to Swift as well, if you are a Swift only dev I still recommend going through this post once.</summary></entry><entry><title type="html">A Conversation With CALayer – Meeting I</title><link href="https://vinayjain.me/posts/conversation-with-calayer" rel="alternate" type="text/html" title="A Conversation With CALayer – Meeting I" /><published>2017-03-21T10:09:25+05:30</published><updated>2017-03-21T10:09:25+05:30</updated><id>https://vinayjain.me/posts/conversation_with_calayer</id><content type="html" xml:base="https://vinayjain.me/posts/conversation-with-calayer">&lt;p&gt;If you’ve been programming for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iOS&lt;/code&gt; devices, you might have encountered these lines of code:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;view.&lt;span class=&quot;property&quot;&gt;backgroundColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; greenColor];
+view.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;cornerRadius&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;8.0&lt;/span&gt;;
+view.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;borderWidth&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;;
+view.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;borderColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; blackColor];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you haven’t seen code like this before try using it with any UI component in your app and check what it does. It adds a 1pt black border to the view and round its corners by 8pt.&lt;/p&gt;
+
+&lt;p&gt;Every &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIView&lt;/code&gt; is backed with a layer which can be accessed with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;view.layer&lt;/code&gt;. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;layer&lt;/code&gt; property points to an instance of either the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CALayer&lt;/code&gt; class or any of its subclasses like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAGradientLayer&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CATextLayer&lt;/code&gt; etc. Layers are part of the  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Animation&lt;/code&gt; library and are extensively used in custom drawing with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Graphics&lt;/code&gt; and  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Animation&lt;/code&gt;, these two frameworks make &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iOS&lt;/code&gt; apps beautiful. The image below shows where these two frameworks lie in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iOS&lt;/code&gt; graphics drawing engine:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/drawing_hierarchy.png&quot; alt=&quot;Drawing Hierarchy&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OpenGL&lt;/code&gt;, a low-level API which interacts directly with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GPU&lt;/code&gt;, does all the heavy lifting work of graphics processing. To make our lives even easier Apple has built &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Animation&lt;/code&gt;, a high-level wrapper above &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OpenGL&lt;/code&gt; so that we don’t need to write the low-level &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C&lt;/code&gt; code.&lt;/p&gt;
+
+&lt;p&gt;Now, since we have been introduced to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CALayer&lt;/code&gt; and have access to the low-level graphics rendering engine lets start interacting with them and create some beautiful graphics.&lt;/p&gt;
+
+&lt;p&gt;There are various &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CALayer&lt;/code&gt; subclasses, below are the direct &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CALayer&lt;/code&gt; subclasses available in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Animation&lt;/code&gt; library:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/calayer_hierarchy.png&quot; alt=&quot;CALayer Hierarchy&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this part of the series we will build:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A loading indicator with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAKeyFrameAnimation&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;A mirror reflection of the &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt; logo with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAReplicatorLayer&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;A colorful &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt; logo with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CATextLayer&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;cashapelayer&quot;&gt;CAShapeLayer&lt;/h3&gt;
+
+&lt;p&gt;With &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt; we can easily draw curved paths and geometrical shapes. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt; is mostly used in drawing custom UI components. At &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt;, we design most of the custom &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIButton&lt;/code&gt; subclasses with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;But why would you write code to draw a circle or a triangle or anything complex when you have images?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/trollface.png&quot; alt=&quot;Trollface&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There are a few reasons to write code:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Almost all properties of shape layers are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;animatable&lt;/code&gt;, which gives us the freedom to change these shapes with code at runtime, which we’ll learn how to do.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt; is vector based, thus they are resolution independent.&lt;/li&gt;
+  &lt;li&gt;This can be drawn directly using the GPU so we can free the CPU for other tasks.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;By the end of this section, we’ll be able to show this cool animation on the screen:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/shape.gif&quot; alt=&quot;Circle Shape&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The animation above has three components:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;A rounded rectangle added on the view layer&lt;/li&gt;
+  &lt;li&gt;A gray color circle added on the rectangle layer&lt;/li&gt;
+  &lt;li&gt;A dark gray color arc added on the circle layer&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The below code draws the rounded rectangle on the screen:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt; *roundedRect = [&lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt; layer];
+roundedRect.&lt;span class=&quot;property&quot;&gt;path&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithRoundedRect:&lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;120&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;120&lt;/span&gt;) cornerRadius:&lt;span class=&quot;number&quot;&gt;8.0&lt;/span&gt;].&lt;span class=&quot;type&quot;&gt;CGPath&lt;/span&gt;;
+roundedRect.&lt;span class=&quot;property&quot;&gt;fillColor&lt;/span&gt; = [[&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; whiteColor] colorWithAlphaComponent:&lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
+[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;view&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt; addSublayer:roundedRect];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To create the path of the shape layer we used a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIKit&lt;/code&gt; class &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIBezierPath&lt;/code&gt; to skip the complexity of drawing paths with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Graphics&lt;/code&gt;. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fillColor&lt;/code&gt; property of the shape layer fills the closed region of the layer with given color.&lt;/p&gt;
+
+&lt;p&gt;Next, we add a circle to the rounded rectangle:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt; *circle = [&lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt; layer];
+
+circle.&lt;span class=&quot;property&quot;&gt;path&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithArcCenter:&lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) radius:&lt;span class=&quot;number&quot;&gt;50&lt;/span&gt; startAngle:&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;*(&lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;/&lt;span class=&quot;number&quot;&gt;180.0&lt;/span&gt;)  endAngle:&lt;span class=&quot;number&quot;&gt;360.0&lt;/span&gt;*(&lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;/&lt;span class=&quot;number&quot;&gt;180.0&lt;/span&gt;) clockwise:&lt;span class=&quot;type&quot;&gt;YES&lt;/span&gt;].&lt;span class=&quot;type&quot;&gt;CGPath&lt;/span&gt;;
+circle.&lt;span class=&quot;property&quot;&gt;lineWidth&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;5.0&lt;/span&gt;;
+circle.&lt;span class=&quot;property&quot;&gt;fillColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; clearColor].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
+circle.&lt;span class=&quot;property&quot;&gt;strokeColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; lightGrayColor].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
+circle.&lt;span class=&quot;property&quot;&gt;backgroundColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; clearColor].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
+circle.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;60&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;60&lt;/span&gt;);
+
+[roundedRect addSublayer:circle];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For drawing a circle we need to pass a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;startAngle&lt;/code&gt; and an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;endAngle&lt;/code&gt;. With these angles, we tell the system from where the path should start and where it should be drawn till. If we were drawing this circle with a pen, consider the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strokeColor&lt;/code&gt; as the ink color and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lineWidth&lt;/code&gt; as the minimum width of the line that can be drawn with the pen. Changing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;position&lt;/code&gt; of the layer centers it in the rectangle.&lt;/p&gt;
+
+&lt;p&gt;To add the arc we will again use the same function for drawing a circle, but we will pass different start angles and end angles to draw it as an arc:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt; *arc = [&lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt; layer];
+arc.&lt;span class=&quot;property&quot;&gt;path&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithArcCenter:&lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) radius:&lt;span class=&quot;number&quot;&gt;50&lt;/span&gt; startAngle:&lt;span class=&quot;number&quot;&gt;180.0&lt;/span&gt;*(&lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;/&lt;span class=&quot;number&quot;&gt;180.0&lt;/span&gt;)  endAngle:&lt;span class=&quot;number&quot;&gt;225.0&lt;/span&gt;*(&lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;/&lt;span class=&quot;number&quot;&gt;180.0&lt;/span&gt;) clockwise:&lt;span class=&quot;type&quot;&gt;YES&lt;/span&gt;].&lt;span class=&quot;type&quot;&gt;CGPath&lt;/span&gt;;
+arc.&lt;span class=&quot;property&quot;&gt;lineWidth&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;5.0&lt;/span&gt;;
+arc.&lt;span class=&quot;property&quot;&gt;lineCap&lt;/span&gt; = kCALineCapRound;
+arc.&lt;span class=&quot;property&quot;&gt;fillColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; clearColor].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
+arc.&lt;span class=&quot;property&quot;&gt;strokeColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; darkGrayColor].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
+arc.&lt;span class=&quot;property&quot;&gt;backgroundColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; clearColor].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lineCap&lt;/code&gt; determines how the endpoints of the drawn curve are stroked.&lt;/p&gt;
+
+&lt;p&gt;To create a rotational animation in x-y plane we need to change the rotation transform along the
+z-axis and fortunately, we can easily do this with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Animation&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;CAKeyframeAnimation&lt;/span&gt; *animation = [&lt;span class=&quot;type&quot;&gt;CAKeyframeAnimation&lt;/span&gt; animationWithKeyPath:&lt;span class=&quot;keyword&quot;&gt;@&quot;transform&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;rotation&lt;/span&gt;.&lt;span class=&quot;string&quot;&gt;z&quot;];&lt;/span&gt;
+animation.&lt;span class=&quot;property&quot;&gt;additive&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;YES&lt;/span&gt;;
+animation.&lt;span class=&quot;property&quot;&gt;duration&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;10.0&lt;/span&gt;;
+animation.&lt;span class=&quot;property&quot;&gt;repeatCount&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;HUGE_VALF&lt;/span&gt;;
+animation.&lt;span class=&quot;property&quot;&gt;values&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;[
+                    [&lt;span class=&quot;type&quot;&gt;NSNumber&lt;/span&gt; numberWithFloat:&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt; * &lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;],
+                    [&lt;span class=&quot;type&quot;&gt;NSNumber&lt;/span&gt; numberWithFloat:&lt;span class=&quot;number&quot;&gt;1.75&lt;/span&gt; * &lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;],
+                    [&lt;span class=&quot;type&quot;&gt;NSNumber&lt;/span&gt; numberWithFloat:-&lt;span class=&quot;number&quot;&gt;0.75&lt;/span&gt; * &lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;],
+                    [&lt;span class=&quot;type&quot;&gt;NSNumber&lt;/span&gt; numberWithFloat:&lt;span class=&quot;number&quot;&gt;2.75&lt;/span&gt; * &lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;],
+                    [&lt;span class=&quot;type&quot;&gt;NSNumber&lt;/span&gt; numberWithFloat:&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt; * &lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;]
+                    ];
+animation.&lt;span class=&quot;property&quot;&gt;keyTimes&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;[ &lt;span class=&quot;keyword&quot;&gt;@0&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;6.0&lt;/span&gt;), &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;6.0&lt;/span&gt;), &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;6.0&lt;/span&gt;), &lt;span class=&quot;keyword&quot;&gt;@1&lt;/span&gt; ];
+animation.&lt;span class=&quot;property&quot;&gt;timingFunctions&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;[
+                             [&lt;span class=&quot;type&quot;&gt;CAMediaTimingFunction&lt;/span&gt; functionWithName:kCAMediaTimingFunctionEaseIn],
+                             [&lt;span class=&quot;type&quot;&gt;CAMediaTimingFunction&lt;/span&gt; functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
+                             [&lt;span class=&quot;type&quot;&gt;CAMediaTimingFunction&lt;/span&gt; functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
+                             [&lt;span class=&quot;type&quot;&gt;CAMediaTimingFunction&lt;/span&gt; functionWithName:kCAMediaTimingFunctionEaseOut]
+                             ];
+[arc addAnimation:animation forKey:&lt;span class=&quot;string&quot;&gt;@&quot;rotate&quot;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAKeyFrameAnimation&lt;/code&gt; we can control the animation attributes like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromValue&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toValue&lt;/code&gt;,  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;timingFunction&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;calculationMode&lt;/code&gt; for different time intervals in the complete animation. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;values&lt;/code&gt; array determines &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromValue&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toValue&lt;/code&gt; of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;animatable&lt;/code&gt; property ( transform.rotation.z) in the time intervals given to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;keyTimes&lt;/code&gt; array. The timing functions decide how the animations start and end.&lt;/p&gt;
+
+&lt;p&gt;You can find the complete code till this section on this &lt;a href=&quot;https://github.com/vinayjn/CALayer/tree/2521cd08e33ad6e6be3fc18d8b9995eb8bd68a87&quot;&gt;CALayers-GitHub&lt;/a&gt; repo.&lt;/p&gt;
+
+&lt;h3 id=&quot;careplicatorlayer&quot;&gt;CAReplicatorLayer&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAReplicatorLayer&lt;/code&gt; is a container layer, it replicates the content added to it. It has some cool properties which can be used to instruct the container how the replication has to be done. Beautiful effects can be achieved by applying animations to the replicated content. Every contained content is called an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instance&lt;/code&gt;. To show the usage of this layer we will create a reflection of an image. By the end of this section, we’ll be able to show the reflection of the &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt; logo like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/reflection.png&quot; alt=&quot;Reflection&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s build this!&lt;/p&gt;
+
+&lt;p&gt;First, we need a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAReplicatorLayer&lt;/code&gt; instance and on this instance, we’ll be adding an image layer of which the reflection we will be showing:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;comment&quot;&gt;// Create a CAReplicatorLayer&lt;/span&gt;
+&lt;span class=&quot;type&quot;&gt;CAReplicatorLayer&lt;/span&gt; *replicatorLayer = [&lt;span class=&quot;type&quot;&gt;CAReplicatorLayer&lt;/span&gt; layer];
+
+&lt;span class=&quot;comment&quot;&gt;// Create the image layer&lt;/span&gt;
+&lt;span class=&quot;type&quot;&gt;UIImage&lt;/span&gt; *image = [&lt;span class=&quot;type&quot;&gt;UIImage&lt;/span&gt; imageNamed:&lt;span class=&quot;string&quot;&gt;@&quot;haptik_logo&quot;];&lt;/span&gt;
+&lt;span class=&quot;type&quot;&gt;CALayer&lt;/span&gt; *imageLayer = [&lt;span class=&quot;type&quot;&gt;CALayer&lt;/span&gt; layer];
+imageLayer.&lt;span class=&quot;property&quot;&gt;contents&lt;/span&gt; = (__bridge id)[image &lt;span class=&quot;type&quot;&gt;CGImage&lt;/span&gt;];
+imageLayer.&lt;span class=&quot;property&quot;&gt;bounds&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;width&lt;/span&gt;, image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt;);
+imageLayer.&lt;span class=&quot;property&quot;&gt;anchorPoint&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);
+
+&lt;span class=&quot;comment&quot;&gt;// Set bounds of replicator layer
+// to height twice of image height&lt;/span&gt;
+replicatorLayer.&lt;span class=&quot;property&quot;&gt;bounds&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;width&lt;/span&gt;, image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;);
+replicatorLayer.&lt;span class=&quot;property&quot;&gt;masksToBounds&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;YES&lt;/span&gt;;
+replicatorLayer.&lt;span class=&quot;property&quot;&gt;anchorPoint&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;);
+replicatorLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;view&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;width&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;2.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;80.0&lt;/span&gt;);    
+[replicatorLayer addSublayer:imageLayer];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This code is pretty straight forward, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;anchorPoint&lt;/code&gt; of a layer is the point from where all the geometric manipulations will happen. The default &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;anchorPoint&lt;/code&gt; is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(0.5, 0.5)&lt;/code&gt; which represents the center of the layer. We want to apply a rotation from the top of the layer, so we changed it to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(0,0)&lt;/code&gt;`.&lt;/p&gt;
+
+&lt;p&gt;With the above code, we have added an image to the replicator layer and set its correct bounds. To get the reflection we need to apply a rotation transform and translate the replicated layer to the correct position as below:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;CATransform3D&lt;/span&gt; transform = &lt;span class=&quot;type&quot;&gt;CATransform3DIdentity&lt;/span&gt;;
+transform = &lt;span class=&quot;type&quot;&gt;CATransform3DScale&lt;/span&gt;(transform, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;);
+transform = &lt;span class=&quot;type&quot;&gt;CATransform3DTranslate&lt;/span&gt;(transform, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, -image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;2.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;);
+replicatorLayer.&lt;span class=&quot;property&quot;&gt;instanceTransform&lt;/span&gt; = transform;
+replicatorLayer.&lt;span class=&quot;property&quot;&gt;instanceCount&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instanceTransform&lt;/code&gt; property of the replicator layer allows us to set the calculated transform on the replicated content. There are other properties of the replicator layer like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instanceDelay&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instanceColor&lt;/code&gt; which can be manipulated to get more control.&lt;/p&gt;
+
+&lt;p&gt;Setting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instanceCount&lt;/code&gt; to 2 instructs the replicator layer to create exactly two instances of the added content.&lt;/p&gt;
+
+&lt;p&gt;This is it! Running this code will give us the below output:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/reflection2.png&quot; alt=&quot;Reflection&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;But this is not what you expected, yes because the mirror we used earlier was blurred and so was the reflection. But if that is what you also need then add a gradient layer to your layer as shown below:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;CAGradientLayer&lt;/span&gt; *gradientLayer = [&lt;span class=&quot;type&quot;&gt;CAGradientLayer&lt;/span&gt; layer];
+gradientLayer.&lt;span class=&quot;property&quot;&gt;colors&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;[
+                           (__bridge id)[[[&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; whiteColor] colorWithAlphaComponent:&lt;span class=&quot;number&quot;&gt;0.25&lt;/span&gt;] &lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;],
+                           (__bridge id)[[&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; whiteColor] &lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;]
+                           ];
+
+gradientLayer.&lt;span class=&quot;property&quot;&gt;bounds&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, replicatorLayer.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;width&lt;/span&gt;, image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt; + &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;);
+
+gradientLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(replicatorLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;x&lt;/span&gt;, replicatorLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt; + image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;);
+&lt;span class=&quot;type&quot;&gt;CAGradientLayer&lt;/span&gt; *gradientLayer = [&lt;span class=&quot;type&quot;&gt;CAGradientLayer&lt;/span&gt; layer];
+gradientLayer.&lt;span class=&quot;property&quot;&gt;colors&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;[
+                           (__bridge id)[[[&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; whiteColor] colorWithAlphaComponent:&lt;span class=&quot;number&quot;&gt;0.25&lt;/span&gt;] &lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;],
+                           (__bridge id)[[&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; whiteColor] &lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;]
+                           ];
+
+gradientLayer.&lt;span class=&quot;property&quot;&gt;bounds&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, replicatorLayer.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;width&lt;/span&gt;, image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt; + &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;);
+
+gradientLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(replicatorLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;x&lt;/span&gt;, replicatorLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt; + image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;At &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt;, we have used the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAReplicatorLayer&lt;/code&gt; to create a new typing indicator. This is how it looks!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/typing.gif&quot; alt=&quot;Typing&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to download and run this code check the &lt;a href=&quot;https://github.com/vinayjn/CALayer/tree/c495e29dc3675b39a4636f005d0d716ebd4b0fb9&quot;&gt;Github repo&lt;/a&gt;. And yes, Craig Federighi was online. ;)&lt;/p&gt;
+
+&lt;h3 id=&quot;catextlayer&quot;&gt;CATextLayer&lt;/h3&gt;
+
+&lt;p&gt;Text layers are used to layout and render plain and attributed strings, but we do this usually with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UILabel&lt;/code&gt;. One amazing usage of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CATextLayer&lt;/code&gt; is to mask UIView. In this section we will redesign the &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt; logo as in the image below:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/textlayer.png&quot; alt=&quot;CATextLayer&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIImageView&lt;/code&gt; with a pattern image and mask that pattern with the text layer:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;comment&quot;&gt;// Create the imageView&lt;/span&gt;
+&lt;span class=&quot;type&quot;&gt;UIImage&lt;/span&gt; *haptikLogo = [&lt;span class=&quot;type&quot;&gt;UIImage&lt;/span&gt; imageNamed:&lt;span class=&quot;string&quot;&gt;@&quot;Artboard&quot;];&lt;/span&gt;
+&lt;span class=&quot;type&quot;&gt;UIImageView&lt;/span&gt; *imageView = [[&lt;span class=&quot;type&quot;&gt;UIImageView&lt;/span&gt; alloc] initWithFrame:&lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;300&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;300&lt;/span&gt;)];
+imageView.&lt;span class=&quot;property&quot;&gt;image&lt;/span&gt; = haptikLogo;
+
+&lt;span class=&quot;comment&quot;&gt;// Create the CATextLayer instance.&lt;/span&gt;
+&lt;span class=&quot;type&quot;&gt;CATextLayer&lt;/span&gt; *textLayer = [&lt;span class=&quot;type&quot;&gt;CATextLayer&lt;/span&gt; layer];
+textLayer.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt; = imageView.&lt;span class=&quot;property&quot;&gt;bounds&lt;/span&gt;;
+textLayer.&lt;span class=&quot;property&quot;&gt;rasterizationScale&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIScreen&lt;/span&gt; mainScreen].scale;
+textLayer.&lt;span class=&quot;property&quot;&gt;contentsScale&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIScreen&lt;/span&gt; mainScreen].scale;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Never forget&lt;/strong&gt; to set the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rasterizationScale&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;contentsScale&lt;/code&gt;, without these properties you might get blurry or smaller text depending on the screen resolution of the devices your app runs on.&lt;/p&gt;
+
+&lt;p&gt;Set whatever string you want to display as a mask with the desired font:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;textLayer.&lt;span class=&quot;property&quot;&gt;fontSize&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;100.0&lt;/span&gt;;
+textLayer.&lt;span class=&quot;property&quot;&gt;font&lt;/span&gt; = (__bridge &lt;span class=&quot;type&quot;&gt;CFTypeRef _Nullable&lt;/span&gt;)([&lt;span class=&quot;type&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;]);
+textLayer.&lt;span class=&quot;property&quot;&gt;string&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;@&quot;haptik&quot;;&lt;/span&gt;
+textLayer.&lt;span class=&quot;property&quot;&gt;fontSize&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;100.0&lt;/span&gt;;
+textLayer.&lt;span class=&quot;property&quot;&gt;font&lt;/span&gt; = (__bridge &lt;span class=&quot;type&quot;&gt;CFTypeRef _Nullable&lt;/span&gt;)([&lt;span class=&quot;type&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;]);
+textLayer.&lt;span class=&quot;property&quot;&gt;string&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;@&quot;haptik&quot;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Finally, use the text layer as the mask on the image view and we are done:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;imageView.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;mask&lt;/span&gt; = textLayer;
+imageView.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;mask&lt;/span&gt; = textLayer;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Build and run the app and see how it looks like.&lt;/p&gt;
+
+&lt;p&gt;The app source code till this section can be downloaded from &lt;a href=&quot;https://github.com/vinayjn/CALayer/tree/97ed89a9610272a9417e95fcbf7890e53f8a727d&quot;&gt;CALayer-Github&lt;/a&gt; repo. Looking forward to hearing from you all.&lt;/p&gt;
+
+&lt;p&gt;Also, don’t forget, we are hiring high-quality engineers. So if you are interested reach out to us at &lt;a href=&quot;mailto:hello@haptik.ai&quot;&gt;hello@haptik.ai&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This post was originally written at &lt;a href=&quot;http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/&quot;&gt;Haptik Tech Blog&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">If you’ve been programming for iOS devices, you might have encountered these lines of code:</summary></entry><entry><title type="html">Your Past Successes Guarantee…</title><link href="https://vinayjain.me/posts/your-past-successes" rel="alternate" type="text/html" title="Your Past Successes Guarantee…" /><published>2017-03-02T17:54:55+05:30</published><updated>2017-03-02T17:54:55+05:30</updated><id>https://vinayjain.me/posts/Your-Past-Successes</id><content type="html" xml:base="https://vinayjain.me/posts/your-past-successes">&lt;p&gt;It has only been three years of my professional career and so much has changed since I started. I have gained as well as lost. I had the opportunity to live in three different cities but consequently had to leave some amazing and beautiful people behind. My career demanded to switch two employers serving 1 year to each. These employers didn’t just pay me well but appreciated and recognized my work. I learnt a lot, I had great colleagues who helped and encouraged me in hard times. I made some great friends and I’ll never forget them and I hope they don’t forget me as well.&lt;/p&gt;
+
+&lt;p&gt;I introspected the past 2-3 years several times and every time I found different results. But all these times I felt bad for doing whatever I did and whatever happened to me. I was a hard working employee, I used to take my laptop back home and spend hours figuring out work related issues in my free time at home. My efforts and dedication towards my work pushed me ahead of most of my colleagues. Soon I became a star performer. And what followed after that are all the VIP treatments given to stars. Some important one’s I would like to mention:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Flexible working hours&lt;/li&gt;
+  &lt;li&gt;Merciful and tolerant mistakes&lt;/li&gt;
+  &lt;li&gt;Easy leave approvals&lt;/li&gt;
+  &lt;li&gt;More attention&lt;/li&gt;
+  &lt;li&gt;In public appreciations&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And it came along with perks like: my leads and managers started inviting me in their parties, I was once invited for a dinner at my Team Lead’s home to eat delicious food his mother cooked. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Free home made Food&lt;/code&gt; for a bachelor in his work life is a huge prize; having those pretty girls around and clicking selfies with them, wow; I even have selfies with our CEO and CTO; our CEO never missed a chance to highlight me, after completing his All-Hands meeting he expected questions from me and whenever I was quiet, he would look at me and ask in front of everyone: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;No questions today Vinay?&lt;/code&gt;. At that moment I was representing the entire company. Everyone was so happy with my performance, work was smooth, easy and interesting. Ohh it was a great life, I was doing so well.&lt;/p&gt;
+
+&lt;p&gt;Even after all these benefits and all my happiness, why did I leave my employers?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;h3 id=&quot;change-the-only-thing-constant-is-change&quot;&gt;“Change! the only thing constant is change.”&lt;/h3&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I was not a star performer for ever. My happiness and my super performance continued for 7-8 months and gradually due to the monotonous tasks my work started boring me. I ignored and delayed delivering the work assigned to me. I complaint and requested to assign some interesting and challenging work to me which might make me happy and I might be able to bring the awesomeness back, but nothing happened. I became a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reluctant Contributor&lt;/code&gt; for my company. I was no longer a star performer and its effect on me were rough and it had saddened me. All my goods were forgotten and shadowed, all my previous mistakes were enlightened. For the next months my performance was poorly rated and I was not happy with it at all.&lt;/p&gt;
+
+&lt;p&gt;Every company has a period when they rate the yearly performance of employees. The time had come and I was expecting good performance reviews for the past year, yes because I was a star performer for a long time and I only missed 2-3 deadlines in the recent past. And to my surprise, my overall ratings were extremely low. Even lower than those who consistently performed worse than me, always. I was disappointed and from then I could not find an answer to the question &lt;strong&gt;Why did they do this to me?&lt;/strong&gt; until February 5, 2017!&lt;/p&gt;
+
+&lt;p&gt;I heard a motivational corporate trainer say this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;h3 id=&quot;your-past-successes-guarantee-you-nothing&quot;&gt;“Your Past Successes Guarantee you Nothing!”&lt;/h3&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This one single line answered all my questions and hate for employers had vanished. I realized I was the one who was not a consistent performer, my employers rated me low because I was performing low. It’s the same way I would have behaved and rated my juniors because&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;h3 id=&quot;youre-only-as-good-as-your-last-quarter&quot;&gt;“You’re only as good as your last quarter.”&lt;/h3&gt;
+&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">It has only been three years of my professional career and so much has changed since I started. I have gained as well as lost. I had the opportunity to live in three different cities but consequently had to leave some amazing and beautiful people behind. My career demanded to switch two employers serving 1 year to each. These employers didn’t just pay me well but appreciated and recognized my work. I learnt a lot, I had great colleagues who helped and encouraged me in hard times. I made some great friends and I’ll never forget them and I hope they don’t forget me as well.</summary></entry><entry><title type="html">From Moving with Screens To Moving with People</title><link href="https://vinayjain.me/posts/screens-to-interactions" rel="alternate" type="text/html" title="From Moving with Screens To Moving with People" /><published>2016-08-01T08:04:25+05:30</published><updated>2016-08-01T08:04:25+05:30</updated><id>https://vinayjain.me/posts/screens_to_interactions</id><content type="html" xml:base="https://vinayjain.me/posts/screens-to-interactions">&lt;p&gt;At the time of this writing I am 23 years 7 months 25 days old and for the last 3 years, since the day I owned my first smartphone, I am engrossed with my phone and desktop notifications. I’ve been trying to get away from screens but I’m addicted to all of my devices. I realize that I’m always online and I never cut-off from internet. Even when I’m accompanied by people I enjoy talking to I’m actively listening to my phone tunes and vibrations. I was using my phone every where, at the coffee shop, at the restaurants, in office working hours and also in the washroom. I stopped going out on weekends and preferred to watch movies and TV series at home on my laptop. I stayed awake late nights cutting-off 2-3 hrs of precious sleep just to watch some interesting YouTube videos in the dimmest possible screen brightness. I hurt my eyes every night because the dimmest brightness is still too bright in the dark. My devices started owning me and I loved them over anything. The high possession of devices has stopped me from engaging in concrete and meaningful discussions. I almost lost my conversing skills and I’m glad I realized it – not too late.&lt;/p&gt;
+
+&lt;h5 id=&quot;i-want-to-interact-with-people-not-screens&quot;&gt;I want to interact with people, not screens&lt;/h5&gt;
+&lt;p&gt;&lt;br /&gt;
+This post isn’t about saying how bad technology is. I love technology and knowing about technology and its advancements has always helped me move ahead of the crowd. I’m just putting a limit on its usage and trying to think more about how beautiful my life can be just 4.7 inches above that phone screen.&lt;/p&gt;
+
+&lt;p&gt;Earlier in the previous month I was at my friend’s place visiting a house party. We were sitting there talking, and I felt my phone vibration. At that moment I tried being in the conversation but I couldn’t stop thinking about what the notification could be, what could’ve changed in the world for which I am notified. And my friends were able to see that I am not actually listening to them, I was in an another world. I felt bad and I knew that I missed the joy of being with my friends. There I was able to conclude – That’s not an issue with notifications, that’s an issue with self control.&lt;/p&gt;
+
+&lt;p&gt;Last week I went for dinner with one of my mentors in a nearby restaurant – nothing fancy. As we reach our table the first thing I did was turn off my phone and put it in my pocket so that there were no distractions that could take me out of any discussions happening in the future.&lt;/p&gt;
+
+&lt;p&gt;It was awesome. I was deeply engaged in the conversation. I listened to each and every word he said, it was one of the best discussions in my recent memory. Being his mentee I talked to him about my notifications syndrome and got acceptable suggestions. This meeting and my actions in it has brought some changes in me in a very short period of time. I am getting away from my devices, instead of reading ebooks I purchase hardcopies. I watched a movie with my friends in theatre. Instead of chatting on the phone I prefer to make calls which saves me a lot of time. Whenever I take coffee breaks in office hours I leave my phone at my desk on silent mode so that it doesn’t disturb someone else. I have also uninstalled some useless apps which were just killing my time and kept only the productive ones, well exceptions are always there.&lt;/p&gt;
+
+&lt;p&gt;I cannot say what effects technology has on you, I don’t think there’s anything wrong with technology. It has productive usecases in any situation you could name but what we do with it is waste of time and capabilities. There’s got to be a limit on it’s usage and I’ve started drawing one.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;h4 id=&quot;because-its-always-better-to-hold-a-hand-instead-of-a-screen&quot;&gt;Because its always better to hold a hand instead of a screen.&lt;/h4&gt;
+&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">At the time of this writing I am 23 years 7 months 25 days old and for the last 3 years, since the day I owned my first smartphone, I am engrossed with my phone and desktop notifications. I’ve been trying to get away from screens but I’m addicted to all of my devices. I realize that I’m always online and I never cut-off from internet. Even when I’m accompanied by people I enjoy talking to I’m actively listening to my phone tunes and vibrations. I was using my phone every where, at the coffee shop, at the restaurants, in office working hours and also in the washroom. I stopped going out on weekends and preferred to watch movies and TV series at home on my laptop. I stayed awake late nights cutting-off 2-3 hrs of precious sleep just to watch some interesting YouTube videos in the dimmest possible screen brightness. I hurt my eyes every night because the dimmest brightness is still too bright in the dark. My devices started owning me and I loved them over anything. The high possession of devices has stopped me from engaging in concrete and meaningful discussions. I almost lost my conversing skills and I’m glad I realized it – not too late.</summary></entry><entry><title type="html">Writing better UITableView code with Swift Generics</title><link href="https://vinayjain.me/posts/swift-generics-uitableview" rel="alternate" type="text/html" title="Writing better UITableView code with Swift Generics" /><published>2016-07-04T17:54:55+05:30</published><updated>2016-07-04T17:54:55+05:30</updated><id>https://vinayjain.me/posts/Swift-Generics-UITableView</id><content type="html" xml:base="https://vinayjain.me/posts/swift-generics-uitableview">&lt;p&gt;I was obsessed with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Protocol Oriented Programming&lt;/code&gt;, read a lot of blogs, watched so many videos and got some idea behind its implemetation and working. So now I know the basic protocol based programming stuff in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Swift&lt;/code&gt; (the new cool 😎), but I was still struggling to use POP in our current codebase. Tried, tired and again tried but couldn’t get through.&lt;/p&gt;
+
+&lt;p&gt;I tried the other way of writing reusable code and converted some of our codebase classes to follow this pattern.&lt;/p&gt;
+
+&lt;h3 id=&quot;swift--generics--uitableviewcontroller&quot;&gt;Swift + Generics + UITableViewController&lt;/h3&gt;
+
+&lt;p&gt;In most of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UITableViewController&lt;/code&gt;(TVC) subclasses or in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIViewController&lt;/code&gt; containing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UITableView&lt;/code&gt; we override/implement these three methods of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UITableViewDataSource&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; numberOfSectionsInTableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; { .. }
+
+&lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, numberOfRowsInSection section: &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; { .. }
+
+&lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, cellForRowAtIndexPath indexPath: &lt;span class=&quot;type&quot;&gt;NSIndexPath&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt; { .. }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Instead of writing them in each subclass lets pull these methods from all of them and put them in a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;, our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC.swift&lt;/code&gt; now has&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; numberOfSectionsInTableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; { .. }
+
+&lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, numberOfRowsInSection section: &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; { .. }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Every TVC we create from now will be a subclass of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;, so that we don’t have to implement these two methods in each one of them. Next step is returning values from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;numberOfSections&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;numberOfRows&lt;/code&gt; and for this we will make a generic public dictionary in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;, you may want to add a 2D Swift array &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[[String]]&lt;/code&gt;. Add whatever is convenient for you.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; dataSource : [&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt; : [&lt;span class=&quot;type&quot;&gt;Item&lt;/span&gt;]] ? &lt;span class=&quot;comment&quot;&gt;// Item here is a model class which we use in our codebase. You can use anything of your choice.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt; with implementations of these methods :&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; GenericTVC: &lt;span class=&quot;type&quot;&gt;UITableViewController&lt;/span&gt; {
+
+    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; datasource : [&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt; : [&lt;span class=&quot;type&quot;&gt;Item&lt;/span&gt;]]?
+
+    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; viewDidLoad() {
+        &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;viewDidLoad&lt;/span&gt;()        
+    }
+
+    &lt;span class=&quot;comment&quot;&gt;// MARK: - Table view data source&lt;/span&gt;
+
+    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; numberOfSectionsInTableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; {
+
+        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; datasource = datasource {
+            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; datasource.&lt;span class=&quot;property&quot;&gt;keys&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;count&lt;/span&gt;
+        }&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;{
+            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;
+        }
+    }
+
+    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, numberOfRowsInSection section: &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; {
+
+        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; datasource = datasource {
+
+        	&lt;span class=&quot;comment&quot;&gt;/*
+            	Casting the section to String so as to get a key for datasource values
+            	Int can also be used but its all your choice.
+            	Which ever section you want in the tableView first, add it as :
+
+            	self.datasource[&quot;0&quot;] = [Item]()
+
+            	and so on..
+        	*/&lt;/span&gt;
+
+            &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; sectionString = &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(section)
+            &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; items = datasource[sectionString] {
+                &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; items.&lt;span class=&quot;property&quot;&gt;count&lt;/span&gt;
+            }
+        }
+        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;
+    }   
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this we have number of sections and also the number of rows in every section of our tableViews.&lt;/p&gt;
+
+&lt;p&gt;The only method left is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cellForRowAtIndexPath:&lt;/code&gt; which we are not going to implement in this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;(again, you can implement this too if you have same configuration of table view cells in your app) instead we will override this method in each of our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt; subclass.&lt;/p&gt;
+
+&lt;p&gt;We have our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt; and a custom tableView cell &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewCell&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; FirstTableViewController: &lt;span class=&quot;type&quot;&gt;GenericTVC&lt;/span&gt; {
+
+    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; viewDidLoad() {
+
+        &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;viewDidLoad&lt;/span&gt;()
+        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;tableView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;registerClass&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, forCellReuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;))
+    }
+
+    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, cellForRowAtIndexPath indexPath: &lt;span class=&quot;type&quot;&gt;NSIndexPath&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt; {
+
+        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; thisCell : &lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;!
+
+        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; cell = tableView.&lt;span class=&quot;call&quot;&gt;dequeueReusableCellWithIdentifier&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;)) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;? &lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt; {
+            thisCell = cell
+        }&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;{
+            thisCell = &lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;(style: .&lt;span class=&quot;dotAccess&quot;&gt;Default&lt;/span&gt;, reuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;))
+        }
+
+        &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; thisItem = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;datasource&lt;/span&gt;![&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(indexPath.&lt;span class=&quot;property&quot;&gt;section&lt;/span&gt;)]![indexPath.&lt;span class=&quot;property&quot;&gt;row&lt;/span&gt;]
+        thisCell.&lt;span class=&quot;property&quot;&gt;textLabel&lt;/span&gt;!.text = thisItem.&lt;span class=&quot;property&quot;&gt;itemName&lt;/span&gt;
+
+        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; thisCell
+
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This code compiles and runs as expected, but we are not expected to write this in production. Lets refactor this code.&lt;/p&gt;
+
+&lt;p&gt;The call to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tableView.registerClass&lt;/code&gt; will be repeated for every class lets push it to superclass, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;. But what if we have a tableView which has multiple kinds of cell. Mmmmmm.. lets create another public property in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; reuseClasses : [&lt;span class=&quot;type&quot;&gt;AnyClass&lt;/span&gt;]?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;viewDidLoad&lt;/code&gt; add this code :&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; classes = reuseClasses {
+    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; reuseClass &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; classes {
+        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;tableView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;registerClass&lt;/span&gt;(reuseClass, forCellReuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass))
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Replace :&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;viewDidLoad&lt;/span&gt;()
+&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;tableView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;registerClass&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, forCellReuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With :&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;reuseClasses&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;] &lt;span class=&quot;comment&quot;&gt;// or may be self.reuseClasses = [FirstTableViewCell.self, SecondTableViewCell.cell, ThirdTableViewCell.self]&lt;/span&gt;
+
+&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;viewDidLoad&lt;/span&gt;()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The above code is self explanatory.&lt;/p&gt;
+
+&lt;p&gt;Now come back to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cellForRowAtIndexPath:&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt;. Looks bad!. Lets move the cell initialization code to our base class. Add this method to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; reusableCellFor(tableView tableView : &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, reuseClass : &lt;span class=&quot;type&quot;&gt;AnyClass&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt; {
+    &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; cell = tableView.&lt;span class=&quot;call&quot;&gt;dequeueReusableCellWithIdentifier&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass)) {
+        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; cell
+    }&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;{
+        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt;(style: .&lt;span class=&quot;dotAccess&quot;&gt;Subtitle&lt;/span&gt;, reuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass))
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt; replace the cell initialization code with :&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; cell = &lt;span class=&quot;call&quot;&gt;reusableCellFor&lt;/span&gt;(tableView: tableView, reuseClass: (&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;)) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt; {
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This piece of code works fine but I still don’t like the downcast from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UITableViewCell&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewCell&lt;/code&gt;. Lets solve this by Generics.&lt;/p&gt;
+
+&lt;h4 id=&quot;generics-to-the-rescue&quot;&gt;Generics to the rescue&lt;/h4&gt;
+
+&lt;p&gt;With generics in Swift we can define methods(not only methods, actually everything 😉) which can accept generic parameters and return generic types. So lets use this feature for our good.&lt;/p&gt;
+
+&lt;p&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt; replace the implementation of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reusableCellFor....&lt;/code&gt; with the below code.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; reusableCellFor&amp;lt;CustomTVC : &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt;&amp;gt;(tableView tableView : &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, reuseClass : &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;Type&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt; {
+
+    &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; cell = tableView.&lt;span class=&quot;call&quot;&gt;dequeueReusableCellWithIdentifier&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass)) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;? &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt; {
+        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; cell
+    }&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;{
+        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt;(style: .&lt;span class=&quot;dotAccess&quot;&gt;Subtitle&lt;/span&gt;, reuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass))
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Wow, this looks fantastic 🤑🤑 , but what is it 🤔🤔?&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&amp;lt;&lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt; : &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt;&amp;gt;
+
+&lt;span class=&quot;comment&quot;&gt;/*
+This part of the method tells the compiler that here I introduce you to a generic type CustomTVC which is a subclass of UITableViewCell
+so do not treat future occurrences of this as errors.
+*/&lt;/span&gt;
+
+reuseClass : &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;Type&lt;/span&gt;
+
+&lt;span class=&quot;comment&quot;&gt;/*
+Accept a type which is a CustomTVC(UITableViewCell subclass)
+*/&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Everything else is self explanatory I guess 🤓.&lt;/p&gt;
+
+&lt;p&gt;Finally in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt; remove the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;as FirstTableViewCell&lt;/code&gt; and the also remove the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if let&lt;/code&gt; check. And to keep the subclasses cleaner lets create a helper method in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt; for getting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Item&lt;/code&gt; object from the datasource for current &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;indexPath&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; itemFor(indexPath indexPath : &lt;span class=&quot;type&quot;&gt;NSIndexPath&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Item&lt;/span&gt;? {
+    &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; datasource = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;datasource&lt;/span&gt; {
+        &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; sectionString = &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(indexPath.&lt;span class=&quot;property&quot;&gt;section&lt;/span&gt;)
+        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; array = datasource[sectionString] {
+            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; array[indexPath.&lt;span class=&quot;property&quot;&gt;row&lt;/span&gt;]
+        }
+    }
+    &lt;span class=&quot;keyword&quot;&gt;return nil&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The final versions of our files are below :&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;GenericTVC :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; GenericTVC: &lt;span class=&quot;type&quot;&gt;UITableViewController&lt;/span&gt; {
+
+    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; datasource : [&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt; : [&lt;span class=&quot;type&quot;&gt;Item&lt;/span&gt;]]?
+    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; reuseClasses : [&lt;span class=&quot;type&quot;&gt;AnyClass&lt;/span&gt;]?
+    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; viewDidLoad() {
+        &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;viewDidLoad&lt;/span&gt;()
+
+        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; classes = reuseClasses {
+            &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; reuseClass &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; classes {
+                &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;tableView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;registerClass&lt;/span&gt;(reuseClass, forCellReuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass))
+            }
+        }
+    }
+
+    &lt;span class=&quot;comment&quot;&gt;// MARK: - Table view data source&lt;/span&gt;
+
+    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; numberOfSectionsInTableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; {
+
+        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; datasource = datasource {
+            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; datasource.&lt;span class=&quot;property&quot;&gt;keys&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;count&lt;/span&gt;
+        }&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;{
+            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;
+        }
+    }
+
+    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, numberOfRowsInSection section: &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; {
+
+        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; datasource = datasource {
+
+            &lt;span class=&quot;comment&quot;&gt;/*
+            	Casting the section to String so as to get a key for datasource values
+            	Int can also be used but its all your choice.
+            	Which ever section you want in the tableView first, add it as :
+
+            	self.datasource[&quot;0&quot;] = [Item]()
+
+            	and so on..
+        	*/&lt;/span&gt;
+
+            &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; sectionString = &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(section)
+            &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; array = datasource[sectionString] {
+                &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; array.&lt;span class=&quot;property&quot;&gt;count&lt;/span&gt;
+            }
+        }
+        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;
+    }
+
+    &lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; reusableCellFor&amp;lt;CustomTVC : &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt;&amp;gt;(tableView tableView : &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, reuseClass : &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;Type&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt; {
+        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; cell = tableView.&lt;span class=&quot;call&quot;&gt;dequeueReusableCellWithIdentifier&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass)) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;? &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt; {
+            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; cell
+        }&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;{
+            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt;(style: .&lt;span class=&quot;dotAccess&quot;&gt;Subtitle&lt;/span&gt;, reuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass))
+        }
+    }
+
+    &lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; itemFor(indexPath indexPath : &lt;span class=&quot;type&quot;&gt;NSIndexPath&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Item&lt;/span&gt;? {
+        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; datasource = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;datasource&lt;/span&gt; {
+            &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; sectionString = &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(indexPath.&lt;span class=&quot;property&quot;&gt;section&lt;/span&gt;)
+            &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; array = datasource[sectionString] {
+                &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; array[indexPath.&lt;span class=&quot;property&quot;&gt;row&lt;/span&gt;]
+            }
+        }
+        &lt;span class=&quot;keyword&quot;&gt;return nil&lt;/span&gt;
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;FirstTableViewController :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; FirstTableViewController: &lt;span class=&quot;type&quot;&gt;GenericTVC&lt;/span&gt; {
+
+    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; viewDidLoad() {
+        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;reuseClasses&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;]
+
+        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;tableView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;registerClass&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, forCellReuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;))
+
+        &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;viewDidLoad&lt;/span&gt;()
+    }
+
+    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, cellForRowAtIndexPath indexPath: &lt;span class=&quot;type&quot;&gt;NSIndexPath&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt; {
+        &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; cell = &lt;span class=&quot;call&quot;&gt;reusableCellFor&lt;/span&gt;(tableView: tableView, reuseClass: (&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;))
+        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; item = &lt;span class=&quot;call&quot;&gt;itemFor&lt;/span&gt;(indexPath: indexPath) {
+            cell.&lt;span class=&quot;property&quot;&gt;textLabel&lt;/span&gt;!.text = item.&lt;span class=&quot;property&quot;&gt;itemName&lt;/span&gt;
+        }
+        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; cell
+    }
+
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see the resulting code for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt; is shorter, readable and less scary.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading 😊&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="swift" /><summary type="html">I was obsessed with Protocol Oriented Programming, read a lot of blogs, watched so many videos and got some idea behind its implemetation and working. So now I know the basic protocol based programming stuff in Swift (the new cool 😎), but I was still struggling to use POP in our current codebase. Tried, tired and again tried but couldn’t get through.</summary></entry><entry><title type="html">Convert Objective C Macros To Swift Constants</title><link href="https://vinayjain.me/posts/objectivec-macros-to-swift-constants" rel="alternate" type="text/html" title="Convert Objective C Macros To Swift Constants" /><published>2015-11-14T04:54:55+05:30</published><updated>2015-11-14T04:54:55+05:30</updated><id>https://vinayjain.me/posts/ObjectiveC-Macros-to-swift-constants</id><content type="html" xml:base="https://vinayjain.me/posts/objectivec-macros-to-swift-constants">&lt;p&gt;&lt;a href=&quot;&quot;&gt;Objective C&lt;/a&gt; inherits the capabilities and features of &lt;a href=&quot;&quot;&gt;C&lt;/a&gt; so you can write C like &lt;a href=&quot;&quot;&gt;directives&lt;/a&gt; or preprocessors and the Objective C compiler(&lt;a href=&quot;&quot;&gt;LLVM&lt;/a&gt;) won’t complain.&lt;/p&gt;
+
+&lt;p&gt;#define is one such preprocessor which asks the compiler to replace the occurrence of a particular set of characters with another set of characters before compiling the source file. #define is also a great way of defining constants&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;#define &lt;span class=&quot;type&quot;&gt;REPLACE_ME&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;@&quot;With&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;This&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;String&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is a simple Macro, just by looking at it you can understand what it does. At compile time every occurrence of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;REPLACE_ME&lt;/code&gt; will be replaced by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;With This String&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;After the introduction of Swift Programming Language app developers started porting their apps to Swift’s modern syntax. The above macro can be easily ported to Swift with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;let&lt;/code&gt; keyword.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;REPLACE_ME&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&quot;With This String&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The new syntax : its clean, its short and it isn’t scary. The code porting was easy. However, if you have worked on an app with thousands of source files(yes, .m files) then you may be used to see these type of complex macros.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;#define &lt;span class=&quot;type&quot;&gt;DISPATCH_BACKGROUND_QUEUE&lt;/span&gt;(name,function) dispatch_queue_t backgroundQueue = &lt;span class=&quot;call&quot;&gt;dispatch_queue_create&lt;/span&gt;(name, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;); &lt;span class=&quot;call&quot;&gt;dispatch_async&lt;/span&gt;(backgroundQueue, ^{function});
+
+#define &lt;span class=&quot;type&quot;&gt;DISPATCH_MAIN_QUEUE&lt;/span&gt;(function) &lt;span class=&quot;call&quot;&gt;dispatch_async&lt;/span&gt;(&lt;span class=&quot;call&quot;&gt;dispatch_get_main_queue&lt;/span&gt;(), ^{function});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you have seen macros like these and you are going to port these to Swift then read further.&lt;/p&gt;
+
+&lt;p&gt;Lets see this code in action. I am considering the background queue.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;DISPATCH_BACKGROUND_QUEUE&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;BackgroundQueue&quot;&lt;/span&gt;,
+
+		&lt;span class=&quot;comment&quot;&gt;// Do some background stuff like file / database read write
+		// Do some thing else
+		// May be print some logs to debug&lt;/span&gt;
+	)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The code block above is a simpler way of writing this :&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;dispatch_queue_t backgroundQueue = &lt;span class=&quot;call&quot;&gt;dispatch_queue_create&lt;/span&gt;(name, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);
+&lt;span class=&quot;call&quot;&gt;dispatch_async&lt;/span&gt;(backgroundQueue, ^{
+
+		&lt;span class=&quot;comment&quot;&gt;// Do some background stuff like file / database read write
+		// Do some thing else
+		// May be print some logs to debug&lt;/span&gt;
+	});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Just to keep you in sync, this block of code executes the code between &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;^{ }&lt;/code&gt; in a background thread without blocking the main thread. You can read more about it by referring to &lt;a href=&quot;&quot;&gt;Grand Central Dispatch&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;porting-complex-objective-c-macros-to-swift-constants&quot;&gt;Porting Complex Objective C macros to Swift Constants&lt;/h3&gt;
+
+&lt;p&gt;If you are new to Swift and not comfortable in writing closures I would highly recommend the following references on Swift Closures&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html&quot;&gt;Swift Closures - Apple Docs&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://fuckingclosuresyntax.com/&quot;&gt;How Do I Declare a Closure in Swift?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://fuckingswiftblocksyntax.com/&quot;&gt;Swift closures and functions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you have gone through the following referrence I can expect you knowing that the complex macro in Objective C can be ported to Swift with the help of functions. I will try to make it as simple as I can by porting it word by word.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;#define &lt;span class=&quot;type&quot;&gt;DISPATCH_BACKGROUND_QUEUE&lt;/span&gt;(name,function) dispatch_queue_t backgroundQueue = &lt;span class=&quot;call&quot;&gt;dispatch_queue_create&lt;/span&gt;(name, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;); 																				&lt;span class=&quot;call&quot;&gt;dispatch_async&lt;/span&gt;(backgroundQueue, ^{function});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The macro accepts two parameters one is a string and another is a code block. In Swift we can easily pass a block of code to another function with the help of Closures.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ObjC :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;#define &lt;span class=&quot;type&quot;&gt;DISPATCH_BACKGROUND_QUEUE&lt;/span&gt;(name,function)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Swift :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; DISPATCH_BACKGROUND_QUEUE(queueName : &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;, codeBlock:()-&amp;gt;())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A Swift function with two parameters, as simple as that.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ObjC :&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;#define &lt;span class=&quot;type&quot;&gt;DISPATCH_BACKGROUND_QUEUE&lt;/span&gt;(name,function) dispatch_queue_t backgroundQueue = &lt;span class=&quot;call&quot;&gt;dispatch_queue_create&lt;/span&gt;(name, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;); 																	&lt;span class=&quot;call&quot;&gt;dispatch_async&lt;/span&gt;(backgroundQueue, ^{function});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Swift :&lt;/strong&gt;&lt;/p&gt;
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; BGQueue(codeBlock:()-&amp;gt;(), queueName : &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;){
+    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; queue = &lt;span class=&quot;call&quot;&gt;dispatch_queue_create&lt;/span&gt;(queueName, &lt;span class=&quot;keyword&quot;&gt;nil&lt;/span&gt;)
+    &lt;span class=&quot;call&quot;&gt;dispatch_async&lt;/span&gt;(queue) { () -&amp;gt; &lt;span class=&quot;type&quot;&gt;Void&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;
+        &lt;span class=&quot;call&quot;&gt;codeBlock&lt;/span&gt;()
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><category term="ios" /><category term="swift" /><category term="objc" /><summary type="html">Objective C inherits the capabilities and features of C so you can write C like directives or preprocessors and the Objective C compiler(LLVM) won’t complain.</summary></entry><entry><title type="html">Using NSAttributedString</title><link href="https://vinayjain.me/posts/how-to-use-nsattributedstring" rel="alternate" type="text/html" title="Using NSAttributedString" /><published>2015-06-03T04:54:55+05:30</published><updated>2015-06-03T04:54:55+05:30</updated><id>https://vinayjain.me/posts/how-to-use-NSAttributedString</id><content type="html" xml:base="https://vinayjain.me/posts/how-to-use-nsattributedstring">&lt;p&gt;As per the &lt;a href=&quot;https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/index.html&quot;&gt;Apple Documentation&lt;/a&gt;, an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSAttributedString&lt;/code&gt; object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.&lt;/p&gt;
+
+&lt;p&gt;In short, &lt;em&gt;an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSAttributedString&lt;/code&gt; allows you to apply styles on the text&lt;/em&gt;. As of the latest iOS sdk (8.0), you can apply the following attributes to an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSString&lt;/code&gt; object.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NSFontAttributeName&lt;/li&gt;
+  &lt;li&gt;NSParagraphStyleAttributeName&lt;/li&gt;
+  &lt;li&gt;NSForegroundColorAttributeName&lt;/li&gt;
+  &lt;li&gt;NSBackgroundColorAttributeName&lt;/li&gt;
+  &lt;li&gt;NSLigatureAttributeName&lt;/li&gt;
+  &lt;li&gt;NSKernAttributeName&lt;/li&gt;
+  &lt;li&gt;NSStrikethroughStyleAttributeName&lt;/li&gt;
+  &lt;li&gt;NSUnderlineStyleAttributeName&lt;/li&gt;
+  &lt;li&gt;NSStrokeColorAttributeName&lt;/li&gt;
+  &lt;li&gt;NSStrokeWidthAttributeName&lt;/li&gt;
+  &lt;li&gt;NSShadowAttributeName&lt;/li&gt;
+  &lt;li&gt;NSTextEffectAttributeName&lt;/li&gt;
+  &lt;li&gt;NSAttachmentAttributeName&lt;/li&gt;
+  &lt;li&gt;NSLinkAttributeName&lt;/li&gt;
+  &lt;li&gt;NSBaselineOffsetAttributeName&lt;/li&gt;
+  &lt;li&gt;NSUnderlineColorAttributeName&lt;/li&gt;
+  &lt;li&gt;NSStrikethroughColorAttributeName&lt;/li&gt;
+  &lt;li&gt;NSObliquenessAttributeName&lt;/li&gt;
+  &lt;li&gt;NSExpansionAttributeName&lt;/li&gt;
+  &lt;li&gt;NSWritingDirectionAttributeName&lt;/li&gt;
+  &lt;li&gt;NSVerticalGlyphFormAttributeName&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Lets look at the most used attributes :
+ &lt;/p&gt;
+
+&lt;h4 id=&quot;nsfontattributename&quot;&gt;&lt;strong&gt;NSFontAttributeName&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;NSDictionary&lt;/span&gt; *attributes = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;{ &lt;span class=&quot;type&quot;&gt;NSFontAttributeName&lt;/span&gt; : [&lt;span class=&quot;type&quot;&gt;UIFont&lt;/span&gt; fontWithName:&lt;span class=&quot;keyword&quot;&gt;@&quot;HelveticaNeue&lt;/span&gt;-&lt;span class=&quot;string&quot;&gt;Italic&quot; size:30.0] };&lt;/span&gt;
+
+&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; *attributedString = [[&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:&lt;span class=&quot;keyword&quot;&gt;@&quot;Italic&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;Text&quot; attributes:attributes];&lt;/span&gt;
+
+&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedLabel&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedText&lt;/span&gt; = attributedString;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Output :&lt;/code&gt; &lt;em&gt;Italic Text&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;NSDictionary&lt;/span&gt; *attributes = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;{ &lt;span class=&quot;type&quot;&gt;NSFontAttributeName&lt;/span&gt; : [&lt;span class=&quot;type&quot;&gt;UIFont&lt;/span&gt; fontWithName:&lt;span class=&quot;keyword&quot;&gt;@&quot;HelveticaNeue&lt;/span&gt;-&lt;span class=&quot;string&quot;&gt;Bold&quot; size:30.0] };&lt;/span&gt;
+
+&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; *attributedString = [[&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:&lt;span class=&quot;keyword&quot;&gt;@&quot;Bold&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;Text&quot; attributes:attributes];&lt;/span&gt;
+
+&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedLabel&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedText&lt;/span&gt; = attributedString;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Output :&lt;/code&gt; &lt;strong&gt;Bold Text&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h4 id=&quot;nsforegroundcolorattributename&quot;&gt;&lt;strong&gt;NSForegroundColorAttributeName&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;NSDictionary&lt;/span&gt; *attributes = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;{ &lt;span class=&quot;type&quot;&gt;NSForegroundColorAttributeName&lt;/span&gt; : [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; blueColor] };
+
+&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; *attributedString = [[&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:&lt;span class=&quot;keyword&quot;&gt;@&quot;Blue&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;Text&quot; attributes:attributes];&lt;/span&gt;
+
+&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedLabel&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedText&lt;/span&gt; = attributedString;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Output :&lt;/code&gt; &lt;span style=&quot;color:blue&quot;&gt;I am blue colored&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;h4 id=&quot;nsunderlinestyleattributename&quot;&gt;&lt;strong&gt;NSUnderlineStyleAttributeName&lt;/strong&gt;&lt;/h4&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;NSDictionary&lt;/span&gt; *attributes = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;{ &lt;span class=&quot;type&quot;&gt;NSUnderlineStyleAttributeName&lt;/span&gt; : &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;NSUnderlineStyleSingle&lt;/span&gt;) };
+
+&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; *attributedString = [[&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:&lt;span class=&quot;keyword&quot;&gt;@&quot;Underlined&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;Text&quot; attributes:attributes];&lt;/span&gt;
+
+&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;label&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedText&lt;/span&gt; = attributedString;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Output :&lt;/code&gt; &lt;u&gt;Underlined Text&lt;/u&gt;&lt;/p&gt;
+
+&lt;p&gt;You can put &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fontName&lt;/code&gt; of your choice for creating attributed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSStrings&lt;/code&gt;&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">As per the Apple Documentation, an NSAttributedString object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.</summary></entry><entry><title type="html">Move UITextField Up/Down with Keyboard</title><link href="https://vinayjain.me/posts/move-uitextfield-up-down-with-keyboard" rel="alternate" type="text/html" title="Move UITextField Up/Down with Keyboard" /><published>2015-05-26T04:54:55+05:30</published><updated>2015-05-26T04:54:55+05:30</updated><id>https://vinayjain.me/posts/move-uitextfield-up-down-with-keyboard</id><content type="html" xml:base="https://vinayjain.me/posts/move-uitextfield-up-down-with-keyboard">&lt;p&gt;One of the behaviors of iOS devices which I see as a limitation is that the default keyboard hides the views behind it. Hence the user cannot interact with the UIViews and Controls behind the keyboard. I found a great answer on &lt;a href=&quot;http://stackoverflow.com/a/26561723/2286267&quot;&gt;StackOverflow&lt;/a&gt; to solve this problem. However the code used in this answer moves every textField by the same amount. So even if you are editing a textField which does not get hidden behind the textField will still move up and may disappear out of the device screen upwards.&lt;/p&gt;
+
+&lt;p&gt;My solution to the problem is a small modification to the answer on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SO&lt;/code&gt;. Here I am sending an offset by which the textField has to be moved up and down with keyboard show/hide respectively. See the demo to better understand this.&lt;/p&gt;
+&lt;center&gt;
+&lt;iframe width=&quot;320&quot; height=&quot;590&quot; src=&quot;https://www.youtube.com/embed/ADLdPehMUYc&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;/center&gt;
+
+&lt;p&gt;&lt;strong&gt;Objective C Code&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;-(void)textFieldDidBeginEditing:(&lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt; *)textField{
+
+    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; animateTextField:textField up:&lt;span class=&quot;type&quot;&gt;YES&lt;/span&gt; withOffset:textField.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;origin&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;];
+}
+
+-(void)textFieldDidEndEditing:(&lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt; *)textField{
+
+    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; animateTextField:textField up:&lt;span class=&quot;type&quot;&gt;NO&lt;/span&gt; withOffset:textField.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;origin&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;];
+
+}
+-(&lt;span class=&quot;type&quot;&gt;BOOL&lt;/span&gt;)textFieldShouldReturn:(&lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt; *)textField{
+
+    [textField resignFirstResponder];
+    &lt;span class=&quot;keyword&quot;&gt;return true&lt;/span&gt;;
+}
+
+-(void)animateTextField:(&lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt;*)textField up:(&lt;span class=&quot;type&quot;&gt;BOOL&lt;/span&gt;)up withOffset:(&lt;span class=&quot;type&quot;&gt;CGFloat&lt;/span&gt;)&lt;span class=&quot;call&quot;&gt;offset&lt;/span&gt;
+{
+    const int movementDistance = -offset;
+    const float movementDuration = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;.4f;
+    int movement = (up ? movementDistance : -movementDistance);
+    [&lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt; beginAnimations: &lt;span class=&quot;string&quot;&gt;@&quot;animateTextField&quot; context: nil];&lt;/span&gt;
+    [&lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt; setAnimationBeginsFromCurrentState: &lt;span class=&quot;type&quot;&gt;YES&lt;/span&gt;];
+    [&lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt; setAnimationDuration: movementDuration];
+    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;view&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRectOffset&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;view&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, movement);
+    [&lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt; commitAnimations];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Swift Code&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; animateTextField(textField: &lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt;, up: &lt;span class=&quot;type&quot;&gt;Bool&lt;/span&gt;, withOffset offset:&lt;span class=&quot;type&quot;&gt;CGFloat&lt;/span&gt;)
+{
+    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; movementDistance : &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; = -&lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;(offset)
+    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; movementDuration : &lt;span class=&quot;type&quot;&gt;Double&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;0.4&lt;/span&gt;
+    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; movement : &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; = (up ? movementDistance : -movementDistance)
+    &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;beginAnimations&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;animateTextField&quot;&lt;/span&gt;, context: &lt;span class=&quot;keyword&quot;&gt;nil&lt;/span&gt;)
+    &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;setAnimationBeginsFromCurrentState&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;)
+    &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;setAnimationDuration&lt;/span&gt;(movementDuration)
+    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;view&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRectOffset&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;view&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;type&quot;&gt;CGFloat&lt;/span&gt;(movement))
+    &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;commitAnimations&lt;/span&gt;()
+}
+
+&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; textFieldDidBeginEditing(textField: &lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt;)
+{
+    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;animateTextField&lt;/span&gt;(textField, up: &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;, withOffset: textField.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;origin&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)
+}
+
+&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; textFieldDidEndEditing(textField: &lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt;)
+{
+    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;animateTextField&lt;/span&gt;(textField, up: &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;, withOffset: textField.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;origin&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)
+}
+
+&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; textFieldShouldReturn(textField: &lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Bool&lt;/span&gt;
+{
+    textField.&lt;span class=&quot;call&quot;&gt;resignFirstResponder&lt;/span&gt;()
+    &lt;span class=&quot;keyword&quot;&gt;return true&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><category term="ios" /><category term="swift" /><category term="objc" /><summary type="html">One of the behaviors of iOS devices which I see as a limitation is that the default keyboard hides the views behind it. Hence the user cannot interact with the UIViews and Controls behind the keyboard. I found a great answer on StackOverflow to solve this problem. However the code used in this answer moves every textField by the same amount. So even if you are editing a textField which does not get hidden behind the textField will still move up and may disappear out of the device screen upwards.</summary></entry></feed>

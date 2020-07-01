@@ -1,0 +1,306 @@
+I"dS<p>I was obsessed with <code class="language-plaintext highlighter-rouge">Protocol Oriented Programming</code>, read a lot of blogs, watched so many videos and got some idea behind its implemetation and working. So now I know the basic protocol based programming stuff in <code class="language-plaintext highlighter-rouge">Swift</code> (the new cool 😎), but I was still struggling to use POP in our current codebase. Tried, tired and again tried but couldn’t get through.</p>
+
+<p>I tried the other way of writing reusable code and converted some of our codebase classes to follow this pattern.</p>
+
+<h3 id="swift--generics--uitableviewcontroller">Swift + Generics + UITableViewController</h3>
+
+<p>In most of the <code class="language-plaintext highlighter-rouge">UITableViewController</code>(TVC) subclasses or in <code class="language-plaintext highlighter-rouge">UIViewController</code> containing <code class="language-plaintext highlighter-rouge">UITableView</code> we override/implement these three methods of <code class="language-plaintext highlighter-rouge">UITableViewDataSource</code></p>
+
+<pre class="splash"><code><span class="keyword">override func</span> numberOfSectionsInTableView(tableView: <span class="type">UITableView</span>) -&gt; <span class="type">Int</span> { .. }
+
+<span class="keyword">override func</span> tableView(tableView: <span class="type">UITableView</span>, numberOfRowsInSection section: <span class="type">Int</span>) -&gt; <span class="type">Int</span> { .. }
+
+<span class="keyword">override func</span> tableView(tableView: <span class="type">UITableView</span>, cellForRowAtIndexPath indexPath: <span class="type">NSIndexPath</span>) -&gt; <span class="type">UITableViewCell</span> { .. }
+</code></pre>
+
+<p>Instead of writing them in each subclass lets pull these methods from all of them and put them in a <code class="language-plaintext highlighter-rouge">GenericTVC</code>, our <code class="language-plaintext highlighter-rouge">GenericTVC.swift</code> now has</p>
+
+<pre class="splash"><code><span class="keyword">override func</span> numberOfSectionsInTableView(tableView: <span class="type">UITableView</span>) -&gt; <span class="type">Int</span> { .. }
+
+<span class="keyword">override func</span> tableView(tableView: <span class="type">UITableView</span>, numberOfRowsInSection section: <span class="type">Int</span>) -&gt; <span class="type">Int</span> { .. }
+</code></pre>
+
+<p>Every TVC we create from now will be a subclass of <code class="language-plaintext highlighter-rouge">GenericTVC</code>, so that we don’t have to implement these two methods in each one of them. Next step is returning values from <code class="language-plaintext highlighter-rouge">numberOfSections</code> and <code class="language-plaintext highlighter-rouge">numberOfRows</code> and for this we will make a generic public dictionary in <code class="language-plaintext highlighter-rouge">GenericTVC</code>, you may want to add a 2D Swift array <code class="language-plaintext highlighter-rouge">[[String]]</code>. Add whatever is convenient for you.</p>
+
+<pre class="splash"><code><span class="keyword">var</span> dataSource : [<span class="type">String</span> : [<span class="type">Item</span>]] ? <span class="comment">// Item here is a model class which we use in our codebase. You can use anything of your choice.</span>
+</code></pre>
+
+<p><code class="language-plaintext highlighter-rouge">GenericTVC</code> with implementations of these methods :</p>
+
+<pre class="splash"><code><span class="keyword">class</span> GenericTVC: <span class="type">UITableViewController</span> {
+
+    <span class="keyword">var</span> datasource : [<span class="type">String</span> : [<span class="type">Item</span>]]?
+
+    <span class="keyword">override func</span> viewDidLoad() {
+        <span class="keyword">super</span>.<span class="call">viewDidLoad</span>()        
+    }
+
+    <span class="comment">// MARK: - Table view data source</span>
+
+    <span class="keyword">override func</span> numberOfSectionsInTableView(tableView: <span class="type">UITableView</span>) -&gt; <span class="type">Int</span> {
+
+        <span class="keyword">if let</span> datasource = datasource {
+            <span class="keyword">return</span> datasource.<span class="property">keys</span>.<span class="property">count</span>
+        }<span class="keyword">else</span>{
+            <span class="keyword">return</span> <span class="number">0</span>
+        }
+    }
+
+    <span class="keyword">override func</span> tableView(tableView: <span class="type">UITableView</span>, numberOfRowsInSection section: <span class="type">Int</span>) -&gt; <span class="type">Int</span> {
+
+        <span class="keyword">if let</span> datasource = datasource {
+
+        	<span class="comment">/*
+            	Casting the section to String so as to get a key for datasource values
+            	Int can also be used but its all your choice.
+            	Which ever section you want in the tableView first, add it as :
+
+            	self.datasource["0"] = [Item]()
+
+            	and so on..
+        	*/</span>
+
+            <span class="keyword">let</span> sectionString = <span class="type">String</span>(section)
+            <span class="keyword">if let</span> items = datasource[sectionString] {
+                <span class="keyword">return</span> items.<span class="property">count</span>
+            }
+        }
+        <span class="keyword">return</span> <span class="number">0</span>
+    }   
+}
+</code></pre>
+
+<p>With this we have number of sections and also the number of rows in every section of our tableViews.</p>
+
+<p>The only method left is <code class="language-plaintext highlighter-rouge">cellForRowAtIndexPath:</code> which we are not going to implement in this <code class="language-plaintext highlighter-rouge">GenericTVC</code>(again, you can implement this too if you have same configuration of table view cells in your app) instead we will override this method in each of our <code class="language-plaintext highlighter-rouge">GenericTVC</code> subclass.</p>
+
+<p>We have our <code class="language-plaintext highlighter-rouge">FirstTableViewController</code> and a custom tableView cell <code class="language-plaintext highlighter-rouge">FirstTableViewCell</code></p>
+
+<pre class="splash"><code><span class="keyword">class</span> FirstTableViewController: <span class="type">GenericTVC</span> {
+
+    <span class="keyword">override func</span> viewDidLoad() {
+
+        <span class="keyword">super</span>.<span class="call">viewDidLoad</span>()
+        <span class="keyword">self</span>.<span class="property">tableView</span>.<span class="call">registerClass</span>(<span class="type">FirstTableViewCell</span>.<span class="keyword">self</span>, forCellReuseIdentifier: <span class="type">String</span>(<span class="type">FirstTableViewCell</span>))
+    }
+
+    <span class="keyword">override func</span> tableView(tableView: <span class="type">UITableView</span>, cellForRowAtIndexPath indexPath: <span class="type">NSIndexPath</span>) -&gt; <span class="type">UITableViewCell</span> {
+
+        <span class="keyword">var</span> thisCell : <span class="type">FirstTableViewCell</span>!
+
+        <span class="keyword">if let</span> cell = tableView.<span class="call">dequeueReusableCellWithIdentifier</span>(<span class="type">String</span>(<span class="type">FirstTableViewCell</span>)) <span class="keyword">as</span>? <span class="type">FirstTableViewCell</span> {
+            thisCell = cell
+        }<span class="keyword">else</span>{
+            thisCell = <span class="type">FirstTableViewCell</span>(style: .<span class="dotAccess">Default</span>, reuseIdentifier: <span class="type">String</span>(<span class="type">FirstTableViewCell</span>))
+        }
+
+        <span class="keyword">let</span> thisItem = <span class="keyword">self</span>.<span class="property">datasource</span>![<span class="type">String</span>(indexPath.<span class="property">section</span>)]![indexPath.<span class="property">row</span>]
+        thisCell.<span class="property">textLabel</span>!.text = thisItem.<span class="property">itemName</span>
+
+        <span class="keyword">return</span> thisCell
+
+    }
+
+}
+</code></pre>
+
+<p>This code compiles and runs as expected, but we are not expected to write this in production. Lets refactor this code.</p>
+
+<p>The call to <code class="language-plaintext highlighter-rouge">tableView.registerClass</code> will be repeated for every class lets push it to superclass, <code class="language-plaintext highlighter-rouge">GenericTVC</code>. But what if we have a tableView which has multiple kinds of cell. Mmmmmm.. lets create another public property in <code class="language-plaintext highlighter-rouge">GenericTVC</code></p>
+
+<pre class="splash"><code><span class="keyword">var</span> reuseClasses : [<span class="type">AnyClass</span>]?
+</code></pre>
+
+<p>and in <code class="language-plaintext highlighter-rouge">viewDidLoad</code> add this code :</p>
+
+<pre class="splash"><code><span class="keyword">if let</span> classes = reuseClasses {
+    <span class="keyword">for</span> reuseClass <span class="keyword">in</span> classes {
+        <span class="keyword">self</span>.<span class="property">tableView</span>.<span class="call">registerClass</span>(reuseClass, forCellReuseIdentifier: <span class="type">String</span>(reuseClass))
+    }
+}
+</code></pre>
+
+<p>And in <code class="language-plaintext highlighter-rouge">FirstTableViewController</code></p>
+
+<p>Replace :</p>
+
+<pre class="splash"><code><span class="keyword">super</span>.<span class="call">viewDidLoad</span>()
+<span class="keyword">self</span>.<span class="property">tableView</span>.<span class="call">registerClass</span>(<span class="type">FirstTableViewCell</span>.<span class="keyword">self</span>, forCellReuseIdentifier: <span class="type">String</span>(<span class="type">FirstTableViewCell</span>))
+</code></pre>
+
+<p>With :</p>
+
+<pre class="splash"><code><span class="keyword">self</span>.<span class="property">reuseClasses</span> = [<span class="type">FirstTableViewCell</span>.<span class="keyword">self</span>] <span class="comment">// or may be self.reuseClasses = [FirstTableViewCell.self, SecondTableViewCell.cell, ThirdTableViewCell.self]</span>
+
+<span class="keyword">super</span>.<span class="call">viewDidLoad</span>()
+</code></pre>
+
+<p>The above code is self explanatory.</p>
+
+<p>Now come back to <code class="language-plaintext highlighter-rouge">cellForRowAtIndexPath:</code> in <code class="language-plaintext highlighter-rouge">FirstTableViewController</code>. Looks bad!. Lets move the cell initialization code to our base class. Add this method to <code class="language-plaintext highlighter-rouge">GenericTVC</code>:</p>
+
+<pre class="splash"><code><span class="keyword">func</span> reusableCellFor(tableView tableView : <span class="type">UITableView</span>, reuseClass : <span class="type">AnyClass</span>) -&gt; <span class="type">UITableViewCell</span> {
+    <span class="keyword">if let</span> cell = tableView.<span class="call">dequeueReusableCellWithIdentifier</span>(<span class="type">String</span>(reuseClass)) {
+        <span class="keyword">return</span> cell
+    }<span class="keyword">else</span>{
+        <span class="keyword">return</span> <span class="type">UITableViewCell</span>(style: .<span class="dotAccess">Subtitle</span>, reuseIdentifier: <span class="type">String</span>(reuseClass))
+    }
+}
+</code></pre>
+
+<p>And in <code class="language-plaintext highlighter-rouge">FirstTableViewController</code> replace the cell initialization code with :</p>
+
+<pre class="splash"><code><span class="keyword">if let</span> cell = <span class="call">reusableCellFor</span>(tableView: tableView, reuseClass: (<span class="type">FirstTableViewCell</span>.<span class="keyword">self</span>)) <span class="keyword">as</span> <span class="type">FirstTableViewCell</span> {
+
+}
+</code></pre>
+
+<p>This piece of code works fine but I still don’t like the downcast from <code class="language-plaintext highlighter-rouge">UITableViewCell</code> to <code class="language-plaintext highlighter-rouge">FirstTableViewCell</code>. Lets solve this by Generics.</p>
+
+<h4 id="generics-to-the-rescue">Generics to the rescue</h4>
+
+<p>With generics in Swift we can define methods(not only methods, actually everything 😉) which can accept generic parameters and return generic types. So lets use this feature for our good.</p>
+
+<p>In <code class="language-plaintext highlighter-rouge">GenericTVC</code> replace the implementation of <code class="language-plaintext highlighter-rouge">reusableCellFor....</code> with the below code.</p>
+
+<pre class="splash"><code><span class="keyword">func</span> reusableCellFor&lt;CustomTVC : <span class="type">UITableViewCell</span>&gt;(tableView tableView : <span class="type">UITableView</span>, reuseClass : <span class="type">CustomTVC</span>.<span class="type">Type</span>) -&gt; <span class="type">CustomTVC</span> {
+
+    <span class="keyword">if let</span> cell = tableView.<span class="call">dequeueReusableCellWithIdentifier</span>(<span class="type">String</span>(reuseClass)) <span class="keyword">as</span>? <span class="type">CustomTVC</span> {
+        <span class="keyword">return</span> cell
+    }<span class="keyword">else</span>{
+        <span class="keyword">return</span> <span class="type">CustomTVC</span>(style: .<span class="dotAccess">Subtitle</span>, reuseIdentifier: <span class="type">String</span>(reuseClass))
+    }
+
+}
+</code></pre>
+
+<p>Wow, this looks fantastic 🤑🤑 , but what is it 🤔🤔?</p>
+
+<pre class="splash"><code>&lt;<span class="type">CustomTVC</span> : <span class="type">UITableViewCell</span>&gt;
+
+<span class="comment">/*
+This part of the method tells the compiler that here I introduce you to a generic type CustomTVC which is a subclass of UITableViewCell
+so do not treat future occurrences of this as errors.
+*/</span>
+
+reuseClass : <span class="type">CustomTVC</span>.<span class="type">Type</span>
+
+<span class="comment">/*
+Accept a type which is a CustomTVC(UITableViewCell subclass)
+*/</span>
+</code></pre>
+
+<p>Everything else is self explanatory I guess 🤓.</p>
+
+<p>Finally in <code class="language-plaintext highlighter-rouge">FirstTableViewController</code> remove the <code class="language-plaintext highlighter-rouge">as FirstTableViewCell</code> and the also remove the <code class="language-plaintext highlighter-rouge">if let</code> check. And to keep the subclasses cleaner lets create a helper method in <code class="language-plaintext highlighter-rouge">GenericTVC</code> for getting the <code class="language-plaintext highlighter-rouge">Item</code> object from the datasource for current <code class="language-plaintext highlighter-rouge">indexPath</code>.</p>
+
+<pre class="splash"><code><span class="keyword">func</span> itemFor(indexPath indexPath : <span class="type">NSIndexPath</span>) -&gt; <span class="type">Item</span>? {
+    <span class="keyword">if let</span> datasource = <span class="keyword">self</span>.<span class="property">datasource</span> {
+        <span class="keyword">let</span> sectionString = <span class="type">String</span>(indexPath.<span class="property">section</span>)
+        <span class="keyword">if let</span> array = datasource[sectionString] {
+            <span class="keyword">return</span> array[indexPath.<span class="property">row</span>]
+        }
+    }
+    <span class="keyword">return nil</span>
+}
+</code></pre>
+
+<p>The final versions of our files are below :</p>
+
+<p><strong>GenericTVC :</strong></p>
+
+<pre class="splash"><code><span class="keyword">class</span> GenericTVC: <span class="type">UITableViewController</span> {
+
+    <span class="keyword">var</span> datasource : [<span class="type">String</span> : [<span class="type">Item</span>]]?
+    <span class="keyword">var</span> reuseClasses : [<span class="type">AnyClass</span>]?
+    <span class="keyword">override func</span> viewDidLoad() {
+        <span class="keyword">super</span>.<span class="call">viewDidLoad</span>()
+
+        <span class="keyword">if let</span> classes = reuseClasses {
+            <span class="keyword">for</span> reuseClass <span class="keyword">in</span> classes {
+                <span class="keyword">self</span>.<span class="property">tableView</span>.<span class="call">registerClass</span>(reuseClass, forCellReuseIdentifier: <span class="type">String</span>(reuseClass))
+            }
+        }
+    }
+
+    <span class="comment">// MARK: - Table view data source</span>
+
+    <span class="keyword">override func</span> numberOfSectionsInTableView(tableView: <span class="type">UITableView</span>) -&gt; <span class="type">Int</span> {
+
+        <span class="keyword">if let</span> datasource = datasource {
+            <span class="keyword">return</span> datasource.<span class="property">keys</span>.<span class="property">count</span>
+        }<span class="keyword">else</span>{
+            <span class="keyword">return</span> <span class="number">0</span>
+        }
+    }
+
+    <span class="keyword">override func</span> tableView(tableView: <span class="type">UITableView</span>, numberOfRowsInSection section: <span class="type">Int</span>) -&gt; <span class="type">Int</span> {
+
+        <span class="keyword">if let</span> datasource = datasource {
+
+            <span class="comment">/*
+            	Casting the section to String so as to get a key for datasource values
+            	Int can also be used but its all your choice.
+            	Which ever section you want in the tableView first, add it as :
+
+            	self.datasource["0"] = [Item]()
+
+            	and so on..
+        	*/</span>
+
+            <span class="keyword">let</span> sectionString = <span class="type">String</span>(section)
+            <span class="keyword">if let</span> array = datasource[sectionString] {
+                <span class="keyword">return</span> array.<span class="property">count</span>
+            }
+        }
+        <span class="keyword">return</span> <span class="number">0</span>
+    }
+
+    <span class="keyword">func</span> reusableCellFor&lt;CustomTVC : <span class="type">UITableViewCell</span>&gt;(tableView tableView : <span class="type">UITableView</span>, reuseClass : <span class="type">CustomTVC</span>.<span class="type">Type</span>) -&gt; <span class="type">CustomTVC</span> {
+        <span class="keyword">if let</span> cell = tableView.<span class="call">dequeueReusableCellWithIdentifier</span>(<span class="type">String</span>(reuseClass)) <span class="keyword">as</span>? <span class="type">CustomTVC</span> {
+            <span class="keyword">return</span> cell
+        }<span class="keyword">else</span>{
+            <span class="keyword">return</span> <span class="type">CustomTVC</span>(style: .<span class="dotAccess">Subtitle</span>, reuseIdentifier: <span class="type">String</span>(reuseClass))
+        }
+    }
+
+    <span class="keyword">func</span> itemFor(indexPath indexPath : <span class="type">NSIndexPath</span>) -&gt; <span class="type">Item</span>? {
+        <span class="keyword">if let</span> datasource = <span class="keyword">self</span>.<span class="property">datasource</span> {
+            <span class="keyword">let</span> sectionString = <span class="type">String</span>(indexPath.<span class="property">section</span>)
+            <span class="keyword">if let</span> array = datasource[sectionString] {
+                <span class="keyword">return</span> array[indexPath.<span class="property">row</span>]
+            }
+        }
+        <span class="keyword">return nil</span>
+    }
+
+}
+</code></pre>
+
+<p><strong>FirstTableViewController :</strong></p>
+
+<pre class="splash"><code><span class="keyword">class</span> FirstTableViewController: <span class="type">GenericTVC</span> {
+
+    <span class="keyword">override func</span> viewDidLoad() {
+        <span class="keyword">self</span>.<span class="property">reuseClasses</span> = [<span class="type">FirstTableViewCell</span>.<span class="keyword">self</span>]
+
+        <span class="keyword">self</span>.<span class="property">tableView</span>.<span class="call">registerClass</span>(<span class="type">FirstTableViewCell</span>.<span class="keyword">self</span>, forCellReuseIdentifier: <span class="type">String</span>(<span class="type">FirstTableViewCell</span>))
+
+        <span class="keyword">super</span>.<span class="call">viewDidLoad</span>()
+    }
+
+    <span class="keyword">override func</span> tableView(tableView: <span class="type">UITableView</span>, cellForRowAtIndexPath indexPath: <span class="type">NSIndexPath</span>) -&gt; <span class="type">UITableViewCell</span> {
+        <span class="keyword">let</span> cell = <span class="call">reusableCellFor</span>(tableView: tableView, reuseClass: (<span class="type">FirstTableViewCell</span>.<span class="keyword">self</span>))
+        <span class="keyword">if let</span> item = <span class="call">itemFor</span>(indexPath: indexPath) {
+            cell.<span class="property">textLabel</span>!.text = item.<span class="property">itemName</span>
+        }
+        <span class="keyword">return</span> cell
+    }
+
+}
+</code></pre>
+
+<p>As you can see the resulting code for <code class="language-plaintext highlighter-rouge">FirstTableViewController</code> is shorter, readable and less scary.</p>
+
+<p>Thanks for reading 😊</p>
+:ET

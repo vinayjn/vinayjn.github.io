@@ -1,0 +1,79 @@
+I"f<p>As per the <a href="https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/index.html">Apple Documentation</a>, an <code class="language-plaintext highlighter-rouge">NSAttributedString</code> object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.</p>
+
+<p>In short, <em>an <code class="language-plaintext highlighter-rouge">NSAttributedString</code> allows you to apply styles on the text</em>. As of the latest iOS sdk (8.0), you can apply the following attributes to an <code class="language-plaintext highlighter-rouge">NSString</code> object.</p>
+
+<ul>
+  <li>NSFontAttributeName</li>
+  <li>NSParagraphStyleAttributeName</li>
+  <li>NSForegroundColorAttributeName</li>
+  <li>NSBackgroundColorAttributeName</li>
+  <li>NSLigatureAttributeName</li>
+  <li>NSKernAttributeName</li>
+  <li>NSStrikethroughStyleAttributeName</li>
+  <li>NSUnderlineStyleAttributeName</li>
+  <li>NSStrokeColorAttributeName</li>
+  <li>NSStrokeWidthAttributeName</li>
+  <li>NSShadowAttributeName</li>
+  <li>NSTextEffectAttributeName</li>
+  <li>NSAttachmentAttributeName</li>
+  <li>NSLinkAttributeName</li>
+  <li>NSBaselineOffsetAttributeName</li>
+  <li>NSUnderlineColorAttributeName</li>
+  <li>NSStrikethroughColorAttributeName</li>
+  <li>NSObliquenessAttributeName</li>
+  <li>NSExpansionAttributeName</li>
+  <li>NSWritingDirectionAttributeName</li>
+  <li>NSVerticalGlyphFormAttributeName</li>
+</ul>
+
+<p>Lets look at the most used attributes :
+ </p>
+
+<h4 id="nsfontattributename"><strong>NSFontAttributeName</strong></h4>
+
+<pre class="splash"><code><span class="type">NSDictionary</span> *attributes = <span class="keyword">@</span>{ <span class="type">NSFontAttributeName</span> : [<span class="type">UIFont</span> fontWithName:<span class="keyword">@"HelveticaNeue</span>-<span class="string">Italic" size:30.0] };</span>
+
+<span class="type">NSAttributedString</span> *attributedString = [[<span class="type">NSAttributedString</span> alloc] initWithString:<span class="keyword">@"Italic</span> <span class="string">Text" attributes:attributes];</span>
+
+<span class="keyword">self</span>.<span class="property">attributedLabel</span>.<span class="property">attributedText</span> = attributedString;
+</code></pre>
+
+<p><code class="language-plaintext highlighter-rouge">Output :</code> <em>Italic Text</em></p>
+
+<pre class="splash"><code><span class="type">NSDictionary</span> *attributes = <span class="keyword">@</span>{ <span class="type">NSFontAttributeName</span> : [<span class="type">UIFont</span> fontWithName:<span class="keyword">@"HelveticaNeue</span>-<span class="string">Bold" size:30.0] };</span>
+
+<span class="type">NSAttributedString</span> *attributedString = [[<span class="type">NSAttributedString</span> alloc] initWithString:<span class="keyword">@"Bold</span> <span class="string">Text" attributes:attributes];</span>
+
+<span class="keyword">self</span>.<span class="property">attributedLabel</span>.<span class="property">attributedText</span> = attributedString;
+</code></pre>
+
+<p><code class="language-plaintext highlighter-rouge">Output :</code> <strong>Bold Text</strong></p>
+
+<p> </p>
+
+<h4 id="nsforegroundcolorattributename"><strong>NSForegroundColorAttributeName</strong></h4>
+
+<pre class="splash"><code><span class="type">NSDictionary</span> *attributes = <span class="keyword">@</span>{ <span class="type">NSForegroundColorAttributeName</span> : [<span class="type">UIColor</span> blueColor] };
+
+<span class="type">NSAttributedString</span> *attributedString = [[<span class="type">NSAttributedString</span> alloc] initWithString:<span class="keyword">@"Blue</span> <span class="string">Text" attributes:attributes];</span>
+
+<span class="keyword">self</span>.<span class="property">attributedLabel</span>.<span class="property">attributedText</span> = attributedString;
+</code></pre>
+
+<p><code class="language-plaintext highlighter-rouge">Output :</code> <span style="color:blue">I am blue colored</span></p>
+
+<p> </p>
+
+<h4 id="nsunderlinestyleattributename"><strong>NSUnderlineStyleAttributeName</strong></h4>
+
+<pre class="splash"><code><span class="type">NSDictionary</span> *attributes = <span class="keyword">@</span>{ <span class="type">NSUnderlineStyleAttributeName</span> : <span class="keyword">@</span>(<span class="type">NSUnderlineStyleSingle</span>) };
+
+<span class="type">NSAttributedString</span> *attributedString = [[<span class="type">NSAttributedString</span> alloc] initWithString:<span class="keyword">@"Underlined</span> <span class="string">Text" attributes:attributes];</span>
+
+<span class="keyword">self</span>.<span class="property">label</span>.<span class="property">attributedText</span> = attributedString;
+</code></pre>
+
+<p><code class="language-plaintext highlighter-rouge">Output :</code> <u>Underlined Text</u></p>
+
+<p>You can put <code class="language-plaintext highlighter-rouge">fontName</code> of your choice for creating attributed <code class="language-plaintext highlighter-rouge">NSStrings</code></p>
+:ET
