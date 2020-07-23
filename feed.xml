@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2020-07-01T23:27:47+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><entry><title type="html">iOS Bootcamp Coach</title><link href="https://vinayjain.me/posts/ios-bootcamp" rel="alternate" type="text/html" title="iOS Bootcamp Coach" /><published>2019-09-18T06:39:25+05:30</published><updated>2019-09-18T06:39:25+05:30</updated><id>https://vinayjain.me/posts/iOS-bootcamp</id><content type="html" xml:base="https://vinayjain.me/posts/ios-bootcamp">&lt;p&gt;When I was in college I used to teach school students Mathematics and Physics, which still are my favorite subjects. I also presented a few tech related topics in my college to help my friends understand them better. I enjoy teaching, it’s fun and it is always a good learning exercise for me as well. It gives an entirely different perspective to learning and being on the other side makes me feel more confident of the things I already know. But after I graduated and started working in the software industry I didn’t get enough opportunities and couldn’t find time to do it. I attended tech meetups and thought of presenting a few topics but couldn’t, for me preparing a presentation was a herculean task that time.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2020-07-23T14:59:33+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><entry><title type="html">iOS Bootcamp Coach</title><link href="https://vinayjain.me/posts/ios-bootcamp" rel="alternate" type="text/html" title="iOS Bootcamp Coach" /><published>2019-09-18T06:39:25+05:30</published><updated>2019-09-18T06:39:25+05:30</updated><id>https://vinayjain.me/posts/iOS-bootcamp</id><content type="html" xml:base="https://vinayjain.me/posts/ios-bootcamp">&lt;p&gt;When I was in college I used to teach school students Mathematics and Physics, which still are my favorite subjects. I also presented a few tech related topics in my college to help my friends understand them better. I enjoy teaching, it’s fun and it is always a good learning exercise for me as well. It gives an entirely different perspective to learning and being on the other side makes me feel more confident of the things I already know. But after I graduated and started working in the software industry I didn’t get enough opportunities and couldn’t find time to do it. I attended tech meetups and thought of presenting a few topics but couldn’t, for me preparing a presentation was a herculean task that time.&lt;/p&gt;
 
 &lt;h3 id=&quot;opportunity-and-time&quot;&gt;Opportunity and Time&lt;/h3&gt;
 
@@ -49,7 +49,9 @@ path.&lt;span class=&quot;call&quot;&gt;stroke&lt;/span&gt;()
 
 &lt;p&gt;I have talked about &lt;a href=&quot;https://vinayjain.me/posts/conversation-with-calayer#careplicatorlayer&quot;&gt;CAReplicatorLayer&lt;/a&gt; earlier as well. I remembered that I had implemented a typing indicator with the help of layer replication so I gave it a try again to build a dotted line.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/typing.gif&quot; alt=&quot;Typing&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img src=&quot;/images/typing.gif&quot; /&gt;
+&lt;/div&gt;
 
 &lt;p&gt;The benefit I see for using CAReplicatorLayer is that it works on the basis of instance count which you cannot give for the other two ways. And the centering logic becomes easy as you can just set the frame of this layer to center of the view. Have a look at the code below to see how it is done, I am adding comments inline to avoid any further explanation.&lt;/p&gt;
 
@@ -223,7 +225,9 @@ view.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span class=&q
 
 &lt;p&gt;But why would you write code to draw a circle or a triangle or anything complex when you have images?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/trollface.png&quot; alt=&quot;Trollface&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img src=&quot;/images/trollface.png&quot; /&gt;
+&lt;/div&gt;
 
 &lt;p&gt;There are a few reasons to write code:&lt;/p&gt;
 
@@ -235,7 +239,9 @@ view.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span class=&q
 
 &lt;p&gt;By the end of this section, we’ll be able to show this cool animation on the screen:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/shape.gif&quot; alt=&quot;Circle Shape&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img src=&quot;/images/shape.gif&quot; /&gt;
+&lt;/div&gt;
 
 &lt;p&gt;The animation above has three components:&lt;/p&gt;
 
@@ -384,7 +390,9 @@ gradientLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt; = &lt
 
 &lt;p&gt;At &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt;, we have used the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAReplicatorLayer&lt;/code&gt; to create a new typing indicator. This is how it looks!&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/typing.gif&quot; alt=&quot;Typing&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img src=&quot;/images/typing.gif&quot; /&gt;
+&lt;/div&gt;
 
 &lt;p&gt;If you want to download and run this code check the &lt;a href=&quot;https://github.com/vinayjn/CALayer/tree/c495e29dc3675b39a4636f005d0d716ebd4b0fb9&quot;&gt;Github repo&lt;/a&gt;. And yes, Craig Federighi was online. ;)&lt;/p&gt;
 
@@ -432,7 +440,7 @@ imageView.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span cla
 
 &lt;p&gt;Also, don’t forget, we are hiring high-quality engineers. So if you are interested reach out to us at &lt;a href=&quot;mailto:hello@haptik.ai&quot;&gt;hello@haptik.ai&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;This post was originally written at &lt;a href=&quot;http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/&quot;&gt;Haptik Tech Blog&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">If you’ve been programming for iOS devices, you might have encountered these lines of code:</summary></entry><entry><title type="html">Your Past Successes Guarantee…</title><link href="https://vinayjain.me/posts/your-past-successes" rel="alternate" type="text/html" title="Your Past Successes Guarantee…" /><published>2017-03-02T17:54:55+05:30</published><updated>2017-03-02T17:54:55+05:30</updated><id>https://vinayjain.me/posts/Your-Past-Successes</id><content type="html" xml:base="https://vinayjain.me/posts/your-past-successes">&lt;p&gt;It has only been three years of my professional career and so much has changed since I started. I have gained as well as lost. I had the opportunity to live in three different cities but consequently had to leave some amazing and beautiful people behind. My career demanded to switch two employers serving 1 year to each. These employers didn’t just pay me well but appreciated and recognized my work. I learnt a lot, I had great colleagues who helped and encouraged me in hard times. I made some great friends and I’ll never forget them and I hope they don’t forget me as well.&lt;/p&gt;
+&lt;p&gt;This post was originally written at &lt;a href=&quot;http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/&quot;&gt;Haptik Tech Blog&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">If you’ve been programming for iOS devices, you might have encountered these lines of code:</summary></entry><entry><title type="html">Your Past Successes Guarantee…</title><link href="https://vinayjain.me/posts/your-past-successes" rel="alternate" type="text/html" title="Your Past Successes Guarantee..." /><published>2017-03-02T17:54:55+05:30</published><updated>2017-03-02T17:54:55+05:30</updated><id>https://vinayjain.me/posts/Your-Past-Successes</id><content type="html" xml:base="https://vinayjain.me/posts/your-past-successes">&lt;p&gt;It has only been three years of my professional career and so much has changed since I started. I have gained as well as lost. I had the opportunity to live in three different cities but consequently had to leave some amazing and beautiful people behind. My career demanded to switch two employers serving 1 year to each. These employers didn’t just pay me well but appreciated and recognized my work. I learnt a lot, I had great colleagues who helped and encouraged me in hard times. I made some great friends and I’ll never forget them and I hope they don’t forget me as well.&lt;/p&gt;
 
 &lt;p&gt;I introspected the past 2-3 years several times and every time I found different results. But all these times I felt bad for doing whatever I did and whatever happened to me. I was a hard working employee, I used to take my laptop back home and spend hours figuring out work related issues in my free time at home. My efforts and dedication towards my work pushed me ahead of most of my colleagues. Soon I became a star performer. And what followed after that are all the VIP treatments given to stars. Some important one’s I would like to mention:&lt;/p&gt;
 
