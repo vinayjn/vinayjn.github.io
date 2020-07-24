@@ -1,4 +1,166 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2020-07-23T14:59:33+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><entry><title type="html">iOS Bootcamp Coach</title><link href="https://vinayjain.me/posts/ios-bootcamp" rel="alternate" type="text/html" title="iOS Bootcamp Coach" /><published>2019-09-18T06:39:25+05:30</published><updated>2019-09-18T06:39:25+05:30</updated><id>https://vinayjain.me/posts/iOS-bootcamp</id><content type="html" xml:base="https://vinayjain.me/posts/ios-bootcamp">&lt;p&gt;When I was in college I used to teach school students Mathematics and Physics, which still are my favorite subjects. I also presented a few tech related topics in my college to help my friends understand them better. I enjoy teaching, it’s fun and it is always a good learning exercise for me as well. It gives an entirely different perspective to learning and being on the other side makes me feel more confident of the things I already know. But after I graduated and started working in the software industry I didn’t get enough opportunities and couldn’t find time to do it. I attended tech meetups and thought of presenting a few topics but couldn’t, for me preparing a presentation was a herculean task that time.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2020-07-24T20:51:17+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><entry><title type="html">Running Ubuntu/Linux on Android</title><link href="https://vinayjain.me/posts/linux-on-android" rel="alternate" type="text/html" title="Running Ubuntu/Linux on Android" /><published>2020-06-17T06:39:25+05:30</published><updated>2020-06-17T06:39:25+05:30</updated><id>https://vinayjain.me/posts/linux-on-android</id><content type="html" xml:base="https://vinayjain.me/posts/linux-on-android">&lt;p&gt;Phones have become very powerful these days. Its easy to find an Android phone under $200 that is capable of powering up a desktop computer with decent performance. I was thinking about setting up a media server in my home network so I can watch movies and TV shows on all devices, I was convinced to use a Raspberry Pie for this but then I thought what if I use my Android phone for the same, its much more capable than a pie and has a lot hardware capabilities that the pie doesn’t offer out of the box. So I set course and took out my old Android phone, did some hacking and got the media server working on it. Its a long process to setup the media server and the first step in getting their is to install Ubuntu or any other Linux distribution on the Android phone. I’ll talk about the media server setup some other day but lets see how to install Ubuntu on Android.&lt;/p&gt;
+
+&lt;h4 id=&quot;getting-the-device-ready&quot;&gt;Getting the device ready&lt;/h4&gt;
+
+&lt;p&gt;Most of the people I know have at least one abandoned Android phone. Though its completely fine to do, I don’t recommend using your primary phone to follow this post as it would end your phone’s warranty. If you are willing to take the risk you can still follow. First, make sure you have the following items checked:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;A phone running Android 7+ with root access&lt;/li&gt;
+  &lt;li&gt;Basic knowledge of Linux and ssh&lt;/li&gt;
+  &lt;li&gt;Internet connection&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I have tested this approach on the following configurations&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Xiaomi Redmi Note 5 Pro, running Lineage OS 17.1(Android 10), Qualcomm SDM636 Snapdragon 636 arm64 processor&lt;/li&gt;
+  &lt;li&gt;Xiaomi Redmi 1s, running Lineage OS 14.1(Android 7.1.2) Qualcomm MSM8228 Snapdragon 400 ARM processor&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;configuration&quot;&gt;Configuration&lt;/h4&gt;
+
+&lt;p&gt;Linux Deploy is an app that makes this process easy, go ahead and install the app from &lt;a href=&quot;https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy&quot;&gt;Google Play Store&lt;/a&gt;. You will need root access enabled on your device to get it working. The app greets you with a screen like in the screenshot below, please not that I am currently using version 2.6.0 it might differ if you use another app version.&lt;/p&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img height=&quot;100%&quot; width=&quot;100%&quot; src=&quot;/images/linux/Linux_Deploy_1.jpg&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The instructions are pretty straight-forward and needs no explanation. Tap on the little settings button at the bottom right and you’ll see a screen as shown below, you can follow the configuration you see here or you can change according to your preference. One important thing to choose is the architecture, in the screenshot you see &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arm64&lt;/code&gt; which is same as the android phone’s CPU architecture. Its fine to use other architectures as well but I recommend choosing the one which is most compatible with the software you are going to install in the future. The media server I wanted to install works well with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;arm64&lt;/code&gt;. Also, if you don’t know the CPU architecture of your phone you can install CPU-Z from the play store.&lt;/p&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img height=&quot;100%&quot; width=&quot;100%&quot; src=&quot;/images/linux/Linux_Deploy_2.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img height=&quot;100%&quot; width=&quot;100%&quot; src=&quot;/images/linux/Linux_Deploy_3.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img height=&quot;100%&quot; width=&quot;100%&quot; src=&quot;/images/linux/Linux_Deploy_4.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img height=&quot;100%&quot; width=&quot;100%&quot; src=&quot;/images/linux/Linux_Deploy_5.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;More about configuration:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Image Size - Consider this as the partition size for your Linux installation.&lt;/li&gt;
+  &lt;li&gt;Username &amp;amp; Password - Use anything, we will use it to login with ssh&lt;/li&gt;
+  &lt;li&gt;Privileged Users - Additional custom permissions for the user&lt;/li&gt;
+  &lt;li&gt;Mount points - Use it to mount your internal or external sdcard to use in Ubuntu, more on this later&lt;/li&gt;
+  &lt;li&gt;SSH - Enable this, we want to access this system inside our home network with ssh.&lt;/li&gt;
+  &lt;li&gt;Audio - We don’t need it for our usecase&lt;/li&gt;
+  &lt;li&gt;GUI - Since most of the time we will be accessing it through SSH I have skipped the GUI part. If you need GUI then you can setup a VNC viewer and configure it easily.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is all the configuration that we need for now. Tap on the three dots on the top right and select &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Install&lt;/code&gt;, the app will be downloading the entire linux image based on our configuration. Depending on your internet speed, if everything went well, you should see a screen as shown below. Now tap on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Start&lt;/code&gt; button on the bottom left. The app will validate the configuration and start all the services of the Linux distribution. The result is a fully functional linux operating system just like we have on a desktop computer.&lt;/p&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img height=&quot;100%&quot; width=&quot;100%&quot; src=&quot;/images/linux/Linux_Deploy_6.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img height=&quot;100%&quot; width=&quot;100%&quot; src=&quot;/images/linux/Linux_Deploy_7.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;At this point we can access this system using ssh. The IP is shown at the top, for me its &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;192.168.0.137&lt;/code&gt;, it might be different for you. From a computer in the same network, you can use the below commands in any shell to login and when it asks for the password just use the password you entered during the configuration, if you forgot your password you can get it by tapping on the settings button on the bottom right.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;ssh &amp;lt;username&amp;gt;&lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;&amp;lt;&lt;span class=&quot;type&quot;&gt;IP&lt;/span&gt;&amp;gt;
+
+&lt;span class=&quot;comment&quot;&gt;// if your user name is android and IP is 192.168.0.137, use:&lt;/span&gt;
+ssh android@192.&lt;span class=&quot;number&quot;&gt;168.0.137&lt;/span&gt;
+
+&lt;span class=&quot;comment&quot;&gt;// Type yes when it asks you to continue connecting to the host
+// and enter your password when it asks for it&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You are now logged-in to the system and can perform any operations as you want. If you want to avoid entering your password when you login, you can put the public ssh key of your computer in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh/authorized_keys&lt;/code&gt; file. If its not there you’ll have to create it, you can easily find articles on the web if you don’t know how to do it.&lt;/p&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img height=&quot;100%&quot; width=&quot;100%&quot; src=&quot;/images/linux/Linux_Deploy_8.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;mounting-internal-and-external-sdcard&quot;&gt;Mounting internal and external sdcard&lt;/h4&gt;
+
+&lt;p&gt;If you are not able to access the phone’s internal storage in the linux file system you will have to map the mount path of the storage in Android file system to a mount point in linux file system. To do this you have to find where is the sdcard mounted in the Android, there are two ways, one with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;adb&lt;/code&gt; and other by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;installing any file manager app&lt;/code&gt;. I am going to tell you the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;adb&lt;/code&gt; way because I don’t want to install any other app for a small usecase. Connect your phone to your computer, make sure USB debugging is enabled, from the terminal execute the following commands&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;➜  ~ adb devices
+&lt;span class=&quot;type&quot;&gt;List&lt;/span&gt; of devices attached
+f4936abb	device
+
+➜  ~ adb shell
+whyred:/ $ df
+&lt;span class=&quot;type&quot;&gt;Filesystem&lt;/span&gt;               1K-blocks    &lt;span class=&quot;type&quot;&gt;Used Available Use&lt;/span&gt;% &lt;span class=&quot;type&quot;&gt;Mounted&lt;/span&gt; on
+tmpfs                      &lt;span class=&quot;number&quot;&gt;2917628    1020   2916608   1&lt;/span&gt;% /dev
+tmpfs                      &lt;span class=&quot;number&quot;&gt;2917628       0   2917628   0&lt;/span&gt;% /mnt
+tmpfs                      &lt;span class=&quot;number&quot;&gt;2917628       0   2917628   0&lt;/span&gt;% /apex
+/dev/block/mmcblk0p61      &lt;span class=&quot;number&quot;&gt;3096336 1637424   1442528  54&lt;/span&gt;% /
+/dev/block/mmcblk0p62       &lt;span class=&quot;number&quot;&gt;806288  414160    375744  53&lt;/span&gt;% /vendor
+tmpfs                      &lt;span class=&quot;number&quot;&gt;2917628    6432   2911196   1&lt;/span&gt;% /sbin
+/dev/block/mmcblk0p48        &lt;span class=&quot;number&quot;&gt;12016    7480      4212  64&lt;/span&gt;% /vendor/dsp
+/dev/block/mmcblk0p60       &lt;span class=&quot;number&quot;&gt;237536     212    229464   1&lt;/span&gt;% /cache
+/sbin/.&lt;span class=&quot;property&quot;&gt;magisk&lt;/span&gt;/block/data  &lt;span class=&quot;number&quot;&gt;52885008 8501436  44236116  17&lt;/span&gt;% /sbin/.&lt;span class=&quot;property&quot;&gt;magisk&lt;/span&gt;/modules
+/data/media               &lt;span class=&quot;number&quot;&gt;52885008 8501436  44236116  17&lt;/span&gt;% /storage/emulated
+whyred:/ $
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can guess by the size of the partition, the internal storage in my device is mounted on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/storage/emulated&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now just create a mount path in linux file system for this path. Open the Linux Deploy app on your phone, stop the container if its running. Go to the mount points settings and tap on the plus button on the top right.&lt;/p&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;img height=&quot;100%&quot; width=&quot;100%&quot; src=&quot;/images/linux/Linux_Deploy_10.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The Android path &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/storage/emulated&lt;/code&gt; goes in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Source&lt;/code&gt; field and the linux path goes in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Target&lt;/code&gt;. Tap on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OK&lt;/code&gt; and start the container again, login to the system and see if you can access the sdcard. You will probably see &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Permission Denied&lt;/code&gt; error when you try to access the folder, its because the user is not part of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aid_everybody&lt;/code&gt; groups you can check that by the command&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;$ ls -l
+total &lt;span class=&quot;number&quot;&gt;8&lt;/span&gt;
+drwx--x--x. &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; root aid_everybody &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jul&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17 21&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;00&lt;/span&gt; sdcard
+
+$ groups android
+android : android aid_graphics aid_sdcard_rw aid_inet 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can fix that by adding the linux user(android in my case) to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aid_everybody&lt;/code&gt; group. Use the command below to do this, you will have to logout and then login again to let this change take effect.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;$ sudo usermod -a -&lt;span class=&quot;type&quot;&gt;G&lt;/span&gt; aid_everybody android
+$ exit
+&lt;span class=&quot;type&quot;&gt;Connection&lt;/span&gt; to &lt;span class=&quot;number&quot;&gt;192.168.0.137&lt;/span&gt; closed.
+
+&lt;span class=&quot;comment&quot;&gt;// Login again and check&lt;/span&gt;
+$ cd sdcard
+$ ls
+&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;
+$ ls -l &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;
+total &lt;span class=&quot;number&quot;&gt;1623408&lt;/span&gt;
+drwxrwx---. &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jun&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17 09&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;02&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Alarms&lt;/span&gt;
+drwxrwx---. &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jun&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17 09&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;02&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Android&lt;/span&gt;
+drwxrwx---. &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jun&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;19 10&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;33&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;DCIM&lt;/span&gt;
+drwxrwx---. &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jun&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17 13&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;26&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Documents&lt;/span&gt;
+drwxrwx---. &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jul&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;18 08&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;36&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Download&lt;/span&gt;
+-rw-rw----. &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; root aid_everybody &lt;span class=&quot;number&quot;&gt;8589934592&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jul&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;24 19&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;57&lt;/span&gt; linux.&lt;span class=&quot;property&quot;&gt;img&lt;/span&gt;
+drwxrwx---. &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jun&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17 13&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;25&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Movies&lt;/span&gt;
+drwxrwx---. &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jun&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17 09&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;02&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Music&lt;/span&gt;
+drwxrwx---. &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jun&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17 09&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;02&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Notifications&lt;/span&gt;
+drwxrwx---. &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jul&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;15 18&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;14&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Pictures&lt;/span&gt;
+drwxrwx---. &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jun&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17 09&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;02&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Podcasts&lt;/span&gt;
+drwxrwx---. &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jun&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17 09&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;02&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Ringtones&lt;/span&gt;
+drwxrwx---. &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jun&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17 09&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;51&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Shows&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you are also running Android 10, due to strict permissions of the OS, Linux Deploy will not be able to access the external sdcard. I have tried a few ways of mounting it but I couldn’t succeed. If you manage to mount the external sdcard please let me know in the comments.&lt;/p&gt;
+
+&lt;p&gt;Okay, that’s all folks, if you reached here you have a fully functional linux machine. This was a long process, but we are just getting started, there’s a lot more we can achieve with it. In the future posts I will be telling you how you can extend this&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;As an ad-block proxy server for your home network with Pi-Hole.&lt;/li&gt;
+  &lt;li&gt;A media server to stream your favorite movies and TV Shows with Plex.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you have more ideas in mind please let me know. :)&lt;/p&gt;</content><author><name></name></author><category term="hacking" /><category term="DIY" /><summary type="html">Phones have become very powerful these days. Its easy to find an Android phone under $200 that is capable of powering up a desktop computer with decent performance. I was thinking about setting up a media server in my home network so I can watch movies and TV shows on all devices, I was convinced to use a Raspberry Pie for this but then I thought what if I use my Android phone for the same, its much more capable than a pie and has a lot hardware capabilities that the pie doesn’t offer out of the box. So I set course and took out my old Android phone, did some hacking and got the media server working on it. Its a long process to setup the media server and the first step in getting their is to install Ubuntu or any other Linux distribution on the Android phone. I’ll talk about the media server setup some other day but lets see how to install Ubuntu on Android.</summary></entry><entry><title type="html">iOS Bootcamp Coach</title><link href="https://vinayjain.me/posts/ios-bootcamp" rel="alternate" type="text/html" title="iOS Bootcamp Coach" /><published>2019-09-18T06:39:25+05:30</published><updated>2019-09-18T06:39:25+05:30</updated><id>https://vinayjain.me/posts/iOS-bootcamp</id><content type="html" xml:base="https://vinayjain.me/posts/ios-bootcamp">&lt;p&gt;When I was in college I used to teach school students Mathematics and Physics, which still are my favorite subjects. I also presented a few tech related topics in my college to help my friends understand them better. I enjoy teaching, it’s fun and it is always a good learning exercise for me as well. It gives an entirely different perspective to learning and being on the other side makes me feel more confident of the things I already know. But after I graduated and started working in the software industry I didn’t get enough opportunities and couldn’t find time to do it. I attended tech meetups and thought of presenting a few topics but couldn’t, for me preparing a presentation was a herculean task that time.&lt;/p&gt;
 
 &lt;h3 id=&quot;opportunity-and-time&quot;&gt;Opportunity and Time&lt;/h3&gt;
 
@@ -958,71 +1120,4 @@ Accept a type which is a CustomTVC(UITableViewCell subclass)
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Output :&lt;/code&gt; &lt;u&gt;Underlined Text&lt;/u&gt;&lt;/p&gt;
 
-&lt;p&gt;You can put &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fontName&lt;/code&gt; of your choice for creating attributed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSStrings&lt;/code&gt;&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">As per the Apple Documentation, an NSAttributedString object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.</summary></entry><entry><title type="html">Move UITextField Up/Down with Keyboard</title><link href="https://vinayjain.me/posts/move-uitextfield-up-down-with-keyboard" rel="alternate" type="text/html" title="Move UITextField Up/Down with Keyboard" /><published>2015-05-26T04:54:55+05:30</published><updated>2015-05-26T04:54:55+05:30</updated><id>https://vinayjain.me/posts/move-uitextfield-up-down-with-keyboard</id><content type="html" xml:base="https://vinayjain.me/posts/move-uitextfield-up-down-with-keyboard">&lt;p&gt;One of the behaviors of iOS devices which I see as a limitation is that the default keyboard hides the views behind it. Hence the user cannot interact with the UIViews and Controls behind the keyboard. I found a great answer on &lt;a href=&quot;http://stackoverflow.com/a/26561723/2286267&quot;&gt;StackOverflow&lt;/a&gt; to solve this problem. However the code used in this answer moves every textField by the same amount. So even if you are editing a textField which does not get hidden behind the textField will still move up and may disappear out of the device screen upwards.&lt;/p&gt;
-
-&lt;p&gt;My solution to the problem is a small modification to the answer on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SO&lt;/code&gt;. Here I am sending an offset by which the textField has to be moved up and down with keyboard show/hide respectively. See the demo to better understand this.&lt;/p&gt;
-&lt;center&gt;
-&lt;iframe width=&quot;320&quot; height=&quot;590&quot; src=&quot;https://www.youtube.com/embed/ADLdPehMUYc&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;/center&gt;
-
-&lt;p&gt;&lt;strong&gt;Objective C Code&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;-(void)textFieldDidBeginEditing:(&lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt; *)textField{
-
-    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; animateTextField:textField up:&lt;span class=&quot;type&quot;&gt;YES&lt;/span&gt; withOffset:textField.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;origin&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;];
-}
-
--(void)textFieldDidEndEditing:(&lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt; *)textField{
-
-    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; animateTextField:textField up:&lt;span class=&quot;type&quot;&gt;NO&lt;/span&gt; withOffset:textField.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;origin&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;];
-
-}
--(&lt;span class=&quot;type&quot;&gt;BOOL&lt;/span&gt;)textFieldShouldReturn:(&lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt; *)textField{
-
-    [textField resignFirstResponder];
-    &lt;span class=&quot;keyword&quot;&gt;return true&lt;/span&gt;;
-}
-
--(void)animateTextField:(&lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt;*)textField up:(&lt;span class=&quot;type&quot;&gt;BOOL&lt;/span&gt;)up withOffset:(&lt;span class=&quot;type&quot;&gt;CGFloat&lt;/span&gt;)&lt;span class=&quot;call&quot;&gt;offset&lt;/span&gt;
-{
-    const int movementDistance = -offset;
-    const float movementDuration = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;.4f;
-    int movement = (up ? movementDistance : -movementDistance);
-    [&lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt; beginAnimations: &lt;span class=&quot;string&quot;&gt;@&quot;animateTextField&quot; context: nil];&lt;/span&gt;
-    [&lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt; setAnimationBeginsFromCurrentState: &lt;span class=&quot;type&quot;&gt;YES&lt;/span&gt;];
-    [&lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt; setAnimationDuration: movementDuration];
-    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;view&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRectOffset&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;view&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, movement);
-    [&lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt; commitAnimations];
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Swift Code&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; animateTextField(textField: &lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt;, up: &lt;span class=&quot;type&quot;&gt;Bool&lt;/span&gt;, withOffset offset:&lt;span class=&quot;type&quot;&gt;CGFloat&lt;/span&gt;)
-{
-    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; movementDistance : &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; = -&lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;(offset)
-    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; movementDuration : &lt;span class=&quot;type&quot;&gt;Double&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;0.4&lt;/span&gt;
-    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; movement : &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; = (up ? movementDistance : -movementDistance)
-    &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;beginAnimations&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;animateTextField&quot;&lt;/span&gt;, context: &lt;span class=&quot;keyword&quot;&gt;nil&lt;/span&gt;)
-    &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;setAnimationBeginsFromCurrentState&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;)
-    &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;setAnimationDuration&lt;/span&gt;(movementDuration)
-    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;view&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRectOffset&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;view&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;type&quot;&gt;CGFloat&lt;/span&gt;(movement))
-    &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;commitAnimations&lt;/span&gt;()
-}
-
-&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; textFieldDidBeginEditing(textField: &lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt;)
-{
-    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;animateTextField&lt;/span&gt;(textField, up: &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;, withOffset: textField.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;origin&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)
-}
-
-&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; textFieldDidEndEditing(textField: &lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt;)
-{
-    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;animateTextField&lt;/span&gt;(textField, up: &lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;, withOffset: textField.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;origin&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)
-}
-
-&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; textFieldShouldReturn(textField: &lt;span class=&quot;type&quot;&gt;UITextField&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Bool&lt;/span&gt;
-{
-    textField.&lt;span class=&quot;call&quot;&gt;resignFirstResponder&lt;/span&gt;()
-    &lt;span class=&quot;keyword&quot;&gt;return true&lt;/span&gt;
-}
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><category term="ios" /><category term="swift" /><category term="objc" /><summary type="html">One of the behaviors of iOS devices which I see as a limitation is that the default keyboard hides the views behind it. Hence the user cannot interact with the UIViews and Controls behind the keyboard. I found a great answer on StackOverflow to solve this problem. However the code used in this answer moves every textField by the same amount. So even if you are editing a textField which does not get hidden behind the textField will still move up and may disappear out of the device screen upwards.</summary></entry></feed>
+&lt;p&gt;You can put &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fontName&lt;/code&gt; of your choice for creating attributed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSStrings&lt;/code&gt;&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">As per the Apple Documentation, an NSAttributedString object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.</summary></entry></feed>

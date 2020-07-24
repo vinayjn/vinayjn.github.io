@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Running Ubuntu/Linux on Android | Vinay Jain</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Running Ubuntu/Linux on Android" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Phones have become very powerful these days. Its easy to find an Android phone under $200 that is capable of powering up a desktop computer with decent performance. I was thinking about setting up a media server in my home network so I can watch movies and TV shows on all devices, I was convinced to use a Raspberry Pie for this but then I thought what if I use my Android phone for the same, its much more capable than a pie and has a lot hardware capabilities that the pie doesn’t offer out of the box. So I set course and took out my old Android phone, did some hacking and got the media server working on it. Its a long process to setup the media server and the first step in getting their is to install Ubuntu or any other Linux distribution on the Android phone. I’ll talk about the media server setup some other day but lets see how to install Ubuntu on Android." />
+<meta property="og:description" content="Phones have become very powerful these days. Its easy to find an Android phone under $200 that is capable of powering up a desktop computer with decent performance. I was thinking about setting up a media server in my home network so I can watch movies and TV shows on all devices, I was convinced to use a Raspberry Pie for this but then I thought what if I use my Android phone for the same, its much more capable than a pie and has a lot hardware capabilities that the pie doesn’t offer out of the box. So I set course and took out my old Android phone, did some hacking and got the media server working on it. Its a long process to setup the media server and the first step in getting their is to install Ubuntu or any other Linux distribution on the Android phone. I’ll talk about the media server setup some other day but lets see how to install Ubuntu on Android." />
+<link rel="canonical" href="https://vinayjain.me/posts/linux-on-android" />
+<meta property="og:url" content="https://vinayjain.me/posts/linux-on-android" />
+<meta property="og:site_name" content="Vinay Jain" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-06-17T06:39:25+05:30" />
+<script type="application/ld+json">
+{"dateModified":"2020-06-17T06:39:25+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"https://vinayjain.me/posts/linux-on-android"},"url":"https://vinayjain.me/posts/linux-on-android","description":"Phones have become very powerful these days. Its easy to find an Android phone under $200 that is capable of powering up a desktop computer with decent performance. I was thinking about setting up a media server in my home network so I can watch movies and TV shows on all devices, I was convinced to use a Raspberry Pie for this but then I thought what if I use my Android phone for the same, its much more capable than a pie and has a lot hardware capabilities that the pie doesn’t offer out of the box. So I set course and took out my old Android phone, did some hacking and got the media server working on it. Its a long process to setup the media server and the first step in getting their is to install Ubuntu or any other Linux distribution on the Android phone. I’ll talk about the media server setup some other day but lets see how to install Ubuntu on Android.","headline":"Running Ubuntu/Linux on Android","datePublished":"2020-06-17T06:39:25+05:30","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://vinayjain.me/feed.xml" title="Vinay Jain" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Vinay Jain</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/bookshelf/">Bookshelf</a><a class="page-link" href="/usesthis/">Uses This</a><a class="page-link" target="_blank" href="https://travel.vinayjain.me">Travel log</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Running Ubuntu/Linux on Android</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2020-06-17T06:39:25+05:30" itemprop="datePublished">
+        Jun 17, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Phones have become very powerful these days. Its easy to find an Android phone under $200 that is capable of powering up a desktop computer with decent performance. I was thinking about setting up a media server in my home network so I can watch movies and TV shows on all devices, I was convinced to use a Raspberry Pie for this but then I thought what if I use my Android phone for the same, its much more capable than a pie and has a lot hardware capabilities that the pie doesn’t offer out of the box. So I set course and took out my old Android phone, did some hacking and got the media server working on it. Its a long process to setup the media server and the first step in getting their is to install Ubuntu or any other Linux distribution on the Android phone. I’ll talk about the media server setup some other day but lets see how to install Ubuntu on Android.</p>
+
+<h4 id="getting-the-device-ready">Getting the device ready</h4>
+
+<p>Most of the people I know have at least one abandoned Android phone. Though its completely fine to do, I don’t recommend using your primary phone to follow this post as it would end your phone’s warranty. If you are willing to take the risk you can still follow. First, make sure you have the following items checked:</p>
+
+<ul>
+  <li>A phone running Android 7+ with root access</li>
+  <li>Basic knowledge of Linux and ssh</li>
+  <li>Internet connection</li>
+</ul>
+
+<p>I have tested this approach on the following configurations</p>
+
+<ul>
+  <li>Xiaomi Redmi Note 5 Pro, running Lineage OS 17.1(Android 10), Qualcomm SDM636 Snapdragon 636 arm64 processor</li>
+  <li>Xiaomi Redmi 1s, running Lineage OS 14.1(Android 7.1.2) Qualcomm MSM8228 Snapdragon 400 ARM processor</li>
+</ul>
+
+<h4 id="configuration">Configuration</h4>
+
+<p>Linux Deploy is an app that makes this process easy, go ahead and install the app from <a href="https://play.google.com/store/apps/details?id=ru.meefik.linuxdeploy">Google Play Store</a>. You will need root access enabled on your device to get it working. The app greets you with a screen like in the screenshot below, please not that I am currently using version 2.6.0 it might differ if you use another app version.</p>
+
+<div class="align-center">
+<img height="100%" width="100%" src="/images/linux/Linux_Deploy_1.jpg" />
+</div>
+
+<p>The instructions are pretty straight-forward and needs no explanation. Tap on the little settings button at the bottom right and you’ll see a screen as shown below, you can follow the configuration you see here or you can change according to your preference. One important thing to choose is the architecture, in the screenshot you see <code class="language-plaintext highlighter-rouge">arm64</code> which is same as the android phone’s CPU architecture. Its fine to use other architectures as well but I recommend choosing the one which is most compatible with the software you are going to install in the future. The media server I wanted to install works well with the <code class="language-plaintext highlighter-rouge">arm64</code>. Also, if you don’t know the CPU architecture of your phone you can install CPU-Z from the play store.</p>
+
+<div class="align-center">
+<img height="100%" width="100%" src="/images/linux/Linux_Deploy_2.png" />
+</div>
+
+<div class="align-center">
+<img height="100%" width="100%" src="/images/linux/Linux_Deploy_3.png" />
+</div>
+
+<div class="align-center">
+<img height="100%" width="100%" src="/images/linux/Linux_Deploy_4.png" />
+</div>
+
+<div class="align-center">
+<img height="100%" width="100%" src="/images/linux/Linux_Deploy_5.png" />
+</div>
+
+<p>More about configuration:</p>
+
+<ul>
+  <li>Image Size - Consider this as the partition size for your Linux installation.</li>
+  <li>Username &amp; Password - Use anything, we will use it to login with ssh</li>
+  <li>Privileged Users - Additional custom permissions for the user</li>
+  <li>Mount points - Use it to mount your internal or external sdcard to use in Ubuntu, more on this later</li>
+  <li>SSH - Enable this, we want to access this system inside our home network with ssh.</li>
+  <li>Audio - We don’t need it for our usecase</li>
+  <li>GUI - Since most of the time we will be accessing it through SSH I have skipped the GUI part. If you need GUI then you can setup a VNC viewer and configure it easily.</li>
+</ul>
+
+<p>This is all the configuration that we need for now. Tap on the three dots on the top right and select <code class="language-plaintext highlighter-rouge">Install</code>, the app will be downloading the entire linux image based on our configuration. Depending on your internet speed, if everything went well, you should see a screen as shown below. Now tap on the <code class="language-plaintext highlighter-rouge">Start</code> button on the bottom left. The app will validate the configuration and start all the services of the Linux distribution. The result is a fully functional linux operating system just like we have on a desktop computer.</p>
+
+<div class="align-center">
+<img height="100%" width="100%" src="/images/linux/Linux_Deploy_6.png" />
+</div>
+
+<div class="align-center">
+<img height="100%" width="100%" src="/images/linux/Linux_Deploy_7.png" />
+</div>
+
+<p>At this point we can access this system using ssh. The IP is shown at the top, for me its <code class="language-plaintext highlighter-rouge">192.168.0.137</code>, it might be different for you. From a computer in the same network, you can use the below commands in any shell to login and when it asks for the password just use the password you entered during the configuration, if you forgot your password you can get it by tapping on the settings button on the bottom right.</p>
+
+<pre class="splash"><code>ssh &lt;username&gt;<span class="keyword">@</span>&lt;<span class="type">IP</span>&gt;
+
+<span class="comment">// if your user name is android and IP is 192.168.0.137, use:</span>
+ssh android@192.<span class="number">168.0.137</span>
+
+<span class="comment">// Type yes when it asks you to continue connecting to the host
+// and enter your password when it asks for it</span>
+</code></pre>
+
+<p>You are now logged-in to the system and can perform any operations as you want. If you want to avoid entering your password when you login, you can put the public ssh key of your computer in the <code class="language-plaintext highlighter-rouge">~/.ssh/authorized_keys</code> file. If its not there you’ll have to create it, you can easily find articles on the web if you don’t know how to do it.</p>
+
+<div class="align-center">
+<img height="100%" width="100%" src="/images/linux/Linux_Deploy_8.png" />
+</div>
+
+<h4 id="mounting-internal-and-external-sdcard">Mounting internal and external sdcard</h4>
+
+<p>If you are not able to access the phone’s internal storage in the linux file system you will have to map the mount path of the storage in Android file system to a mount point in linux file system. To do this you have to find where is the sdcard mounted in the Android, there are two ways, one with <code class="language-plaintext highlighter-rouge">adb</code> and other by <code class="language-plaintext highlighter-rouge">installing any file manager app</code>. I am going to tell you the <code class="language-plaintext highlighter-rouge">adb</code> way because I don’t want to install any other app for a small usecase. Connect your phone to your computer, make sure USB debugging is enabled, from the terminal execute the following commands</p>
+
+<pre class="splash"><code>➜  ~ adb devices
+<span class="type">List</span> of devices attached
+f4936abb	device
+
+➜  ~ adb shell
+whyred:/ $ df
+<span class="type">Filesystem</span>               1K-blocks    <span class="type">Used Available Use</span>% <span class="type">Mounted</span> on
+tmpfs                      <span class="number">2917628    1020   2916608   1</span>% /dev
+tmpfs                      <span class="number">2917628       0   2917628   0</span>% /mnt
+tmpfs                      <span class="number">2917628       0   2917628   0</span>% /apex
+/dev/block/mmcblk0p61      <span class="number">3096336 1637424   1442528  54</span>% /
+/dev/block/mmcblk0p62       <span class="number">806288  414160    375744  53</span>% /vendor
+tmpfs                      <span class="number">2917628    6432   2911196   1</span>% /sbin
+/dev/block/mmcblk0p48        <span class="number">12016    7480      4212  64</span>% /vendor/dsp
+/dev/block/mmcblk0p60       <span class="number">237536     212    229464   1</span>% /cache
+/sbin/.<span class="property">magisk</span>/block/data  <span class="number">52885008 8501436  44236116  17</span>% /sbin/.<span class="property">magisk</span>/modules
+/data/media               <span class="number">52885008 8501436  44236116  17</span>% /storage/emulated
+whyred:/ $
+</code></pre>
+
+<p>As you can guess by the size of the partition, the internal storage in my device is mounted on <code class="language-plaintext highlighter-rouge">/storage/emulated</code>.</p>
+
+<p>Now just create a mount path in linux file system for this path. Open the Linux Deploy app on your phone, stop the container if its running. Go to the mount points settings and tap on the plus button on the top right.</p>
+
+<div class="align-center">
+<img height="100%" width="100%" src="/images/linux/Linux_Deploy_10.png" />
+</div>
+
+<p>The Android path <code class="language-plaintext highlighter-rouge">/storage/emulated</code> goes in the <code class="language-plaintext highlighter-rouge">Source</code> field and the linux path goes in the <code class="language-plaintext highlighter-rouge">Target</code>. Tap on <code class="language-plaintext highlighter-rouge">OK</code> and start the container again, login to the system and see if you can access the sdcard. You will probably see <code class="language-plaintext highlighter-rouge">Permission Denied</code> error when you try to access the folder, its because the user is not part of the <code class="language-plaintext highlighter-rouge">root</code> or <code class="language-plaintext highlighter-rouge">aid_everybody</code> groups you can check that by the command</p>
+
+<pre class="splash"><code>$ ls -l
+total <span class="number">8</span>
+drwx--x--x. <span class="number">3</span> root aid_everybody <span class="number">4096</span> <span class="type">Jul</span> <span class="number">17 21</span>:<span class="number">00</span> sdcard
+
+$ groups android
+android : android aid_graphics aid_sdcard_rw aid_inet 
+</code></pre>
+
+<p>We can fix that by adding the linux user(android in my case) to the <code class="language-plaintext highlighter-rouge">aid_everybody</code> group. Use the command below to do this, you will have to logout and then login again to let this change take effect.</p>
+
+<pre class="splash"><code>$ sudo usermod -a -<span class="type">G</span> aid_everybody android
+$ exit
+<span class="type">Connection</span> to <span class="number">192.168.0.137</span> closed.
+
+<span class="comment">// Login again and check</span>
+$ cd sdcard
+$ ls
+<span class="number">0</span>
+$ ls -l <span class="number">0</span>
+total <span class="number">1623408</span>
+drwxrwx---. <span class="number">2</span> root aid_everybody       <span class="number">4096</span> <span class="type">Jun</span> <span class="number">17 09</span>:<span class="number">02</span> <span class="type">Alarms</span>
+drwxrwx---. <span class="number">4</span> root aid_everybody       <span class="number">4096</span> <span class="type">Jun</span> <span class="number">17 09</span>:<span class="number">02</span> <span class="type">Android</span>
+drwxrwx---. <span class="number">3</span> root aid_everybody       <span class="number">4096</span> <span class="type">Jun</span> <span class="number">19 10</span>:<span class="number">33</span> <span class="type">DCIM</span>
+drwxrwx---. <span class="number">2</span> root aid_everybody       <span class="number">4096</span> <span class="type">Jun</span> <span class="number">17 13</span>:<span class="number">26</span> <span class="type">Documents</span>
+drwxrwx---. <span class="number">4</span> root aid_everybody       <span class="number">4096</span> <span class="type">Jul</span> <span class="number">18 08</span>:<span class="number">36</span> <span class="type">Download</span>
+-rw-rw----. <span class="number">1</span> root aid_everybody <span class="number">8589934592</span> <span class="type">Jul</span> <span class="number">24 19</span>:<span class="number">57</span> linux.<span class="property">img</span>
+drwxrwx---. <span class="number">3</span> root aid_everybody       <span class="number">4096</span> <span class="type">Jun</span> <span class="number">17 13</span>:<span class="number">25</span> <span class="type">Movies</span>
+drwxrwx---. <span class="number">2</span> root aid_everybody       <span class="number">4096</span> <span class="type">Jun</span> <span class="number">17 09</span>:<span class="number">02</span> <span class="type">Music</span>
+drwxrwx---. <span class="number">2</span> root aid_everybody       <span class="number">4096</span> <span class="type">Jun</span> <span class="number">17 09</span>:<span class="number">02</span> <span class="type">Notifications</span>
+drwxrwx---. <span class="number">5</span> root aid_everybody       <span class="number">4096</span> <span class="type">Jul</span> <span class="number">15 18</span>:<span class="number">14</span> <span class="type">Pictures</span>
+drwxrwx---. <span class="number">2</span> root aid_everybody       <span class="number">4096</span> <span class="type">Jun</span> <span class="number">17 09</span>:<span class="number">02</span> <span class="type">Podcasts</span>
+drwxrwx---. <span class="number">2</span> root aid_everybody       <span class="number">4096</span> <span class="type">Jun</span> <span class="number">17 09</span>:<span class="number">02</span> <span class="type">Ringtones</span>
+drwxrwx---. <span class="number">2</span> root aid_everybody       <span class="number">4096</span> <span class="type">Jun</span> <span class="number">17 09</span>:<span class="number">51</span> <span class="type">Shows</span>
+</code></pre>
+
+<p>If you are also running Android 10, due to strict permissions of the OS, Linux Deploy will not be able to access the external sdcard. I have tried a few ways of mounting it but I couldn’t succeed. If you manage to mount the external sdcard please let me know in the comments.</p>
+
+<p>Okay, that’s all folks, if you reached here you have a fully functional linux machine. This was a long process, but we are just getting started, there’s a lot more we can achieve with it. In the future posts I will be telling you how you can extend this</p>
+
+<ul>
+  <li>As an ad-block proxy server for your home network with Pi-Hole.</li>
+  <li>A media server to stream your favorite movies and TV Shows with Plex.</li>
+</ul>
+
+<p>If you have more ideas in mind please let me know. :)</p>
+
+  </div><div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'https://vinayjain.me/posts/linux-on-android';
+      this.page.identifier = 'https://vinayjain.me/posts/linux-on-android';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      s.src = 'https://koderme.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/posts/linux-on-android" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/vinayjn" title="vinayjn"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/vinayjn" title="vinayjn"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/vinayjn7" title="vinayjn7"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

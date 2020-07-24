@@ -318,7 +318,7 @@ table td { border: 1px solid #e7e7e7; }
 
 .pagination li div.pager-edge { color: #e7e7e7; border: 1px dashed; }
 
-.align-center { display: flex; justify-content: center; }
+.align-center { display: flex; justify-content: center; margin: 16px 0 16px 0; }
 
 /** Grid helpers */
 @media screen and (min-width: 800px) { .one-half { width: calc(50% - (30px / 2)); } }
