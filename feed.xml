@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2020-07-24T20:51:17+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><entry><title type="html">Running Ubuntu/Linux on Android</title><link href="https://vinayjain.me/posts/linux-on-android" rel="alternate" type="text/html" title="Running Ubuntu/Linux on Android" /><published>2020-06-17T06:39:25+05:30</published><updated>2020-06-17T06:39:25+05:30</updated><id>https://vinayjain.me/posts/linux-on-android</id><content type="html" xml:base="https://vinayjain.me/posts/linux-on-android">&lt;p&gt;Phones have become very powerful these days. Its easy to find an Android phone under $200 that is capable of powering up a desktop computer with decent performance. I was thinking about setting up a media server in my home network so I can watch movies and TV shows on all devices, I was convinced to use a Raspberry Pie for this but then I thought what if I use my Android phone for the same, its much more capable than a pie and has a lot hardware capabilities that the pie doesn’t offer out of the box. So I set course and took out my old Android phone, did some hacking and got the media server working on it. Its a long process to setup the media server and the first step in getting their is to install Ubuntu or any other Linux distribution on the Android phone. I’ll talk about the media server setup some other day but lets see how to install Ubuntu on Android.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2020-10-03T21:40:35+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><entry><title type="html">Univeral Pasteboard iOS, macOS, Android</title><link href="https://vinayjain.me/posts/shared-pasteboard" rel="alternate" type="text/html" title="Univeral Pasteboard iOS, macOS, Android" /><published>2020-10-03T06:39:25+05:30</published><updated>2020-10-03T06:39:25+05:30</updated><id>https://vinayjain.me/posts/shared-pasteboard</id><content type="html" xml:base="https://vinayjain.me/posts/shared-pasteboard">&lt;p&gt;Do you recall the times when you had to touch-type a long website address on your phone’s baby keyboard and wished to copy it from your computer and continue browsing just by pasting the URL in the address bar? Such a painful and frustrating user-experience. I’ve been doing this for a long time, some people might still be doing this but things have changed on the iOS/macOS side and partially on the Android side and the number of WTFs/day have drastically reduced. With some coding, I can further reduce them down, let’s see.&lt;/p&gt;
+
+&lt;p&gt;Apple knew this was a problem so they fixed it with Handoff &amp;amp; Continuity. The iPhone and the Mac are my primary devices but I also like using my Android phone, it has a long list of benefits. I am frequently switching devices for their specific features and use-cases, for all the software tinkering I pick my Android device, for example, I am running a &lt;a href=&quot;https://vinayjain.me/posts/linux-on-android&quot;&gt;Linux image on my Android&lt;/a&gt; phone and on top of it I have setup pi-hole and this pi-hole server is set up as a proxy on my router to block ads and social media trackers on all devices in my home network. This hacking can’t be done on iOS because of the securely closed system. I miss some features of the Apple ecosystem when I am on Android, one such feature is Handoff and Continuity. More specifically, the universal pasteboard, the functionality of copying something on one device and pasting on another, really cool! This seems like a very small feature and indeed it is, but its impact on the user experience is huge. My life will be simpler if I can share pasteboard across all my devices including Android.&lt;/p&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/hashtag/WeekendProject?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#WeekendProject&lt;/a&gt; One of the many advantages of being in the Apple ecosystem is Handoff between apps specifically the shared pasteboard. It&amp;#39;ll be great if it can be shared with Android as well.&lt;/p&gt;&amp;mdash; Vinay Jain (@vinayjn7) &lt;a href=&quot;https://twitter.com/vinayjn7/status/1271058739131330561?ref_src=twsrc%5Etfw&quot;&gt;June 11, 2020&lt;/a&gt;&lt;/blockquote&gt; 
+&lt;/div&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;lets-build-this&quot;&gt;Lets build this&lt;/h2&gt;
+
+&lt;p&gt;This implementation triggered as an idea in the evening and I rushed to Twitter to post it for validation. From the top it looks like a really complex system to build, and if I go on to implement the full functionality of Handoff and Continuity, it is indeed a difficult software to build. But when given a thought, what I need is a small subset of Apple’s implementation, the universal pasteboard. To build it, I need to know how Apple did it and what is the tech behind. With some little research, I got to know about BluetoothLE.&lt;/p&gt;
+
+&lt;h2 id=&quot;bluetoothle&quot;&gt;BluetoothLE&lt;/h2&gt;
+
+&lt;p&gt;Handoff &amp;amp; Continuity uses &lt;a href=&quot;https://www.bluetooth.com&quot;&gt;BluetoothLE&lt;/a&gt; (bluetooth low energy), a technology that helps nearby devices to communicate using significantly small data packets and low energy. The Bluetooth specification prefers to call the communicating devices as the Central and the Peripheral but in general terms its a client-server communication. The peripheral advertises one or more services &amp;amp; characteristics, which can be found by the centrals with a Bluetooth scan. A central connects to a peripheral with a pairing process which may or may not require authentication.&lt;/p&gt;
+
+&lt;p&gt;The serivces and characteristics are important to understand because that is the only way the central can find a peripheral and send data to it. The central will write data on the characteristics which were advertised by the peripherals.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-gatt-server&quot;&gt;The GATT server&lt;/h3&gt;
+
+&lt;p&gt;Advertisement of a service is totally different from data transfer. After pairing, the central is authorised to send data to the peripheral without permission. As the central is writing data to a characteristic, the peripheral needs to know how to handle this data. This can be done by setting up a GATT server on the peripheral. The server knows who is writing data on a particular characteristic and exposes certain methods to handle this data transfer. Our shared pasteboard implementaton relies on the GATT server.&lt;/p&gt;
+
+&lt;h2 id=&quot;practicality&quot;&gt;Practicality&lt;/h2&gt;
+
+&lt;p&gt;For this case, I am interested in getting pasteboard data from Mac to Android. I want my Android device to be discovered by a nearby Mac, you might think that turning on Bluetooth and pairing Android &amp;amp; Mac would do that. Not completely, because Android is advertising the services it supports like file sharing, Bluetooth tethering etc. Luckily, I can use the standard Bluetooth pairing process of Android and don’t have to write any code for the authentication flow. By the time of writing this post, I couldn’t find any advertised services/characteristics that could potentially link to the Android pasteboard. Unfortunately/fortunately, I had to write all the code for advertisement, services and characteristics, GATT server and for the system pasteboard manipulation. This was just the part on Android side, I still need to write code that will send data to Android. Right! the central code on Mac.&lt;/p&gt;
+
+&lt;h3 id=&quot;pasteboard-events&quot;&gt;Pasteboard Events&lt;/h3&gt;
+
+&lt;p&gt;Anytime I hit Cmd+C on the Mac I need to send the selected data to Android. I initially thought that there must be an event(NSNotification) fired as soon as the pasteboard contents are updated, unfortunately this isn’t the case.&lt;/p&gt;
+
+&lt;p&gt;In computer science there are two ways to get updates from a system:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You(subscriber) subscribe to the updates on a system(publisher), and get notified for each change.&lt;/li&gt;
+  &lt;li&gt;You keep polling a system on regular time intervals and compare its latest value with the value you currently have. If it doesn’t match that means the system has a new value.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As I mentioned, I won’t be able to use the publisher-subscriber model(the optimal approach) here, I had to turn my head towards polling. And like most of times I was able to find a solution with a little help from GitHub, thanks to &lt;a href=&quot;https://gist.github.com/Daemon-Devarshi/13efd24f027a775ee862&quot;&gt;Daemon-Devarshi&lt;/a&gt; for their clean Swift implementation. Polling the pasteboard works because the amount of data transferred in polling isn’t that much and I can just ignore the battery related issues for now.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-central&quot;&gt;The Central&lt;/h3&gt;
+
+&lt;p&gt;Since I already have the pasteboard updates, writing rest of the central code is relatively easy. Apart from the pasteboard code, the central has the following responsibilities:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Keep running in background&lt;/li&gt;
+  &lt;li&gt;Connect to the Android phone when pasteboard changes&lt;/li&gt;
+  &lt;li&gt;Send data to the connected Android phone&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;With some help from &lt;a href=&quot;https://developer.apple.com/documentation/corebluetooth&quot;&gt;Core Bluetooth&lt;/a&gt;, it took me a little time to write a macOS script that does all that. Just because I did the custom implementation of services and characteristics the central’s code can further be optimised to scan only for the specific services and characteristics I need. And with this it’s done, I have a working solution for a shared pasteboard between all my devices.&lt;/p&gt;
+
+&lt;p&gt;I’ll probably be pushing all this code on &lt;a href=&quot;https://www.github.com/vinayjn&quot;&gt;GitHub&lt;/a&gt; after I refactor and clean it but I am not sure when. If you are still interested in looking into it let me know and I’ll speed up the process or may be send it to you directly over email.&lt;/p&gt;</content><author><name></name></author><category term="hacking" /><summary type="html">Do you recall the times when you had to touch-type a long website address on your phone’s baby keyboard and wished to copy it from your computer and continue browsing just by pasting the URL in the address bar? Such a painful and frustrating user-experience. I’ve been doing this for a long time, some people might still be doing this but things have changed on the iOS/macOS side and partially on the Android side and the number of WTFs/day have drastically reduced. With some coding, I can further reduce them down, let’s see.</summary></entry><entry><title type="html">Running Ubuntu/Linux on Android</title><link href="https://vinayjain.me/posts/linux-on-android" rel="alternate" type="text/html" title="Running Ubuntu/Linux on Android" /><published>2020-06-17T06:39:25+05:30</published><updated>2020-06-17T06:39:25+05:30</updated><id>https://vinayjain.me/posts/linux-on-android</id><content type="html" xml:base="https://vinayjain.me/posts/linux-on-android">&lt;p&gt;Phones have become very powerful these days. Its easy to find an Android phone under $200 that is capable of powering up a desktop computer with decent performance. I was thinking about setting up a media server in my home network so I can watch movies and TV shows on all devices, I was convinced to use a Raspberry Pie for this but then I thought what if I use my Android phone for the same, its much more capable than a pie and has a lot hardware capabilities that the pie doesn’t offer out of the box. So I set course and took out my old Android phone, did some hacking and got the media server working on it. Its a long process to setup the media server and the first step in getting their is to install Ubuntu or any other Linux distribution on the Android phone. I’ll talk about the media server setup some other day but lets see how to install Ubuntu on Android.&lt;/p&gt;
 
 &lt;h4 id=&quot;getting-the-device-ready&quot;&gt;Getting the device ready&lt;/h4&gt;
 
@@ -1043,81 +1095,4 @@ Accept a type which is a CustomTVC(UITableViewCell subclass)
         &lt;span class=&quot;call&quot;&gt;codeBlock&lt;/span&gt;()
     }
 }
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><category term="ios" /><category term="swift" /><category term="objc" /><summary type="html">Objective C inherits the capabilities and features of C so you can write C like directives or preprocessors and the Objective C compiler(LLVM) won’t complain.</summary></entry><entry><title type="html">Using NSAttributedString</title><link href="https://vinayjain.me/posts/how-to-use-nsattributedstring" rel="alternate" type="text/html" title="Using NSAttributedString" /><published>2015-06-03T04:54:55+05:30</published><updated>2015-06-03T04:54:55+05:30</updated><id>https://vinayjain.me/posts/how-to-use-NSAttributedString</id><content type="html" xml:base="https://vinayjain.me/posts/how-to-use-nsattributedstring">&lt;p&gt;As per the &lt;a href=&quot;https://developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSAttributedString_Class/index.html&quot;&gt;Apple Documentation&lt;/a&gt;, an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSAttributedString&lt;/code&gt; object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.&lt;/p&gt;
-
-&lt;p&gt;In short, &lt;em&gt;an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSAttributedString&lt;/code&gt; allows you to apply styles on the text&lt;/em&gt;. As of the latest iOS sdk (8.0), you can apply the following attributes to an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSString&lt;/code&gt; object.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;NSFontAttributeName&lt;/li&gt;
-  &lt;li&gt;NSParagraphStyleAttributeName&lt;/li&gt;
-  &lt;li&gt;NSForegroundColorAttributeName&lt;/li&gt;
-  &lt;li&gt;NSBackgroundColorAttributeName&lt;/li&gt;
-  &lt;li&gt;NSLigatureAttributeName&lt;/li&gt;
-  &lt;li&gt;NSKernAttributeName&lt;/li&gt;
-  &lt;li&gt;NSStrikethroughStyleAttributeName&lt;/li&gt;
-  &lt;li&gt;NSUnderlineStyleAttributeName&lt;/li&gt;
-  &lt;li&gt;NSStrokeColorAttributeName&lt;/li&gt;
-  &lt;li&gt;NSStrokeWidthAttributeName&lt;/li&gt;
-  &lt;li&gt;NSShadowAttributeName&lt;/li&gt;
-  &lt;li&gt;NSTextEffectAttributeName&lt;/li&gt;
-  &lt;li&gt;NSAttachmentAttributeName&lt;/li&gt;
-  &lt;li&gt;NSLinkAttributeName&lt;/li&gt;
-  &lt;li&gt;NSBaselineOffsetAttributeName&lt;/li&gt;
-  &lt;li&gt;NSUnderlineColorAttributeName&lt;/li&gt;
-  &lt;li&gt;NSStrikethroughColorAttributeName&lt;/li&gt;
-  &lt;li&gt;NSObliquenessAttributeName&lt;/li&gt;
-  &lt;li&gt;NSExpansionAttributeName&lt;/li&gt;
-  &lt;li&gt;NSWritingDirectionAttributeName&lt;/li&gt;
-  &lt;li&gt;NSVerticalGlyphFormAttributeName&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Lets look at the most used attributes :
- &lt;/p&gt;
-
-&lt;h4 id=&quot;nsfontattributename&quot;&gt;&lt;strong&gt;NSFontAttributeName&lt;/strong&gt;&lt;/h4&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;NSDictionary&lt;/span&gt; *attributes = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;{ &lt;span class=&quot;type&quot;&gt;NSFontAttributeName&lt;/span&gt; : [&lt;span class=&quot;type&quot;&gt;UIFont&lt;/span&gt; fontWithName:&lt;span class=&quot;keyword&quot;&gt;@&quot;HelveticaNeue&lt;/span&gt;-&lt;span class=&quot;string&quot;&gt;Italic&quot; size:30.0] };&lt;/span&gt;
-
-&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; *attributedString = [[&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:&lt;span class=&quot;keyword&quot;&gt;@&quot;Italic&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;Text&quot; attributes:attributes];&lt;/span&gt;
-
-&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedLabel&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedText&lt;/span&gt; = attributedString;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Output :&lt;/code&gt; &lt;em&gt;Italic Text&lt;/em&gt;&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;NSDictionary&lt;/span&gt; *attributes = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;{ &lt;span class=&quot;type&quot;&gt;NSFontAttributeName&lt;/span&gt; : [&lt;span class=&quot;type&quot;&gt;UIFont&lt;/span&gt; fontWithName:&lt;span class=&quot;keyword&quot;&gt;@&quot;HelveticaNeue&lt;/span&gt;-&lt;span class=&quot;string&quot;&gt;Bold&quot; size:30.0] };&lt;/span&gt;
-
-&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; *attributedString = [[&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:&lt;span class=&quot;keyword&quot;&gt;@&quot;Bold&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;Text&quot; attributes:attributes];&lt;/span&gt;
-
-&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedLabel&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedText&lt;/span&gt; = attributedString;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Output :&lt;/code&gt; &lt;strong&gt;Bold Text&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt; &lt;/p&gt;
-
-&lt;h4 id=&quot;nsforegroundcolorattributename&quot;&gt;&lt;strong&gt;NSForegroundColorAttributeName&lt;/strong&gt;&lt;/h4&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;NSDictionary&lt;/span&gt; *attributes = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;{ &lt;span class=&quot;type&quot;&gt;NSForegroundColorAttributeName&lt;/span&gt; : [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; blueColor] };
-
-&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; *attributedString = [[&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:&lt;span class=&quot;keyword&quot;&gt;@&quot;Blue&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;Text&quot; attributes:attributes];&lt;/span&gt;
-
-&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedLabel&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedText&lt;/span&gt; = attributedString;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Output :&lt;/code&gt; &lt;span style=&quot;color:blue&quot;&gt;I am blue colored&lt;/span&gt;&lt;/p&gt;
-
-&lt;p&gt; &lt;/p&gt;
-
-&lt;h4 id=&quot;nsunderlinestyleattributename&quot;&gt;&lt;strong&gt;NSUnderlineStyleAttributeName&lt;/strong&gt;&lt;/h4&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;NSDictionary&lt;/span&gt; *attributes = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;{ &lt;span class=&quot;type&quot;&gt;NSUnderlineStyleAttributeName&lt;/span&gt; : &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;NSUnderlineStyleSingle&lt;/span&gt;) };
-
-&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; *attributedString = [[&lt;span class=&quot;type&quot;&gt;NSAttributedString&lt;/span&gt; alloc] initWithString:&lt;span class=&quot;keyword&quot;&gt;@&quot;Underlined&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;Text&quot; attributes:attributes];&lt;/span&gt;
-
-&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;label&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;attributedText&lt;/span&gt; = attributedString;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Output :&lt;/code&gt; &lt;u&gt;Underlined Text&lt;/u&gt;&lt;/p&gt;
-
-&lt;p&gt;You can put &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fontName&lt;/code&gt; of your choice for creating attributed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSStrings&lt;/code&gt;&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">As per the Apple Documentation, an NSAttributedString object manages character strings and associated sets of attributes (for example, font and kerning) that apply to individual characters or ranges of characters in the string. An association of characters and their attributes is called an attributed string.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><category term="ios" /><category term="swift" /><category term="objc" /><summary type="html">Objective C inherits the capabilities and features of C so you can write C like directives or preprocessors and the Objective C compiler(LLVM) won’t complain.</summary></entry></feed>

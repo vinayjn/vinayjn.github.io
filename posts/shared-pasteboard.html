@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Univeral Pasteboard iOS, macOS, Android | Vinay Jain</title>
+<meta name="generator" content="Jekyll v4.1.0" />
+<meta property="og:title" content="Univeral Pasteboard iOS, macOS, Android" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Do you recall the times when you had to touch-type a long website address on your phone’s baby keyboard and wished to copy it from your computer and continue browsing just by pasting the URL in the address bar? Such a painful and frustrating user-experience. I’ve been doing this for a long time, some people might still be doing this but things have changed on the iOS/macOS side and partially on the Android side and the number of WTFs/day have drastically reduced. With some coding, I can further reduce them down, let’s see." />
+<meta property="og:description" content="Do you recall the times when you had to touch-type a long website address on your phone’s baby keyboard and wished to copy it from your computer and continue browsing just by pasting the URL in the address bar? Such a painful and frustrating user-experience. I’ve been doing this for a long time, some people might still be doing this but things have changed on the iOS/macOS side and partially on the Android side and the number of WTFs/day have drastically reduced. With some coding, I can further reduce them down, let’s see." />
+<link rel="canonical" href="https://vinayjain.me/posts/shared-pasteboard" />
+<meta property="og:url" content="https://vinayjain.me/posts/shared-pasteboard" />
+<meta property="og:site_name" content="Vinay Jain" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-10-03T06:39:25+05:30" />
+<script type="application/ld+json">
+{"dateModified":"2020-10-03T06:39:25+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"https://vinayjain.me/posts/shared-pasteboard"},"url":"https://vinayjain.me/posts/shared-pasteboard","description":"Do you recall the times when you had to touch-type a long website address on your phone’s baby keyboard and wished to copy it from your computer and continue browsing just by pasting the URL in the address bar? Such a painful and frustrating user-experience. I’ve been doing this for a long time, some people might still be doing this but things have changed on the iOS/macOS side and partially on the Android side and the number of WTFs/day have drastically reduced. With some coding, I can further reduce them down, let’s see.","headline":"Univeral Pasteboard iOS, macOS, Android","datePublished":"2020-10-03T06:39:25+05:30","@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://vinayjain.me/feed.xml" title="Vinay Jain" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Vinay Jain</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/bookshelf/">Bookshelf</a><a class="page-link" href="/usesthis/">Uses This</a><a class="page-link" target="_blank" href="https://travel.vinayjain.me">Travel log</a>
+        </div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Univeral Pasteboard iOS, macOS, Android</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2020-10-03T06:39:25+05:30" itemprop="datePublished">
+        Oct 3, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Do you recall the times when you had to touch-type a long website address on your phone’s baby keyboard and wished to copy it from your computer and continue browsing just by pasting the URL in the address bar? Such a painful and frustrating user-experience. I’ve been doing this for a long time, some people might still be doing this but things have changed on the iOS/macOS side and partially on the Android side and the number of WTFs/day have drastically reduced. With some coding, I can further reduce them down, let’s see.</p>
+
+<p>Apple knew this was a problem so they fixed it with Handoff &amp; Continuity. The iPhone and the Mac are my primary devices but I also like using my Android phone, it has a long list of benefits. I am frequently switching devices for their specific features and use-cases, for all the software tinkering I pick my Android device, for example, I am running a <a href="https://vinayjain.me/posts/linux-on-android">Linux image on my Android</a> phone and on top of it I have setup pi-hole and this pi-hole server is set up as a proxy on my router to block ads and social media trackers on all devices in my home network. This hacking can’t be done on iOS because of the securely closed system. I miss some features of the Apple ecosystem when I am on Android, one such feature is Handoff and Continuity. More specifically, the universal pasteboard, the functionality of copying something on one device and pasting on another, really cool! This seems like a very small feature and indeed it is, but its impact on the user experience is huge. My life will be simpler if I can share pasteboard across all my devices including Android.</p>
+
+<div class="align-center">
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/WeekendProject?src=hash&amp;ref_src=twsrc%5Etfw">#WeekendProject</a> One of the many advantages of being in the Apple ecosystem is Handoff between apps specifically the shared pasteboard. It&#39;ll be great if it can be shared with Android as well.</p>&mdash; Vinay Jain (@vinayjn7) <a href="https://twitter.com/vinayjn7/status/1271058739131330561?ref_src=twsrc%5Etfw">June 11, 2020</a></blockquote> 
+</div>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h2 id="lets-build-this">Lets build this</h2>
+
+<p>This implementation triggered as an idea in the evening and I rushed to Twitter to post it for validation. From the top it looks like a really complex system to build, and if I go on to implement the full functionality of Handoff and Continuity, it is indeed a difficult software to build. But when given a thought, what I need is a small subset of Apple’s implementation, the universal pasteboard. To build it, I need to know how Apple did it and what is the tech behind. With some little research, I got to know about BluetoothLE.</p>
+
+<h2 id="bluetoothle">BluetoothLE</h2>
+
+<p>Handoff &amp; Continuity uses <a href="https://www.bluetooth.com">BluetoothLE</a> (bluetooth low energy), a technology that helps nearby devices to communicate using significantly small data packets and low energy. The Bluetooth specification prefers to call the communicating devices as the Central and the Peripheral but in general terms its a client-server communication. The peripheral advertises one or more services &amp; characteristics, which can be found by the centrals with a Bluetooth scan. A central connects to a peripheral with a pairing process which may or may not require authentication.</p>
+
+<p>The serivces and characteristics are important to understand because that is the only way the central can find a peripheral and send data to it. The central will write data on the characteristics which were advertised by the peripherals.</p>
+
+<h3 id="the-gatt-server">The GATT server</h3>
+
+<p>Advertisement of a service is totally different from data transfer. After pairing, the central is authorised to send data to the peripheral without permission. As the central is writing data to a characteristic, the peripheral needs to know how to handle this data. This can be done by setting up a GATT server on the peripheral. The server knows who is writing data on a particular characteristic and exposes certain methods to handle this data transfer. Our shared pasteboard implementaton relies on the GATT server.</p>
+
+<h2 id="practicality">Practicality</h2>
+
+<p>For this case, I am interested in getting pasteboard data from Mac to Android. I want my Android device to be discovered by a nearby Mac, you might think that turning on Bluetooth and pairing Android &amp; Mac would do that. Not completely, because Android is advertising the services it supports like file sharing, Bluetooth tethering etc. Luckily, I can use the standard Bluetooth pairing process of Android and don’t have to write any code for the authentication flow. By the time of writing this post, I couldn’t find any advertised services/characteristics that could potentially link to the Android pasteboard. Unfortunately/fortunately, I had to write all the code for advertisement, services and characteristics, GATT server and for the system pasteboard manipulation. This was just the part on Android side, I still need to write code that will send data to Android. Right! the central code on Mac.</p>
+
+<h3 id="pasteboard-events">Pasteboard Events</h3>
+
+<p>Anytime I hit Cmd+C on the Mac I need to send the selected data to Android. I initially thought that there must be an event(NSNotification) fired as soon as the pasteboard contents are updated, unfortunately this isn’t the case.</p>
+
+<p>In computer science there are two ways to get updates from a system:</p>
+
+<ul>
+  <li>You(subscriber) subscribe to the updates on a system(publisher), and get notified for each change.</li>
+  <li>You keep polling a system on regular time intervals and compare its latest value with the value you currently have. If it doesn’t match that means the system has a new value.</li>
+</ul>
+
+<p>As I mentioned, I won’t be able to use the publisher-subscriber model(the optimal approach) here, I had to turn my head towards polling. And like most of times I was able to find a solution with a little help from GitHub, thanks to <a href="https://gist.github.com/Daemon-Devarshi/13efd24f027a775ee862">Daemon-Devarshi</a> for their clean Swift implementation. Polling the pasteboard works because the amount of data transferred in polling isn’t that much and I can just ignore the battery related issues for now.</p>
+
+<h3 id="the-central">The Central</h3>
+
+<p>Since I already have the pasteboard updates, writing rest of the central code is relatively easy. Apart from the pasteboard code, the central has the following responsibilities:</p>
+
+<ul>
+  <li>Keep running in background</li>
+  <li>Connect to the Android phone when pasteboard changes</li>
+  <li>Send data to the connected Android phone</li>
+</ul>
+
+<p>With some help from <a href="https://developer.apple.com/documentation/corebluetooth">Core Bluetooth</a>, it took me a little time to write a macOS script that does all that. Just because I did the custom implementation of services and characteristics the central’s code can further be optimised to scan only for the specific services and characteristics I need. And with this it’s done, I have a working solution for a shared pasteboard between all my devices.</p>
+
+<p>I’ll probably be pushing all this code on <a href="https://www.github.com/vinayjn">GitHub</a> after I refactor and clean it but I am not sure when. If you are still interested in looking into it let me know and I’ll speed up the process or may be send it to you directly over email.</p>
+
+  </div><div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'https://vinayjain.me/posts/shared-pasteboard';
+      this.page.identifier = 'https://vinayjain.me/posts/shared-pasteboard';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      s.src = 'https://koderme.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/posts/shared-pasteboard" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/vinayjn" title="vinayjn"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/vinayjn" title="vinayjn"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/vinayjn7" title="vinayjn7"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
