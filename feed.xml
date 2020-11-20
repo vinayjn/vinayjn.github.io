@@ -1,4 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.0">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2020-10-22T23:42:16+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><subtitle>Tech and life</subtitle><entry><title type="html">Univeral Pasteboard iOS, macOS, Android</title><link href="https://vinayjain.me/posts/shared-pasteboard" rel="alternate" type="text/html" title="Univeral Pasteboard iOS, macOS, Android" /><published>2020-10-03T06:39:25+05:30</published><updated>2020-10-03T06:39:25+05:30</updated><id>https://vinayjain.me/posts/shared-pasteboard</id><content type="html" xml:base="https://vinayjain.me/posts/shared-pasteboard">&lt;p&gt;Do you recall the times when you had to touch-type a long website address on your phone’s baby keyboard and wished to copy it from your computer and continue browsing just by pasting the URL in the address bar? Such a painful and frustrating user-experience. I’ve been doing this for a long time, some people might still be doing this but things have changed on the iOS/macOS side and partially on the Android side and the number of WTFs/day have drastically reduced. With some coding, I can further reduce them down, let’s see.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2020-11-20T11:58:08+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><subtitle>Sometimes serious sometimes silly</subtitle><entry><title type="html">Thoughts on Google Photos</title><link href="https://vinayjain.me/posts/google-photos" rel="alternate" type="text/html" title="Thoughts on Google Photos" /><published>2020-11-18T06:39:25+05:30</published><updated>2020-11-18T06:39:25+05:30</updated><id>https://vinayjain.me/posts/google-photos</id><content type="html" xml:base="https://vinayjain.me/posts/google-photos">&lt;p&gt;Google Photos was launched in May 2015 with a motive to retire Google+ Photos and with a promise to give unlimited storage for photos upto 16 Megapixel and videos upto a 1080p resolution. I take photos from my iPhone, it limits the photo quality to 12MP which means, full resolution photos from my phone will get free cloud storage forever. And like all other Google products, they did mention that they’ll be using my photos to improve their AI for face-recognition and search. As long as my ugly pictures weren’t made public, I am fine with that. Along with me, by May 2017, half a billion users joined the bandwagon and got addicted. With their powerful AI, Google Photos easily solved a great problem of arranging, filtering and searching the photos and now its impossible to get away from it.&lt;/p&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;h4&gt;&lt;i&gt;Storing the pictures was never a problem. It was to make sense of them.&lt;/i&gt;&lt;/h4&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Google recently announced an update in their storage policy stating &lt;em&gt;Starting June 1, 2021, any new photos and videos you upload will count toward the free 15 GB of storage that comes with every Google Account or the additional storage you’ve purchased as a Google One member.&lt;/em&gt; And with this our beloved service is no longer free. Like everyone else, I was disappointed. Not because I am a non-paying user and have to pay now but because they initially promised it to be free and are now asking me to pay for it. This seems like betrayal. A comment from a friend sums it up&lt;/p&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;h4&gt;&lt;i&gt;I was already paying for it. But now I am less pissed at Apple not giving free storage for photos - Jagrat Desai&lt;/i&gt;&lt;/h4&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Being a software engineer, I respect the work of other developers and pay for many services and subscriptions on the internet. But will I pay for the Google One subscription? First, let’s see if a service like this is worth paying for!&lt;/p&gt;
+
+&lt;p&gt;On their blog, Google also mentioned that &lt;em&gt;more than 4 trillion photos are stored in Google Photos, and every week 28 billion new photos and videos are uploaded&lt;/em&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;image-box&quot;&gt;
+&lt;img class=&quot;image-box-item&quot; width=&quot;320px&quot; height=&quot;260px&quot; src=&quot;/images/apple-iphone-se-pic.png&quot; /&gt;
+&lt;img class=&quot;image-box-item&quot; width=&quot;320px&quot; height=&quot;260px&quot; src=&quot;/images/apple-iphone-se-pic-live.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;A 12MP photo clicked on my phone takes up 2MB of storage space and I have Live Photos enabled which takes upto 7MB. Nowadays, almost everyone has a smartphone with a great camera which captures a high resolution image. Let’s assume, on an average every new photo uploaded on Google Photos from today will take 3MB of storage space.&lt;/p&gt;
+
+&lt;p&gt;The estimated storage needed for 28 billion new photos uploaded every week will be:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Weekly&lt;/th&gt;
+      &lt;th&gt;Monthly(4 weeks)&lt;/th&gt;
+      &lt;th&gt;Yearly(52 weeks)&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;28 billion * 3MB ≅ 84,000TB&lt;/td&gt;
+      &lt;td&gt;4 * 84,000TB ≅ 336,000TB&lt;/td&gt;
+      &lt;td&gt;52 * 84,000TB ≅ 4,368,000TB&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;And lets assume on an average each of the previous 4 trillion photos takes 1MB of storage space on the disk. The total disk space used is approximately&lt;/p&gt;
+
+&lt;div class=&quot;align-center&quot;&gt;
+&lt;h4&gt;4 trillion * 1MB ≅ 4,000,000TB&lt;/h4&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And considering an organisation like Google where uptime and availability of resources is promised, this data must be replicated at least once so just double the calculations. This is a massive amount of storage space and we haven’t considered videos yet. Imagine running a marathan, 42kms, yes thats the distance you’ll have to run if you put &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;4,000,000&lt;/code&gt; HDDs with 1TB capacity in a row. Extreme computing power is needed just to keep a service running at this scale and storage is probably one of the cheapest part of it, don’t get me started on the cost of high performance CPUs and GPUs driving that amazing AI.&lt;/p&gt;
+
+&lt;h3 id=&quot;now-that-we-know-what-google-photos-is-should-you-and-i-pay-for-it&quot;&gt;Now that we know what Google Photos is, should you and I pay for it?&lt;/h3&gt;
+
+&lt;p&gt;With all the calculations above, its clear that a service like this isn’t cheap and if a giant like Google had to change their pricing strategy then I don’t think any other company can afford to give it away for free. With similar examples like YouTube, Medium, Amazon it is evident that the free services are going away or getting worse in experience. Photos are important for a lot of people and for them it totally makes sense to pay for it. I am just a casual photographer but I do have about 150GB photos+videos stored there. Even if I think about migrating to any other service, the effort of downloading and reuploading this data isn’t worth it. However, the fact that Google does all the magic on their servers by using my data concerns me. I let them use my data because in turn they let me use their storage space. &lt;em&gt;Seems like a valid transaction&lt;/em&gt;. But now they are asking for an additional input from my side and the transaction &lt;em&gt;doesn’t seem valid anymore&lt;/em&gt;. If I pay they’ll offer me additional tech support, I don’t need their tech support I know tech and I figure out most of the issues on my own, so no thanks! Unless they have additional things to offer me and validate the transaction I would avoid paying for this.&lt;/p&gt;
+
+&lt;h3 id=&quot;paying-for-icloud-makes-more-sense&quot;&gt;Paying for iCloud makes more sense?&lt;/h3&gt;
+
+&lt;p&gt;Indeed! Apple respects user’s privacy, its the foundation of all their offerings. In contrast to Google Photos, Apple does the magical computation by running those machine learning algorithms on the device itself. Your data is private and no one can look into it. I get the added advantage of the beautiful Photos app on macOS. The transaction also seems valid because its give and take, unlike give(x2) and take. For now, I have stopped the automatic backup from my phone and I’ll probably keep the existing photos on Google and migrate some of them to iCloud over time.&lt;/p&gt;
+
+&lt;p&gt;Some people might want to self host their data and avoid using all the cloud providers. If you are going to do so, there are amazing free tools like Plex and PhotoView that can help you get most of what Apple and Google offer. But setting up and maintaining a server of this kind will have its own implications. I’ll leave that upto you!&lt;/p&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Google_Photos&quot;&gt;Google Photos&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.blog.google/products/photos/storage-changes/&quot;&gt;Updating Google Photos’ storage policy&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://one.google.com/&quot;&gt;Google One&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.apple.com/in/apple-one/&quot;&gt;Apple One&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.plex.tv/your-media/photos-videos/&quot;&gt;Plex&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/chrisbanes/PhotoView&quot;&gt;PhotoView&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="thoughts" /><summary type="html">Google Photos was launched in May 2015 with a motive to retire Google+ Photos and with a promise to give unlimited storage for photos upto 16 Megapixel and videos upto a 1080p resolution. I take photos from my iPhone, it limits the photo quality to 12MP which means, full resolution photos from my phone will get free cloud storage forever. And like all other Google products, they did mention that they’ll be using my photos to improve their AI for face-recognition and search. As long as my ugly pictures weren’t made public, I am fine with that. Along with me, by May 2017, half a billion users joined the bandwagon and got addicted. With their powerful AI, Google Photos easily solved a great problem of arranging, filtering and searching the photos and now its impossible to get away from it.</summary></entry><entry><title type="html">Univeral Pasteboard iOS, macOS, Android</title><link href="https://vinayjain.me/posts/shared-pasteboard" rel="alternate" type="text/html" title="Univeral Pasteboard iOS, macOS, Android" /><published>2020-10-03T06:39:25+05:30</published><updated>2020-10-03T06:39:25+05:30</updated><id>https://vinayjain.me/posts/shared-pasteboard</id><content type="html" xml:base="https://vinayjain.me/posts/shared-pasteboard">&lt;p&gt;Do you recall the times when you had to touch-type a long website address on your phone’s baby keyboard and wished to copy it from your computer and continue browsing just by pasting the URL in the address bar? Such a painful and frustrating user-experience. I’ve been doing this for a long time, some people might still be doing this but things have changed on the iOS/macOS side and partially on the Android side and the number of WTFs/day have drastically reduced. With some coding, I can further reduce them down, let’s see.&lt;/p&gt;
 
 &lt;p&gt;Apple knew this was a problem so they fixed it with Handoff &amp;amp; Continuity. The iPhone and the Mac are my primary devices but I also like using my Android phone, it has a long list of benefits. I am frequently switching devices for their specific features and use-cases, for all the software tinkering I pick my Android device, for example, I am running a &lt;a href=&quot;https://vinayjain.me/posts/linux-on-android&quot;&gt;Linux image on my Android&lt;/a&gt; phone and on top of it I have setup pi-hole and this pi-hole server is set up as a proxy on my router to block ads and social media trackers on all devices in my home network. This hacking can’t be done on iOS because of the securely closed system. I miss some features of the Apple ecosystem when I am on Android, one such feature is Handoff and Continuity. More specifically, the universal pasteboard, the functionality of copying something on one device and pasting on another, really cool! This seems like a very small feature and indeed it is, but its impact on the user experience is huge. My life will be simpler if I can share pasteboard across all my devices including Android.&lt;/p&gt;
 
@@ -710,7 +779,7 @@ imageView.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span cla
 
 &lt;p&gt;Also, don’t forget, we are hiring high-quality engineers. So if you are interested reach out to us at &lt;a href=&quot;mailto:hello@haptik.ai&quot;&gt;hello@haptik.ai&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;This post was originally written at &lt;a href=&quot;http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/&quot;&gt;Haptik Tech Blog&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">If you’ve been programming for iOS devices, you might have encountered these lines of code:</summary></entry><entry><title type="html">Your Past Successes Guarantee…</title><link href="https://vinayjain.me/posts/your-past-successes" rel="alternate" type="text/html" title="Your Past Successes Guarantee..." /><published>2017-03-02T17:54:55+05:30</published><updated>2017-03-02T17:54:55+05:30</updated><id>https://vinayjain.me/posts/Your-Past-Successes</id><content type="html" xml:base="https://vinayjain.me/posts/your-past-successes">&lt;p&gt;It has only been three years of my professional career and so much has changed since I started. I have gained as well as lost. I had the opportunity to live in three different cities but consequently had to leave some amazing and beautiful people behind. My career demanded to switch two employers serving 1 year to each. These employers didn’t just pay me well but appreciated and recognized my work. I learnt a lot, I had great colleagues who helped and encouraged me in hard times. I made some great friends and I’ll never forget them and I hope they don’t forget me as well.&lt;/p&gt;
+&lt;p&gt;This post was originally written at &lt;a href=&quot;http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/&quot;&gt;Haptik Tech Blog&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">If you’ve been programming for iOS devices, you might have encountered these lines of code:</summary></entry><entry><title type="html">Your Past Successes Guarantee…</title><link href="https://vinayjain.me/posts/your-past-successes" rel="alternate" type="text/html" title="Your Past Successes Guarantee…" /><published>2017-03-02T17:54:55+05:30</published><updated>2017-03-02T17:54:55+05:30</updated><id>https://vinayjain.me/posts/Your-Past-Successes</id><content type="html" xml:base="https://vinayjain.me/posts/your-past-successes">&lt;p&gt;It has only been three years of my professional career and so much has changed since I started. I have gained as well as lost. I had the opportunity to live in three different cities but consequently had to leave some amazing and beautiful people behind. My career demanded to switch two employers serving 1 year to each. These employers didn’t just pay me well but appreciated and recognized my work. I learnt a lot, I had great colleagues who helped and encouraged me in hard times. I made some great friends and I’ll never forget them and I hope they don’t forget me as well.&lt;/p&gt;
 
 &lt;p&gt;I introspected the past 2-3 years several times and every time I found different results. But all these times I felt bad for doing whatever I did and whatever happened to me. I was a hard working employee, I used to take my laptop back home and spend hours figuring out work related issues in my free time at home. My efforts and dedication towards my work pushed me ahead of most of my colleagues. Soon I became a star performer. And what followed after that are all the VIP treatments given to stars. Some important one’s I would like to mention:&lt;/p&gt;
 
@@ -1048,91 +1117,4 @@ Accept a type which is a CustomTVC(UITableViewCell subclass)
 
 &lt;p&gt;As you can see the resulting code for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt; is shorter, readable and less scary.&lt;/p&gt;
 
-&lt;p&gt;Thanks for reading 😊&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="swift" /><summary type="html">I was obsessed with Protocol Oriented Programming, read a lot of blogs, watched so many videos and got some idea behind its implemetation and working. So now I know the basic protocol based programming stuff in Swift (the new cool 😎), but I was still struggling to use POP in our current codebase. Tried, tired and again tried but couldn’t get through.</summary></entry><entry><title type="html">Convert Objective C Macros To Swift Constants</title><link href="https://vinayjain.me/posts/objectivec-macros-to-swift-constants" rel="alternate" type="text/html" title="Convert Objective C Macros To Swift Constants" /><published>2015-11-14T04:54:55+05:30</published><updated>2015-11-14T04:54:55+05:30</updated><id>https://vinayjain.me/posts/ObjectiveC-Macros-to-swift-constants</id><content type="html" xml:base="https://vinayjain.me/posts/objectivec-macros-to-swift-constants">&lt;p&gt;&lt;a href=&quot;&quot;&gt;Objective C&lt;/a&gt; inherits the capabilities and features of &lt;a href=&quot;&quot;&gt;C&lt;/a&gt; so you can write C like &lt;a href=&quot;&quot;&gt;directives&lt;/a&gt; or preprocessors and the Objective C compiler(&lt;a href=&quot;&quot;&gt;LLVM&lt;/a&gt;) won’t complain.&lt;/p&gt;
-
-&lt;p&gt;#define is one such preprocessor which asks the compiler to replace the occurrence of a particular set of characters with another set of characters before compiling the source file. #define is also a great way of defining constants&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;#define &lt;span class=&quot;type&quot;&gt;REPLACE_ME&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;@&quot;With&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;This&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;String&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This is a simple Macro, just by looking at it you can understand what it does. At compile time every occurrence of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;REPLACE_ME&lt;/code&gt; will be replaced by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;With This String&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;After the introduction of Swift Programming Language app developers started porting their apps to Swift’s modern syntax. The above macro can be easily ported to Swift with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;let&lt;/code&gt; keyword.&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;REPLACE_ME&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;&quot;With This String&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The new syntax : its clean, its short and it isn’t scary. The code porting was easy. However, if you have worked on an app with thousands of source files(yes, .m files) then you may be used to see these type of complex macros.&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;#define &lt;span class=&quot;type&quot;&gt;DISPATCH_BACKGROUND_QUEUE&lt;/span&gt;(name,function) dispatch_queue_t backgroundQueue = &lt;span class=&quot;call&quot;&gt;dispatch_queue_create&lt;/span&gt;(name, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;); &lt;span class=&quot;call&quot;&gt;dispatch_async&lt;/span&gt;(backgroundQueue, ^{function});
-
-#define &lt;span class=&quot;type&quot;&gt;DISPATCH_MAIN_QUEUE&lt;/span&gt;(function) &lt;span class=&quot;call&quot;&gt;dispatch_async&lt;/span&gt;(&lt;span class=&quot;call&quot;&gt;dispatch_get_main_queue&lt;/span&gt;(), ^{function});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you have seen macros like these and you are going to port these to Swift then read further.&lt;/p&gt;
-
-&lt;p&gt;Lets see this code in action. I am considering the background queue.&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;DISPATCH_BACKGROUND_QUEUE&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;BackgroundQueue&quot;&lt;/span&gt;,
-
-		&lt;span class=&quot;comment&quot;&gt;// Do some background stuff like file / database read write
-		// Do some thing else
-		// May be print some logs to debug&lt;/span&gt;
-	)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The code block above is a simpler way of writing this :&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;dispatch_queue_t backgroundQueue = &lt;span class=&quot;call&quot;&gt;dispatch_queue_create&lt;/span&gt;(name, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);
-&lt;span class=&quot;call&quot;&gt;dispatch_async&lt;/span&gt;(backgroundQueue, ^{
-
-		&lt;span class=&quot;comment&quot;&gt;// Do some background stuff like file / database read write
-		// Do some thing else
-		// May be print some logs to debug&lt;/span&gt;
-	});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Just to keep you in sync, this block of code executes the code between &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;^{ }&lt;/code&gt; in a background thread without blocking the main thread. You can read more about it by referring to &lt;a href=&quot;&quot;&gt;Grand Central Dispatch&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;porting-complex-objective-c-macros-to-swift-constants&quot;&gt;Porting Complex Objective C macros to Swift Constants&lt;/h3&gt;
-
-&lt;p&gt;If you are new to Swift and not comfortable in writing closures I would highly recommend the following references on Swift Closures&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Closures.html&quot;&gt;Swift Closures - Apple Docs&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://fuckingclosuresyntax.com/&quot;&gt;How Do I Declare a Closure in Swift?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://fuckingswiftblocksyntax.com/&quot;&gt;Swift closures and functions&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you have gone through the following referrence I can expect you knowing that the complex macro in Objective C can be ported to Swift with the help of functions. I will try to make it as simple as I can by porting it word by word.&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;#define &lt;span class=&quot;type&quot;&gt;DISPATCH_BACKGROUND_QUEUE&lt;/span&gt;(name,function) dispatch_queue_t backgroundQueue = &lt;span class=&quot;call&quot;&gt;dispatch_queue_create&lt;/span&gt;(name, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;); 																				&lt;span class=&quot;call&quot;&gt;dispatch_async&lt;/span&gt;(backgroundQueue, ^{function});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The macro accepts two parameters one is a string and another is a code block. In Swift we can easily pass a block of code to another function with the help of Closures.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;ObjC :&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;#define &lt;span class=&quot;type&quot;&gt;DISPATCH_BACKGROUND_QUEUE&lt;/span&gt;(name,function)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Swift :&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; DISPATCH_BACKGROUND_QUEUE(queueName : &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;, codeBlock:()-&amp;gt;())
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;A Swift function with two parameters, as simple as that.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;ObjC :&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;#define &lt;span class=&quot;type&quot;&gt;DISPATCH_BACKGROUND_QUEUE&lt;/span&gt;(name,function) dispatch_queue_t backgroundQueue = &lt;span class=&quot;call&quot;&gt;dispatch_queue_create&lt;/span&gt;(name, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;); 																	&lt;span class=&quot;call&quot;&gt;dispatch_async&lt;/span&gt;(backgroundQueue, ^{function});
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Swift :&lt;/strong&gt;&lt;/p&gt;
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; BGQueue(codeBlock:()-&amp;gt;(), queueName : &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;){
-    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; queue = &lt;span class=&quot;call&quot;&gt;dispatch_queue_create&lt;/span&gt;(queueName, &lt;span class=&quot;keyword&quot;&gt;nil&lt;/span&gt;)
-    &lt;span class=&quot;call&quot;&gt;dispatch_async&lt;/span&gt;(queue) { () -&amp;gt; &lt;span class=&quot;type&quot;&gt;Void&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;
-        &lt;span class=&quot;call&quot;&gt;codeBlock&lt;/span&gt;()
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><category term="ios" /><category term="swift" /><category term="objc" /><summary type="html">Objective C inherits the capabilities and features of C so you can write C like directives or preprocessors and the Objective C compiler(LLVM) won’t complain.</summary></entry></feed>
+&lt;p&gt;Thanks for reading 😊&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="swift" /><summary type="html">I was obsessed with Protocol Oriented Programming, read a lot of blogs, watched so many videos and got some idea behind its implemetation and working. So now I know the basic protocol based programming stuff in Swift (the new cool 😎), but I was still struggling to use POP in our current codebase. Tried, tired and again tried but couldn’t get through.</summary></entry></feed>
