@@ -1,8 +1,8 @@
 {
 	"version": 3,
-	"file": "style.css",
+	"file": "main.css",
 	"sources": [
-		"style.scss",
+		"main.scss",
 		"_sass/minima/skins/classic.scss",
 		"_sass/minima/initialize.scss",
 		"_sass/minima/custom-variables.scss",
