@@ -7,8 +7,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Drawing Dotted Lines in iOS" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="My favorite thing in frontend development is building custom user interfaces. It keeps challenging creativity and tests my eye for detail. Most of the times user interfaces give you instant feedback on what works and what doesn’t, based on these feedbacks you keep making changes which further improve the user experience. However, making these changes everytime isn’t easy, very often we hit roadblocks because of the limited functionality or maybe restricted API access. Situations like these pushes you to discover new ways of doing the same thing. As a software engineer you can do so by either browsing Stackoverflow or reading documentation or using your imagination and creativity. One recent encounter of this kind was drawing a dotted line between two points in iOS." />
-<meta property="og:description" content="My favorite thing in frontend development is building custom user interfaces. It keeps challenging creativity and tests my eye for detail. Most of the times user interfaces give you instant feedback on what works and what doesn’t, based on these feedbacks you keep making changes which further improve the user experience. However, making these changes everytime isn’t easy, very often we hit roadblocks because of the limited functionality or maybe restricted API access. Situations like these pushes you to discover new ways of doing the same thing. As a software engineer you can do so by either browsing Stackoverflow or reading documentation or using your imagination and creativity. One recent encounter of this kind was drawing a dotted line between two points in iOS." />
+<meta name="description" content="Lets see how to do this with UIBezierPath and CAReplicatorLayer" />
+<meta property="og:description" content="Lets see how to do this with UIBezierPath and CAReplicatorLayer" />
 <link rel="canonical" href="https://vinayjain.me/posts/drawing-dotted-line-in-ios" />
 <meta property="og:url" content="https://vinayjain.me/posts/drawing-dotted-line-in-ios" />
 <meta property="og:site_name" content="Vinay Jain" />
@@ -17,7 +17,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Drawing Dotted Lines in iOS" />
 <script type="application/ld+json">
-{"url":"https://vinayjain.me/posts/drawing-dotted-line-in-ios","headline":"Drawing Dotted Lines in iOS","dateModified":"2019-08-31T06:39:25+05:30","datePublished":"2019-08-31T06:39:25+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"https://vinayjain.me/posts/drawing-dotted-line-in-ios"},"description":"My favorite thing in frontend development is building custom user interfaces. It keeps challenging creativity and tests my eye for detail. Most of the times user interfaces give you instant feedback on what works and what doesn’t, based on these feedbacks you keep making changes which further improve the user experience. However, making these changes everytime isn’t easy, very often we hit roadblocks because of the limited functionality or maybe restricted API access. Situations like these pushes you to discover new ways of doing the same thing. As a software engineer you can do so by either browsing Stackoverflow or reading documentation or using your imagination and creativity. One recent encounter of this kind was drawing a dotted line between two points in iOS.","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"url":"https://vinayjain.me/posts/drawing-dotted-line-in-ios","headline":"Drawing Dotted Lines in iOS","dateModified":"2019-08-31T06:39:25+05:30","datePublished":"2019-08-31T06:39:25+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"https://vinayjain.me/posts/drawing-dotted-line-in-ios"},"description":"Lets see how to do this with UIBezierPath and CAReplicatorLayer","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://vinayjain.me/feed.xml" title="Vinay Jain" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-128287990-1"></script>
 <script>
@@ -32,31 +32,31 @@
 </head>
 <body><header class="site-header">
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Vinay Jain</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"><a class="page-link" href="/bookshelf/">Bookshelf</a><a class="page-link" target="_blank" href="https://travel.vinayjain.me">Travel log</a>
+  <div class="wrapper"><div class="meta-header">
+      <div class="site-info">
+        <div class="site-title">
+          <a rel="author" href="/">Vinay Jain</a>
         </div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
+        <div class="site-description">
+          <span>Developer • Tinkerer</span>
+        </div>
+      </div>
+      <div>
+        <img class="pp" src="/images/vinayjain.jpeg" />
+      </div>
+    </div><nav class="site-nav">
+      
+      <a class="page-link" href="/"> Home</a>
+      
+      <a class="page-link" href="/bookshelf/">Bookshelf</a>
+      <a class="page-link" target="_blank" href="https://travel.vinayjain.me">Travel log</a>
+    </nav></div>
+</header><main class="page-content" aria-label="Content">
       <div class="wrapper">
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Drawing Dotted Lines in iOS</h1>
-    <p class="post-meta"><time class="dt-published" datetime="2019-08-31T06:39:25+05:30" itemprop="datePublished">
-        Aug 31, 2019
-      </time></p>
-  </header>
-
+  
+  <h1 class="post-title p-name" itemprop="name headline">Drawing Dotted Lines in iOS</h1>    
+  
   <div class="post-content e-content" itemprop="articleBody">
     <p>My favorite thing in frontend development is building custom user interfaces. It keeps challenging creativity and tests my eye for detail. Most of the times user interfaces give you instant feedback on what works and what doesn’t, based on these feedbacks you keep making changes which further improve the user experience. However, making these changes everytime isn’t easy, very often we hit roadblocks because of the limited functionality or maybe restricted API access. Situations like these pushes you to discover new ways of doing the same thing. As a software engineer you can do so by either browsing Stackoverflow or reading documentation or using your imagination and creativity. One recent encounter of this kind was drawing a dotted line between two points in iOS.</p>
 
@@ -162,32 +162,7 @@ replicator.<span class="property">frame</span> = <span class="type">CGRect</span
 </article>
 
       </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
-
-  <div class="wrapper">
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col">
-        <p class="feed-subscribe">
-          <a href="/feed.xml">
-            <svg class="svg-icon orange">
-              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
-            </svg><span>Subscribe</span>
-          </a>
-        </p>
-      </div>
-      <div class="footer-col">
-        <p>Sometimes serious sometimes silly</p>
-      </div>
-    </div>
-
-    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/vinayjn" title="vinayjn"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://www.linkedin.com/in/vinayjn" title="vinayjn"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg></a></li><li><a rel="me" href="https://twitter.com/vinayjn7" title="vinayjn7"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
-</div>
-
-  </div>
-
-</footer>
-</body>
+    </main>    
+  </body>
 
 </html>

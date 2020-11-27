@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://vinayjain.me/posts/ios-app-icons</loc>
-<lastmod>2014-11-28T04:54:55+05:30</lastmod>
-</url>
-<url>
-<loc>https://vinayjain.me/posts/screen-resolution</loc>
-<lastmod>2014-11-28T05:18:55+05:30</lastmod>
-</url>
-<url>
 <loc>https://vinayjain.me/posts/ios-delegates</loc>
 <lastmod>2014-12-19T04:54:55+05:30</lastmod>
 </url>
