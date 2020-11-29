@@ -12,3 +12,12 @@ function switchTo(theme) {
         themeLink.href = "/assets/css/dark.css";
     }
 }
+
+window.matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', event => {
+  if (event.matches) {
+    switchTo("dark")
+  } else {
+    switchTo("light")
+  }
+})
