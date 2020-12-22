@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2020-12-22T14:09:06+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><subtitle>Developer / Tinkerer</subtitle><entry><title type="html">Thoughts on Google Photos</title><link href="https://vinayjain.me/posts/google-photos" rel="alternate" type="text/html" title="Thoughts on Google Photos" /><published>2020-11-18T06:39:25+05:30</published><updated>2020-11-18T06:39:25+05:30</updated><id>https://vinayjain.me/posts/google-photos</id><content type="html" xml:base="https://vinayjain.me/posts/google-photos">&lt;p&gt;Google Photos was launched in May 2015 with a motive to retire Google+ Photos and with a promise to give unlimited storage for photos upto 16 Megapixel and videos upto a 1080p resolution. I take photos from my iPhone, it limits the photo quality to 12MP which means, full resolution photos from my phone will get free cloud storage forever. And like all other Google products, they did mention that they’ll be using my photos to improve their AI for face-recognition and search. As long as my ugly pictures weren’t made public, I am fine with that. Along with me, by May 2017, half a billion users joined the bandwagon and got addicted. With their powerful AI, Google Photos easily solved a great problem of arranging, filtering and searching the photos and now its impossible to get away from it.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2020-12-23T00:49:49+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><subtitle>Developer / Tinkerer</subtitle><entry><title type="html">Remote Configurations &amp;amp; AB Tests</title><link href="https://vinayjain.me/posts/feature-toggle-service" rel="alternate" type="text/html" title="Remote Configurations &amp;amp; AB Tests" /><published>2020-12-22T06:39:25+05:30</published><updated>2020-12-22T06:39:25+05:30</updated><id>https://vinayjain.me/posts/feature-toggle-service</id><content type="html" xml:base="https://vinayjain.me/posts/feature-toggle-service">&lt;p&gt;Recently, during a video conference call I was asked to tap on a button not available on the app I was using. Then I was asked to update the app from the App store and I confirmed that I had the latest version available. I told them that it’s probably an AB test. Turns out, it was an alien term for most of the attendees from a non-tech background. Appreciating their curiosity I took the next few minutes to explain them what it meant. Being constrained with the time and audience I didn’t explain it completely and got away by saying that it needs a separate discussion to get into the details. Probably, a blogpost is a good idea to reach a bigger audience, I’ll try to keep it as non-tech as possible.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-an-ab-test-anyway&quot;&gt;What is an AB test anyway?&lt;/h3&gt;
+
+&lt;p&gt;Imagine you and I started an icecream parlour. Unfortunately, our business is not doing well and we decide to add a new Chocolate flavor in our offerings. You like the Belgian Chocolate icecream and believe that the customers will love it too. Me on the other hand thinks that the American Chocolate will sell more. Because we are low on funds we don’t want to place a bulk order for any of these chocolates and end up making a loss. Instead, we decide to buy small amounts of both &lt;strong&gt;A&lt;/strong&gt;merican and &lt;strong&gt;B&lt;/strong&gt;elgian chocolates to run an experiment of selling both icecreams for 7-days. Based on the results of this experiment we’ll get to know the chocolate flavor our customers prefer and eventually we’ll place bulk order for that one.&lt;/p&gt;
+
+&lt;p&gt;This experiment which helps us to determine the preferred chocolate flavor of our customers is an example of AB tests.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;AB testing is a process of simultaneouly experimenting two variants of a product against a metric that defines success to determine which variation to use in the real-world.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Similar conflicts arise in the software development process, let me walk you through a normal feature development process in a product company and how it reaches you from the App Store.&lt;/p&gt;
+
+&lt;h3 id=&quot;feature-development&quot;&gt;Feature Development&lt;/h3&gt;
+
+&lt;p&gt;Product managers thinks of building a new feature or an improvement to an existing feature; goes to the designer gets a prototype ready shows it to the client and the client proposes a different solution or completely rejects it saying it won’t work. This is a classic problem of &lt;strong&gt;HIPPO&lt;/strong&gt;(HIghest Paid Persons Opinion) and the only way to avoid this is with AB tests, because data speaks for itself. This data can only be collected when the variation for the existing feature is developed, manager gets approval to build the proposed feature and gathers a team of rockstar developers to work on it. The developers work on the new feature keping the AB testability in mind and make it ready to deploy on production.&lt;/p&gt;
+
+&lt;h3 id=&quot;feature-deployment&quot;&gt;Feature Deployment&lt;/h3&gt;
+
+&lt;p&gt;Releasing the feature can be as simple as clicking a button but if your product is an app distributed from an app store then you can also use &lt;strong&gt;Phase Release&lt;/strong&gt; utility provided by most of the stores. With this utility you can set what percent of users should get this update, if you set a value of “5” then app store will release it to only 5 in every 100 users of the app. You can treat it as a safety net for your app, if anything blows up in production it will affect only 5% users the rest of the 95% won’t even realise. Please note that this only works for users who have auto-update enabled, if any user goes and downloads the app from the store directly there’s no one stopping them to get the latest app.&lt;/p&gt;
+
+&lt;p&gt;Phased releases are not limited to apps, the technical term for it is Canary Release and it can be used for anything that can be released.&lt;/p&gt;
+
+&lt;p&gt;Now that the app with the new “Feature” has reached our users, how does it decide which variant to show?&lt;/p&gt;
+
+&lt;h4 id=&quot;we-finally-ab-test&quot;&gt;We finally AB test!&lt;/h4&gt;
+
+&lt;p&gt;A software is dumb and does whatever its instructed to do. The developers build the feature in an AB testable way so they put the necessary code to toggle this feature for certain users matching a criteria. A match is validated usually with the help of a service like Firebase Remote Config or an in-house Feature Configuration service. An AB testable code can be something like this:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; isNewFeatureEnabled = &lt;span class=&quot;type&quot;&gt;ConfigurationService&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;shared&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;getConfig&lt;/span&gt;(for: &lt;span class=&quot;string&quot;&gt;&quot;NEW_FEATURE_ENABLED&quot;&lt;/span&gt;)
+
+&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; isNewFeatureEnabled {
+    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;performNewFeatureActions&lt;/span&gt;()
+} &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; {
+    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;performOldFeatureActions&lt;/span&gt;()
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ConfigurationService&lt;/code&gt; relies on the analytics data(more on this below) you share with the app. Behind the scenes, this service pre-computes a list of users who satisfy the match criteria and the code above just checks the presence of this user on that list.&lt;/p&gt;
+
+&lt;h4 id=&quot;analytics-data&quot;&gt;Analytics Data&lt;/h4&gt;
+
+&lt;p&gt;All the apps that we use track our activity in some way. In addition to the device specific details like operating system, device type, geo-location; information is also shared in the form of events like opening a screen, tapping a button, adding money to the digital wallet, liking a picture, opening and watching a video, sending a message etc. Simply put, whatever you do inside an app the developer knows because you quickly “Agree” the Terms and Conditions of using the app. Again, there are services available in the market which helps you track the user activity; Mixpanel, CleverTap, Firebase, Google Analytics are the one’s that I have used.&lt;/p&gt;
+
+&lt;p&gt;With the help of this data the product team can create user buckets to be consumed by the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ConfigurationService&lt;/code&gt;. These buckets can include users in particular geography, total amount spent, users who liked a picture or watched a particular video etcs. This way your own behavior on the app determines what you see on the app and offcourse, it can be different for two different users.&lt;/p&gt;
+
+&lt;h3 id=&quot;measuring-the-feature-performance&quot;&gt;Measuring the Feature Performance&lt;/h3&gt;
+
+&lt;p&gt;The analytics data that has been shared with the app contains information about the newly added “Feature” also. Looking at this data, product managers and data analysts/scientists perform some magical calculations and judge the behavior of the user with respect to this feature and check the results against the metric that defines success. If the results are good and everything works as expected the feature can be released to more users else it will be improved or removed before releasing it to the rest of the users.&lt;/p&gt;
+
+&lt;p&gt;Though, I explained everything here in the context of feature development, a ConfigurationService and phased releases are not limited to this only. Product teams use it for use-cases like reducing risk, load testing, easy rollbacks etc. These are amazing tools and using them properly can help in improving the user experience and also in growing the business.&lt;/p&gt;
+
+&lt;p&gt;I would highly appreciate your feedback and questions on this. Please let me know in the comments!&lt;/p&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://exp-platform.com/hippo/&quot;&gt;HIPPO&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://martinfowler.com/bliki/CanaryRelease.html&quot;&gt;Canary Release - Martin Fowler&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://firebase.google.com/docs/remote-config&quot;&gt;Firebase Remote Config&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://clevertap.com/&quot;&gt;CleverTap&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mixpanel.com/&quot;&gt;Mixpanel&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><summary type="html">Recently, during a video conference call I was asked to tap on a button not available on the app I was using. Then I was asked to update the app from the App store and I confirmed that I had the latest version available. I told them that it’s probably an AB test. Turns out, it was an alien term for most of the attendees from a non-tech background. Appreciating their curiosity I took the next few minutes to explain them what it meant. Being constrained with the time and audience I didn’t explain it completely and got away by saying that it needs a separate discussion to get into the details. Probably, a blogpost is a good idea to reach a bigger audience, I’ll try to keep it as non-tech as possible.</summary></entry><entry><title type="html">Thoughts on Google Photos</title><link href="https://vinayjain.me/posts/google-photos" rel="alternate" type="text/html" title="Thoughts on Google Photos" /><published>2020-11-18T06:39:25+05:30</published><updated>2020-11-18T06:39:25+05:30</updated><id>https://vinayjain.me/posts/google-photos</id><content type="html" xml:base="https://vinayjain.me/posts/google-photos">&lt;p&gt;Google Photos was launched in May 2015 with a motive to retire Google+ Photos and with a promise to give unlimited storage for photos upto 16 Megapixel and videos upto a 1080p resolution. I take photos from my iPhone, it limits the photo quality to 12MP which means, full resolution photos from my phone will get free cloud storage forever. And like all other Google products, they did mention that they’ll be using my photos to improve their AI for face-recognition and search. As long as my ugly pictures weren’t made public, I am fine with that. Along with me, by May 2017, half a billion users joined the bandwagon and got addicted. With their powerful AI, Google Photos easily solved a great problem of arranging, filtering and searching the photos and now its impossible to get away from it.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Storing the pictures was never a problem. It was to make sense of them.&lt;/p&gt;
@@ -805,308 +868,4 @@ imageView.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span cla
 
 &lt;blockquote&gt;
   &lt;h3 id=&quot;youre-only-as-good-as-your-last-quarter&quot;&gt;“You’re only as good as your last quarter.”&lt;/h3&gt;
-&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">It has only been three years of my professional career and so much has changed since I started. I have gained as well as lost. I had the opportunity to live in three different cities but consequently had to leave some amazing and beautiful people behind. My career demanded to switch two employers serving 1 year to each. These employers didn’t just pay me well but appreciated and recognized my work. I learnt a lot, I had great colleagues who helped and encouraged me in hard times. I made some great friends and I’ll never forget them and I hope they don’t forget me as well.</summary></entry><entry><title type="html">Writing better UITableView code with Swift Generics</title><link href="https://vinayjain.me/posts/swift-generics-uitableview" rel="alternate" type="text/html" title="Writing better UITableView code with Swift Generics" /><published>2016-07-04T17:54:55+05:30</published><updated>2016-07-04T17:54:55+05:30</updated><id>https://vinayjain.me/posts/Swift-Generics-UITableView</id><content type="html" xml:base="https://vinayjain.me/posts/swift-generics-uitableview">&lt;p&gt;I was obsessed with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Protocol Oriented Programming&lt;/code&gt;, read a lot of blogs, watched so many videos and got some idea behind its implemetation and working. So now I know the basic protocol based programming stuff in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Swift&lt;/code&gt; (the new cool 😎), but I was still struggling to use POP in our current codebase. Tried, tired and again tried but couldn’t get through.&lt;/p&gt;
-
-&lt;p&gt;I tried the other way of writing reusable code and converted some of our codebase classes to follow this pattern.&lt;/p&gt;
-
-&lt;h3 id=&quot;swift--generics--uitableviewcontroller&quot;&gt;Swift + Generics + UITableViewController&lt;/h3&gt;
-
-&lt;p&gt;In most of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UITableViewController&lt;/code&gt;(TVC) subclasses or in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIViewController&lt;/code&gt; containing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UITableView&lt;/code&gt; we override/implement these three methods of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UITableViewDataSource&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; numberOfSectionsInTableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; { .. }
-
-&lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, numberOfRowsInSection section: &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; { .. }
-
-&lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, cellForRowAtIndexPath indexPath: &lt;span class=&quot;type&quot;&gt;NSIndexPath&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt; { .. }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Instead of writing them in each subclass lets pull these methods from all of them and put them in a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;, our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC.swift&lt;/code&gt; now has&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; numberOfSectionsInTableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; { .. }
-
-&lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, numberOfRowsInSection section: &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; { .. }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Every TVC we create from now will be a subclass of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;, so that we don’t have to implement these two methods in each one of them. Next step is returning values from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;numberOfSections&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;numberOfRows&lt;/code&gt; and for this we will make a generic public dictionary in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;, you may want to add a 2D Swift array &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[[String]]&lt;/code&gt;. Add whatever is convenient for you.&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; dataSource : [&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt; : [&lt;span class=&quot;type&quot;&gt;Item&lt;/span&gt;]] ? &lt;span class=&quot;comment&quot;&gt;// Item here is a model class which we use in our codebase. You can use anything of your choice.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt; with implementations of these methods :&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; GenericTVC: &lt;span class=&quot;type&quot;&gt;UITableViewController&lt;/span&gt; {
-
-    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; datasource : [&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt; : [&lt;span class=&quot;type&quot;&gt;Item&lt;/span&gt;]]?
-
-    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; viewDidLoad() {
-        &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;viewDidLoad&lt;/span&gt;()        
-    }
-
-    &lt;span class=&quot;comment&quot;&gt;// MARK: - Table view data source&lt;/span&gt;
-
-    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; numberOfSectionsInTableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; {
-
-        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; datasource = datasource {
-            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; datasource.&lt;span class=&quot;property&quot;&gt;keys&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;count&lt;/span&gt;
-        }&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;{
-            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;
-        }
-    }
-
-    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, numberOfRowsInSection section: &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; {
-
-        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; datasource = datasource {
-
-        	&lt;span class=&quot;comment&quot;&gt;/*
-            	Casting the section to String so as to get a key for datasource values
-            	Int can also be used but its all your choice.
-            	Which ever section you want in the tableView first, add it as :
-
-            	self.datasource[&quot;0&quot;] = [Item]()
-
-            	and so on..
-        	*/&lt;/span&gt;
-
-            &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; sectionString = &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(section)
-            &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; items = datasource[sectionString] {
-                &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; items.&lt;span class=&quot;property&quot;&gt;count&lt;/span&gt;
-            }
-        }
-        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;
-    }   
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With this we have number of sections and also the number of rows in every section of our tableViews.&lt;/p&gt;
-
-&lt;p&gt;The only method left is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cellForRowAtIndexPath:&lt;/code&gt; which we are not going to implement in this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;(again, you can implement this too if you have same configuration of table view cells in your app) instead we will override this method in each of our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt; subclass.&lt;/p&gt;
-
-&lt;p&gt;We have our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt; and a custom tableView cell &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewCell&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; FirstTableViewController: &lt;span class=&quot;type&quot;&gt;GenericTVC&lt;/span&gt; {
-
-    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; viewDidLoad() {
-
-        &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;viewDidLoad&lt;/span&gt;()
-        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;tableView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;registerClass&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, forCellReuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;))
-    }
-
-    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, cellForRowAtIndexPath indexPath: &lt;span class=&quot;type&quot;&gt;NSIndexPath&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt; {
-
-        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; thisCell : &lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;!
-
-        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; cell = tableView.&lt;span class=&quot;call&quot;&gt;dequeueReusableCellWithIdentifier&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;)) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;? &lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt; {
-            thisCell = cell
-        }&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;{
-            thisCell = &lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;(style: .&lt;span class=&quot;dotAccess&quot;&gt;Default&lt;/span&gt;, reuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;))
-        }
-
-        &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; thisItem = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;datasource&lt;/span&gt;![&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(indexPath.&lt;span class=&quot;property&quot;&gt;section&lt;/span&gt;)]![indexPath.&lt;span class=&quot;property&quot;&gt;row&lt;/span&gt;]
-        thisCell.&lt;span class=&quot;property&quot;&gt;textLabel&lt;/span&gt;!.text = thisItem.&lt;span class=&quot;property&quot;&gt;itemName&lt;/span&gt;
-
-        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; thisCell
-
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This code compiles and runs as expected, but we are not expected to write this in production. Lets refactor this code.&lt;/p&gt;
-
-&lt;p&gt;The call to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tableView.registerClass&lt;/code&gt; will be repeated for every class lets push it to superclass, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;. But what if we have a tableView which has multiple kinds of cell. Mmmmmm.. lets create another public property in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; reuseClasses : [&lt;span class=&quot;type&quot;&gt;AnyClass&lt;/span&gt;]?
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;viewDidLoad&lt;/code&gt; add this code :&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; classes = reuseClasses {
-    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; reuseClass &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; classes {
-        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;tableView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;registerClass&lt;/span&gt;(reuseClass, forCellReuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass))
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Replace :&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;viewDidLoad&lt;/span&gt;()
-&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;tableView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;registerClass&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, forCellReuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With :&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;reuseClasses&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;] &lt;span class=&quot;comment&quot;&gt;// or may be self.reuseClasses = [FirstTableViewCell.self, SecondTableViewCell.cell, ThirdTableViewCell.self]&lt;/span&gt;
-
-&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;viewDidLoad&lt;/span&gt;()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The above code is self explanatory.&lt;/p&gt;
-
-&lt;p&gt;Now come back to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cellForRowAtIndexPath:&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt;. Looks bad!. Lets move the cell initialization code to our base class. Add this method to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; reusableCellFor(tableView tableView : &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, reuseClass : &lt;span class=&quot;type&quot;&gt;AnyClass&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt; {
-    &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; cell = tableView.&lt;span class=&quot;call&quot;&gt;dequeueReusableCellWithIdentifier&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass)) {
-        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; cell
-    }&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;{
-        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt;(style: .&lt;span class=&quot;dotAccess&quot;&gt;Subtitle&lt;/span&gt;, reuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass))
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt; replace the cell initialization code with :&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; cell = &lt;span class=&quot;call&quot;&gt;reusableCellFor&lt;/span&gt;(tableView: tableView, reuseClass: (&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;)) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt; {
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This piece of code works fine but I still don’t like the downcast from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UITableViewCell&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewCell&lt;/code&gt;. Lets solve this by Generics.&lt;/p&gt;
-
-&lt;h4 id=&quot;generics-to-the-rescue&quot;&gt;Generics to the rescue&lt;/h4&gt;
-
-&lt;p&gt;With generics in Swift we can define methods(not only methods, actually everything 😉) which can accept generic parameters and return generic types. So lets use this feature for our good.&lt;/p&gt;
-
-&lt;p&gt;In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt; replace the implementation of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;reusableCellFor....&lt;/code&gt; with the below code.&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; reusableCellFor&amp;lt;CustomTVC : &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt;&amp;gt;(tableView tableView : &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, reuseClass : &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;Type&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt; {
-
-    &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; cell = tableView.&lt;span class=&quot;call&quot;&gt;dequeueReusableCellWithIdentifier&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass)) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;? &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt; {
-        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; cell
-    }&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;{
-        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt;(style: .&lt;span class=&quot;dotAccess&quot;&gt;Subtitle&lt;/span&gt;, reuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass))
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Wow, this looks fantastic 🤑🤑 , but what is it 🤔🤔?&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&amp;lt;&lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt; : &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt;&amp;gt;
-
-&lt;span class=&quot;comment&quot;&gt;/*
-This part of the method tells the compiler that here I introduce you to a generic type CustomTVC which is a subclass of UITableViewCell
-so do not treat future occurrences of this as errors.
-*/&lt;/span&gt;
-
-reuseClass : &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;Type&lt;/span&gt;
-
-&lt;span class=&quot;comment&quot;&gt;/*
-Accept a type which is a CustomTVC(UITableViewCell subclass)
-*/&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Everything else is self explanatory I guess 🤓.&lt;/p&gt;
-
-&lt;p&gt;Finally in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt; remove the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;as FirstTableViewCell&lt;/code&gt; and the also remove the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if let&lt;/code&gt; check. And to keep the subclasses cleaner lets create a helper method in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GenericTVC&lt;/code&gt; for getting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Item&lt;/code&gt; object from the datasource for current &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;indexPath&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; itemFor(indexPath indexPath : &lt;span class=&quot;type&quot;&gt;NSIndexPath&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Item&lt;/span&gt;? {
-    &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; datasource = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;datasource&lt;/span&gt; {
-        &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; sectionString = &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(indexPath.&lt;span class=&quot;property&quot;&gt;section&lt;/span&gt;)
-        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; array = datasource[sectionString] {
-            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; array[indexPath.&lt;span class=&quot;property&quot;&gt;row&lt;/span&gt;]
-        }
-    }
-    &lt;span class=&quot;keyword&quot;&gt;return nil&lt;/span&gt;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The final versions of our files are below :&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;GenericTVC :&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; GenericTVC: &lt;span class=&quot;type&quot;&gt;UITableViewController&lt;/span&gt; {
-
-    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; datasource : [&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt; : [&lt;span class=&quot;type&quot;&gt;Item&lt;/span&gt;]]?
-    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; reuseClasses : [&lt;span class=&quot;type&quot;&gt;AnyClass&lt;/span&gt;]?
-    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; viewDidLoad() {
-        &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;viewDidLoad&lt;/span&gt;()
-
-        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; classes = reuseClasses {
-            &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; reuseClass &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; classes {
-                &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;tableView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;registerClass&lt;/span&gt;(reuseClass, forCellReuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass))
-            }
-        }
-    }
-
-    &lt;span class=&quot;comment&quot;&gt;// MARK: - Table view data source&lt;/span&gt;
-
-    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; numberOfSectionsInTableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; {
-
-        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; datasource = datasource {
-            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; datasource.&lt;span class=&quot;property&quot;&gt;keys&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;count&lt;/span&gt;
-        }&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;{
-            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;
-        }
-    }
-
-    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, numberOfRowsInSection section: &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; {
-
-        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; datasource = datasource {
-
-            &lt;span class=&quot;comment&quot;&gt;/*
-            	Casting the section to String so as to get a key for datasource values
-            	Int can also be used but its all your choice.
-            	Which ever section you want in the tableView first, add it as :
-
-            	self.datasource[&quot;0&quot;] = [Item]()
-
-            	and so on..
-        	*/&lt;/span&gt;
-
-            &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; sectionString = &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(section)
-            &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; array = datasource[sectionString] {
-                &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; array.&lt;span class=&quot;property&quot;&gt;count&lt;/span&gt;
-            }
-        }
-        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;
-    }
-
-    &lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; reusableCellFor&amp;lt;CustomTVC : &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt;&amp;gt;(tableView tableView : &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, reuseClass : &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt;.&lt;span class=&quot;type&quot;&gt;Type&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt; {
-        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; cell = tableView.&lt;span class=&quot;call&quot;&gt;dequeueReusableCellWithIdentifier&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass)) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;? &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt; {
-            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; cell
-        }&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;{
-            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;CustomTVC&lt;/span&gt;(style: .&lt;span class=&quot;dotAccess&quot;&gt;Subtitle&lt;/span&gt;, reuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(reuseClass))
-        }
-    }
-
-    &lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; itemFor(indexPath indexPath : &lt;span class=&quot;type&quot;&gt;NSIndexPath&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Item&lt;/span&gt;? {
-        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; datasource = &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;datasource&lt;/span&gt; {
-            &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; sectionString = &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(indexPath.&lt;span class=&quot;property&quot;&gt;section&lt;/span&gt;)
-            &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; array = datasource[sectionString] {
-                &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; array[indexPath.&lt;span class=&quot;property&quot;&gt;row&lt;/span&gt;]
-            }
-        }
-        &lt;span class=&quot;keyword&quot;&gt;return nil&lt;/span&gt;
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;FirstTableViewController :&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; FirstTableViewController: &lt;span class=&quot;type&quot;&gt;GenericTVC&lt;/span&gt; {
-
-    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; viewDidLoad() {
-        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;reuseClasses&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;]
-
-        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;tableView&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;registerClass&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, forCellReuseIdentifier: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;(&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;))
-
-        &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt;.&lt;span class=&quot;call&quot;&gt;viewDidLoad&lt;/span&gt;()
-    }
-
-    &lt;span class=&quot;keyword&quot;&gt;override func&lt;/span&gt; tableView(tableView: &lt;span class=&quot;type&quot;&gt;UITableView&lt;/span&gt;, cellForRowAtIndexPath indexPath: &lt;span class=&quot;type&quot;&gt;NSIndexPath&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;UITableViewCell&lt;/span&gt; {
-        &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; cell = &lt;span class=&quot;call&quot;&gt;reusableCellFor&lt;/span&gt;(tableView: tableView, reuseClass: (&lt;span class=&quot;type&quot;&gt;FirstTableViewCell&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;))
-        &lt;span class=&quot;keyword&quot;&gt;if let&lt;/span&gt; item = &lt;span class=&quot;call&quot;&gt;itemFor&lt;/span&gt;(indexPath: indexPath) {
-            cell.&lt;span class=&quot;property&quot;&gt;textLabel&lt;/span&gt;!.text = item.&lt;span class=&quot;property&quot;&gt;itemName&lt;/span&gt;
-        }
-        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; cell
-    }
-
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;As you can see the resulting code for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FirstTableViewController&lt;/code&gt; is shorter, readable and less scary.&lt;/p&gt;
-
-&lt;p&gt;Thanks for reading 😊&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="swift" /><summary type="html">I was obsessed with Protocol Oriented Programming, read a lot of blogs, watched so many videos and got some idea behind its implemetation and working. So now I know the basic protocol based programming stuff in Swift (the new cool 😎), but I was still struggling to use POP in our current codebase. Tried, tired and again tried but couldn’t get through.</summary></entry></feed>
+&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">It has only been three years of my professional career and so much has changed since I started. I have gained as well as lost. I had the opportunity to live in three different cities but consequently had to leave some amazing and beautiful people behind. My career demanded to switch two employers serving 1 year to each. These employers didn’t just pay me well but appreciated and recognized my work. I learnt a lot, I had great colleagues who helped and encouraged me in hard times. I made some great friends and I’ll never forget them and I hope they don’t forget me as well.</summary></entry></feed>
