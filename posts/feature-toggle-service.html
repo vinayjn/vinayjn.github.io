@@ -133,9 +133,19 @@
 
 <h3 id="measuring-the-feature-performance">Measuring the Feature Performance</h3>
 
-<p>The analytics data that has been shared with the app contains information about the newly added “Feature” also. Looking at this data, product managers and data analysts/scientists perform some magical calculations and judge the behavior of the user with respect to this feature and check the results against the metric that defines success. If the results are good and everything works as expected the feature can be released to more users else it will be improved or removed before releasing it to the rest of the users.</p>
+<p>The analytics data that has been shared with the app contains information about the newly added “Feature” also. Looking at this data, product managers and data analysts/scientists perform some magical calculations and judge the behavior of the user with respect to this feature and check the results against the metric that defines success. If the results are good and everything works as expected the feature can be released to more users.</p>
 
-<p>Though, I explained everything here in the context of feature development, a ConfigurationService and phased releases are not limited to this only. Product teams use it for use-cases like reducing risk, load testing, easy rollbacks etc. These are amazing tools and using them properly can help in improving the user experience and also in growing the business.</p>
+<p>If the new change is not performing upto the expectations, managers look at user drop-points and think of a strategy to avoid the drop-point or make it easy to use.</p>
+
+<p>Once the AB test is complete and the changes are permanent, it is the developers responsibility to cleanup the toggles in the next releases. It should be removed from the code and the configuration system to improve the maintainability of the codebase. Some services like LaunchDarkly periodically reminds you to review the toggles and cleanup that are not being used.</p>
+
+<p>It is worth mentioning that AB testing is not just for measuring performance of new features(the icecreams example), it can be used to measure the performance of a change(like UX improvements) compared to the existing implementation. Infact, in the real-world AB testing is used more for the latter case.</p>
+
+<h4 id="alternatives-for-b2b-products">Alternatives for B2B products?</h4>
+
+<p>AB testing makes a lot of sense for B2C products where the business can exploit the user provided data to make decisions. But with B2B products where enough data points cannot be provided, using an AB test doesn’t help much and in that case we rely on the feedback of super users and additional alpha/beta users.</p>
+
+<p>Though, I explained everything here in the context of feature development, a ConfigurationService and phased releases are not limited to this only. Product teams use it for use-cases like reducing risk, load testing, easy rollbacks etc. These are amazing tools and using them properly can help in improving the user experience and also in growing the business. Based on your business use-cases you can identify how AB testing can help you with the growth of your company.</p>
 
 <p>I would highly appreciate your feedback and questions on this. Please let me know in the comments!</p>
 
@@ -147,6 +157,7 @@
   <li><a href="https://firebase.google.com/docs/remote-config">Firebase Remote Config</a></li>
   <li><a href="https://clevertap.com/">CleverTap</a></li>
   <li><a href="https://mixpanel.com/">Mixpanel</a></li>
+  <li><a href="https://launchdarkly.com/blog/launched-ready-to-remove-notifications-in-slack/">LaunchDarkly</a></li>
 </ul>
 
   </div><div id="disqus_thread"></div>
