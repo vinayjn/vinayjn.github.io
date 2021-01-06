@@ -1,4 +1,116 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2020-12-30T17:37:13+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><subtitle>Developer / Tinkerer</subtitle><entry><title type="html">Remote Configurations &amp;amp; AB Tests</title><link href="https://vinayjain.me/posts/feature-toggle-service" rel="alternate" type="text/html" title="Remote Configurations &amp;amp; AB Tests" /><published>2020-12-22T06:39:25+05:30</published><updated>2020-12-22T06:39:25+05:30</updated><id>https://vinayjain.me/posts/feature-toggle-service</id><content type="html" xml:base="https://vinayjain.me/posts/feature-toggle-service">&lt;p&gt;Recently, during a video conference call I was asked to tap on a button not available on the app I was using. Then I was asked to update the app from the App store and I confirmed that I had the latest version available. I told them that it’s probably an AB test. Turns out, it was an alien term for most of the attendees from a non-tech background. Appreciating their curiosity I took the next few minutes to explain them what it meant. Being constrained with the time and audience I didn’t explain it completely and got away by saying that it needs a separate discussion to get into the details. Probably, a blogpost is a good idea to reach a bigger audience, I’ll try to keep it as non-tech as possible.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2021-01-06T13:53:26+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><subtitle>Developer / Tinkerer</subtitle><entry><title type="html">Setup Plex on Android with LinuxDeploy</title><link href="https://vinayjain.me/posts/plex-setup-android" rel="alternate" type="text/html" title="Setup Plex on Android with LinuxDeploy" /><published>2021-01-06T06:39:25+05:30</published><updated>2021-01-06T06:39:25+05:30</updated><id>https://vinayjain.me/posts/plex-setup-android</id><content type="html" xml:base="https://vinayjain.me/posts/plex-setup-android">&lt;p&gt;In one of my previous posts, I talked about &lt;a href=&quot;https://vinayjain.me/posts/linux-on-android&quot;&gt;Running Ubuntu/Linux on Android&lt;/a&gt; and there I had mentioned about setting up a media center with Plex. I assumed it to be a straight-forward process but it took me a lot of time to set it up correctly. Though, the final steps here are quick and easy to use, it took a lot of work to come to these steps. The following steps didn’t work for me:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Installing using Plex apt repository&lt;/li&gt;
+  &lt;li&gt;Manually installing with the deb package from the Plex Download Page&lt;/li&gt;
+  &lt;li&gt;Trying all configurations available on the Internet&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h3&gt;
+
+&lt;p&gt;You can try other configurations, I am mentioning versions that worked for me. But because of the fragile nature of this setup, other configurations might not work&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Xiaomi Redmi Note 5 Pro running Android 10, rooted with Magisk&lt;/li&gt;
+  &lt;li&gt;LinuxDeploy 2.6.0-258&lt;/li&gt;
+  &lt;li&gt;Debian &amp;gt; arm64 &amp;gt; buster&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;setup-plex&quot;&gt;Setup Plex&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl -O https://downloads.plex.tv/plex-media-server-new/1.21.1.3876-3c3adfcb4/debian/plexmediaserver_1.21.1.3876-3c3adfcb4_arm64.deb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Extract the deb package in a directory accessible with your current user&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dpkg-deb --extract plexmediaserver_1.21.1.3876-3c3adfcb4_arm64.deb /home/android/plex
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plex&lt;/code&gt; should contain &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;etc&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;usr&lt;/code&gt; sub-directories. We need to edit the following files&lt;/p&gt;
+
+&lt;h4 id=&quot;plexmediaserverservice&quot;&gt;plexmediaserver.service&lt;/h4&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vim plex/usr/lib/plexmediaserver/lib/plexmediaserver.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.
+.
+.
+
+## ----- Change these two paths to point to the directory in the home folder ----- 
+
+# Environment=&quot;PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR=/var/lib/plexmediaserver/Library/Application Support&quot;
+# Environment=PLEX_MEDIA_SERVER_HOME=/usr/lib/plexmediaserver
+Environment=&quot;PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR=/home/android/plex/var/lib/plexmediaserver/Library/Application Support&quot;
+Environment=PLEX_MEDIA_SERVER_HOME=/home/android/plex/usr/lib/plexmediaserver
+
+## ----- Change these two paths to point to the directory in the home folder ----- 
+
+# export LD_LIBRARY_PATH=/usr/lib/plexmediaserver/lib; \
+# exec &quot;/usr/lib/plexmediaserver/Plex Media Server&quot;'
+export LD_LIBRARY_PATH=/home/android/plex/usr/lib/plexmediaserver/lib; \
+exec &quot;/home/android/plex/usr/lib/plexmediaserver/Plex Media Server&quot;'
+
+Type=simple
+
+
+## ----- Change the user and group to your user and group ----- 
+
+# User=plex
+# Group=plex
+User=android
+Group=android
+.
+.
+.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;plexmediaserverinit&quot;&gt;plexmediaserver.init&lt;/h4&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vim plex/usr/lib/plexmediaserver/lib/plexmediaserver.init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+## ----- Change the user and group to your user and group ----- 
+# PlexUser=&quot;plex&quot;
+PlexUser=&quot;android&quot;
+
+
+## ----- Change these two paths to point to the directory in the home folder ----- 
+
+# PlexHome=&quot;/usr/lib/plexmediaserver&quot;
+# PlexAppSuppDir=&quot;/var/lib/plexmediaserver/Library/Application Support&quot;
+PlexHome=&quot;/home/android/plex/usr/lib/plexmediaserver&quot;
+PlexAppSuppDir=&quot;/home/android/plex/var/lib/plexmediaserver/Library/Application Support&quot;
+
+
+PlexTempDir=&quot;/tmp&quot;
+PlexStackSize=3000
+
+.
+.
+.
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;That is all the necessary configiration needed. Plex server can be started by running the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;plexmediaserver.init&lt;/code&gt; service.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ./home/android/plex/usr/lib/plexmediaserver/lib/plexmediaserver.init start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;By default Plex media server runs on the port &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;32400&lt;/code&gt;, to configure Plex and add media to it, access the dashboard using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://&amp;lt;your-server-ip&amp;gt;:32400&lt;/code&gt; in a web browser. You’ll be welcomed with a configuration screen from where you can login to your Plex account and add photos, movies, tv shows etc to serve from your Android Phone.&lt;/p&gt;
+
+&lt;p&gt;Let me know if you face any problems or find another way of setting up Plex easily.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://vinayjain.me/posts/linux-on-android&quot;&gt;Running Ubuntu/Linux on Android&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pimylifeup.com/raspberry-pi-plex-server/&quot;&gt;Install Plex with apt&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.plex.tv/media-server-downloads/#plex-media-server&quot;&gt;Plex Server Downloads&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://magiskmanager.com/&quot;&gt;Magisk&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/meefik/linuxdeploy&quot;&gt;LinuxDeploy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><summary type="html">In one of my previous posts, I talked about Running Ubuntu/Linux on Android and there I had mentioned about setting up a media center with Plex. I assumed it to be a straight-forward process but it took me a lot of time to set it up correctly. Though, the final steps here are quick and easy to use, it took a lot of work to come to these steps. The following steps didn’t work for me:</summary></entry><entry><title type="html">Remote Configurations &amp;amp; AB Tests</title><link href="https://vinayjain.me/posts/feature-toggle-service" rel="alternate" type="text/html" title="Remote Configurations &amp;amp; AB Tests" /><published>2020-12-22T06:39:25+05:30</published><updated>2020-12-22T06:39:25+05:30</updated><id>https://vinayjain.me/posts/feature-toggle-service</id><content type="html" xml:base="https://vinayjain.me/posts/feature-toggle-service">&lt;p&gt;Recently, during a video conference call I was asked to tap on a button not available on the app I was using. Then I was asked to update the app from the App store and I confirmed that I had the latest version available. I told them that it’s probably an AB test. Turns out, it was an alien term for most of the attendees from a non-tech background. Appreciating their curiosity I took the next few minutes to explain them what it meant. Being constrained with the time and audience I didn’t explain it completely and got away by saying that it needs a separate discussion to get into the details. Probably, a blogpost is a good idea to reach a bigger audience, I’ll try to keep it as non-tech as possible.&lt;/p&gt;
 
 &lt;h3 id=&quot;what-is-an-ab-test-anyway&quot;&gt;What is an AB test anyway?&lt;/h3&gt;
 
@@ -347,7 +459,7 @@ drwxrwx---. &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; root aid_everybo
 drwxrwx---. &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; root aid_everybody       &lt;span class=&quot;number&quot;&gt;4096&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Jun&lt;/span&gt; &lt;span class=&quot;number&quot;&gt;17 09&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;51&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;Shows&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;If you are also running Android 10, due to strict permissions of the OS, Linux Deploy will not be able to access the external sdcard. I have tried a few ways of mounting it but I couldn’t succeed. If you manage to mount the external sdcard please let me know in the comments.&lt;/p&gt;
+&lt;p&gt;For external sdcard, just repeat these steps and use the correct mount points to access all the files on it.&lt;/p&gt;
 
 &lt;p&gt;Okay, that’s all folks, if you reached here you have a fully functional linux machine. This was a long process, but we are just getting started, there’s a lot more we can achieve with it. In the future posts I will be telling you how you can extend this&lt;/p&gt;
 
@@ -845,38 +957,4 @@ imageView.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span cla
 
 &lt;p&gt;Also, don’t forget, we are hiring high-quality engineers. So if you are interested reach out to us at &lt;a href=&quot;mailto:hello@haptik.ai&quot;&gt;hello@haptik.ai&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;This post was originally written at &lt;a href=&quot;http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/&quot;&gt;Haptik Tech Blog&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">If you’ve been programming for iOS devices, you might have encountered these lines of code:</summary></entry><entry><title type="html">Your Past Successes Guarantee…</title><link href="https://vinayjain.me/posts/your-past-successes" rel="alternate" type="text/html" title="Your Past Successes Guarantee…" /><published>2017-03-02T17:54:55+05:30</published><updated>2017-03-02T17:54:55+05:30</updated><id>https://vinayjain.me/posts/Your-Past-Successes</id><content type="html" xml:base="https://vinayjain.me/posts/your-past-successes">&lt;p&gt;It has only been three years of my professional career and so much has changed since I started. I have gained as well as lost. I had the opportunity to live in three different cities but consequently had to leave some amazing and beautiful people behind. My career demanded to switch two employers serving 1 year to each. These employers didn’t just pay me well but appreciated and recognized my work. I learnt a lot, I had great colleagues who helped and encouraged me in hard times. I made some great friends and I’ll never forget them and I hope they don’t forget me as well.&lt;/p&gt;
-
-&lt;p&gt;I introspected the past 2-3 years several times and every time I found different results. But all these times I felt bad for doing whatever I did and whatever happened to me. I was a hard working employee, I used to take my laptop back home and spend hours figuring out work related issues in my free time at home. My efforts and dedication towards my work pushed me ahead of most of my colleagues. Soon I became a star performer. And what followed after that are all the VIP treatments given to stars. Some important one’s I would like to mention:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Flexible working hours&lt;/li&gt;
-  &lt;li&gt;Merciful and tolerant mistakes&lt;/li&gt;
-  &lt;li&gt;Easy leave approvals&lt;/li&gt;
-  &lt;li&gt;More attention&lt;/li&gt;
-  &lt;li&gt;In public appreciations&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;And it came along with perks like: my leads and managers started inviting me in their parties, I was once invited for a dinner at my Team Lead’s home to eat delicious food his mother cooked. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Free home made Food&lt;/code&gt; for a bachelor in his work life is a huge prize; having those pretty girls around and clicking selfies with them, wow; I even have selfies with our CEO and CTO; our CEO never missed a chance to highlight me, after completing his All-Hands meeting he expected questions from me and whenever I was quiet, he would look at me and ask in front of everyone: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;No questions today Vinay?&lt;/code&gt;. At that moment I was representing the entire company. Everyone was so happy with my performance, work was smooth, easy and interesting. Ohh it was a great life, I was doing so well.&lt;/p&gt;
-
-&lt;p&gt;Even after all these benefits and all my happiness, why did I leave my employers?&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;h3 id=&quot;change-the-only-thing-constant-is-change&quot;&gt;“Change! the only thing constant is change.”&lt;/h3&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I was not a star performer for ever. My happiness and my super performance continued for 7-8 months and gradually due to the monotonous tasks my work started boring me. I ignored and delayed delivering the work assigned to me. I complaint and requested to assign some interesting and challenging work to me which might make me happy and I might be able to bring the awesomeness back, but nothing happened. I became a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Reluctant Contributor&lt;/code&gt; for my company. I was no longer a star performer and its effect on me were rough and it had saddened me. All my goods were forgotten and shadowed, all my previous mistakes were enlightened. For the next months my performance was poorly rated and I was not happy with it at all.&lt;/p&gt;
-
-&lt;p&gt;Every company has a period when they rate the yearly performance of employees. The time had come and I was expecting good performance reviews for the past year, yes because I was a star performer for a long time and I only missed 2-3 deadlines in the recent past. And to my surprise, my overall ratings were extremely low. Even lower than those who consistently performed worse than me, always. I was disappointed and from then I could not find an answer to the question &lt;strong&gt;Why did they do this to me?&lt;/strong&gt; until February 5, 2017!&lt;/p&gt;
-
-&lt;p&gt;I heard a motivational corporate trainer say this:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;h3 id=&quot;your-past-successes-guarantee-you-nothing&quot;&gt;“Your Past Successes Guarantee you Nothing!”&lt;/h3&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This one single line answered all my questions and hate for employers had vanished. I realized I was the one who was not a consistent performer, my employers rated me low because I was performing low. It’s the same way I would have behaved and rated my juniors because&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;h3 id=&quot;youre-only-as-good-as-your-last-quarter&quot;&gt;“You’re only as good as your last quarter.”&lt;/h3&gt;
-&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">It has only been three years of my professional career and so much has changed since I started. I have gained as well as lost. I had the opportunity to live in three different cities but consequently had to leave some amazing and beautiful people behind. My career demanded to switch two employers serving 1 year to each. These employers didn’t just pay me well but appreciated and recognized my work. I learnt a lot, I had great colleagues who helped and encouraged me in hard times. I made some great friends and I’ll never forget them and I hope they don’t forget me as well.</summary></entry></feed>
+&lt;p&gt;This post was originally written at &lt;a href=&quot;http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/&quot;&gt;Haptik Tech Blog&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">If you’ve been programming for iOS devices, you might have encountered these lines of code:</summary></entry></feed>
