@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2021-01-06T13:53:26+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><subtitle>Developer / Tinkerer</subtitle><entry><title type="html">Setup Plex on Android with LinuxDeploy</title><link href="https://vinayjain.me/posts/plex-setup-android" rel="alternate" type="text/html" title="Setup Plex on Android with LinuxDeploy" /><published>2021-01-06T06:39:25+05:30</published><updated>2021-01-06T06:39:25+05:30</updated><id>https://vinayjain.me/posts/plex-setup-android</id><content type="html" xml:base="https://vinayjain.me/posts/plex-setup-android">&lt;p&gt;In one of my previous posts, I talked about &lt;a href=&quot;https://vinayjain.me/posts/linux-on-android&quot;&gt;Running Ubuntu/Linux on Android&lt;/a&gt; and there I had mentioned about setting up a media center with Plex. I assumed it to be a straight-forward process but it took me a lot of time to set it up correctly. Though, the final steps here are quick and easy to use, it took a lot of work to come to these steps. The following steps didn’t work for me:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2021-01-13T00:28:41+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><subtitle>Developer / Tinkerer</subtitle><entry><title type="html">Regex: Pipe operator to find alternatives</title><link href="https://vinayjain.me/posts/pipes-in-regular-expressions" rel="alternate" type="text/html" title="Regex: Pipe operator to find alternatives" /><published>2021-01-11T06:39:25+05:30</published><updated>2021-01-11T06:39:25+05:30</updated><id>https://vinayjain.me/posts/pipes-in-regular-expressions</id><content type="html" xml:base="https://vinayjain.me/posts/pipes-in-regular-expressions">&lt;p&gt;Regular expressions are probably one of the most under-pursued yet powerful and useful Computer Science skills. As a programmer, in common day-to-day tasks like text–search, replace and input validation I find regular expression to be very efficient. Almost all modern languages and operating systems support text processing with regex and having them in my toolbox makes my workflow more productive.&lt;/p&gt;
+
+&lt;p&gt;Recently, for a side-project I wanted to validate an IP address(IPv4) input by the user. I decided to validate it with regular expressions and quickly came up with a basic pattern for the happy flow–&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;^[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;]{&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;}\.[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;]{&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;}\.[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;]{&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;}\.[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;-&lt;span class=&quot;number&quot;&gt;9&lt;/span&gt;]{&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;}$
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see this expression gives false positives for invalid IP addresses like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;999.999.999.999&lt;/code&gt;. Looks like validating an IP address with a regular expression isn’t as easy as expected. Let’s break it down into smaller sub-problems.&lt;/p&gt;
+
+&lt;p&gt;To write the correct pattern we first need to list down all the valid cases for an IP address. All IPv4 addresses are divided into 4 groups separated with three dots and each of these groups follow the same rules. For an IP address to qualify as validated, each group should be validated by a pattern which considers the following cases:&lt;/p&gt;
+
+&lt;div class=&quot;image-box&quot;&gt;
+&lt;img class=&quot;image-box-item&quot; width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;/images/ip-validation-rules.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;With this picture it is clear that we need to put some kind of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if–else&lt;/code&gt; logic to validate our input. In a programming language this is a trivial task, split the input by dots and validate each group with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if–else&lt;/code&gt; condtions. But I decided to stick with the regular expression approach and continue writing the match pattern.&lt;/p&gt;
+
+&lt;h3 id=&quot;pipe-operator&quot;&gt;Pipe Operator&lt;/h3&gt;
+
+&lt;p&gt;The pipe operator in a regular expression has the same behaviour as in programming languages, it does the logical OR of the operands and returns any of the matching strings. Have a look at the example below to understand it better.&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; pattern = &lt;span class=&quot;string&quot;&gt;&quot;(desk|lap)tops&quot;&lt;/span&gt;
+
+&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; regex = &lt;span class=&quot;type&quot;&gt;Regex&lt;/span&gt;(with: pattern)
+
+&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; inputString = &lt;span class=&quot;string&quot;&gt;&quot;desktops and laptops and not palmtops&quot;&lt;/span&gt;
+
+regex.&lt;span class=&quot;call&quot;&gt;findMatch&lt;/span&gt;(inputString)
+
+&lt;span class=&quot;comment&quot;&gt;// Returns: desktops, laptops&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For IP addresses, in a group, we have to either match one digit, two digits or three digits and additionally cover all the valid cases mentioned in the figure above. And then repeat it four times to validate the entire input. For one group the regex pattern looks like the one shown below:&lt;/p&gt;
+
+&lt;div class=&quot;image-box&quot;&gt;
+&lt;img class=&quot;image-box-item&quot; width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;/images/one-group-regex.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Okay, if you are thinking this is long just remember that its just for one single group, copy-paste it three more times and check the length. In situations like these when a pattern is repeating we can tell regex to match exactly a particular number of occurences with the help of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{}&lt;/code&gt;. Lets assume that we call the group pattern as shown above as “part”. Our final regex will look like this:&lt;/p&gt;
+
+&lt;div class=&quot;image-box&quot;&gt;
+&lt;img class=&quot;image-box-item&quot; width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;/images/complete-regex.png&quot; /&gt;
+&lt;/div&gt;
+
+&lt;p&gt;In code, by making the “part” as a variable, the pattern can look exactly like the one shown in figure, let’s see how it looks in Swift:&lt;/p&gt;
+
+&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; isValidIPAddress(&lt;span class=&quot;keyword&quot;&gt;_&lt;/span&gt; ip: &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt;) -&amp;gt; &lt;span class=&quot;type&quot;&gt;Bool&lt;/span&gt; {
+    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; part = &lt;span class=&quot;string&quot;&gt;&quot;[0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; pattern = &lt;span class=&quot;string&quot;&gt;&quot;^&lt;/span&gt;\(part)&lt;span class=&quot;string&quot;&gt;\\.{3}&lt;/span&gt;\(part)&lt;span class=&quot;string&quot;&gt;$&quot;&lt;/span&gt;
+
+    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; ip.&lt;span class=&quot;call&quot;&gt;range&lt;/span&gt;(of: pattern, options: .&lt;span class=&quot;dotAccess&quot;&gt;regularExpression&lt;/span&gt;) != &lt;span class=&quot;keyword&quot;&gt;nil&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If we had chosen to match each group with conditional statements we would’ve filled our code with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if–else&lt;/code&gt; blocks and that would have increased the size of this function by about 4–5 times. With regular expressions our code looks short and clean. Though at first the long patterns make it a little difficult to understand but as you get to know more about regex these patterns start to make a lot of sense. This is one of the many great super powers of regex and like most of the skills in Computer Science, though they are not mandatory but using them will definitely give you a step-up.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading, please let me know if you have any feedback.&lt;/p&gt;</content><author><name></name></author><category term="tech" /><summary type="html">Regular expressions are probably one of the most under-pursued yet powerful and useful Computer Science skills. As a programmer, in common day-to-day tasks like text–search, replace and input validation I find regular expression to be very efficient. Almost all modern languages and operating systems support text processing with regex and having them in my toolbox makes my workflow more productive.</summary></entry><entry><title type="html">Setup Plex on Android with LinuxDeploy</title><link href="https://vinayjain.me/posts/plex-setup-android" rel="alternate" type="text/html" title="Setup Plex on Android with LinuxDeploy" /><published>2021-01-06T06:39:25+05:30</published><updated>2021-01-06T06:39:25+05:30</updated><id>https://vinayjain.me/posts/plex-setup-android</id><content type="html" xml:base="https://vinayjain.me/posts/plex-setup-android">&lt;p&gt;In one of my previous posts, I talked about &lt;a href=&quot;https://vinayjain.me/posts/linux-on-android&quot;&gt;Running Ubuntu/Linux on Android&lt;/a&gt; and there I had mentioned about setting up a media center with Plex. I assumed it to be a straight-forward process but it took me a lot of time to set it up correctly. Though, the final steps here are quick and easy to use, it took a lot of work to come to these steps. The following steps didn’t work for me:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Installing using Plex apt repository&lt;/li&gt;
@@ -706,255 +763,4 @@ replicator.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt; = &lt;span 
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;I’ve tried to keep things short and easy to understand, if you find any issues in the post or have any feedback like adding or removing content please feel free to write in comments. I welcome tech discussions. 😉&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">Whenever we declare properties in Objective-C there are some keywords between the parentheses like strong, weak, atomic, nonatomic. There can be multiple comma separated words in between the parentheses, sometimes we don’t add any keywords there and keep the default compiler behavior. In this post we’ll discuss what these keywords/attributes actually mean and what are the effects of using one over the other. @property are specific to Objective-C but the concepts can be applied to Swift as well, if you are a Swift only dev I still recommend going through this post once.</summary></entry><entry><title type="html">A Conversation With CALayer – Meeting I</title><link href="https://vinayjain.me/posts/conversation-with-calayer" rel="alternate" type="text/html" title="A Conversation With CALayer – Meeting I" /><published>2017-03-21T10:09:25+05:30</published><updated>2017-03-21T10:09:25+05:30</updated><id>https://vinayjain.me/posts/conversation_with_calayer</id><content type="html" xml:base="https://vinayjain.me/posts/conversation-with-calayer">&lt;p&gt;If you’ve been programming for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iOS&lt;/code&gt; devices, you might have encountered these lines of code:&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;view.&lt;span class=&quot;property&quot;&gt;backgroundColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; greenColor];
-view.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;cornerRadius&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;8.0&lt;/span&gt;;
-view.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;borderWidth&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;;
-view.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;borderColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; blackColor];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you haven’t seen code like this before try using it with any UI component in your app and check what it does. It adds a 1pt black border to the view and round its corners by 8pt.&lt;/p&gt;
-
-&lt;p&gt;Every &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIView&lt;/code&gt; is backed with a layer which can be accessed with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;view.layer&lt;/code&gt;. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;layer&lt;/code&gt; property points to an instance of either the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CALayer&lt;/code&gt; class or any of its subclasses like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAGradientLayer&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CATextLayer&lt;/code&gt; etc. Layers are part of the  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Animation&lt;/code&gt; library and are extensively used in custom drawing with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Graphics&lt;/code&gt; and  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Animation&lt;/code&gt;, these two frameworks make &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iOS&lt;/code&gt; apps beautiful. The image below shows where these two frameworks lie in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iOS&lt;/code&gt; graphics drawing engine:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/drawing_hierarchy.png&quot; alt=&quot;Drawing Hierarchy&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OpenGL&lt;/code&gt;, a low-level API which interacts directly with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GPU&lt;/code&gt;, does all the heavy lifting work of graphics processing. To make our lives even easier Apple has built &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Animation&lt;/code&gt;, a high-level wrapper above &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;OpenGL&lt;/code&gt; so that we don’t need to write the low-level &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C&lt;/code&gt; code.&lt;/p&gt;
-
-&lt;p&gt;Now, since we have been introduced to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CALayer&lt;/code&gt; and have access to the low-level graphics rendering engine lets start interacting with them and create some beautiful graphics.&lt;/p&gt;
-
-&lt;p&gt;There are various &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CALayer&lt;/code&gt; subclasses, below are the direct &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CALayer&lt;/code&gt; subclasses available in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Animation&lt;/code&gt; library:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/calayer_hierarchy.png&quot; alt=&quot;CALayer Hierarchy&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In this part of the series we will build:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;A loading indicator with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAKeyFrameAnimation&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;A mirror reflection of the &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt; logo with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAReplicatorLayer&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;A colorful &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt; logo with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CATextLayer&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;cashapelayer&quot;&gt;CAShapeLayer&lt;/h3&gt;
-
-&lt;p&gt;With &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt; we can easily draw curved paths and geometrical shapes. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt; is mostly used in drawing custom UI components. At &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt;, we design most of the custom &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIButton&lt;/code&gt; subclasses with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;But why would you write code to draw a circle or a triangle or anything complex when you have images?&lt;/p&gt;
-
-&lt;div class=&quot;align-center&quot;&gt;
-&lt;img src=&quot;/images/trollface.png&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;There are a few reasons to write code:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Almost all properties of shape layers are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;animatable&lt;/code&gt;, which gives us the freedom to change these shapes with code at runtime, which we’ll learn how to do.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt; is vector based, thus they are resolution independent.&lt;/li&gt;
-  &lt;li&gt;This can be drawn directly using the GPU so we can free the CPU for other tasks.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;By the end of this section, we’ll be able to show this cool animation on the screen:&lt;/p&gt;
-
-&lt;div class=&quot;align-center&quot;&gt;
-&lt;img src=&quot;/images/shape.gif&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;The animation above has three components:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;A rounded rectangle added on the view layer&lt;/li&gt;
-  &lt;li&gt;A gray color circle added on the rectangle layer&lt;/li&gt;
-  &lt;li&gt;A dark gray color arc added on the circle layer&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;The below code draws the rounded rectangle on the screen:&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt; *roundedRect = [&lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt; layer];
-roundedRect.&lt;span class=&quot;property&quot;&gt;path&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithRoundedRect:&lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;120&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;120&lt;/span&gt;) cornerRadius:&lt;span class=&quot;number&quot;&gt;8.0&lt;/span&gt;].&lt;span class=&quot;type&quot;&gt;CGPath&lt;/span&gt;;
-roundedRect.&lt;span class=&quot;property&quot;&gt;fillColor&lt;/span&gt; = [[&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; whiteColor] colorWithAlphaComponent:&lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
-[&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;view&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt; addSublayer:roundedRect];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;To create the path of the shape layer we used a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIKit&lt;/code&gt; class &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIBezierPath&lt;/code&gt; to skip the complexity of drawing paths with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Graphics&lt;/code&gt;. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fillColor&lt;/code&gt; property of the shape layer fills the closed region of the layer with given color.&lt;/p&gt;
-
-&lt;p&gt;Next, we add a circle to the rounded rectangle:&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt; *circle = [&lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt; layer];
-
-circle.&lt;span class=&quot;property&quot;&gt;path&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithArcCenter:&lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) radius:&lt;span class=&quot;number&quot;&gt;50&lt;/span&gt; startAngle:&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;*(&lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;/&lt;span class=&quot;number&quot;&gt;180.0&lt;/span&gt;)  endAngle:&lt;span class=&quot;number&quot;&gt;360.0&lt;/span&gt;*(&lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;/&lt;span class=&quot;number&quot;&gt;180.0&lt;/span&gt;) clockwise:&lt;span class=&quot;type&quot;&gt;YES&lt;/span&gt;].&lt;span class=&quot;type&quot;&gt;CGPath&lt;/span&gt;;
-circle.&lt;span class=&quot;property&quot;&gt;lineWidth&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;5.0&lt;/span&gt;;
-circle.&lt;span class=&quot;property&quot;&gt;fillColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; clearColor].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
-circle.&lt;span class=&quot;property&quot;&gt;strokeColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; lightGrayColor].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
-circle.&lt;span class=&quot;property&quot;&gt;backgroundColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; clearColor].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
-circle.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;60&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;60&lt;/span&gt;);
-
-[roundedRect addSublayer:circle];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For drawing a circle we need to pass a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;startAngle&lt;/code&gt; and an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;endAngle&lt;/code&gt;. With these angles, we tell the system from where the path should start and where it should be drawn till. If we were drawing this circle with a pen, consider the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strokeColor&lt;/code&gt; as the ink color and the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lineWidth&lt;/code&gt; as the minimum width of the line that can be drawn with the pen. Changing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;position&lt;/code&gt; of the layer centers it in the rectangle.&lt;/p&gt;
-
-&lt;p&gt;To add the arc we will again use the same function for drawing a circle, but we will pass different start angles and end angles to draw it as an arc:&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt; *arc = [&lt;span class=&quot;type&quot;&gt;CAShapeLayer&lt;/span&gt; layer];
-arc.&lt;span class=&quot;property&quot;&gt;path&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIBezierPath&lt;/span&gt; bezierPathWithArcCenter:&lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) radius:&lt;span class=&quot;number&quot;&gt;50&lt;/span&gt; startAngle:&lt;span class=&quot;number&quot;&gt;180.0&lt;/span&gt;*(&lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;/&lt;span class=&quot;number&quot;&gt;180.0&lt;/span&gt;)  endAngle:&lt;span class=&quot;number&quot;&gt;225.0&lt;/span&gt;*(&lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;/&lt;span class=&quot;number&quot;&gt;180.0&lt;/span&gt;) clockwise:&lt;span class=&quot;type&quot;&gt;YES&lt;/span&gt;].&lt;span class=&quot;type&quot;&gt;CGPath&lt;/span&gt;;
-arc.&lt;span class=&quot;property&quot;&gt;lineWidth&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;5.0&lt;/span&gt;;
-arc.&lt;span class=&quot;property&quot;&gt;lineCap&lt;/span&gt; = kCALineCapRound;
-arc.&lt;span class=&quot;property&quot;&gt;fillColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; clearColor].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
-arc.&lt;span class=&quot;property&quot;&gt;strokeColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; darkGrayColor].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
-arc.&lt;span class=&quot;property&quot;&gt;backgroundColor&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; clearColor].&lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lineCap&lt;/code&gt; determines how the endpoints of the drawn curve are stroked.&lt;/p&gt;
-
-&lt;p&gt;To create a rotational animation in x-y plane we need to change the rotation transform along the
-z-axis and fortunately, we can easily do this with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Core Animation&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;CAKeyframeAnimation&lt;/span&gt; *animation = [&lt;span class=&quot;type&quot;&gt;CAKeyframeAnimation&lt;/span&gt; animationWithKeyPath:&lt;span class=&quot;keyword&quot;&gt;@&quot;transform&lt;/span&gt;.&lt;span class=&quot;keyword&quot;&gt;rotation&lt;/span&gt;.&lt;span class=&quot;string&quot;&gt;z&quot;];&lt;/span&gt;
-animation.&lt;span class=&quot;property&quot;&gt;additive&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;YES&lt;/span&gt;;
-animation.&lt;span class=&quot;property&quot;&gt;duration&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;10.0&lt;/span&gt;;
-animation.&lt;span class=&quot;property&quot;&gt;repeatCount&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;HUGE_VALF&lt;/span&gt;;
-animation.&lt;span class=&quot;property&quot;&gt;values&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;[
-                    [&lt;span class=&quot;type&quot;&gt;NSNumber&lt;/span&gt; numberWithFloat:&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt; * &lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;],
-                    [&lt;span class=&quot;type&quot;&gt;NSNumber&lt;/span&gt; numberWithFloat:&lt;span class=&quot;number&quot;&gt;1.75&lt;/span&gt; * &lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;],
-                    [&lt;span class=&quot;type&quot;&gt;NSNumber&lt;/span&gt; numberWithFloat:-&lt;span class=&quot;number&quot;&gt;0.75&lt;/span&gt; * &lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;],
-                    [&lt;span class=&quot;type&quot;&gt;NSNumber&lt;/span&gt; numberWithFloat:&lt;span class=&quot;number&quot;&gt;2.75&lt;/span&gt; * &lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;],
-                    [&lt;span class=&quot;type&quot;&gt;NSNumber&lt;/span&gt; numberWithFloat:&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt; * &lt;span class=&quot;type&quot;&gt;M_PI&lt;/span&gt;]
-                    ];
-animation.&lt;span class=&quot;property&quot;&gt;keyTimes&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;[ &lt;span class=&quot;keyword&quot;&gt;@0&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;6.0&lt;/span&gt;), &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;3&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;6.0&lt;/span&gt;), &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;6.0&lt;/span&gt;), &lt;span class=&quot;keyword&quot;&gt;@1&lt;/span&gt; ];
-animation.&lt;span class=&quot;property&quot;&gt;timingFunctions&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;[
-                             [&lt;span class=&quot;type&quot;&gt;CAMediaTimingFunction&lt;/span&gt; functionWithName:kCAMediaTimingFunctionEaseIn],
-                             [&lt;span class=&quot;type&quot;&gt;CAMediaTimingFunction&lt;/span&gt; functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
-                             [&lt;span class=&quot;type&quot;&gt;CAMediaTimingFunction&lt;/span&gt; functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
-                             [&lt;span class=&quot;type&quot;&gt;CAMediaTimingFunction&lt;/span&gt; functionWithName:kCAMediaTimingFunctionEaseOut]
-                             ];
-[arc addAnimation:animation forKey:&lt;span class=&quot;string&quot;&gt;@&quot;rotate&quot;];&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;With &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAKeyFrameAnimation&lt;/code&gt; we can control the animation attributes like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromValue&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toValue&lt;/code&gt;,  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;timingFunction&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;calculationMode&lt;/code&gt; for different time intervals in the complete animation. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;values&lt;/code&gt; array determines &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;fromValue&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;toValue&lt;/code&gt; of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;animatable&lt;/code&gt; property ( transform.rotation.z) in the time intervals given to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;keyTimes&lt;/code&gt; array. The timing functions decide how the animations start and end.&lt;/p&gt;
-
-&lt;p&gt;You can find the complete code till this section on this &lt;a href=&quot;https://github.com/vinayjn/CALayer/tree/2521cd08e33ad6e6be3fc18d8b9995eb8bd68a87&quot;&gt;CALayers-GitHub&lt;/a&gt; repo.&lt;/p&gt;
-
-&lt;h3 id=&quot;careplicatorlayer&quot;&gt;CAReplicatorLayer&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAReplicatorLayer&lt;/code&gt; is a container layer, it replicates the content added to it. It has some cool properties which can be used to instruct the container how the replication has to be done. Beautiful effects can be achieved by applying animations to the replicated content. Every contained content is called an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instance&lt;/code&gt;. To show the usage of this layer we will create a reflection of an image. By the end of this section, we’ll be able to show the reflection of the &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt; logo like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/reflection.png&quot; alt=&quot;Reflection&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Let’s build this!&lt;/p&gt;
-
-&lt;p&gt;First, we need a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAReplicatorLayer&lt;/code&gt; instance and on this instance, we’ll be adding an image layer of which the reflection we will be showing:&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;comment&quot;&gt;// Create a CAReplicatorLayer&lt;/span&gt;
-&lt;span class=&quot;type&quot;&gt;CAReplicatorLayer&lt;/span&gt; *replicatorLayer = [&lt;span class=&quot;type&quot;&gt;CAReplicatorLayer&lt;/span&gt; layer];
-
-&lt;span class=&quot;comment&quot;&gt;// Create the image layer&lt;/span&gt;
-&lt;span class=&quot;type&quot;&gt;UIImage&lt;/span&gt; *image = [&lt;span class=&quot;type&quot;&gt;UIImage&lt;/span&gt; imageNamed:&lt;span class=&quot;string&quot;&gt;@&quot;haptik_logo&quot;];&lt;/span&gt;
-&lt;span class=&quot;type&quot;&gt;CALayer&lt;/span&gt; *imageLayer = [&lt;span class=&quot;type&quot;&gt;CALayer&lt;/span&gt; layer];
-imageLayer.&lt;span class=&quot;property&quot;&gt;contents&lt;/span&gt; = (__bridge id)[image &lt;span class=&quot;type&quot;&gt;CGImage&lt;/span&gt;];
-imageLayer.&lt;span class=&quot;property&quot;&gt;bounds&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;width&lt;/span&gt;, image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt;);
-imageLayer.&lt;span class=&quot;property&quot;&gt;anchorPoint&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);
-
-&lt;span class=&quot;comment&quot;&gt;// Set bounds of replicator layer
-// to height twice of image height&lt;/span&gt;
-replicatorLayer.&lt;span class=&quot;property&quot;&gt;bounds&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;width&lt;/span&gt;, image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;);
-replicatorLayer.&lt;span class=&quot;property&quot;&gt;masksToBounds&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;YES&lt;/span&gt;;
-replicatorLayer.&lt;span class=&quot;property&quot;&gt;anchorPoint&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;);
-replicatorLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;view&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;width&lt;/span&gt; / &lt;span class=&quot;number&quot;&gt;2.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;80.0&lt;/span&gt;);    
-[replicatorLayer addSublayer:imageLayer];
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This code is pretty straight forward, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;anchorPoint&lt;/code&gt; of a layer is the point from where all the geometric manipulations will happen. The default &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;anchorPoint&lt;/code&gt; is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(0.5, 0.5)&lt;/code&gt; which represents the center of the layer. We want to apply a rotation from the top of the layer, so we changed it to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(0,0)&lt;/code&gt;`.&lt;/p&gt;
-
-&lt;p&gt;With the above code, we have added an image to the replicator layer and set its correct bounds. To get the reflection we need to apply a rotation transform and translate the replicated layer to the correct position as below:&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;CATransform3D&lt;/span&gt; transform = &lt;span class=&quot;type&quot;&gt;CATransform3DIdentity&lt;/span&gt;;
-transform = &lt;span class=&quot;type&quot;&gt;CATransform3DScale&lt;/span&gt;(transform, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;);
-transform = &lt;span class=&quot;type&quot;&gt;CATransform3DTranslate&lt;/span&gt;(transform, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, -image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;2.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;);
-replicatorLayer.&lt;span class=&quot;property&quot;&gt;instanceTransform&lt;/span&gt; = transform;
-replicatorLayer.&lt;span class=&quot;property&quot;&gt;instanceCount&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instanceTransform&lt;/code&gt; property of the replicator layer allows us to set the calculated transform on the replicated content. There are other properties of the replicator layer like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instanceDelay&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instanceColor&lt;/code&gt; which can be manipulated to get more control.&lt;/p&gt;
-
-&lt;p&gt;Setting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;instanceCount&lt;/code&gt; to 2 instructs the replicator layer to create exactly two instances of the added content.&lt;/p&gt;
-
-&lt;p&gt;This is it! Running this code will give us the below output:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/reflection2.png&quot; alt=&quot;Reflection&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;But this is not what you expected, yes because the mirror we used earlier was blurred and so was the reflection. But if that is what you also need then add a gradient layer to your layer as shown below:&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;type&quot;&gt;CAGradientLayer&lt;/span&gt; *gradientLayer = [&lt;span class=&quot;type&quot;&gt;CAGradientLayer&lt;/span&gt; layer];
-gradientLayer.&lt;span class=&quot;property&quot;&gt;colors&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;[
-                           (__bridge id)[[[&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; whiteColor] colorWithAlphaComponent:&lt;span class=&quot;number&quot;&gt;0.25&lt;/span&gt;] &lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;],
-                           (__bridge id)[[&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; whiteColor] &lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;]
-                           ];
-
-gradientLayer.&lt;span class=&quot;property&quot;&gt;bounds&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, replicatorLayer.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;width&lt;/span&gt;, image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt; + &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;);
-
-gradientLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(replicatorLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;x&lt;/span&gt;, replicatorLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt; + image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;);
-&lt;span class=&quot;type&quot;&gt;CAGradientLayer&lt;/span&gt; *gradientLayer = [&lt;span class=&quot;type&quot;&gt;CAGradientLayer&lt;/span&gt; layer];
-gradientLayer.&lt;span class=&quot;property&quot;&gt;colors&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;@&lt;/span&gt;[
-                           (__bridge id)[[[&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; whiteColor] colorWithAlphaComponent:&lt;span class=&quot;number&quot;&gt;0.25&lt;/span&gt;] &lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;],
-                           (__bridge id)[[&lt;span class=&quot;type&quot;&gt;UIColor&lt;/span&gt; whiteColor] &lt;span class=&quot;type&quot;&gt;CGColor&lt;/span&gt;]
-                           ];
-
-gradientLayer.&lt;span class=&quot;property&quot;&gt;bounds&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;, replicatorLayer.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;width&lt;/span&gt;, image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt; + &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;);
-
-gradientLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGPointMake&lt;/span&gt;(replicatorLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;x&lt;/span&gt;, replicatorLayer.&lt;span class=&quot;property&quot;&gt;position&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;y&lt;/span&gt; + image.&lt;span class=&quot;property&quot;&gt;size&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt; * &lt;span class=&quot;number&quot;&gt;1.5&lt;/span&gt;);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;At &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt;, we have used the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAReplicatorLayer&lt;/code&gt; to create a new typing indicator. This is how it looks!&lt;/p&gt;
-
-&lt;div class=&quot;align-center&quot;&gt;
-&lt;img src=&quot;/images/typing.gif&quot; /&gt;
-&lt;/div&gt;
-
-&lt;p&gt;If you want to download and run this code check the &lt;a href=&quot;https://github.com/vinayjn/CALayer/tree/c495e29dc3675b39a4636f005d0d716ebd4b0fb9&quot;&gt;Github repo&lt;/a&gt;. And yes, Craig Federighi was online. ;)&lt;/p&gt;
-
-&lt;h3 id=&quot;catextlayer&quot;&gt;CATextLayer&lt;/h3&gt;
-
-&lt;p&gt;Text layers are used to layout and render plain and attributed strings, but we do this usually with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UILabel&lt;/code&gt;. One amazing usage of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CATextLayer&lt;/code&gt; is to mask UIView. In this section we will redesign the &lt;a href=&quot;https://haptik.ai&quot;&gt;Haptik&lt;/a&gt; logo as in the image below:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/textlayer.png&quot; alt=&quot;CATextLayer&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;We create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UIImageView&lt;/code&gt; with a pattern image and mask that pattern with the text layer:&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;comment&quot;&gt;// Create the imageView&lt;/span&gt;
-&lt;span class=&quot;type&quot;&gt;UIImage&lt;/span&gt; *haptikLogo = [&lt;span class=&quot;type&quot;&gt;UIImage&lt;/span&gt; imageNamed:&lt;span class=&quot;string&quot;&gt;@&quot;Artboard&quot;];&lt;/span&gt;
-&lt;span class=&quot;type&quot;&gt;UIImageView&lt;/span&gt; *imageView = [[&lt;span class=&quot;type&quot;&gt;UIImageView&lt;/span&gt; alloc] initWithFrame:&lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;300&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;300&lt;/span&gt;)];
-imageView.&lt;span class=&quot;property&quot;&gt;image&lt;/span&gt; = haptikLogo;
-
-&lt;span class=&quot;comment&quot;&gt;// Create the CATextLayer instance.&lt;/span&gt;
-&lt;span class=&quot;type&quot;&gt;CATextLayer&lt;/span&gt; *textLayer = [&lt;span class=&quot;type&quot;&gt;CATextLayer&lt;/span&gt; layer];
-textLayer.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt; = imageView.&lt;span class=&quot;property&quot;&gt;bounds&lt;/span&gt;;
-textLayer.&lt;span class=&quot;property&quot;&gt;rasterizationScale&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIScreen&lt;/span&gt; mainScreen].scale;
-textLayer.&lt;span class=&quot;property&quot;&gt;contentsScale&lt;/span&gt; = [&lt;span class=&quot;type&quot;&gt;UIScreen&lt;/span&gt; mainScreen].scale;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;Never forget&lt;/strong&gt; to set the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rasterizationScale&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;contentsScale&lt;/code&gt;, without these properties you might get blurry or smaller text depending on the screen resolution of the devices your app runs on.&lt;/p&gt;
-
-&lt;p&gt;Set whatever string you want to display as a mask with the desired font:&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;textLayer.&lt;span class=&quot;property&quot;&gt;fontSize&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;100.0&lt;/span&gt;;
-textLayer.&lt;span class=&quot;property&quot;&gt;font&lt;/span&gt; = (__bridge &lt;span class=&quot;type&quot;&gt;CFTypeRef _Nullable&lt;/span&gt;)([&lt;span class=&quot;type&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;]);
-textLayer.&lt;span class=&quot;property&quot;&gt;string&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;@&quot;haptik&quot;;&lt;/span&gt;
-textLayer.&lt;span class=&quot;property&quot;&gt;fontSize&lt;/span&gt; = &lt;span class=&quot;number&quot;&gt;100.0&lt;/span&gt;;
-textLayer.&lt;span class=&quot;property&quot;&gt;font&lt;/span&gt; = (__bridge &lt;span class=&quot;type&quot;&gt;CFTypeRef _Nullable&lt;/span&gt;)([&lt;span class=&quot;type&quot;&gt;UIFont&lt;/span&gt; systemFontOfSize:&lt;span class=&quot;number&quot;&gt;100&lt;/span&gt;]);
-textLayer.&lt;span class=&quot;property&quot;&gt;string&lt;/span&gt; = &lt;span class=&quot;string&quot;&gt;@&quot;haptik&quot;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Finally, use the text layer as the mask on the image view and we are done:&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;imageView.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;mask&lt;/span&gt; = textLayer;
-imageView.&lt;span class=&quot;property&quot;&gt;layer&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;mask&lt;/span&gt; = textLayer;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Build and run the app and see how it looks like.&lt;/p&gt;
-
-&lt;p&gt;The app source code till this section can be downloaded from &lt;a href=&quot;https://github.com/vinayjn/CALayer/tree/97ed89a9610272a9417e95fcbf7890e53f8a727d&quot;&gt;CALayer-Github&lt;/a&gt; repo. Looking forward to hearing from you all.&lt;/p&gt;
-
-&lt;p&gt;Also, don’t forget, we are hiring high-quality engineers. So if you are interested reach out to us at &lt;a href=&quot;mailto:hello@haptik.ai&quot;&gt;hello@haptik.ai&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;This post was originally written at &lt;a href=&quot;http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/&quot;&gt;Haptik Tech Blog&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">If you’ve been programming for iOS devices, you might have encountered these lines of code:</summary></entry></feed>
+&lt;p&gt;I’ve tried to keep things short and easy to understand, if you find any issues in the post or have any feedback like adding or removing content please feel free to write in comments. I welcome tech discussions. 😉&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">Whenever we declare properties in Objective-C there are some keywords between the parentheses like strong, weak, atomic, nonatomic. There can be multiple comma separated words in between the parentheses, sometimes we don’t add any keywords there and keep the default compiler behavior. In this post we’ll discuss what these keywords/attributes actually mean and what are the effects of using one over the other. @property are specific to Objective-C but the concepts can be applied to Swift as well, if you are a Swift only dev I still recommend going through this post once.</summary></entry></feed>
