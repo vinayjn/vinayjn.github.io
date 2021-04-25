@@ -1,4 +1,223 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2021-04-24T22:06:27+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><subtitle>Developer / Tinkerer</subtitle><entry><title type="html">Regex: Pipe operator to find alternatives</title><link href="https://vinayjain.me/posts/pipes-in-regular-expressions" rel="alternate" type="text/html" title="Regex: Pipe operator to find alternatives" /><published>2021-01-11T06:39:25+05:30</published><updated>2021-01-11T06:39:25+05:30</updated><id>https://vinayjain.me/posts/pipes-in-regular-expressions</id><content type="html" xml:base="https://vinayjain.me/posts/pipes-in-regular-expressions">&lt;p&gt;Regular expressions are probably one of the most under-pursued yet powerful and useful Computer Science skills. As a programmer, in common day-to-day tasks like text–search, replace and input validation I find regular expression to be very efficient. Almost all modern languages and operating systems support text processing with regex and having them in my toolbox makes my workflow more productive.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2021-04-25T21:07:17+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><subtitle>Developer / Tinkerer</subtitle><entry><title type="html">Keep Going: Austin Kleon</title><link href="https://vinayjain.me/posts/keep-going" rel="alternate" type="text/html" title="Keep Going: Austin Kleon" /><published>2021-01-11T06:39:25+05:30</published><updated>2021-01-11T06:39:25+05:30</updated><id>https://vinayjain.me/posts/keep-going</id><content type="html" xml:base="https://vinayjain.me/posts/keep-going">&lt;p&gt;After Steal Like an Artist and Show Your Work, in Keep Going, Austin Kleon talks about 10 ways to stay creative and focussed in good and bad times. These ideas are written primarily for writers and artists but these can be applied to anyone trying to sustain a meaningful and productive life.&lt;/p&gt;
+
+&lt;p&gt;Most of the points mentioned in the book are stolen from somewhere else, so you might find some things which you already know and some things which do not apply to you at all. Take what you need and leave the rest.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/everyday.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“None of us know what will happen. Don’t spend time worrying about it. Make the most beautiful thing you can. Try to do that every day. That’s it.”
+&lt;cite&gt;- Laurie Anderson&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;What would you do if you were stuck in one place, and every day was exactly the same, and nothing that you did mattered?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;How you answer this question is your art.&lt;/p&gt;
+
+&lt;p&gt;Life is not linear. It’s not a straight line from point A to point B. It’s more like a loop, or a spiral, in which you keep coming back to a new starting point after every project. No matter how successful you get, no matter what level of achievement you reach, you will never really “arrive.” Other than death, there is no finish line or retirement for a person.&lt;/p&gt;
+
+&lt;p&gt;We have so little control over our lives. The only thing we can really control is what we spend our days on. What we work on and how hard we work on it. The best thing you can do if you want to make art is to pretend you’re starring in your own remake of Groundhog Day: Yesterday’s over, tomorrow may never come, there’s just today and what you can do with it.&lt;/p&gt;
+
+&lt;p&gt;Any man can fight the battles of just one day. It is only when we add the burden of those two awful eternities, yesterday and tomorrow, that we break down. It is not the experience of today that drives men mad, it is the remorse or bitterness for something which happened yesterday or the dread of what tomorrow may bring.&lt;/p&gt;
+
+&lt;p&gt;The creative journey is not one in which you’re crowned the triumphant hero and live happily ever after. The real creative journey is one in which you wake up every day with more work to do.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“How we spend our days is, of course, how we spend our lives.”
+&lt;cite&gt;- Annie Dillard&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/establish_routine.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A daily routine will get you through the day and help you make the most of it. When you don’t know what to do next, your routine tells you. When you don’t have much time, a routine helps you make the little time you have count. When you have all the time in the world, a routine helps you make sure you don’t waste it. To establish your own routine, you have to spend some time observing your days and your moods. When your days pretty much have the same shape, the days that don’t have that shape become even more interesting.&lt;/p&gt;
+
+&lt;p&gt;A little imprisonment—if it’s of your own making—can set you free. Rather than restricting your freedom, a routine gives you freedom by protecting you from the ups and downs of life and helping you take advantage of your limited time, energy, and talent. A routine establishes good habits that can lead to your best work.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/make_lists.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lists bring order to the chaotic universe. A list gets all your ideas out of your head and clears the mental space so you’re actually able to do something about them. Make a big list of everything that needs to get done, pick the most pressing thing to do, and do it. Each day, just have a starting point and once you have a starting point the work seems to make itself.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/how_to_be_happy.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When there’s something you want to do in the future but don’t have time for right now, add it to a “Someday/Maybe” list. Create a single document–a spark file—every time you have an idea, add it to the file, and then revisit the list every couple of months. Sometimes it’s important to make a list of what you won’t do. Every list should be a collection with purpose.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Your list is your past and your future. Carry at all times. Prioritize: today, this week, and eventually. You will someday die with items still on your list, but for now, while you live, your list helps prioritize what can be done in your limited time.” 
+&lt;cite&gt;— Tom Sachs&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Not every day is going to turn out the way we want it to. The important thing is to make it to the end of the day, no matter what. When the sun goes down and you look back on the day, go easy on yourself. A little self-forgiveness goes a long way. Before you go to bed, make a list of anything you did accomplish, and write down a list of what you want to get done tomorrow. Then forget about it. A day that seems like waste now might turn out to have a purpose or use or beauty to it later on.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/bliss_station.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Disconnect from the world to connect with yourself. You must play a little hide-and-seek in order to produce something worth being found.&lt;/p&gt;
+
+&lt;p&gt;You must have a room, or a certain hour or a day, where you don’t know what was in the newspapers that morning, you don’t know who your friends are, you don’t know what you owe anybody, you don’t know what anybody owes to you. This is a place where you can simply experience and bring forth what you are and what you might be. This is the place of creative incubation. At first you may find that nothing happens there. But if you have a sacred place and use it, something eventually will happen.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;A bliss station can be not just a where, but also a when. Not just a sacred space, but also a sacred time.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;The greatest need of our time is to clean out the enormous mass of mental and emotional rubbish that clutters our minds and makes of all political and social life a mass illness. Without this housecleaning, we cannot begin to see. Unless we see, we cannot think. Everybody gets so much information all day long that they lose their common sense.&lt;/p&gt;
+
+&lt;p&gt;When you reach for your phone or your laptop upon waking, you’re immediately inviting anxiety and chaos into your life. You’re also bidding adieu to some of the most potentially fertile moments in the life of a creative person. If you’re using your phone to wake up and it’s ruining your mornings, try this: Before you go to bed, plug your phone into an outlet across the room, or somewhere out of arm’s reach. When you wake up, try your best not to look at it. There are so many better ways to wake up: Head to your bliss station, eat breakfast, stretch, do some exercises, take a walk, run, listen to Mozart, shower, read a book, play with your kids, or just be silent for a bit. Even if it’s for fifteen minutes, give yourself some time in the morning to not be completely horrified by the news.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“The phone gives us a lot but it takes away three key elements of discovery: loneliness, uncertainty, and boredom. Those have always been where creative ideas come from.”
+&lt;cite&gt; —Lynda Barry &lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/say_no.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In order to protect your sacred space and time, you have to learn how to decline all sorts of invitations from the world. You must learn how to say “no.”&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Say not to everyone who is not me.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Social media has created a human phenomenon called FOMO: the Fear Of Missing Out. It’s the sense, scrolling through your feeds, that everybody out there is having a much better time than you are. The only antidote is JOMO: the Joy Of Missing Out. Saying “no” to the world can be really hard, but sometimes it’s the only way to say “yes” to your art and your sanity.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/do_verb.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lots of people want to be the noun without doing the verb. They want the job title without the work. Let go of the thing that you’re trying to be (the noun), and focus on the actual work you need to be doing (the verb). Doing the verb will take you someplace further and far more interesting.&lt;/p&gt;
+
+&lt;p&gt;If you pick the wrong noun to aspire to, you’ll be stuck with the wrong verb, too. If you only aspire to be a “creative,” you might simply spend your time signaling that you are one: wearing designer eyeglasses, typing on your Macbook Pro, and Instagramming photos of yourself in your sun-drenched studio.&lt;/p&gt;
+
+&lt;p&gt;Job titles can mess you up. Job titles, if they’re taken too seriously, will make you feel like you need to work in a way that befits the title, not the way that fits the actual work. Job titles can also restrict the kinds of work that you feel like you can do. If you wait for someone to give you a job title before you do the work, you might never get to do the work at all. You can’t wait around for someone to call you an artist before you make art. You’ll never make it.&lt;/p&gt;
+
+&lt;p&gt;If and when you finally get to be the noun—when that coveted job title is bestowed upon you by others—don’t stop doing your verb. Job titles aren’t really for you, they’re for others.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/work_play.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you’ve lost your playfulness, practice for practice’s sake. You don’t have to go to such dramatic lengths as combustion. Musicians can jam without making a recording. Writers and artists can type or draw out a page and throw it away. Photographers can take photos and immediately delete them. When nothing’s fun anymore, try to make the worst thing you can. The ugliest drawing. The crummiest poem. The most obnoxious song. Making intentionally bad art is a ton of fun.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“You must practice being stupid, dumb, unthinking, empty. Then you will be able to DO . . . Try to do some BAD work—the worst you can think of and see what happens but mainly relax and let everything go to hell—you are not responsible for the world—you are only responsible for your work—so DO IT.”
+&lt;cite&gt;- Sol LeWitt&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/make_gifts.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“God walks out of the room when you’re thinking about money.”
+&lt;cite&gt; —Quincy Jones &lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;We’re now trained to heap praise on our loved ones by using market terminology. The minute anybody shows any talent for anything, we suggest they turn it into a profession. This is our best compliment: telling somebody they’re so good at what they love to do they could make money at it.&lt;/p&gt;
+
+&lt;p&gt;Everyone who’s turned their passion into their breadwinning knows this is dangerous territory. One of the easiest ways to hate something you love is to turn it into your job: taking the thing that keeps you alive spiritually and turning it into the thing that keeps you alive literally. You must be mindful of what potential impact monetizing your passions could have on your life. You might find that you’re better off with a day job.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;“Do what you love” + low overhead = a good life.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;“Do what you love” + “I deserve nice things” = a time bomb.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/ignore_numbers.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Digitizing your work and sharing it online means that it is subject to the world of online metrics: website visits, likes, favorites, shares, reblogs, retweets, follower counts, and more. It’s easy to become as obsessed with online metrics as money. It can then be tempting to use those metrics to decide what to work on next, without taking into account how shallow those metrics really are.&lt;/p&gt;
+
+&lt;p&gt;If you share work online, try to ignore the numbers at least every once in a while. Increase the time between your sharing and receiving feedback. Post something and don’t check the response for a week. Turn off the analytics for your blog and write about whatever you want. Download a browser plug-in that makes the numbers disappear from social media.&lt;/p&gt;
+
+&lt;p&gt;“Suckcess,” on the other hand, is success on somebody else’s terms. Or undeserved success. Or when something you think sucks becomes successful. Or when success or chasing after it just plain starts to suck. If you’re bummed out and hating your work, pick somebody special in your life and make something for them. If you have a big audience, make them something special and give it away. Or maybe even better: Volunteer your time and teach someone else how to make what you make and do what you do. See how it feels. See whether it puts you in a better place.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/extra_ordinary.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“It’s as true today as it ever was: He who seeks beauty will find it.”
+&lt;cite&gt; –Bill Cunnigham &lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;It’s impossible to pay proper attention to your life if you are hurtling along at lightning speed. &lt;em&gt;When people look slowly, they make discoveries&lt;/em&gt;. To slow down and pay attention to your world, pick up a pencil and a piece of paper and start drawing what you see. (The pencil’s best feature is that it has no way of interrupting you with texts or notifications.) You might find that this helps you discover the beauty you’ve missed.&lt;/p&gt;
+
+&lt;p&gt;Your attention is one of the most valuable things you possess, which is why everyone wants to steal it from you. First you must protect it, and then you must point it in the right direction. What you choose to pay attention to is the stuff your life and work will be made of. We pay attention to the things we really care about, but sometimes what we really care about is hidden from us.&lt;/p&gt;
+
+&lt;p&gt;Social media has turned us all into politicians. And brands. Everyone’s supposed to be a brand now, and the worst thing in the world is to be off-brand.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;But to be on brand is to be 100 percent certain of who you are and what you do, and certainty, in art and in life, is not only completely overrated, it is also a roadblock to discovery.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/slay_monsters.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You might not be meant to be an artist. You might be meant to teach kids math or raise money for a food bank or start a company that makes Rubik’s Cubes for babies. Don’t rule out quitting. There is going to be an insane amount of work ahead, and your time might be spent better elsewhere.&lt;/p&gt;
+
+&lt;p&gt;If making your art is adding net misery to the world, walk away and do something else. Find something else to do with your time, something that makes you and the people around you feel more alive.&lt;/p&gt;
+
+&lt;p&gt;The world doesn’t necessarily need more great artists. It needs more decent human beings.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/change_mind.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The test of a first-rate intelligence is the ability to hold two opposed ideas in the mind at the same time, and still retain the ability to function. One should, for example, be able to see that things are hopeless and yet be determined to make them otherwise.&lt;/p&gt;
+
+&lt;p&gt;We’re afraid of changing our minds because we’re afraid of the consequences of changing our minds. What will people think? Social media has turned us all into politicians. And brands. Everyone’s supposed to be a brand now, and the worst thing in the world is to be off-brand.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“But to be on brand is to be 100 percent certain of who you are and what you do, and certainty, in art and in life, is not only completely overrated, it is also a roadblock to discovery.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/smart_enough.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Of course, to change your mind is to do some real thinking. Thinking requires an environment in which you can try out all sorts of ideas and not be judged for them. To change your mind, you need a good place to have some bad ideas.&lt;/p&gt;
+
+&lt;p&gt;The internet, unfortunately, is no longer a safe place to do any kind of experimental thinking, particularly for somebody with an audience or any kind of “brand.”&lt;/p&gt;
+
+&lt;p&gt;If you’re going to change your mind, you might have to go off-brand, and offline is the place to be off-brand. Your bliss station, your studio, a paper journal, a private chat room, a living room full of trusted loved ones: These are the places to really think.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Thinking is necessarily, thoroughly, and wonderfully social. Everything you think is a response to what someone else has thought and said.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Interacting with people who don’t share our perspective forces us to rethink our ideas, strengthen our ideas, or trade our ideas for better ones. When you’re only interacting with like-minded people all the time, there’s less and less opportunity to be changed. Everybody knows that feeling you get when you’re hanging out with people who love the same art, listen to the same music, and watch the same movies: It’s comforting at first, but it can also become incredibly boring and ultimately stifling.&lt;/p&gt;
+
+&lt;p&gt;If you really want to explore ideas, you should consider hanging out with people who aren’t so much like-minded as like-hearted. These are people who are “temperamentally disposed to openness and have habits of listening.” People who are generous, kind, caring, and thoughtful. People who, when you say something, “think about it, rather than just simply react.” People you feel good around.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Most everybody alive is so obsessed with what’s new that they all think about the same things.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;If you’re having trouble finding people to think with, seek out the dead. They have a lot to say and they are excellent listeners. Read old books. If you want a quick way to escape the noise of contemporary life, break out of your like-minded bubble, and do some good thinking, just visit the past for a bit. It’s inexhaustible: Every day, we’re making more and more of it. Human beings have been around for a long time, and almost every problem you have has probably been written about by some other human living hundreds if not thousands of years before you. If you read old books, you get to add all the years the author lived onto your own life.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/tidy_up.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s about planning and preparation: making sure all the ingredients and tools you need are ready before you set to work. It’s hard to work if you can’t find the things you need when you need them.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;WHEN IN DOUBT, TIDY UP.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Note that it says “when in doubt,” not “always.” Tidying up is for when you are stalled out or stuck. Tidying up a studio is not life-changing or magical. It’s just a form of productive procrastination. (Avoiding work by doing other work.) The best thing about tidying is that it busies your hands and loosens up your mind so that you either a) get unstuck or solve a new problem in your head, or b) come across something in the mess that leads to new work.&lt;/p&gt;
+
+&lt;p&gt;Tidying in the hope of obtaining perfect order is stressful work. Tidying without worrying too much about the results can be a soothing form of play.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/sleep_tidy.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Scientists and philosophers have long wondered about sleep and what it’s for. They’re slowly catching up to what artists have known all along: Sleep is an excellent tool for tidying up your brain. When you sleep, your body literally flushes out the junk in your head. Neuroscientists have explained that cerebrospinal fluid in your brain starts flowing more rapidly when you sleep, clearing out the toxins and bad proteins that build up in your brain cells.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/demons.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Walking is good for physical, spiritual, and mental health. No matter what time you get out of bed, go for a walk. The demons hate it when you get out of bed. Demons hate fresh air. Walking is great for releasing inner demons, but maybe even more important, walking is great for battling our outer demons.&lt;/p&gt;
+
+&lt;p&gt;The people who want to control us through fear and misinformation—the corporations, marketers, politicians—want us to be plugged into our phones or watching TV, because then they can sell us their vision of the world. If we do not get outside, if we do not take a walk out in the fresh air, we do not see our everyday world for what it really is, and we have no vision of our own with which to combat disinformation.&lt;/p&gt;
+
+&lt;p&gt;When we’re glued to our screens, the world looks unreal. Terrible. Not worth saving or even spending time with. Everyone on earth seems like a troll or a maniac or worse. But you get outside and you start walking and you come to your senses. Outside as well, there are a few maniacs and some ugliness, but there are also people smiling, birds chirping, clouds flying overhead…all that stuff. There’s possibility.&lt;/p&gt;
+
+&lt;p&gt;So get outside every day. Take long walks by yourself. Take walks with a friend or a loved one or a dog. Walk with a coworker on your lunch break. Grab a plastic bag and a stick and take a litter-picking walk like David Sedaris. Always keep a notebook or camera in your pocket for when you want to stop to capture a thought or an image. Explore the world on foot. See your neighborhood. Meet your neighbors. Talk to strangers. The demons hate fresh air.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/garden.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/seasons.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;“Sometimes the harshest winters yielded the most glorious springs.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Our lives, too, have different seasons. Some of us blossom at a young age; others don’t blossom until old age. Our culture mostly celebrates early successes, the people who bloom fast. But those people often wither as quickly as they bloom.&lt;/p&gt;
+
+&lt;p&gt;Part of the work is to know which season you’re in, and act accordingly. You have to pay attention to the rhythms and cycles of your creative output and learn to be patient in the off-seasons. You have to give yourself time to change and observe your own patterns. Imitate the trees. Learn to lose in order to recover, and remember that nothing stays the same for long.&lt;/p&gt;
+
+&lt;p&gt;I don’t want to know how a thirty-year-old became rich and famous; I want to hear how an eighty-year-old spent her life in obscurity, kept making art, and lived a happy life. These are the people I look to for inspiration. The people who found the thing that made them feel alive and who kept themselves alive by doing it. The people who planted their seeds, tended to themselves, and grew into something lasting.&lt;/p&gt;
+
+&lt;p&gt;&lt;img class=&quot;full-width&quot; src=&quot;/images/booksummary/keep_going/pass.jpeg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The outer demons as mentioned in the last chapter—the men who are hell-bent on wrecking this planet, carving it up for profit—they’re not going to last forever.&lt;/p&gt;
+
+&lt;p&gt;Every day is a potential seed that we can grow into something beautiful. There’s no time for despair. The thing to rejoice in is the fact that one had the good fortune to be born, the odds against being born are astronomical. None of us know how many days we’ll have, so it’d be a shame to waste the ones we get.&lt;/p&gt;
+
+&lt;p&gt;Whenever life gets overwhelming, go back to chapter one of this book and think about your days. Try your best to fill them in ways that get you a little closer to where you want to be. Go easy on yourself and take your time. Worry less about getting things done. Worry more about things worth doing. Worry less about being a great artist. Worry more about being a good human being who makes art. Worry less about making a mark. Worry more about leaving things better than you found them.&lt;/p&gt;
+
+&lt;p&gt;Keep doing your verbs, whatever they may be. Keep going.&lt;/p&gt;</content><author><name></name></author><category term="book summary" /><summary type="html">After Steal Like an Artist and Show Your Work, in Keep Going, Austin Kleon talks about 10 ways to stay creative and focussed in good and bad times. These ideas are written primarily for writers and artists but these can be applied to anyone trying to sustain a meaningful and productive life.</summary></entry><entry><title type="html">Regex: Pipe operator to find alternatives</title><link href="https://vinayjain.me/posts/pipes-in-regular-expressions" rel="alternate" type="text/html" title="Regex: Pipe operator to find alternatives" /><published>2021-01-11T06:39:25+05:30</published><updated>2021-01-11T06:39:25+05:30</updated><id>https://vinayjain.me/posts/pipes-in-regular-expressions</id><content type="html" xml:base="https://vinayjain.me/posts/pipes-in-regular-expressions">&lt;p&gt;Regular expressions are probably one of the most under-pursued yet powerful and useful Computer Science skills. As a programmer, in common day-to-day tasks like text–search, replace and input validation I find regular expression to be very efficient. Almost all modern languages and operating systems support text processing with regex and having them in my toolbox makes my workflow more productive.&lt;/p&gt;
 
 &lt;p&gt;Recently, for a side-project I wanted to validate an IP address(IPv4) input by the user. I decided to validate it with regular expressions and quickly came up with a basic pattern for the happy flow–&lt;/p&gt;
 
@@ -677,90 +896,4 @@ let&lt;/span&gt; dotsWidth = &lt;span class=&quot;type&quot;&gt;CGFloat&lt;/span
 replicator.&lt;span class=&quot;property&quot;&gt;frame&lt;/span&gt; = &lt;span class=&quot;type&quot;&gt;CGRect&lt;/span&gt;(x: x, y: &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, width: dotsWidth, height: rect.&lt;span class=&quot;property&quot;&gt;height&lt;/span&gt;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;The main reason for using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAReplicatorLayer&lt;/code&gt; here is that it gives me more control to each dot and every instance is animatable, so if there are any changes to be done on this dotted line, those can be done easily. Regarding performance, I haven’t done any kind of benchmarking on which approach is efficient as I am drawing this layer only at one place. But if you really want to know, I think the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt; base implementation will out perform this approach beacuse using that you only draw one layer. If you have any suggestions and feedbacks to improve this please do let me know in the comments.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><summary type="html">My favorite thing in frontend development is building custom user interfaces. It keeps challenging creativity and tests my eye for detail. Most of the times user interfaces give you instant feedback on what works and what doesn’t, based on these feedbacks you keep making changes which further improve the user experience. However, making these changes everytime isn’t easy, very often we hit roadblocks because of the limited functionality or maybe restricted API access. Situations like these pushes you to discover new ways of doing the same thing. As a software engineer you can do so by either browsing Stackoverflow or reading documentation or using your imagination and creativity. One recent encounter of this kind was drawing a dotted line between two points in iOS.</summary></entry><entry><title type="html">Demystifying @property and attributes</title><link href="https://vinayjain.me/posts/properties-and-mysteries" rel="alternate" type="text/html" title="Demystifying @property and attributes" /><published>2017-07-25T06:39:25+05:30</published><updated>2017-07-25T06:39:25+05:30</updated><id>https://vinayjain.me/posts/properties-and-mysteries</id><content type="html" xml:base="https://vinayjain.me/posts/properties-and-mysteries">&lt;p&gt;Whenever we declare properties in Objective-C there are some keywords between the parentheses like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strong&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;weak&lt;/code&gt;,  &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;atomic&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nonatomic&lt;/code&gt;. There can be multiple comma separated words in between the parentheses, sometimes we don’t add any keywords there and keep the default compiler behavior. In this post we’ll discuss what these keywords/attributes actually mean and what are the effects of using one over the other. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@property&lt;/code&gt; are specific to Objective-C but the concepts can be applied to Swift as well, if you are a Swift only dev I still recommend going through this post once.&lt;/p&gt;
-
-&lt;p&gt;Broadly, the change in behavior of a property with these words fall into three categories, lets see what they are:&lt;/p&gt;
-
-&lt;h3 id=&quot;atomicity-atomic-nonatomic&quot;&gt;Atomicity (atomic, nonatomic)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;atomic&lt;/strong&gt; is the default behavior, if we don’t type atomic or nonatomic then the property is atomic. atomic ensures that if we try to read the property we always get some valid value, it will never be junk or garbage data.&lt;/p&gt;
-
-    &lt;p&gt;Lets say, multiple threads are reading and writing the property simultaneously, at each and every instant the value read from the property is a good value. We don’t know what the value will be, it can be the value before the new value gets written or it can be the new value.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;nonatomic&lt;/strong&gt; as it is (non)atomic it doesn’t do whatever atomic does. To make a property nonatomic we have to add this keyword in between the parentheses. With nonatomic properties you lose the guarantee on the validity of values, reading a nonatomic property can return a garbage value.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Since atomic somehow manages the validity of the value, it has some performance limitations. Access to atomic properties are relatively slower than nonatomic properties. If you are creating properties which involve frequent write operations then it is recommended to make the properties nonatomic.&lt;/p&gt;
-
-&lt;p&gt;There’s a confusion in most developer’s mind that creating a property atomic makes it thread-safe. Atomicity has nothing to do with thread-safety. There are other ways to make the properties thread-safe but that discussion is beyond the scope of this post.&lt;/p&gt;
-
-&lt;h3 id=&quot;write-access-readonly-readwrite&quot;&gt;Write Access (readonly, readwrite)&lt;/h3&gt;
-
-&lt;p&gt;Both of these keywords are self explanatory. The default behavior is readwrite, so if we don’t specify any of these the property will allow write access to the instance variable. readonly restricts write access from everyone including the class it is declared in.&lt;/p&gt;
-
-&lt;p&gt;To allow write access to the property in the class then we have to create an interface extension in the implementation file and override the property by making it readwrite. This way the classes importing this class will be restricted to modify its value.&lt;/p&gt;
-
-&lt;pre class=&quot;splash&quot;&gt;&lt;code&gt;&lt;span class=&quot;comment&quot;&gt;// MyClass.h&lt;/span&gt;
-&lt;span class=&quot;keyword&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;MyClass&lt;/span&gt;: &lt;span class=&quot;type&quot;&gt;NSObject&lt;/span&gt;
-&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt; (nonatomic, readonly) &lt;span class=&quot;type&quot;&gt;NSString&lt;/span&gt; *value;
-&lt;span class=&quot;keyword&quot;&gt;@end&lt;/span&gt;
-
-&lt;span class=&quot;comment&quot;&gt;// MyClass.m&lt;/span&gt;
-&lt;span class=&quot;keyword&quot;&gt;@interface&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;MyClass&lt;/span&gt;()
-&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt; (nonatomic, readwrite) &lt;span class=&quot;type&quot;&gt;NSString&lt;/span&gt; *value;
-&lt;span class=&quot;keyword&quot;&gt;@end
-
-@implementation&lt;/span&gt; &lt;span class=&quot;type&quot;&gt;MyClass&lt;/span&gt;
-
-- (void)setSomeValue:(&lt;span class=&quot;type&quot;&gt;NSString&lt;/span&gt; *) &lt;span class=&quot;call&quot;&gt;newValue&lt;/span&gt; {
-    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.&lt;span class=&quot;property&quot;&gt;value&lt;/span&gt; = newValue;
-}
-
-&lt;span class=&quot;keyword&quot;&gt;@end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3 id=&quot;storage--ownership-strong-weak-copy&quot;&gt;Storage &amp;amp; Ownership (strong, weak, copy)&lt;/h3&gt;
-
-&lt;p&gt;Memory management in iOS is done with Automatic Reference Counting(ARC) and cleanup is dependent on the reference count or retain count of the objects in memory. An object sends a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dealloc&lt;/code&gt; message as soon as its retain count reaches 0.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;strong&lt;/strong&gt; is the default behavior, if you don’t specify any of the storage or ownership attributes the property holds a strong reference to the instance variable. A strong reference always owns the object is pointing to. Every strong reference to a variable increases its retain count by 1. Since the strong reference is owning the object, as longs as there is at least one strong reference to the variable it will not be deallocated from the memory.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;weak&lt;/strong&gt; is analogous to strong. When a property is weak, it holds a weak reference to the instance variable but doesn’t own it. A weak reference doesn’t increase the retain count of the object. If there are no strong references to the object the object will be deallocated and all the weak reference to this object are set to nil so that the weak pointers doesn’t point to garbage data and the operations with these pointers doesn’t crash the app.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;No discussion of strong and weak can end without talking about retain cycles.&lt;/p&gt;
-
-&lt;p&gt;Languages like Objective-C and C# depends on reference count to manage memory and these languages don’t like retain cycles because when a retain cycle is present the memory management techniques fail.&lt;/p&gt;
-
-&lt;p&gt;A retain cycle occurs when properties hold strong references to each other’s instance variables and when this happens both the objects cannot be deallocated because their reference count is not 0. Smart compilers give warnings about probable retain cycle on compile time only. To avoid retain cycles in these situations you can make one of the properties weak so that the object it is pointing to can be cleared by ARC.&lt;/p&gt;
-
-&lt;p&gt;We usually use this practice in setting the delegate and datasource properties of protocols. Retain cycles are the reason why it is recommended to keep the delegate and datasource properties in protocols as weak. The view controller holds a strong reference to the delegate and if the delegate was strong, then it will also hold a strong reference back to the view controller and will create a retain cycle.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Bonus: I just explained you how ARC works in Objective-C!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;copy&lt;/strong&gt; is similar to strong but instead of owning and increasing the retain count of the object, it creates a new copy of that object and holds a strong reference to the copied object. This way if we change the new object we will still be able to get the old value from other references. copy properties works great with mutable objects and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSString&lt;/code&gt;s. The instance variable backed by the copy must conform to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NSCopying&lt;/code&gt; protocol to make this work.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;There are some pre-ARC attributes also which we’ll discuss now, but who doesn’t use ARC today?&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;assign&lt;/strong&gt; is the default for all non pointer(*) properties i.e. the primitive C datatypes like int, float, long.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;retain&lt;/strong&gt;, it is the pre-ARC strong which owns the object by increasing its retain count, since its pre-ARC you will have to manually release the object after setting the pointer to nil.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I’ve tried to keep things short and easy to understand, if you find any issues in the post or have any feedback like adding or removing content please feel free to write in comments. I welcome tech discussions. 😉&lt;/p&gt;</content><author><name></name></author><category term="ios" /><category term="objc" /><summary type="html">Whenever we declare properties in Objective-C there are some keywords between the parentheses like strong, weak, atomic, nonatomic. There can be multiple comma separated words in between the parentheses, sometimes we don’t add any keywords there and keep the default compiler behavior. In this post we’ll discuss what these keywords/attributes actually mean and what are the effects of using one over the other. @property are specific to Objective-C but the concepts can be applied to Swift as well, if you are a Swift only dev I still recommend going through this post once.</summary></entry></feed>
+&lt;p&gt;The main reason for using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAReplicatorLayer&lt;/code&gt; here is that it gives me more control to each dot and every instance is animatable, so if there are any changes to be done on this dotted line, those can be done easily. Regarding performance, I haven’t done any kind of benchmarking on which approach is efficient as I am drawing this layer only at one place. But if you really want to know, I think the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CAShapeLayer&lt;/code&gt; base implementation will out perform this approach beacuse using that you only draw one layer. If you have any suggestions and feedbacks to improve this please do let me know in the comments.&lt;/p&gt;</content><author><name></name></author><category term="ios" /><summary type="html">My favorite thing in frontend development is building custom user interfaces. It keeps challenging creativity and tests my eye for detail. Most of the times user interfaces give you instant feedback on what works and what doesn’t, based on these feedbacks you keep making changes which further improve the user experience. However, making these changes everytime isn’t easy, very often we hit roadblocks because of the limited functionality or maybe restricted API access. Situations like these pushes you to discover new ways of doing the same thing. As a software engineer you can do so by either browsing Stackoverflow or reading documentation or using your imagination and creativity. One recent encounter of this kind was drawing a dotted line between two points in iOS.</summary></entry></feed>
