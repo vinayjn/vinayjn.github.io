@@ -3,19 +3,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Vinay Jain | Developer / Tinkerer</title>
+<title>Tabs in Xcode 12 | Vinay Jain</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Vinay Jain" />
+<meta property="og:title" content="Tabs in Xcode 12" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Developer / Tinkerer" />
-<meta property="og:description" content="Developer / Tinkerer" />
-<link rel="canonical" href="https://vinayjain.me/" />
-<meta property="og:url" content="https://vinayjain.me/" />
+<meta name="description" content="How to fix file navigation in Xcode 12 code editor" />
+<meta property="og:description" content="How to fix file navigation in Xcode 12 code editor" />
+<link rel="canonical" href="https://vinayjain.me/posts/tabs-in-xcode-12" />
+<meta property="og:url" content="https://vinayjain.me/posts/tabs-in-xcode-12" />
 <meta property="og:site_name" content="Vinay Jain" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-10T06:39:25+05:30" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Vinay Jain" />
+<meta property="twitter:title" content="Tabs in Xcode 12" />
 <script type="application/ld+json">
-{"name":"Vinay Jain","url":"https://vinayjain.me/","@type":"WebSite","description":"Developer / Tinkerer","headline":"Vinay Jain","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://vinayjain.me/posts/tabs-in-xcode-12"},"url":"https://vinayjain.me/posts/tabs-in-xcode-12","@type":"BlogPosting","description":"How to fix file navigation in Xcode 12 code editor","headline":"Tabs in Xcode 12","dateModified":"2021-05-10T06:39:25+05:30","datePublished":"2021-05-10T06:39:25+05:30","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/normalize.css" >  
   <link rel="stylesheet" href="/assets/css/light.css"><link type="application/atom+xml" rel="alternate" href="https://vinayjain.me/feed.xml" title="Vinay Jain" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-128287990-1"></script>
@@ -77,117 +79,46 @@
     </li></ul>  </div>
 </header><main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div>
+        <article class="h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   
+  <h2 class="mClear page-title" itemprop="name headline">Tabs in Xcode 12</h1>    
+  
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Xcode 12 released with a change to file navigation. It is totally different than how it was in earlier versions. Personally, I hate it and I am not sure why was this change made the default navigation style overriding the previous one I preferred. Even after using this editor for 3-4 months, I can’t figure out how to navigate to the right file. Keyboard shortcuts don’t work, the standard macOS gestures to go back and forward don’t work as expected. The only way to reach the desired file I could find was to fallback to the Quick open dialogue(⌘ + ⇧ + O) and it’s super counter-productive.</p>
 
-  <h2 class="mClear page-title"> Hey, I'm Vinay Jain</h2>
+<div class="image-box">
+<img class="image-box-item" width="100%" height="100%" src="/images/xcode-navigation/tabs.png" />
 </div>
 
-<p> A software engineer, hardware tinkerer and an amateur photographer.</p>
-  
-<p> On this website I write about tech, about what I read and about my perspective towards things in general.</p>
+<h3 id="the-fix">The Fix</h3>
 
-<p> Most of my <a target="_blank" href="https://www.youtube.com/watch?v=8WZ0XSf23rs">ideas live</a> as drafts, do have a look at some of the recent one's that made it here.</p>
-<h5> Recent Posts</h5>
+<p>With Xcode 12, files open in two types of tabs, <code class="language-plaintext highlighter-rouge">window tabs</code> and <code class="language-plaintext highlighter-rouge">tabs</code>, yeah even the names don’t make any sense. Window tabs are the old Xcode 11(and earlier) style tabs and the <code class="language-plaintext highlighter-rouge">tabs</code> are the new child tabs. If you would like to go back to the old style navigation where the gestures and keyboard shortcuts work, you can do it easily from Xcode preferences. But doing so took me a few hit and trials as the options are not well documented. The solution is to navigate to <code class="language-plaintext highlighter-rouge">Preferences &gt; Navigation</code> and change the navigation style to <code class="language-plaintext highlighter-rouge">Open in place</code>.</p>
 
-<div class="post-list">
-  
-    
-    <div class="post">
-    <div class="post-wrapper">
-      <p class="mClear">
-        <a class="post-link" href="/posts/tabs-in-xcode-12">
-          Tabs in Xcode 12
-        </a>
-      </p>
-      <div class="post-tags noselect">
-        
-          <span class="post-tag">
-            tech
-          </span>
-        
-      </div>
-    </div>    
-    <p class="mClear post-meta noselect">10 May 2021</p>        
-  </div>  
-    
-    <div class="post">
-    <div class="post-wrapper">
-      <p class="mClear">
-        <a class="post-link" href="/posts/keep-going">
-          Keep Going: Austin Kleon
-        </a>
-      </p>
-      <div class="post-tags noselect">
-        
-          <span class="post-tag">
-            book summary
-          </span>
-        
-      </div>
-    </div>    
-    <p class="mClear post-meta noselect">25 Apr 2021</p>        
-  </div>  
-    
-    <div class="post">
-    <div class="post-wrapper">
-      <p class="mClear">
-        <a class="post-link" href="/posts/pipes-in-regular-expressions">
-          Regex: Pipe operator to find alternatives
-        </a>
-      </p>
-      <div class="post-tags noselect">
-        
-          <span class="post-tag">
-            tech
-          </span>
-        
-          <span class="post-tag">
-            tutorial
-          </span>
-        
-      </div>
-    </div>    
-    <p class="mClear post-meta noselect">11 Jan 2021</p>        
-  </div>  
-    
-    <div class="post">
-    <div class="post-wrapper">
-      <p class="mClear">
-        <a class="post-link" href="/posts/plex-setup-android">
-          Setup Plex on Android with LinuxDeploy
-        </a>
-      </p>
-      <div class="post-tags noselect">
-        
-          <span class="post-tag">
-            tech
-          </span>
-        
-      </div>
-    </div>    
-    <p class="mClear post-meta noselect">6 Jan 2021</p>        
-  </div>  
-    
-    <div class="post">
-    <div class="post-wrapper">
-      <p class="mClear">
-        <a class="post-link" href="/posts/feature-toggle-service">
-          Remote Configurations &amp; AB Tests
-        </a>
-      </p>
-      <div class="post-tags noselect">
-        
-          <span class="post-tag">
-            tech
-          </span>
-        
-      </div>
-    </div>    
-    <p class="mClear post-meta noselect">22 Dec 2020</p>        
-  </div>  
-  
-  </div>
+<div class="image-box">
+<img class="image-box-item" width="100%" height="100%" src="/images/xcode-navigation/fix.png" />
+</div>
+
+<p>This configuration completely hides the child tabs and all the shortcuts and gestures work fine. I also prefer to have the Optional and Double-click navigation to use window tabs as they seem more natural, like how new links/tabs open in a web browser, you can choose what works for you. Most of my friends were facing this issue, if you were also facing this, I hope this post helps you the way it helped me and my friends. ;)</p>
+
+  </div><div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'https://vinayjain.me/posts/tabs-in-xcode-12';
+      this.page.identifier = 'https://vinayjain.me/posts/tabs-in-xcode-12';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      s.src = 'https://koderme.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/posts/tabs-in-xcode-12" hidden></a>
+</article>
+
       </div>
     </main>    
 
