@@ -98,7 +98,7 @@ view.<span class="property">layer</span>.<span class="property">borderColor</spa
 
 <p>Every <code class="language-plaintext highlighter-rouge">UIView</code> is backed with a layer which can be accessed with the <code class="language-plaintext highlighter-rouge">view.layer</code>. The <code class="language-plaintext highlighter-rouge">layer</code> property points to an instance of either the <code class="language-plaintext highlighter-rouge">CALayer</code> class or any of its subclasses like <code class="language-plaintext highlighter-rouge">CAShapeLayer</code>, <code class="language-plaintext highlighter-rouge">CAGradientLayer</code>, <code class="language-plaintext highlighter-rouge">CATextLayer</code> etc. Layers are part of the  <code class="language-plaintext highlighter-rouge">Core Animation</code> library and are extensively used in custom drawing with <code class="language-plaintext highlighter-rouge">Core Graphics</code> and  <code class="language-plaintext highlighter-rouge">Core Animation</code>, these two frameworks make <code class="language-plaintext highlighter-rouge">iOS</code> apps beautiful. The image below shows where these two frameworks lie in the <code class="language-plaintext highlighter-rouge">iOS</code> graphics drawing engine:</p>
 
-<p><img src="/images/drawing_hierarchy.png" alt="Drawing Hierarchy" /></p>
+<p><img src="/images/ca-layer/drawing_hierarchy.png" alt="Drawing Hierarchy" /></p>
 
 <p><code class="language-plaintext highlighter-rouge">OpenGL</code>, a low-level API which interacts directly with the <code class="language-plaintext highlighter-rouge">GPU</code>, does all the heavy lifting work of graphics processing. To make our lives even easier Apple has built <code class="language-plaintext highlighter-rouge">Core Animation</code>, a high-level wrapper above <code class="language-plaintext highlighter-rouge">OpenGL</code> so that we don’t need to write the low-level <code class="language-plaintext highlighter-rouge">C</code> code.</p>
 
@@ -106,7 +106,7 @@ view.<span class="property">layer</span>.<span class="property">borderColor</spa
 
 <p>There are various <code class="language-plaintext highlighter-rouge">CALayer</code> subclasses, below are the direct <code class="language-plaintext highlighter-rouge">CALayer</code> subclasses available in the <code class="language-plaintext highlighter-rouge">Core Animation</code> library:</p>
 
-<p><img src="/images/calayer_hierarchy.png" alt="CALayer Hierarchy" /></p>
+<p><img src="/images/ca-layer/calayer_hierarchy.png" alt="CALayer Hierarchy" /></p>
 
 <p>In this part of the series we will build:</p>
 
@@ -123,7 +123,7 @@ view.<span class="property">layer</span>.<span class="property">borderColor</spa
 <p>But why would you write code to draw a circle or a triangle or anything complex when you have images?</p>
 
 <div class="align-center">
-<img src="/images/trollface.png" />
+<img src="/images/ca-layer/trollface.png" />
 </div>
 
 <p>There are a few reasons to write code:</p>
@@ -137,7 +137,7 @@ view.<span class="property">layer</span>.<span class="property">borderColor</spa
 <p>By the end of this section, we’ll be able to show this cool animation on the screen:</p>
 
 <div class="align-center">
-<img src="/images/shape.gif" />
+<img src="/images/ca-layer/shape.gif" />
 </div>
 
 <p>The animation above has three components:</p>
@@ -219,7 +219,7 @@ animation.<span class="property">timingFunctions</span> = <span class="keyword">
 
 <p><code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> is a container layer, it replicates the content added to it. It has some cool properties which can be used to instruct the container how the replication has to be done. Beautiful effects can be achieved by applying animations to the replicated content. Every contained content is called an <code class="language-plaintext highlighter-rouge">instance</code>. To show the usage of this layer we will create a reflection of an image. By the end of this section, we’ll be able to show the reflection of the <a href="https://haptik.ai">Haptik</a> logo like this:</p>
 
-<p><img src="/images/reflection.png" alt="Reflection" /></p>
+<p><img src="/images/ca-layer/reflection.png" alt="Reflection" /></p>
 
 <p>Let’s build this!</p>
 
@@ -261,7 +261,7 @@ replicatorLayer.<span class="property">instanceCount</span> = <span class="numbe
 
 <p>This is it! Running this code will give us the below output:</p>
 
-<p><img src="/images/reflection2.png" alt="Reflection" /></p>
+<p><img src="/images/ca-layer/reflection2.png" alt="Reflection" /></p>
 
 <p>But this is not what you expected, yes because the mirror we used earlier was blurred and so was the reflection. But if that is what you also need then add a gradient layer to your layer as shown below:</p>
 
@@ -288,7 +288,7 @@ gradientLayer.<span class="property">position</span> = <span class="type">CGPoin
 <p>At <a href="https://haptik.ai">Haptik</a>, we have used the <code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> to create a new typing indicator. This is how it looks!</p>
 
 <div class="align-center">
-<img src="/images/typing.gif" />
+<img src="/images/ca-layer/typing.gif" />
 </div>
 
 <p>If you want to download and run this code check the <a href="https://github.com/vinayjn/CALayer/tree/c495e29dc3675b39a4636f005d0d716ebd4b0fb9">Github repo</a>. And yes, Craig Federighi was online. ;)</p>
@@ -297,7 +297,7 @@ gradientLayer.<span class="property">position</span> = <span class="type">CGPoin
 
 <p>Text layers are used to layout and render plain and attributed strings, but we do this usually with <code class="language-plaintext highlighter-rouge">UILabel</code>. One amazing usage of <code class="language-plaintext highlighter-rouge">CATextLayer</code> is to mask UIView. In this section we will redesign the <a href="https://haptik.ai">Haptik</a> logo as in the image below:</p>
 
-<p><img src="/images/textlayer.png" alt="CATextLayer" /></p>
+<p><img src="/images/ca-layer/textlayer.png" alt="CATextLayer" /></p>
 
 <p>We create a <code class="language-plaintext highlighter-rouge">UIImageView</code> with a pattern image and mask that pattern with the text layer:</p>
 

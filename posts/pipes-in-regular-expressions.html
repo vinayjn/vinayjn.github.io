@@ -100,7 +100,7 @@
 <p>To write the correct pattern we first need to list down all the valid cases for an IP address. All IPv4 addresses are divided into 4 groups separated with three dots and each of these groups follow the same rules. For an IP address to qualify as validated, each group should be validated by a pattern which considers the following cases:</p>
 
 <div class="image-box">
-<img class="image-box-item" width="100%" height="100%" src="/images/ip-validation-rules.png" />
+<img class="image-box-item" width="100%" height="100%" src="/images/regex/ip-validation-rules.png" />
 </div>
 
 <p>With this picture it is clear that we need to put some kind of <code class="language-plaintext highlighter-rouge">if–else</code> logic to validate our input. In a programming language this is a trivial task, split the input by dots and validate each group with <code class="language-plaintext highlighter-rouge">if–else</code> condtions. But I decided to stick with the regular expression approach and continue writing the match pattern.</p>
@@ -123,13 +123,13 @@ regex.<span class="call">findMatch</span>(inputString)
 <p>For IP addresses, in a group, we have to either match one digit, two digits or three digits and additionally cover all the valid cases mentioned in the figure above. And then repeat it four times to validate the entire input. For one group the regex pattern looks like the one shown below:</p>
 
 <div class="image-box">
-<img class="image-box-item" width="100%" height="100%" src="/images/one-group-regex.png" />
+<img class="image-box-item" width="100%" height="100%" src="/images/regex/one-group-regex.png" />
 </div>
 
 <p>Okay, if you are thinking this is long just remember that its just for one single group, copy-paste it three more times and check the length. In situations like these when a pattern is repeating we can tell regex to match exactly a particular number of occurences with the help of <code class="language-plaintext highlighter-rouge">{}</code>. Lets assume that we call the group pattern as shown above as “part”. Our final regex will look like this:</p>
 
 <div class="image-box">
-<img class="image-box-item" width="100%" height="100%" src="/images/complete-regex.png" />
+<img class="image-box-item" width="100%" height="100%" src="/images/regex/complete-regex.png" />
 </div>
 
 <p>In code, by making the “part” as a variable, the pattern can look exactly like the one shown in figure, let’s see how it looks in Swift:</p>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2021-05-23T23:37:09+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><subtitle>Developer / Tinkerer</subtitle><entry><title type="html">Tabs in Xcode 12</title><link href="https://vinayjain.me/posts/tabs-in-xcode-12" rel="alternate" type="text/html" title="Tabs in Xcode 12" /><published>2021-05-10T06:39:25+05:30</published><updated>2021-05-10T06:39:25+05:30</updated><id>https://vinayjain.me/posts/tabs-in-xcode-12</id><content type="html" xml:base="https://vinayjain.me/posts/tabs-in-xcode-12">&lt;p&gt;Xcode 12 released with a change to file navigation. It is totally different than how it was in earlier versions. Personally, I hate it and I am not sure why was this change made the default navigation style overriding the previous one I preferred. Even after using this editor for 3-4 months, I can’t figure out how to navigate to the right file. Keyboard shortcuts don’t work, the standard macOS gestures to go back and forward don’t work as expected. The only way to reach the desired file I could find was to fallback to the Quick open dialogue(⌘ + ⇧ + O) and it’s super counter-productive.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://vinayjain.me/feed.xml" rel="self" type="application/atom+xml" /><link href="https://vinayjain.me/" rel="alternate" type="text/html" /><updated>2021-05-24T09:15:45+05:30</updated><id>https://vinayjain.me/feed.xml</id><title type="html">Vinay Jain</title><subtitle>Developer / Tinkerer</subtitle><entry><title type="html">Tabs in Xcode 12</title><link href="https://vinayjain.me/posts/tabs-in-xcode-12" rel="alternate" type="text/html" title="Tabs in Xcode 12" /><published>2021-05-10T06:39:25+05:30</published><updated>2021-05-10T06:39:25+05:30</updated><id>https://vinayjain.me/posts/tabs-in-xcode-12</id><content type="html" xml:base="https://vinayjain.me/posts/tabs-in-xcode-12">&lt;p&gt;Xcode 12 released with a change to file navigation. It is totally different than how it was in earlier versions. Personally, I hate it and I am not sure why was this change made the default navigation style overriding the previous one I preferred. Even after using this editor for 3-4 months, I can’t figure out how to navigate to the right file. Keyboard shortcuts don’t work, the standard macOS gestures to go back and forward don’t work as expected. The only way to reach the desired file I could find was to fallback to the Quick open dialogue(⌘ + ⇧ + O) and it’s super counter-productive.&lt;/p&gt;
 
 &lt;div class=&quot;image-box&quot;&gt;
 &lt;img class=&quot;image-box-item&quot; width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;/images/xcode-navigation/tabs.png&quot; /&gt;
@@ -243,7 +243,7 @@
 &lt;p&gt;To write the correct pattern we first need to list down all the valid cases for an IP address. All IPv4 addresses are divided into 4 groups separated with three dots and each of these groups follow the same rules. For an IP address to qualify as validated, each group should be validated by a pattern which considers the following cases:&lt;/p&gt;
 
 &lt;div class=&quot;image-box&quot;&gt;
-&lt;img class=&quot;image-box-item&quot; width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;/images/ip-validation-rules.png&quot; /&gt;
+&lt;img class=&quot;image-box-item&quot; width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;/images/regex/ip-validation-rules.png&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;With this picture it is clear that we need to put some kind of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if–else&lt;/code&gt; logic to validate our input. In a programming language this is a trivial task, split the input by dots and validate each group with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;if–else&lt;/code&gt; condtions. But I decided to stick with the regular expression approach and continue writing the match pattern.&lt;/p&gt;
@@ -266,13 +266,13 @@ regex.&lt;span class=&quot;call&quot;&gt;findMatch&lt;/span&gt;(inputString)
 &lt;p&gt;For IP addresses, in a group, we have to either match one digit, two digits or three digits and additionally cover all the valid cases mentioned in the figure above. And then repeat it four times to validate the entire input. For one group the regex pattern looks like the one shown below:&lt;/p&gt;
 
 &lt;div class=&quot;image-box&quot;&gt;
-&lt;img class=&quot;image-box-item&quot; width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;/images/one-group-regex.png&quot; /&gt;
+&lt;img class=&quot;image-box-item&quot; width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;/images/regex/one-group-regex.png&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Okay, if you are thinking this is long just remember that its just for one single group, copy-paste it three more times and check the length. In situations like these when a pattern is repeating we can tell regex to match exactly a particular number of occurences with the help of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{}&lt;/code&gt;. Lets assume that we call the group pattern as shown above as “part”. Our final regex will look like this:&lt;/p&gt;
 
 &lt;div class=&quot;image-box&quot;&gt;
-&lt;img class=&quot;image-box-item&quot; width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;/images/complete-regex.png&quot; /&gt;
+&lt;img class=&quot;image-box-item&quot; width=&quot;100%&quot; height=&quot;100%&quot; src=&quot;/images/regex/complete-regex.png&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;In code, by making the “part” as a variable, the pattern can look exactly like the one shown in figure, let’s see how it looks in Swift:&lt;/p&gt;
@@ -492,8 +492,8 @@ PlexStackSize=3000
 &lt;p&gt;On their blog, Google also mentioned that &lt;em&gt;more than 4 trillion photos are stored in Google Photos, and every week 28 billion new photos and videos are uploaded&lt;/em&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;image-box&quot;&gt;
-&lt;img class=&quot;image-box-item&quot; width=&quot;321px&quot; height=&quot;262px&quot; src=&quot;/images/apple-iphone-se-pic.svg&quot; /&gt;
-&lt;img class=&quot;image-box-item&quot; width=&quot;321px&quot; height=&quot;262px&quot; src=&quot;/images/apple-iphone-se-pic-live.svg&quot; /&gt;
+&lt;img class=&quot;image-box-item&quot; width=&quot;321px&quot; height=&quot;262px&quot; src=&quot;/images/google-photos/apple-iphone-se-pic.svg&quot; /&gt;
+&lt;img class=&quot;image-box-item&quot; width=&quot;321px&quot; height=&quot;262px&quot; src=&quot;/images/google-photos/apple-iphone-se-pic-live.svg&quot; /&gt;
 &lt;/div&gt;
 
 &lt;p&gt;A 12MP photo clicked on my phone takes up 2MB of storage space and I have Live Photos enabled which takes upto 7MB. Nowadays, almost everyone has a smartphone with a great camera which captures a high resolution image. Let’s assume, on an average every new photo uploaded on Google Photos from today will take 3MB of storage space.&lt;/p&gt;
