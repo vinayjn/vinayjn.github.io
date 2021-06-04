@@ -2,7 +2,7 @@ document.getElementById("menu").addEventListener("click", function () {
   document.getElementById("nav-trigger").classList.toggle("open");
 });
 
-/*
+
 
 document.addEventListener("DOMContentLoaded", function () {
     var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
@@ -27,5 +27,3 @@ window.matchMedia('(prefers-color-scheme: dark)')
     switchTo("light")
   }
 })
-
-*/
