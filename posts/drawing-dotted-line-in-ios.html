@@ -19,7 +19,7 @@
 <meta name="twitter:site" content="@vinayjn7" />
 <meta name="google-site-verification" content="aiR9EuE5YjF6QsTSZzDbX_aQcQQINSTVPMgT1ru97ls" />
 <script type="application/ld+json">
-{"headline":"Drawing Dotted Lines in iOS","dateModified":"2019-08-31T06:39:25+05:30","datePublished":"2019-08-31T06:39:25+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"https://vinayjain.me/posts/drawing-dotted-line-in-ios"},"url":"https://vinayjain.me/posts/drawing-dotted-line-in-ios","@type":"BlogPosting","description":"Lets see how to do this with UIBezierPath and CAReplicatorLayer","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"https://vinayjain.me/posts/drawing-dotted-line-in-ios"},"url":"https://vinayjain.me/posts/drawing-dotted-line-in-ios","@type":"BlogPosting","description":"Lets see how to do this with UIBezierPath and CAReplicatorLayer","headline":"Drawing Dotted Lines in iOS","dateModified":"2019-08-31T06:39:25+05:30","datePublished":"2019-08-31T06:39:25+05:30","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/normalize.css" >  
   <link rel="stylesheet" href="/assets/css/light.css"><link type="application/atom+xml" rel="alternate" href="https://vinayjain.me/feed.xml" title="Vinay Jain" /><script async src="https://www.googletagmanager.com/gtag/js?id=UA-128287990-1"></script>
@@ -124,7 +124,7 @@ path.<span class="call">stroke</span>()
 <p>I have talked about <a href="https://vinayjain.me/posts/conversation-with-calayer#careplicatorlayer">CAReplicatorLayer</a> earlier as well. I remembered that I had implemented a typing indicator with the help of layer replication so I gave it a try again to build a dotted line.</p>
 
 <div class="align-center">
-<img src="/images/typing.gif" />
+<img src="/images/ca-layer/typing.gif" />
 </div>
 
 <p>The benefit I see for using CAReplicatorLayer is that it works on the basis of instance count which you cannot give for the other two ways. And the centering logic becomes easy as you can just set the frame of this layer to center of the view. Have a look at the code below to see how it is done, I am adding comments inline to avoid any further explanation.</p>
