@@ -1,155 +1,13 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>A Conversation With CALayer – Meeting I | Vinay Jain</title>
-<meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="A Conversation With CALayer – Meeting I" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Beautify your iOS App" />
-<meta property="og:description" content="Beautify your iOS App" />
-<link rel="canonical" href="http://0.0.0.0:4000/posts/conversation-with-calayer" />
-<meta property="og:url" content="http://0.0.0.0:4000/posts/conversation-with-calayer" />
-<meta property="og:site_name" content="Vinay Jain" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2017-03-21T10:09:25+05:30" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="A Conversation With CALayer – Meeting I" />
-<meta name="twitter:site" content="@vinayjn7" />
-<meta name="google-site-verification" content="aiR9EuE5YjF6QsTSZzDbX_aQcQQINSTVPMgT1ru97ls" />
-<script type="application/ld+json">
-{"url":"http://0.0.0.0:4000/posts/conversation-with-calayer","@type":"BlogPosting","headline":"A Conversation With CALayer – Meeting I","dateModified":"2017-03-21T10:09:25+05:30","description":"Beautify your iOS App","datePublished":"2017-03-21T10:09:25+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/posts/conversation-with-calayer"},"@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/css/normalize.css" >  
-  <link id="theme-link" rel="stylesheet" href="/assets/css/light.css"><link type="application/atom+xml" rel="alternate" href="http://0.0.0.0:4000/feed.xml" title="Vinay Jain" /></head>
-<body><header>
-  <div class="wrapper header">    
-    <div class="upper">
-      <a href="/" class="left-nav">
-        <h5 class="mClear nav-root"> $ cd /home/</h5>
-        <span class="nav-cursor"></span>
-      </a>
-      <div class="right-nav">
-        <nav>
-          <a id="menu" class="burger-nav">
-            <svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 6C2 5.44772 2.44772 5 3 5H21C21.5523 5 22 5.44772 22 6C22 6.55228 21.5523 7 21 7H3C2.44772 7 2 6.55228 2 6Z"/>
-              <path d="M2 12.0322C2 11.4799 2.44772 11.0322 3 11.0322H21C21.5523 11.0322 22 11.4799 22 12.0322C22 12.5845 21.5523 13.0322 21 13.0322H3C2.44772 13.0322 2 12.5845 2 12.0322Z"/>
-              <path d="M3 17.0645C2.44772 17.0645 2 17.5122 2 18.0645C2 18.6167 2.44772 19.0645 3 19.0645H21C21.5523 19.0645 22 18.6167 22 18.0645C22 17.5122 21.5523 17.0645 21 17.0645H3Z"/>
-            </svg>
-          </a>
-          <ul id="nav-trigger">
-
-            <li><a href="/all-posts/"> Blog</a></li><li><a href="/bookshelf/"> Books</a></li><li><a href="/usesthis/"> Uses This</a></li>                        
-            </ul>
-        </nav>               
-      </div>
-    </div><ul class="social-links"><li class="social-link">
-      <a target="_blank" href="https://www.linkedin.com/in/vinayjn/">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M13 21H9V9H13V11C13.8526 9.91525 15.1456 9.26857 16.525 9.237C19.0056 9.25077 21.0072 11.2694 21 13.75V21H17V14.25C16.84 13.1326 15.8818 12.3036 14.753 12.306C14.2593 12.3216 13.7932 12.5378 13.4624 12.9046C13.1316 13.2715 12.9646 13.7573 13 14.25V21ZM7 21H3V9H7V21ZM5 7C3.89543 7 3 6.10457 3 5C3 3.89543 3.89543 3 5 3C6.10457 3 7 3.89543 7 5C7 5.53043 6.78929 6.03914 6.41421 6.41421C6.03914 6.78929 5.53043 7 5 7Z"/>
-          </svg>            
-      </a> 
-    </li><li class="social-link">
-      <a target="_blank" href="https://github.com/vinayjn">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z"/>
-          </svg>          
-      </a> 
-    </li><li class="social-link">
-      <a target="_blank" href="https://twitter.com/vinayjn7">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M19.995 6.688C20.8914 6.15209 21.5622 5.30824 21.882 4.314C21.0397 4.81381 20.118 5.16588 19.157 5.355C17.8246 3.94553 15.7135 3.60253 14.0034 4.51766C12.2933 5.43279 11.4075 7.37949 11.841 9.27C8.39062 9.09678 5.17598 7.46692 2.99702 4.786C1.85986 6.74742 2.44097 9.25479 4.32502 10.516C3.64372 10.4941 2.97754 10.3096 2.38202 9.978C2.38202 9.996 2.38202 10.014 2.38202 10.032C2.38241 12.0752 3.82239 13.8351 5.82502 14.24C5.19308 14.4119 4.53022 14.4372 3.88702 14.314C4.45021 16.0613 6.06057 17.2583 7.89601 17.294C6.37585 18.4871 4.49849 19.1342 2.56602 19.131C2.22349 19.1315 1.88123 19.1118 1.54102 19.072C3.50341 20.333 5.78738 21.0024 8.12001 21C11.3653 21.0223 14.484 19.7429 16.7787 17.448C19.0734 15.1531 20.3526 12.0343 20.33 8.789C20.33 8.603 20.3257 8.418 20.317 8.234C21.1575 7.62661 21.8828 6.87415 22.459 6.012C21.676 6.35907 20.8455 6.58693 19.995 6.688Z" />
-          </svg>
-      </a> 
-    </li><li class="social-link">
-      <a target="_blank" href="https://stackoverflow.com/users/2286267/vinay-jain">
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18.84 20.999H4.38098V14.599H5.98098V19.399H17.24V14.599H18.84V20.999ZM15.64 17.799H7.58098V16.199H15.636V17.799H15.64ZM15.64 15.799L7.78098 14.16L8.11898 12.608L15.98 14.25L15.637 15.799H15.64ZM16.079 13.762L8.79898 10.362V10.356L9.47298 8.899L16.754 12.299L16.081 13.763L16.079 13.762ZM17.002 11.917L10.832 6.777H10.841L11.854 5.563L18.016 10.699L16.999 11.918L17.002 11.917ZM18.31 10.417L13.503 3.968L14.813 2.999L19.619 9.45L18.307 10.421L18.31 10.417Z" />
-          </svg>          
-      </a> 
-    </li></ul>  </div>
-</header><main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="h-entry" itemscope itemtype="http://schema.org/BlogPosting"><p class="post-emoji">🗣</p><h2 class="mClear page-title" itemprop="name headline">A Conversation With CALayer – Meeting I</h1>    
-  
-  <div class="post-content e-content" itemprop="articleBody">
-    <p>If you’ve been programming for <code class="language-plaintext highlighter-rouge">iOS</code> devices, you might have encountered these lines of code:</p>
-
-<pre class="splash"><code>view.<span class="property">backgroundColor</span> = [<span class="type">UIColor</span> greenColor];
+<!DOCTYPE html> <html lang="en"><head> <meta charset="utf-8"> <meta http-equiv="X-UA-Compatible" content="IE=edge"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>A Conversation With CALayer – Meeting I | Vinay Jain</title> <meta name="generator" content="Jekyll v4.2.0"/> <meta property="og:title" content="A Conversation With CALayer – Meeting I"/> <meta property="og:locale" content="en_US"/> <meta name="description" content="Beautify your iOS App"/> <meta property="og:description" content="Beautify your iOS App"/> <link rel="canonical" href="https://vinayjain.me/posts/conversation-with-calayer"/> <meta property="og:url" content="https://vinayjain.me/posts/conversation-with-calayer"/> <meta property="og:site_name" content="Vinay Jain"/> <meta property="og:type" content="article"/> <meta property="article:published_time" content="2017-03-21T10:09:25+05:30"/> <meta name="twitter:card" content="summary"/> <meta property="twitter:title" content="A Conversation With CALayer – Meeting I"/> <meta name="twitter:site" content="@vinayjn7"/> <meta name="google-site-verification" content="aiR9EuE5YjF6QsTSZzDbX_aQcQQINSTVPMgT1ru97ls"/> <script type="application/ld+json">
+{"url":"https://vinayjain.me/posts/conversation-with-calayer","@type":"BlogPosting","headline":"A Conversation With CALayer – Meeting I","dateModified":"2017-03-21T10:09:25+05:30","description":"Beautify your iOS App","datePublished":"2017-03-21T10:09:25+05:30","mainEntityOfPage":{"@type":"WebPage","@id":"https://vinayjain.me/posts/conversation-with-calayer"},"@context":"https://schema.org"}</script> <link rel="stylesheet" href="/assets/css/normalize.css"> <link id="theme-link" rel="stylesheet" href="/assets/css/light.css"><link type="application/atom+xml" rel="alternate" href="https://vinayjain.me/feed.xml" title="Vinay Jain"/><script async src="https://www.googletagmanager.com/gtag/js?id=UA-128287990-1"></script> <script>function gtag(){dataLayer.push(arguments)}window["ga-disable-UA-128287990-1"]="1"===window.doNotTrack||"1"===navigator.doNotTrack||"yes"===navigator.doNotTrack||"1"===navigator.msDoNotTrack,window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","UA-128287990-1");</script> </head> <body><header> <div class="wrapper header"> <div class="upper"> <a href="/" class="left-nav"> <h5 class="mClear nav-root"> $ cd /home/</h5> <span class="nav-cursor"></span> </a> <div class="right-nav"> <nav> <a id="menu" class="burger-nav"> <svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <path d="M2 6C2 5.44772 2.44772 5 3 5H21C21.5523 5 22 5.44772 22 6C22 6.55228 21.5523 7 21 7H3C2.44772 7 2 6.55228 2 6Z"/> <path d="M2 12.0322C2 11.4799 2.44772 11.0322 3 11.0322H21C21.5523 11.0322 22 11.4799 22 12.0322C22 12.5845 21.5523 13.0322 21 13.0322H3C2.44772 13.0322 2 12.5845 2 12.0322Z"/> <path d="M3 17.0645C2.44772 17.0645 2 17.5122 2 18.0645C2 18.6167 2.44772 19.0645 3 19.0645H21C21.5523 19.0645 22 18.6167 22 18.0645C22 17.5122 21.5523 17.0645 21 17.0645H3Z"/> </svg> </a> <ul id="nav-trigger"> <li><a href="/all-posts/"> Blog</a></li><li><a href="/bookshelf/"> Books</a></li><li><a href="/usesthis/"> Uses This</a></li> </ul> </nav> </div> </div><ul class="social-links"><li class="social-link"> <a target="_blank" href="https://www.linkedin.com/in/vinayjn/"> <svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <path d="M13 21H9V9H13V11C13.8526 9.91525 15.1456 9.26857 16.525 9.237C19.0056 9.25077 21.0072 11.2694 21 13.75V21H17V14.25C16.84 13.1326 15.8818 12.3036 14.753 12.306C14.2593 12.3216 13.7932 12.5378 13.4624 12.9046C13.1316 13.2715 12.9646 13.7573 13 14.25V21ZM7 21H3V9H7V21ZM5 7C3.89543 7 3 6.10457 3 5C3 3.89543 3.89543 3 5 3C6.10457 3 7 3.89543 7 5C7 5.53043 6.78929 6.03914 6.41421 6.41421C6.03914 6.78929 5.53043 7 5 7Z"/> </svg> </a> </li><li class="social-link"> <a target="_blank" href="https://github.com/vinayjn"> <svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <path d="M12.026 2C7.13295 1.99937 2.96183 5.54799 2.17842 10.3779C1.395 15.2079 4.23061 19.893 8.87302 21.439C9.37302 21.529 9.55202 21.222 9.55202 20.958C9.55202 20.721 9.54402 20.093 9.54102 19.258C6.76602 19.858 6.18002 17.92 6.18002 17.92C5.99733 17.317 5.60459 16.7993 5.07302 16.461C4.17302 15.842 5.14202 15.856 5.14202 15.856C5.78269 15.9438 6.34657 16.3235 6.66902 16.884C6.94195 17.3803 7.40177 17.747 7.94632 17.9026C8.49087 18.0583 9.07503 17.99 9.56902 17.713C9.61544 17.207 9.84055 16.7341 10.204 16.379C7.99002 16.128 5.66202 15.272 5.66202 11.449C5.64973 10.4602 6.01691 9.5043 6.68802 8.778C6.38437 7.91731 6.42013 6.97325 6.78802 6.138C6.78802 6.138 7.62502 5.869 9.53002 7.159C11.1639 6.71101 12.8882 6.71101 14.522 7.159C16.428 5.868 17.264 6.138 17.264 6.138C17.6336 6.97286 17.6694 7.91757 17.364 8.778C18.0376 9.50423 18.4045 10.4626 18.388 11.453C18.388 15.286 16.058 16.128 13.836 16.375C14.3153 16.8651 14.5612 17.5373 14.511 18.221C14.511 19.555 14.499 20.631 14.499 20.958C14.499 21.225 14.677 21.535 15.186 21.437C19.8265 19.8884 22.6591 15.203 21.874 10.3743C21.089 5.54565 16.9181 1.99888 12.026 2Z"/> </svg> </a> </li><li class="social-link"> <a target="_blank" href="https://twitter.com/vinayjn7"> <svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <path d="M19.995 6.688C20.8914 6.15209 21.5622 5.30824 21.882 4.314C21.0397 4.81381 20.118 5.16588 19.157 5.355C17.8246 3.94553 15.7135 3.60253 14.0034 4.51766C12.2933 5.43279 11.4075 7.37949 11.841 9.27C8.39062 9.09678 5.17598 7.46692 2.99702 4.786C1.85986 6.74742 2.44097 9.25479 4.32502 10.516C3.64372 10.4941 2.97754 10.3096 2.38202 9.978C2.38202 9.996 2.38202 10.014 2.38202 10.032C2.38241 12.0752 3.82239 13.8351 5.82502 14.24C5.19308 14.4119 4.53022 14.4372 3.88702 14.314C4.45021 16.0613 6.06057 17.2583 7.89601 17.294C6.37585 18.4871 4.49849 19.1342 2.56602 19.131C2.22349 19.1315 1.88123 19.1118 1.54102 19.072C3.50341 20.333 5.78738 21.0024 8.12001 21C11.3653 21.0223 14.484 19.7429 16.7787 17.448C19.0734 15.1531 20.3526 12.0343 20.33 8.789C20.33 8.603 20.3257 8.418 20.317 8.234C21.1575 7.62661 21.8828 6.87415 22.459 6.012C21.676 6.35907 20.8455 6.58693 19.995 6.688Z"/> </svg> </a> </li><li class="social-link"> <a target="_blank" href="https://stackoverflow.com/users/2286267/vinay-jain"> <svg class="icon" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> <path d="M18.84 20.999H4.38098V14.599H5.98098V19.399H17.24V14.599H18.84V20.999ZM15.64 17.799H7.58098V16.199H15.636V17.799H15.64ZM15.64 15.799L7.78098 14.16L8.11898 12.608L15.98 14.25L15.637 15.799H15.64ZM16.079 13.762L8.79898 10.362V10.356L9.47298 8.899L16.754 12.299L16.081 13.763L16.079 13.762ZM17.002 11.917L10.832 6.777H10.841L11.854 5.563L18.016 10.699L16.999 11.918L17.002 11.917ZM18.31 10.417L13.503 3.968L14.813 2.999L19.619 9.45L18.307 10.421L18.31 10.417Z"/> </svg> </a> </li></ul> </div> </header><main class="page-content" aria-label="Content"> <div class="wrapper"> <article class="h-entry" itemscope itemtype="http://schema.org/BlogPosting"><p class="post-emoji">🗣</p><h2 class="mClear page-title" itemprop="name headline">A Conversation With CALayer – Meeting I</h1> <div class="post-content e-content" itemprop="articleBody"> <p>If you’ve been programming for <code class="language-plaintext highlighter-rouge">iOS</code> devices, you might have encountered these lines of code:</p> <pre class="splash"><code>view.<span class="property">backgroundColor</span> = [<span class="type">UIColor</span> greenColor];
 view.<span class="property">layer</span>.<span class="property">cornerRadius</span> = <span class="number">8.0</span>;
 view.<span class="property">layer</span>.<span class="property">borderWidth</span> = <span class="number">1.0</span>;
 view.<span class="property">layer</span>.<span class="property">borderColor</span> = [<span class="type">UIColor</span> blackColor];
-</code></pre>
-
-<p>If you haven’t seen code like this before try using it with any UI component in your app and check what it does. It adds a 1pt black border to the view and round its corners by 8pt.</p>
-
-<p>Every <code class="language-plaintext highlighter-rouge">UIView</code> is backed with a layer which can be accessed with the <code class="language-plaintext highlighter-rouge">view.layer</code>. The <code class="language-plaintext highlighter-rouge">layer</code> property points to an instance of either the <code class="language-plaintext highlighter-rouge">CALayer</code> class or any of its subclasses like <code class="language-plaintext highlighter-rouge">CAShapeLayer</code>, <code class="language-plaintext highlighter-rouge">CAGradientLayer</code>, <code class="language-plaintext highlighter-rouge">CATextLayer</code> etc. Layers are part of the  <code class="language-plaintext highlighter-rouge">Core Animation</code> library and are extensively used in custom drawing with <code class="language-plaintext highlighter-rouge">Core Graphics</code> and  <code class="language-plaintext highlighter-rouge">Core Animation</code>, these two frameworks make <code class="language-plaintext highlighter-rouge">iOS</code> apps beautiful. The image below shows where these two frameworks lie in the <code class="language-plaintext highlighter-rouge">iOS</code> graphics drawing engine:</p>
-
-<p><img src="/images/ca-layer/drawing_hierarchy.png" alt="Drawing Hierarchy" /></p>
-
-<p><code class="language-plaintext highlighter-rouge">OpenGL</code>, a low-level API which interacts directly with the <code class="language-plaintext highlighter-rouge">GPU</code>, does all the heavy lifting work of graphics processing. To make our lives even easier Apple has built <code class="language-plaintext highlighter-rouge">Core Animation</code>, a high-level wrapper above <code class="language-plaintext highlighter-rouge">OpenGL</code> so that we don’t need to write the low-level <code class="language-plaintext highlighter-rouge">C</code> code.</p>
-
-<p>Now, since we have been introduced to <code class="language-plaintext highlighter-rouge">CALayer</code> and have access to the low-level graphics rendering engine lets start interacting with them and create some beautiful graphics.</p>
-
-<p>There are various <code class="language-plaintext highlighter-rouge">CALayer</code> subclasses, below are the direct <code class="language-plaintext highlighter-rouge">CALayer</code> subclasses available in the <code class="language-plaintext highlighter-rouge">Core Animation</code> library:</p>
-
-<p><img src="/images/ca-layer/calayer_hierarchy.png" alt="CALayer Hierarchy" /></p>
-
-<p>In this part of the series we will build:</p>
-
-<ul>
-  <li>A loading indicator with <code class="language-plaintext highlighter-rouge">CAShapeLayer</code> and <code class="language-plaintext highlighter-rouge">CAKeyFrameAnimation</code></li>
-  <li>A mirror reflection of the <a href="https://haptik.ai">Haptik</a> logo with <code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code></li>
-  <li>A colorful <a href="https://haptik.ai">Haptik</a> logo with <code class="language-plaintext highlighter-rouge">CATextLayer</code></li>
-</ul>
-
-<h3 id="cashapelayer">CAShapeLayer</h3>
-
-<p>With <code class="language-plaintext highlighter-rouge">CAShapeLayer</code> we can easily draw curved paths and geometrical shapes. <code class="language-plaintext highlighter-rouge">CAShapeLayer</code> is mostly used in drawing custom UI components. At <a href="https://haptik.ai">Haptik</a>, we design most of the custom <code class="language-plaintext highlighter-rouge">UIButton</code> subclasses with <code class="language-plaintext highlighter-rouge">CAShapeLayer</code>.</p>
-
-<p>But why would you write code to draw a circle or a triangle or anything complex when you have images?</p>
-
-<div class="align-center">
-<img src="/images/ca-layer/trollface.png" />
-</div>
-
-<p>There are a few reasons to write code:</p>
-
-<ul>
-  <li>Almost all properties of shape layers are <code class="language-plaintext highlighter-rouge">animatable</code>, which gives us the freedom to change these shapes with code at runtime, which we’ll learn how to do.</li>
-  <li><code class="language-plaintext highlighter-rouge">CAShapeLayer</code> is vector based, thus they are resolution independent.</li>
-  <li>This can be drawn directly using the GPU so we can free the CPU for other tasks.</li>
-</ul>
-
-<p>By the end of this section, we’ll be able to show this cool animation on the screen:</p>
-
-<div class="align-center">
-<img src="/images/ca-layer/shape.gif" />
-</div>
-
-<p>The animation above has three components:</p>
-
-<ol>
-  <li>A rounded rectangle added on the view layer</li>
-  <li>A gray color circle added on the rectangle layer</li>
-  <li>A dark gray color arc added on the circle layer</li>
-</ol>
-
-<p>The below code draws the rounded rectangle on the screen:</p>
-
-<pre class="splash"><code><span class="type">CAShapeLayer</span> *roundedRect = [<span class="type">CAShapeLayer</span> layer];
+</code></pre> <p>If you haven’t seen code like this before try using it with any UI component in your app and check what it does. It adds a 1pt black border to the view and round its corners by 8pt.</p> <p>Every <code class="language-plaintext highlighter-rouge">UIView</code> is backed with a layer which can be accessed with the <code class="language-plaintext highlighter-rouge">view.layer</code>. The <code class="language-plaintext highlighter-rouge">layer</code> property points to an instance of either the <code class="language-plaintext highlighter-rouge">CALayer</code> class or any of its subclasses like <code class="language-plaintext highlighter-rouge">CAShapeLayer</code>, <code class="language-plaintext highlighter-rouge">CAGradientLayer</code>, <code class="language-plaintext highlighter-rouge">CATextLayer</code> etc. Layers are part of the <code class="language-plaintext highlighter-rouge">Core Animation</code> library and are extensively used in custom drawing with <code class="language-plaintext highlighter-rouge">Core Graphics</code> and <code class="language-plaintext highlighter-rouge">Core Animation</code>, these two frameworks make <code class="language-plaintext highlighter-rouge">iOS</code> apps beautiful. The image below shows where these two frameworks lie in the <code class="language-plaintext highlighter-rouge">iOS</code> graphics drawing engine:</p> <p><img src="/images/ca-layer/drawing_hierarchy.png" alt="Drawing Hierarchy"/></p> <p><code class="language-plaintext highlighter-rouge">OpenGL</code>, a low-level API which interacts directly with the <code class="language-plaintext highlighter-rouge">GPU</code>, does all the heavy lifting work of graphics processing. To make our lives even easier Apple has built <code class="language-plaintext highlighter-rouge">Core Animation</code>, a high-level wrapper above <code class="language-plaintext highlighter-rouge">OpenGL</code> so that we don’t need to write the low-level <code class="language-plaintext highlighter-rouge">C</code> code.</p> <p>Now, since we have been introduced to <code class="language-plaintext highlighter-rouge">CALayer</code> and have access to the low-level graphics rendering engine lets start interacting with them and create some beautiful graphics.</p> <p>There are various <code class="language-plaintext highlighter-rouge">CALayer</code> subclasses, below are the direct <code class="language-plaintext highlighter-rouge">CALayer</code> subclasses available in the <code class="language-plaintext highlighter-rouge">Core Animation</code> library:</p> <p><img src="/images/ca-layer/calayer_hierarchy.png" alt="CALayer Hierarchy"/></p> <p>In this part of the series we will build:</p> <ul> <li>A loading indicator with <code class="language-plaintext highlighter-rouge">CAShapeLayer</code> and <code class="language-plaintext highlighter-rouge">CAKeyFrameAnimation</code></li> <li>A mirror reflection of the <a href="https://haptik.ai">Haptik</a> logo with <code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code></li> <li>A colorful <a href="https://haptik.ai">Haptik</a> logo with <code class="language-plaintext highlighter-rouge">CATextLayer</code></li> </ul> <h3 id="cashapelayer">CAShapeLayer</h3> <p>With <code class="language-plaintext highlighter-rouge">CAShapeLayer</code> we can easily draw curved paths and geometrical shapes. <code class="language-plaintext highlighter-rouge">CAShapeLayer</code> is mostly used in drawing custom UI components. At <a href="https://haptik.ai">Haptik</a>, we design most of the custom <code class="language-plaintext highlighter-rouge">UIButton</code> subclasses with <code class="language-plaintext highlighter-rouge">CAShapeLayer</code>.</p> <p>But why would you write code to draw a circle or a triangle or anything complex when you have images?</p> <div class="align-center"> <img src="/images/ca-layer/trollface.png"/> </div> <p>There are a few reasons to write code:</p> <ul> <li>Almost all properties of shape layers are <code class="language-plaintext highlighter-rouge">animatable</code>, which gives us the freedom to change these shapes with code at runtime, which we’ll learn how to do.</li> <li><code class="language-plaintext highlighter-rouge">CAShapeLayer</code> is vector based, thus they are resolution independent.</li> <li>This can be drawn directly using the GPU so we can free the CPU for other tasks.</li> </ul> <p>By the end of this section, we’ll be able to show this cool animation on the screen:</p> <div class="align-center"> <img src="/images/ca-layer/shape.gif"/> </div> <p>The animation above has three components:</p> <ol> <li>A rounded rectangle added on the view layer</li> <li>A gray color circle added on the rectangle layer</li> <li>A dark gray color arc added on the circle layer</li> </ol> <p>The below code draws the rounded rectangle on the screen:</p> <pre class="splash"><code><span class="type">CAShapeLayer</span> *roundedRect = [<span class="type">CAShapeLayer</span> layer];
 roundedRect.<span class="property">path</span> = [<span class="type">UIBezierPath</span> bezierPathWithRoundedRect:<span class="type">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">120</span>, <span class="number">120</span>) cornerRadius:<span class="number">8.0</span>].<span class="type">CGPath</span>;
 roundedRect.<span class="property">fillColor</span> = [[<span class="type">UIColor</span> whiteColor] colorWithAlphaComponent:<span class="number">0.5</span>].<span class="type">CGColor</span>;
 [<span class="keyword">self</span>.<span class="property">view</span>.<span class="property">layer</span> addSublayer:roundedRect];
-</code></pre>
-
-<p>To create the path of the shape layer we used a <code class="language-plaintext highlighter-rouge">UIKit</code> class <code class="language-plaintext highlighter-rouge">UIBezierPath</code> to skip the complexity of drawing paths with <code class="language-plaintext highlighter-rouge">Core Graphics</code>. The <code class="language-plaintext highlighter-rouge">fillColor</code> property of the shape layer fills the closed region of the layer with given color.</p>
-
-<p>Next, we add a circle to the rounded rectangle:</p>
-
-<pre class="splash"><code><span class="type">CAShapeLayer</span> *circle = [<span class="type">CAShapeLayer</span> layer];
+</code></pre> <p>To create the path of the shape layer we used a <code class="language-plaintext highlighter-rouge">UIKit</code> class <code class="language-plaintext highlighter-rouge">UIBezierPath</code> to skip the complexity of drawing paths with <code class="language-plaintext highlighter-rouge">Core Graphics</code>. The <code class="language-plaintext highlighter-rouge">fillColor</code> property of the shape layer fills the closed region of the layer with given color.</p> <p>Next, we add a circle to the rounded rectangle:</p> <pre class="splash"><code><span class="type">CAShapeLayer</span> *circle = [<span class="type">CAShapeLayer</span> layer];
 
 circle.<span class="property">path</span> = [<span class="type">UIBezierPath</span> bezierPathWithArcCenter:<span class="type">CGPointMake</span>(<span class="number">0</span>, <span class="number">0</span>) radius:<span class="number">50</span> startAngle:<span class="number">0.0</span>*(<span class="type">M_PI</span>/<span class="number">180.0</span>)  endAngle:<span class="number">360.0</span>*(<span class="type">M_PI</span>/<span class="number">180.0</span>) clockwise:<span class="type">YES</span>].<span class="type">CGPath</span>;
 circle.<span class="property">lineWidth</span> = <span class="number">5.0</span>;
@@ -159,27 +17,14 @@ circle.<span class="property">backgroundColor</span> = [<span class="type">UICol
 circle.<span class="property">position</span> = <span class="type">CGPointMake</span>(<span class="number">60</span>, <span class="number">60</span>);
 
 [roundedRect addSublayer:circle];
-</code></pre>
-
-<p>For drawing a circle we need to pass a <code class="language-plaintext highlighter-rouge">startAngle</code> and an <code class="language-plaintext highlighter-rouge">endAngle</code>. With these angles, we tell the system from where the path should start and where it should be drawn till. If we were drawing this circle with a pen, consider the <code class="language-plaintext highlighter-rouge">strokeColor</code> as the ink color and the <code class="language-plaintext highlighter-rouge">lineWidth</code> as the minimum width of the line that can be drawn with the pen. Changing the <code class="language-plaintext highlighter-rouge">position</code> of the layer centers it in the rectangle.</p>
-
-<p>To add the arc we will again use the same function for drawing a circle, but we will pass different start angles and end angles to draw it as an arc:</p>
-
-<pre class="splash"><code><span class="type">CAShapeLayer</span> *arc = [<span class="type">CAShapeLayer</span> layer];
+</code></pre> <p>For drawing a circle we need to pass a <code class="language-plaintext highlighter-rouge">startAngle</code> and an <code class="language-plaintext highlighter-rouge">endAngle</code>. With these angles, we tell the system from where the path should start and where it should be drawn till. If we were drawing this circle with a pen, consider the <code class="language-plaintext highlighter-rouge">strokeColor</code> as the ink color and the <code class="language-plaintext highlighter-rouge">lineWidth</code> as the minimum width of the line that can be drawn with the pen. Changing the <code class="language-plaintext highlighter-rouge">position</code> of the layer centers it in the rectangle.</p> <p>To add the arc we will again use the same function for drawing a circle, but we will pass different start angles and end angles to draw it as an arc:</p> <pre class="splash"><code><span class="type">CAShapeLayer</span> *arc = [<span class="type">CAShapeLayer</span> layer];
 arc.<span class="property">path</span> = [<span class="type">UIBezierPath</span> bezierPathWithArcCenter:<span class="type">CGPointMake</span>(<span class="number">0</span>, <span class="number">0</span>) radius:<span class="number">50</span> startAngle:<span class="number">180.0</span>*(<span class="type">M_PI</span>/<span class="number">180.0</span>)  endAngle:<span class="number">225.0</span>*(<span class="type">M_PI</span>/<span class="number">180.0</span>) clockwise:<span class="type">YES</span>].<span class="type">CGPath</span>;
 arc.<span class="property">lineWidth</span> = <span class="number">5.0</span>;
 arc.<span class="property">lineCap</span> = kCALineCapRound;
 arc.<span class="property">fillColor</span> = [<span class="type">UIColor</span> clearColor].<span class="type">CGColor</span>;
 arc.<span class="property">strokeColor</span> = [<span class="type">UIColor</span> darkGrayColor].<span class="type">CGColor</span>;
 arc.<span class="property">backgroundColor</span> = [<span class="type">UIColor</span> clearColor].<span class="type">CGColor</span>;
-</code></pre>
-
-<p>The <code class="language-plaintext highlighter-rouge">lineCap</code> determines how the endpoints of the drawn curve are stroked.</p>
-
-<p>To create a rotational animation in x-y plane we need to change the rotation transform along the
-z-axis and fortunately, we can easily do this with <code class="language-plaintext highlighter-rouge">Core Animation</code>.</p>
-
-<pre class="splash"><code><span class="type">CAKeyframeAnimation</span> *animation = [<span class="type">CAKeyframeAnimation</span> animationWithKeyPath:<span class="keyword">@"transform</span>.<span class="keyword">rotation</span>.<span class="string">z"];</span>
+</code></pre> <p>The <code class="language-plaintext highlighter-rouge">lineCap</code> determines how the endpoints of the drawn curve are stroked.</p> <p>To create a rotational animation in x-y plane we need to change the rotation transform along the z-axis and fortunately, we can easily do this with <code class="language-plaintext highlighter-rouge">Core Animation</code>.</p> <pre class="splash"><code><span class="type">CAKeyframeAnimation</span> *animation = [<span class="type">CAKeyframeAnimation</span> animationWithKeyPath:<span class="keyword">@"transform</span>.<span class="keyword">rotation</span>.<span class="string">z"];</span>
 animation.<span class="property">additive</span> = <span class="type">YES</span>;
 animation.<span class="property">duration</span> = <span class="number">10.0</span>;
 animation.<span class="property">repeatCount</span> = <span class="type">HUGE_VALF</span>;
@@ -198,23 +43,7 @@ animation.<span class="property">timingFunctions</span> = <span class="keyword">
                              [<span class="type">CAMediaTimingFunction</span> functionWithName:kCAMediaTimingFunctionEaseOut]
                              ];
 [arc addAnimation:animation forKey:<span class="string">@"rotate"];</span>
-</code></pre>
-
-<p>With <code class="language-plaintext highlighter-rouge">CAKeyFrameAnimation</code> we can control the animation attributes like <code class="language-plaintext highlighter-rouge">fromValue</code> and <code class="language-plaintext highlighter-rouge">toValue</code>,  <code class="language-plaintext highlighter-rouge">timingFunction</code>, <code class="language-plaintext highlighter-rouge">calculationMode</code> for different time intervals in the complete animation. The <code class="language-plaintext highlighter-rouge">values</code> array determines <code class="language-plaintext highlighter-rouge">fromValue</code> and <code class="language-plaintext highlighter-rouge">toValue</code> of the <code class="language-plaintext highlighter-rouge">animatable</code> property ( transform.rotation.z) in the time intervals given to the <code class="language-plaintext highlighter-rouge">keyTimes</code> array. The timing functions decide how the animations start and end.</p>
-
-<p>You can find the complete code till this section on this <a href="https://github.com/vinayjn/CALayer/tree/2521cd08e33ad6e6be3fc18d8b9995eb8bd68a87">CALayers-GitHub</a> repo.</p>
-
-<h3 id="careplicatorlayer">CAReplicatorLayer</h3>
-
-<p><code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> is a container layer, it replicates the content added to it. It has some cool properties which can be used to instruct the container how the replication has to be done. Beautiful effects can be achieved by applying animations to the replicated content. Every contained content is called an <code class="language-plaintext highlighter-rouge">instance</code>. To show the usage of this layer we will create a reflection of an image. By the end of this section, we’ll be able to show the reflection of the <a href="https://haptik.ai">Haptik</a> logo like this:</p>
-
-<p><img src="/images/ca-layer/reflection.png" alt="Reflection" /></p>
-
-<p>Let’s build this!</p>
-
-<p>First, we need a <code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> instance and on this instance, we’ll be adding an image layer of which the reflection we will be showing:</p>
-
-<pre class="splash"><code><span class="comment">// Create a CAReplicatorLayer</span>
+</code></pre> <p>With <code class="language-plaintext highlighter-rouge">CAKeyFrameAnimation</code> we can control the animation attributes like <code class="language-plaintext highlighter-rouge">fromValue</code> and <code class="language-plaintext highlighter-rouge">toValue</code>, <code class="language-plaintext highlighter-rouge">timingFunction</code>, <code class="language-plaintext highlighter-rouge">calculationMode</code> for different time intervals in the complete animation. The <code class="language-plaintext highlighter-rouge">values</code> array determines <code class="language-plaintext highlighter-rouge">fromValue</code> and <code class="language-plaintext highlighter-rouge">toValue</code> of the <code class="language-plaintext highlighter-rouge">animatable</code> property ( transform.rotation.z) in the time intervals given to the <code class="language-plaintext highlighter-rouge">keyTimes</code> array. The timing functions decide how the animations start and end.</p> <p>You can find the complete code till this section on this <a href="https://github.com/vinayjn/CALayer/tree/2521cd08e33ad6e6be3fc18d8b9995eb8bd68a87">CALayers-GitHub</a> repo.</p> <h3 id="careplicatorlayer">CAReplicatorLayer</h3> <p><code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> is a container layer, it replicates the content added to it. It has some cool properties which can be used to instruct the container how the replication has to be done. Beautiful effects can be achieved by applying animations to the replicated content. Every contained content is called an <code class="language-plaintext highlighter-rouge">instance</code>. To show the usage of this layer we will create a reflection of an image. By the end of this section, we’ll be able to show the reflection of the <a href="https://haptik.ai">Haptik</a> logo like this:</p> <p><img src="/images/ca-layer/reflection.png" alt="Reflection"/></p> <p>Let’s build this!</p> <p>First, we need a <code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> instance and on this instance, we’ll be adding an image layer of which the reflection we will be showing:</p> <pre class="splash"><code><span class="comment">// Create a CAReplicatorLayer</span>
 <span class="type">CAReplicatorLayer</span> *replicatorLayer = [<span class="type">CAReplicatorLayer</span> layer];
 
 <span class="comment">// Create the image layer</span>
@@ -231,30 +60,12 @@ replicatorLayer.<span class="property">masksToBounds</span> = <span class="type"
 replicatorLayer.<span class="property">anchorPoint</span> = <span class="type">CGPointMake</span>(<span class="number">0.5</span>, <span class="number">0.0</span>);
 replicatorLayer.<span class="property">position</span> = <span class="type">CGPointMake</span>(<span class="keyword">self</span>.<span class="property">view</span>.<span class="property">frame</span>.<span class="property">size</span>.<span class="property">width</span> / <span class="number">2.0</span>, <span class="number">80.0</span>);    
 [replicatorLayer addSublayer:imageLayer];
-</code></pre>
-
-<p>This code is pretty straight forward, the <code class="language-plaintext highlighter-rouge">anchorPoint</code> of a layer is the point from where all the geometric manipulations will happen. The default <code class="language-plaintext highlighter-rouge">anchorPoint</code> is <code class="language-plaintext highlighter-rouge">(0.5, 0.5)</code> which represents the center of the layer. We want to apply a rotation from the top of the layer, so we changed it to <code class="language-plaintext highlighter-rouge">(0,0)</code>`.</p>
-
-<p>With the above code, we have added an image to the replicator layer and set its correct bounds. To get the reflection we need to apply a rotation transform and translate the replicated layer to the correct position as below:</p>
-
-<pre class="splash"><code><span class="type">CATransform3D</span> transform = <span class="type">CATransform3DIdentity</span>;
+</code></pre> <p>This code is pretty straight forward, the <code class="language-plaintext highlighter-rouge">anchorPoint</code> of a layer is the point from where all the geometric manipulations will happen. The default <code class="language-plaintext highlighter-rouge">anchorPoint</code> is <code class="language-plaintext highlighter-rouge">(0.5, 0.5)</code> which represents the center of the layer. We want to apply a rotation from the top of the layer, so we changed it to <code class="language-plaintext highlighter-rouge">(0,0)</code>`.</p> <p>With the above code, we have added an image to the replicator layer and set its correct bounds. To get the reflection we need to apply a rotation transform and translate the replicated layer to the correct position as below:</p> <pre class="splash"><code><span class="type">CATransform3D</span> transform = <span class="type">CATransform3DIdentity</span>;
 transform = <span class="type">CATransform3DScale</span>(transform, <span class="number">1.0</span>, -<span class="number">1.0</span>, <span class="number">1.0</span>);
 transform = <span class="type">CATransform3DTranslate</span>(transform, <span class="number">0.0</span>, -image.<span class="property">size</span>.<span class="property">height</span> * <span class="number">2.0</span>, <span class="number">1.0</span>);
 replicatorLayer.<span class="property">instanceTransform</span> = transform;
 replicatorLayer.<span class="property">instanceCount</span> = <span class="number">2</span>;
-</code></pre>
-
-<p>The <code class="language-plaintext highlighter-rouge">instanceTransform</code> property of the replicator layer allows us to set the calculated transform on the replicated content. There are other properties of the replicator layer like <code class="language-plaintext highlighter-rouge">instanceDelay</code>, <code class="language-plaintext highlighter-rouge">instanceColor</code> which can be manipulated to get more control.</p>
-
-<p>Setting the <code class="language-plaintext highlighter-rouge">instanceCount</code> to 2 instructs the replicator layer to create exactly two instances of the added content.</p>
-
-<p>This is it! Running this code will give us the below output:</p>
-
-<p><img src="/images/ca-layer/reflection2.png" alt="Reflection" /></p>
-
-<p>But this is not what you expected, yes because the mirror we used earlier was blurred and so was the reflection. But if that is what you also need then add a gradient layer to your layer as shown below:</p>
-
-<pre class="splash"><code><span class="type">CAGradientLayer</span> *gradientLayer = [<span class="type">CAGradientLayer</span> layer];
+</code></pre> <p>The <code class="language-plaintext highlighter-rouge">instanceTransform</code> property of the replicator layer allows us to set the calculated transform on the replicated content. There are other properties of the replicator layer like <code class="language-plaintext highlighter-rouge">instanceDelay</code>, <code class="language-plaintext highlighter-rouge">instanceColor</code> which can be manipulated to get more control.</p> <p>Setting the <code class="language-plaintext highlighter-rouge">instanceCount</code> to 2 instructs the replicator layer to create exactly two instances of the added content.</p> <p>This is it! Running this code will give us the below output:</p> <p><img src="/images/ca-layer/reflection2.png" alt="Reflection"/></p> <p>But this is not what you expected, yes because the mirror we used earlier was blurred and so was the reflection. But if that is what you also need then add a gradient layer to your layer as shown below:</p> <pre class="splash"><code><span class="type">CAGradientLayer</span> *gradientLayer = [<span class="type">CAGradientLayer</span> layer];
 gradientLayer.<span class="property">colors</span> = <span class="keyword">@</span>[
                            (__bridge id)[[[<span class="type">UIColor</span> whiteColor] colorWithAlphaComponent:<span class="number">0.25</span>] <span class="type">CGColor</span>],
                            (__bridge id)[[<span class="type">UIColor</span> whiteColor] <span class="type">CGColor</span>]
@@ -272,25 +83,7 @@ gradientLayer.<span class="property">colors</span> = <span class="keyword">@</sp
 gradientLayer.<span class="property">bounds</span> = <span class="type">CGRectMake</span>(<span class="number">0.0</span>, <span class="number">0.0</span>, replicatorLayer.<span class="property">frame</span>.<span class="property">size</span>.<span class="property">width</span>, image.<span class="property">size</span>.<span class="property">height</span> + <span class="number">1.0</span>);
 
 gradientLayer.<span class="property">position</span> = <span class="type">CGPointMake</span>(replicatorLayer.<span class="property">position</span>.<span class="property">x</span>, replicatorLayer.<span class="property">position</span>.<span class="property">y</span> + image.<span class="property">size</span>.<span class="property">height</span> * <span class="number">1.5</span>);
-</code></pre>
-
-<p>At <a href="https://haptik.ai">Haptik</a>, we have used the <code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> to create a new typing indicator. This is how it looks!</p>
-
-<div class="align-center">
-<img src="/images/ca-layer/typing.gif" />
-</div>
-
-<p>If you want to download and run this code check the <a href="https://github.com/vinayjn/CALayer/tree/c495e29dc3675b39a4636f005d0d716ebd4b0fb9">Github repo</a>. And yes, Craig Federighi was online. ;)</p>
-
-<h3 id="catextlayer">CATextLayer</h3>
-
-<p>Text layers are used to layout and render plain and attributed strings, but we do this usually with <code class="language-plaintext highlighter-rouge">UILabel</code>. One amazing usage of <code class="language-plaintext highlighter-rouge">CATextLayer</code> is to mask UIView. In this section we will redesign the <a href="https://haptik.ai">Haptik</a> logo as in the image below:</p>
-
-<p><img src="/images/ca-layer/textlayer.png" alt="CATextLayer" /></p>
-
-<p>We create a <code class="language-plaintext highlighter-rouge">UIImageView</code> with a pattern image and mask that pattern with the text layer:</p>
-
-<pre class="splash"><code><span class="comment">// Create the imageView</span>
+</code></pre> <p>At <a href="https://haptik.ai">Haptik</a>, we have used the <code class="language-plaintext highlighter-rouge">CAReplicatorLayer</code> to create a new typing indicator. This is how it looks!</p> <div class="align-center"> <img src="/images/ca-layer/typing.gif"/> </div> <p>If you want to download and run this code check the <a href="https://github.com/vinayjn/CALayer/tree/c495e29dc3675b39a4636f005d0d716ebd4b0fb9">Github repo</a>. And yes, Craig Federighi was online. ;)</p> <h3 id="catextlayer">CATextLayer</h3> <p>Text layers are used to layout and render plain and attributed strings, but we do this usually with <code class="language-plaintext highlighter-rouge">UILabel</code>. One amazing usage of <code class="language-plaintext highlighter-rouge">CATextLayer</code> is to mask UIView. In this section we will redesign the <a href="https://haptik.ai">Haptik</a> logo as in the image below:</p> <p><img src="/images/ca-layer/textlayer.png" alt="CATextLayer"/></p> <p>We create a <code class="language-plaintext highlighter-rouge">UIImageView</code> with a pattern image and mask that pattern with the text layer:</p> <pre class="splash"><code><span class="comment">// Create the imageView</span>
 <span class="type">UIImage</span> *haptikLogo = [<span class="type">UIImage</span> imageNamed:<span class="string">@"Artboard"];</span>
 <span class="type">UIImageView</span> *imageView = [[<span class="type">UIImageView</span> alloc] initWithFrame:<span class="type">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">300</span>, <span class="number">300</span>)];
 imageView.<span class="property">image</span> = haptikLogo;
@@ -300,60 +93,12 @@ imageView.<span class="property">image</span> = haptikLogo;
 textLayer.<span class="property">frame</span> = imageView.<span class="property">bounds</span>;
 textLayer.<span class="property">rasterizationScale</span> = [<span class="type">UIScreen</span> mainScreen].scale;
 textLayer.<span class="property">contentsScale</span> = [<span class="type">UIScreen</span> mainScreen].scale;
-</code></pre>
-
-<p><strong>Never forget</strong> to set the <code class="language-plaintext highlighter-rouge">rasterizationScale</code> and <code class="language-plaintext highlighter-rouge">contentsScale</code>, without these properties you might get blurry or smaller text depending on the screen resolution of the devices your app runs on.</p>
-
-<p>Set whatever string you want to display as a mask with the desired font:</p>
-
-<pre class="splash"><code>textLayer.<span class="property">fontSize</span> = <span class="number">100.0</span>;
+</code></pre> <p><strong>Never forget</strong> to set the <code class="language-plaintext highlighter-rouge">rasterizationScale</code> and <code class="language-plaintext highlighter-rouge">contentsScale</code>, without these properties you might get blurry or smaller text depending on the screen resolution of the devices your app runs on.</p> <p>Set whatever string you want to display as a mask with the desired font:</p> <pre class="splash"><code>textLayer.<span class="property">fontSize</span> = <span class="number">100.0</span>;
 textLayer.<span class="property">font</span> = (__bridge <span class="type">CFTypeRef _Nullable</span>)([<span class="type">UIFont</span> systemFontOfSize:<span class="number">100</span>]);
 textLayer.<span class="property">string</span> = <span class="string">@"haptik";</span>
 textLayer.<span class="property">fontSize</span> = <span class="number">100.0</span>;
 textLayer.<span class="property">font</span> = (__bridge <span class="type">CFTypeRef _Nullable</span>)([<span class="type">UIFont</span> systemFontOfSize:<span class="number">100</span>]);
 textLayer.<span class="property">string</span> = <span class="string">@"haptik";</span>
-</code></pre>
-
-<p>Finally, use the text layer as the mask on the image view and we are done:</p>
-
-<pre class="splash"><code>imageView.<span class="property">layer</span>.<span class="property">mask</span> = textLayer;
+</code></pre> <p>Finally, use the text layer as the mask on the image view and we are done:</p> <pre class="splash"><code>imageView.<span class="property">layer</span>.<span class="property">mask</span> = textLayer;
 imageView.<span class="property">layer</span>.<span class="property">mask</span> = textLayer;
-</code></pre>
-
-<p>Build and run the app and see how it looks like.</p>
-
-<p>The app source code till this section can be downloaded from <a href="https://github.com/vinayjn/CALayer/tree/97ed89a9610272a9417e95fcbf7890e53f8a727d">CALayer-Github</a> repo. Looking forward to hearing from you all.</p>
-
-<p>Also, don’t forget, we are hiring high-quality engineers. So if you are interested reach out to us at <a href="mailto:hello@haptik.ai">hello@haptik.ai</a>.</p>
-
-<p>This post was originally written at <a href="http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/">Haptik Tech Blog</a>.</p>
-
-  </div><div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = 'http://0.0.0.0:4000/posts/conversation-with-calayer';
-      this.page.identifier = 'http://0.0.0.0:4000/posts/conversation-with-calayer';
-    };
-
-    (function() {
-      var d = document, s = d.createElement('script');
-
-      s.src = 'https://koderme.disqus.com/embed.js';
-
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/posts/conversation-with-calayer" hidden></a>
-</article>
-
-      </div>
-    </main>    
-
-    <footer>
-      <p>Made with ♥︎ by Vinay Jain</p>
-    </footer>
-    <script src="/assets/js/main.js"></script>
-  </body>
-
-</html>
+</code></pre> <p>Build and run the app and see how it looks like.</p> <p>The app source code till this section can be downloaded from <a href="https://github.com/vinayjn/CALayer/tree/97ed89a9610272a9417e95fcbf7890e53f8a727d">CALayer-Github</a> repo. Looking forward to hearing from you all.</p> <p>Also, don’t forget, we are hiring high-quality engineers. So if you are interested reach out to us at <a href="mailto:hello@haptik.ai">hello@haptik.ai</a>.</p> <p>This post was originally written at <a href="http://haptik.ai/tech/a-conversation-with-calayer-meeting-i/">Haptik Tech Blog</a>.</p> </div><div id="disqus_thread"></div> <script>var disqus_config=function(){this.page.url="https://vinayjain.me/posts/conversation-with-calayer",this.page.identifier="https://vinayjain.me/posts/conversation-with-calayer"};!function(){var t=document,e=t.createElement("script");e.src="https://koderme.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}();</script> <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/posts/conversation-with-calayer" hidden></a> </article> </div> </main> <footer> <p>Made with ♥︎ by Vinay Jain</p> </footer> <script src="/assets/js/main.js"></script> </body> </html>
