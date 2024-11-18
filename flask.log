@@ -1,0 +1,146 @@
+nohup: ignoring input
+INFO:__main__:Using DRAFTS_FOLDER: /home/vj/workspace/blog/_drafts
+INFO:__main__:Using POSTS_FOLDER: /home/vj/workspace/blog/_posts
+INFO:__main__:Using TEMPLATE_FILE: /home/vj/workspace/blog/web-builder/template.md
+ * Serving Flask app 'app'
+ * Debug mode: on
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.124:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+INFO:__main__:Using DRAFTS_FOLDER: /home/vj/workspace/blog/_drafts
+INFO:__main__:Using POSTS_FOLDER: /home/vj/workspace/blog/_posts
+INFO:__main__:Using TEMPLATE_FILE: /home/vj/workspace/blog/web-builder/template.md
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 875-226-548
+WARNING:__main__:Drafts folder does not exist: /home/vj/workspace/blog/_drafts
+INFO:__main__:Created drafts folder: /home/vj/workspace/blog/_drafts
+INFO:__main__:Accessing posts folder: /home/vj/workspace/blog/_posts
+INFO:__main__:Have read permissions for posts folder
+INFO:__main__:Found post: 2014-12-18-ios-delegates.markdown
+INFO:__main__:Found post: 2020-07-17-linux-on-android.markdown
+INFO:__main__:Found post: 2020-02-10-social-media-distancing.markdown
+INFO:__main__:Found post: 2015-05-15-animate-autolayout-constraints.markdown
+INFO:__main__:Found post: 2015-01-11-introducing-version-control.markdown
+INFO:__main__:Found post: 2021-04-25-keep-going.markdown
+INFO:__main__:Found post: 2020-10-03-shared-pasteboard.markdown
+INFO:__main__:Found post: 2019-09-19-iOS-bootcamp.markdown
+INFO:__main__:Found post: 2021-01-11-pipes-in-regular-expressions.markdown
+INFO:__main__:Found post: 2024-01-12-set-up-chromedriver-raspberrypi.markdown
+INFO:__main__:Found post: 2016-07-04-Swift-Generics-UITableView.markdown
+INFO:__main__:Found post: 2021-05-10-tabs-in-xcode-12.markdown
+INFO:__main__:Found post: 2019-08-31-drawing-dotted-line-in-ios.markdown
+INFO:__main__:Found post: 2015-06-02-how-to-use-NSAttributedString.markdown
+INFO:__main__:Found post: 2021-06-24-secrets.markdown
+INFO:__main__:Found post: 2024-11-13-fafo-dns.markdown
+INFO:__main__:Found post: 2017-07-25-properties-and-mysteries.markdown
+INFO:__main__:Found post: 2020-12-22-feature-toggle-service.markdown
+INFO:__main__:Found post: 2020-11-18-google-photos.markdown
+INFO:__main__:Found post: 2017-03-02-Your-Past-Successes.markdown
+INFO:__main__:Found post: 2015-05-25-move-uitextfield-up-down-with-keyboard.markdown
+INFO:__main__:Found post: 2014-12-20-crawl-insta.markdown
+INFO:__main__:Found post: 2015-11-13-ObjectiveC-Macros-to-swift-constants.markdown
+INFO:__main__:Found post: 2024-11-17-compute-power.markdown
+INFO:__main__:Found post: 2021-01-06-plex-setup-android.markdown
+INFO:__main__:Found post: 2017-03-21-conversation_with_calayer.markdown
+INFO:werkzeug:192.168.1.123 - - [18/Nov/2024 01:17:32] "GET / HTTP/1.1" 200 -
+INFO:__main__:Accessing drafts folder: /home/vj/workspace/blog/_drafts
+INFO:__main__:Have read permissions for drafts folder
+INFO:__main__:Accessing posts folder: /home/vj/workspace/blog/_posts
+INFO:__main__:Have read permissions for posts folder
+INFO:__main__:Found post: 2014-12-18-ios-delegates.markdown
+INFO:__main__:Found post: 2020-07-17-linux-on-android.markdown
+INFO:__main__:Found post: 2020-02-10-social-media-distancing.markdown
+INFO:__main__:Found post: 2015-05-15-animate-autolayout-constraints.markdown
+INFO:__main__:Found post: 2015-01-11-introducing-version-control.markdown
+INFO:__main__:Found post: 2021-04-25-keep-going.markdown
+INFO:__main__:Found post: 2020-10-03-shared-pasteboard.markdown
+INFO:__main__:Found post: 2019-09-19-iOS-bootcamp.markdown
+INFO:__main__:Found post: 2021-01-11-pipes-in-regular-expressions.markdown
+INFO:__main__:Found post: 2024-01-12-set-up-chromedriver-raspberrypi.markdown
+INFO:__main__:Found post: 2016-07-04-Swift-Generics-UITableView.markdown
+INFO:__main__:Found post: 2021-05-10-tabs-in-xcode-12.markdown
+INFO:__main__:Found post: 2019-08-31-drawing-dotted-line-in-ios.markdown
+INFO:__main__:Found post: 2015-06-02-how-to-use-NSAttributedString.markdown
+INFO:__main__:Found post: 2021-06-24-secrets.markdown
+INFO:__main__:Found post: 2024-11-13-fafo-dns.markdown
+INFO:__main__:Found post: 2017-07-25-properties-and-mysteries.markdown
+INFO:__main__:Found post: 2020-12-22-feature-toggle-service.markdown
+INFO:__main__:Found post: 2020-11-18-google-photos.markdown
+INFO:__main__:Found post: 2017-03-02-Your-Past-Successes.markdown
+INFO:__main__:Found post: 2015-05-25-move-uitextfield-up-down-with-keyboard.markdown
+INFO:__main__:Found post: 2014-12-20-crawl-insta.markdown
+INFO:__main__:Found post: 2015-11-13-ObjectiveC-Macros-to-swift-constants.markdown
+INFO:__main__:Found post: 2024-11-17-compute-power.markdown
+INFO:__main__:Found post: 2021-01-06-plex-setup-android.markdown
+INFO:__main__:Found post: 2017-03-21-conversation_with_calayer.markdown
+INFO:werkzeug:192.168.1.115 - - [18/Nov/2024 01:21:03] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:192.168.1.115 - - [18/Nov/2024 01:21:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:__main__:Creating new draft: /home/vj/workspace/blog/_drafts/2024-11-18-test-title.md
+INFO:werkzeug:192.168.1.115 - - [18/Nov/2024 01:29:01] "[32mPOST /submit HTTP/1.1[0m" 302 -
+INFO:__main__:Accessing drafts folder: /home/vj/workspace/blog/_drafts
+INFO:__main__:Have read permissions for drafts folder
+INFO:__main__:Found draft: 2024-11-18-test-title.md
+INFO:__main__:Accessing posts folder: /home/vj/workspace/blog/_posts
+INFO:__main__:Have read permissions for posts folder
+INFO:__main__:Found post: 2014-12-18-ios-delegates.markdown
+INFO:__main__:Found post: 2020-07-17-linux-on-android.markdown
+INFO:__main__:Found post: 2020-02-10-social-media-distancing.markdown
+INFO:__main__:Found post: 2015-05-15-animate-autolayout-constraints.markdown
+INFO:__main__:Found post: 2015-01-11-introducing-version-control.markdown
+INFO:__main__:Found post: 2021-04-25-keep-going.markdown
+INFO:__main__:Found post: 2020-10-03-shared-pasteboard.markdown
+INFO:__main__:Found post: 2019-09-19-iOS-bootcamp.markdown
+INFO:__main__:Found post: 2021-01-11-pipes-in-regular-expressions.markdown
+INFO:__main__:Found post: 2024-01-12-set-up-chromedriver-raspberrypi.markdown
+INFO:__main__:Found post: 2016-07-04-Swift-Generics-UITableView.markdown
+INFO:__main__:Found post: 2021-05-10-tabs-in-xcode-12.markdown
+INFO:__main__:Found post: 2019-08-31-drawing-dotted-line-in-ios.markdown
+INFO:__main__:Found post: 2015-06-02-how-to-use-NSAttributedString.markdown
+INFO:__main__:Found post: 2021-06-24-secrets.markdown
+INFO:__main__:Found post: 2024-11-13-fafo-dns.markdown
+INFO:__main__:Found post: 2017-07-25-properties-and-mysteries.markdown
+INFO:__main__:Found post: 2020-12-22-feature-toggle-service.markdown
+INFO:__main__:Found post: 2020-11-18-google-photos.markdown
+INFO:__main__:Found post: 2017-03-02-Your-Past-Successes.markdown
+INFO:__main__:Found post: 2015-05-25-move-uitextfield-up-down-with-keyboard.markdown
+INFO:__main__:Found post: 2014-12-20-crawl-insta.markdown
+INFO:__main__:Found post: 2015-11-13-ObjectiveC-Macros-to-swift-constants.markdown
+INFO:__main__:Found post: 2024-11-17-compute-power.markdown
+INFO:__main__:Found post: 2021-01-06-plex-setup-android.markdown
+INFO:__main__:Found post: 2017-03-21-conversation_with_calayer.markdown
+INFO:werkzeug:192.168.1.115 - - [18/Nov/2024 01:29:01] "GET / HTTP/1.1" 200 -
+INFO:__main__:Accessing drafts folder: /home/vj/workspace/blog/_drafts
+INFO:__main__:Have read permissions for drafts folder
+INFO:__main__:Found draft: 2024-11-18-test-title.md
+INFO:__main__:Accessing posts folder: /home/vj/workspace/blog/_posts
+INFO:__main__:Have read permissions for posts folder
+INFO:__main__:Found post: 2014-12-18-ios-delegates.markdown
+INFO:__main__:Found post: 2020-07-17-linux-on-android.markdown
+INFO:__main__:Found post: 2020-02-10-social-media-distancing.markdown
+INFO:__main__:Found post: 2015-05-15-animate-autolayout-constraints.markdown
+INFO:__main__:Found post: 2015-01-11-introducing-version-control.markdown
+INFO:__main__:Found post: 2021-04-25-keep-going.markdown
+INFO:__main__:Found post: 2020-10-03-shared-pasteboard.markdown
+INFO:__main__:Found post: 2019-09-19-iOS-bootcamp.markdown
+INFO:__main__:Found post: 2021-01-11-pipes-in-regular-expressions.markdown
+INFO:__main__:Found post: 2024-01-12-set-up-chromedriver-raspberrypi.markdown
+INFO:__main__:Found post: 2016-07-04-Swift-Generics-UITableView.markdown
+INFO:__main__:Found post: 2021-05-10-tabs-in-xcode-12.markdown
+INFO:__main__:Found post: 2019-08-31-drawing-dotted-line-in-ios.markdown
+INFO:__main__:Found post: 2015-06-02-how-to-use-NSAttributedString.markdown
+INFO:__main__:Found post: 2021-06-24-secrets.markdown
+INFO:__main__:Found post: 2024-11-13-fafo-dns.markdown
+INFO:__main__:Found post: 2017-07-25-properties-and-mysteries.markdown
+INFO:__main__:Found post: 2020-12-22-feature-toggle-service.markdown
+INFO:__main__:Found post: 2020-11-18-google-photos.markdown
+INFO:__main__:Found post: 2017-03-02-Your-Past-Successes.markdown
+INFO:__main__:Found post: 2015-05-25-move-uitextfield-up-down-with-keyboard.markdown
+INFO:__main__:Found post: 2014-12-20-crawl-insta.markdown
+INFO:__main__:Found post: 2015-11-13-ObjectiveC-Macros-to-swift-constants.markdown
+INFO:__main__:Found post: 2024-11-17-compute-power.markdown
+INFO:__main__:Found post: 2021-01-06-plex-setup-android.markdown
+INFO:__main__:Found post: 2017-03-21-conversation_with_calayer.markdown
+INFO:werkzeug:192.168.1.115 - - [18/Nov/2024 01:29:01] "GET / HTTP/1.1" 200 -
