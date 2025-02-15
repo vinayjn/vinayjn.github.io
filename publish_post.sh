@@ -24,10 +24,6 @@ mkdir -p "$(dirname "$DEST_PATH")"
 # Move the draft to the destination
 mv "$DRAFT_PATH" "$DEST_PATH"
 
-
-git add .
-git commit -m "Published new post: $(basename "$DEST_PATH")"
-
 # if the command below fails then move the file back to the drafts folder and return an error
 
 make publish
