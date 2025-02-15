@@ -27,6 +27,13 @@ git add .
 git commit -m "Published new post: $(basename "$DEST_PATH")"
 
 # if the command below fails then move the file back to the drafts folder and return an error
-make publish || mv "$DEST_PATH" "$(dirname "$DRAFT_PATH")" && echo "Failed to publish post" && exit 1
+
+make publish
+
+if [ $? -ne 0 ]; then
+    mv "$DEST_PATH" "$(dirname "$DRAFT_PATH")"
+        echo "Failed to publish post"
+    exit 1
+fi
 
 echo "Published successfully to $DEST_PATH" && exit 0
