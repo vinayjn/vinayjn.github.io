@@ -1,11 +1,13 @@
-#!/bin/bash
+#!/bin/zsh
 
 # $1 will be the draft file path
 # $2 will be the destination file path
 
 # Check if arguments are provided
 
-cd ..
+echo "Changing directory to blog"
+
+cd /home/vj/workspace/blog
 
 if [ $# -ne 2 ]; then
     echo "Error: Required arguments missing"
