@@ -4,11 +4,6 @@
 # $2 will be the destination file path
 
 # Check if arguments are provided
-
-echo "Changing directory to blog"
-
-cd /home/vj/workspace/blog
-
 if [ $# -ne 2 ]; then
     echo "Error: Required arguments missing"
     echo "Usage: $0 <draft_path> <destination_path>"
@@ -18,19 +13,23 @@ fi
 DRAFT_PATH="$1"
 DEST_PATH="$2"
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+echo "Changing directory to blog"
+cd "$SCRIPT_DIR"
+
 # Create destination directory if it doesn't exist
 mkdir -p "$(dirname "$DEST_PATH")"
 
 # Move the draft to the destination
 mv "$DRAFT_PATH" "$DEST_PATH"
 
-# if the command below fails then move the file back to the drafts folder and return an error
-
+# if the command below fails then move the file back to the original path and return an error
 make publish
 
 if [ $? -ne 0 ]; then
-    mv "$DEST_PATH" "$(dirname "$DRAFT_PATH")"
-        echo "Failed to publish post"
+    mv "$DEST_PATH" "$DRAFT_PATH"
+    echo "Failed to publish post"
     exit 1
 fi
 
